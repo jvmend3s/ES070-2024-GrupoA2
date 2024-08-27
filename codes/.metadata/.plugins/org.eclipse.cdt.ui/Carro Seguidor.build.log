@@ -1,0 +1,10 @@
+19:33:45 **** Incremental Build of configuration Debug for project Carro Seguidor ****
+make -j16 all 
+arm-none-eabi-size  Carro\ Seguidor.elf 
+   text	   data	    bss	    dec	    hex	filename
+  11796	     20	   1716	  13532	   34dc	Carro Seguidor.elf
+Finished building: default.size.stdout
+ 
+
+19:33:48 Build Finished. 0 errors, 0 warnings. (took 2s.263ms)
+
