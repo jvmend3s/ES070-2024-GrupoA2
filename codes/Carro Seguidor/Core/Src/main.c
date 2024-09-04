@@ -19,15 +19,22 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include "usart.h"
+#include "tim.h"
 #include "gpio.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
+#include "ultrassonico.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
+typedef enum
+{ Bit_RESET = 0,
+  Bit_SET
+}BitAction;
+
 
 /* USER CODE END PTD */
 
@@ -44,6 +51,23 @@
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
+
+//    Timer & Counters
+
+TIM_HandleTypeDef* pTimerPWMTrigger = &htim20;
+TIM_HandleTypeDef* pTimerEcoUltrassonicoFrontal = &htim3;
+
+
+//   Ints
+//flags
+char CountMode=0;
+
+uint16_t uiAuxDistanceUltrassonicoFrontal1=0;
+uint16_t uiAuxDistanceUltrassonicoFrontal2=0;
+//Floats
+
+float fDistance=0;
+
 
 /* USER CODE END PV */
 
@@ -88,17 +112,25 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   MX_LPUART1_UART_Init();
+  MX_TIM3_Init();
+  MX_TIM20_Init();
   /* USER CODE BEGIN 2 */
+
+  vUltrassonicoInit(pTimerEcoUltrassonicoFrontal,pTimerPWMTrigger) ;
 
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
+
+
+
+  HAL_Delay(100);
+
   while (1)
   {
     /* USER CODE END WHILE */
-	  HAL_GPIO_TogglePin(RED_LED_GPIO_Port, RED_LED_Pin);
-	  HAL_Delay(1000);
+
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
@@ -151,6 +183,21 @@ void SystemClock_Config(void)
 }
 
 /* USER CODE BEGIN 4 */
+
+void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef * htim){
+
+  if(0==CountMode){
+	  uiAuxDistanceUltrassonicoFrontal1= HAL_TIM_ReadCapturedValue(pTimerEcoUltrassonicoFrontal,TIM_CHANNEL_1);
+	  CountMode=1;
+  }else{
+	  uiAuxDistanceUltrassonicoFrontal2 = HAL_TIM_ReadCapturedValue(pTimerEcoUltrassonicoFrontal,TIM_CHANNEL_1);
+	  fDistance=fUltrassonicoGetDistance( uiAuxDistanceUltrassonicoFrontal1,uiAuxDistanceUltrassonicoFrontal2);
+	  CountMode=0;
+  }
+}
+
+
+
 
 /* USER CODE END 4 */
 
