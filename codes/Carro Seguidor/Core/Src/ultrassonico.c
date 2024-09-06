@@ -53,9 +53,8 @@ float fUltrassonicoGetDistance(uint16_t uiAuxDistanceUltrassonicoFrontal1,uint16
 	 2-Multiplica-se esse valor por 1.5, que é o tempo em microsegundos de cada contagem.
 	 3-Divide-se esse valor por 58.772 us, que é o tempo que leva para 1 cm refletir a onda no sensor.
 	 4-Obtem-se o valor da distancia em cm.
-
 	 */
-	xUltrassonicoData.Distance=(uiAuxDistanceUltrassonicoFrontal2-uiAuxDistanceUltrassonicoFrontal1)*1.5/58.772;
+	xUltrassonicoData.Distance=(uiAuxDistanceUltrassonicoFrontal2-uiAuxDistanceUltrassonicoFrontal1)*1.5/(58.772);
 	return xUltrassonicoData.Distance;
 }
 

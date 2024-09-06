@@ -18,6 +18,8 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+#include "dma.h"
+#include "i2c.h"
 #include "usart.h"
 #include "tim.h"
 #include "gpio.h"
@@ -25,7 +27,12 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
+#include <stdio.h>
+#include <string.h>
 #include "ultrassonico.h"
+#include "lcd_hd44780_i2c.h"
+#include "communication.h"
+
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -90,6 +97,7 @@ int main(void)
 {
 
   /* USER CODE BEGIN 1 */
+	unsigned char ucLCD0Msg[17], ucLCD1Msg[17];
 
   /* USER CODE END 1 */
 
@@ -111,25 +119,37 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
+  MX_DMA_Init();
   MX_LPUART1_UART_Init();
   MX_TIM3_Init();
   MX_TIM20_Init();
+  MX_I2C2_Init();
   /* USER CODE BEGIN 2 */
+  lcdInit(&hi2c2, (uint8_t)0x27, (uint8_t)2, (uint8_t)16);
 
   vUltrassonicoInit(pTimerEcoUltrassonicoFrontal,pTimerPWMTrigger) ;
-
+  vCommunicationInit();
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
+  lcdSetCursorPosition(0, 0);
+  sprintf((char *)ucLCD0Msg, "Distancia (cm)");
+  lcdPrintStr((uint8_t*)ucLCD0Msg, strlen((char *)ucLCD0Msg));
 
 
 
-  HAL_Delay(100);
+  lcdSetCursorPosition(0, 1);
+  lcdPrintStr((uint8_t*)pCommunicationFloatToString(fDistance, 2), strlen((char *)pCommunicationFloatToString(fDistance, 2)));
+
+
 
   while (1)
   {
     /* USER CODE END WHILE */
+	  HAL_Delay(800);
+	  lcdSetCursorPosition(0, 1);
+	  lcdPrintStr((uint8_t*)pCommunicationFloatToString(fDistance, 2), strlen((char *)pCommunicationFloatToString(fDistance, 2)));
 
     /* USER CODE BEGIN 3 */
   }

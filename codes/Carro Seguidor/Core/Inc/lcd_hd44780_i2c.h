@@ -1,14 +1,31 @@
-/*
- * lcd_hd44780_i2c.h
+/**
+ * Copyright Nikita Bulaev 2017 - Alterado Prof. Bacurau em 04-09-2024
  *
- *  Created on: Sep 4, 2024
- *      Author: guilh
+ * STM32 HAL libriary for LCD display based on HITACHI HD44780U chip.
+ *
+ * ===========================================================================
+ * WARNING!
+ *
+ * YOU MUST INCLUDE CORRECT STM32 HAL LIB HEAR. THIS LIB WAS TESTED ON STM32F3
+ * PLEASE, INCLUDE CORRECT ONE!
+ * ===========================================================================
+ *
+ * THIS SOFTWARE IS PROVIDED "AS IS"
+ * AND ANY EXPRESS, IMPLIED OR STATUTORY WARRANTIES, INCLUDING, BUT NOT
+ * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
+ * PARTICULAR PURPOSE AND NON-INFRINGEMENT OF THIRD PARTY INTELLECTUAL PROPERTY
+ * RIGHTS ARE DISCLAIMED TO THE FULLEST EXTENT PERMITTED BY LAW. IN NO EVENT
+ * SHALL STMICROELECTRONICS OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,
+ * INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+ * LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA,
+ * OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+ * LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+ * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
+ * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#ifndef INC_LCD_HD44780_I2C_H_
-#define INC_LCD_HD44780_I2C_H_
-
-
+#ifndef LCD_HD44780_I2C_H
+#define LCD_HD44780_I2C_H 120
 
 /* C++ detection */
 #ifdef __cplusplus
@@ -16,7 +33,8 @@ extern "C" {
 #endif
 
 #include "stm32g4xx_hal.h"
-//#include "stm32f3xx_hal.h"
+
+#define LCD_COMM_TIMEOUT           200
 
 #define LCD_BIT_RS                 ((uint8_t)0x01U)
 #define LCD_BIT_RW                 ((uint8_t)0x02U)
@@ -107,15 +125,18 @@ typedef enum {
 } LCDCommands;
 
 
-bool lcdInit(I2C_HandleTypeDef *hi2c, uint8_t address, uint8_t lines, uint8_t rows);
-bool lcdCommand(LCDCommands command, LCDParamsActions action);
-bool lcdBacklight(uint8_t command);
-bool lcdSetCursorPosition(uint8_t line, uint8_t row);
-bool lcdPrintStr(uint8_t * data, uint8_t length);
-bool lcdPrintChar(uint8_t data);
-bool lcdLoadCustomChar(uint8_t cell, uint8_t * charMap);
+char lcdInit(I2C_HandleTypeDef *hi2c, uint8_t address, uint8_t lines, uint8_t rows);
+char lcdCommand(LCDCommands command, LCDParamsActions action);
+char lcdBacklight(uint8_t command);
+char lcdSetCursorPosition(uint8_t line, uint8_t row);
+char lcdPrintStr(uint8_t * data, uint8_t length);
+char lcdPrintChar(uint8_t data);
+char lcdLoadCustomChar(uint8_t cell, uint8_t * charMap);
+char lcdChecki2c();
 
 /* C++ detection */
 #ifdef __cplusplus
 }
-#endif /* INC_LCD_HD44780_I2C_H_ */
+#endif
+
+#endif
