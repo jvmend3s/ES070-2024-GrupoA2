@@ -1,0 +1,5 @@
+../Core/Src/motors.c:14:6:vMotorsInit	8	static
+../Core/Src/motors.c:23:6:vMotorsSetPWM	16	static
+../Core/Src/motors.c:47:6:vMotorsSetVelocity	24	static
+../Core/Src/motors.c:74:6:vMotorsSetPWMTimer	24	static
+../Core/Src/motors.c:103:6:vMotorsSetOff	16	static
