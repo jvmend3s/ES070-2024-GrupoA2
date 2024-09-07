@@ -18,21 +18,13 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
-#include "dma.h"
-#include "i2c.h"
 #include "usart.h"
 #include "tim.h"
 #include "gpio.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
-#include <stdio.h>
-#include <string.h>
-#include "ultrassonico.h"
-#include "lcd_hd44780_i2c.h"
-#include "communication.h"
-
+#include "Motors.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -126,6 +118,15 @@ int main(void)
   MX_I2C2_Init();
   /* USER CODE BEGIN 2 */
   lcdInit(&hi2c2, (uint8_t)0x27, (uint8_t)2, (uint8_t)16);
+  MX_TIM1_Init();
+  /* USER CODE BEGIN 2 */
+  vMotorsInit();
+
+  vMotorsSetPWM(left, 1, 1);
+  vMotorsSetPWM(right, 0.5, 1);
+
+  //vMotorsSetOff(left);
+  //vMotorsSetOff(right);
 
   vUltrassonicoInit(pTimerEcoUltrassonicoFrontal,pTimerPWMTrigger) ;
   vCommunicationInit();

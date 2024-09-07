@@ -22,18 +22,26 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_flash.h \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_flash_ex.h \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_flash_ramfunc.h \
+<<<<<<< HEAD
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_i2c.h \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_i2c_ex.h \
+=======
+>>>>>>> origin/3-motor
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_pwr.h \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_pwr_ex.h \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_tim.h \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_tim_ex.h \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart.h \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart_ex.h \
+<<<<<<< HEAD
  ../Core/Inc/dma.h ../Core/Inc/main.h ../Core/Inc/i2c.h \
  ../Core/Inc/usart.h ../Core/Inc/tim.h ../Core/Inc/gpio.h \
  ../Core/Inc/ultrassonico.h ../Core/Inc/lcd_hd44780_i2c.h \
  ../Core/Inc/communication.h ../Core/Inc/usart.h
+=======
+ ../Core/Inc/usart.h ../Core/Inc/main.h ../Core/Inc/tim.h \
+ ../Core/Inc/gpio.h ../Core/Inc/Motors.h
+>>>>>>> origin/3-motor
 ../Core/Inc/main.h:
 ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h:
 ../Core/Inc/stm32g4xx_hal_conf.h:
@@ -58,14 +66,18 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
 ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_flash.h:
 ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_flash_ex.h:
 ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_flash_ramfunc.h:
+<<<<<<< HEAD
 ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_i2c.h:
 ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_i2c_ex.h:
+=======
+>>>>>>> origin/3-motor
 ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_pwr.h:
 ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_pwr_ex.h:
 ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_tim.h:
 ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_tim_ex.h:
 ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart.h:
 ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart_ex.h:
+<<<<<<< HEAD
 ../Core/Inc/dma.h:
 ../Core/Inc/main.h:
 ../Core/Inc/i2c.h:
@@ -76,3 +88,10 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
 ../Core/Inc/lcd_hd44780_i2c.h:
 ../Core/Inc/communication.h:
 ../Core/Inc/usart.h:
+=======
+../Core/Inc/usart.h:
+../Core/Inc/main.h:
+../Core/Inc/tim.h:
+../Core/Inc/gpio.h:
+../Core/Inc/Motors.h:
+>>>>>>> origin/3-motor

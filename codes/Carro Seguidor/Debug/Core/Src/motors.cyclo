@@ -1,0 +1,5 @@
+../Core/Src/motors.c:14:6:vMotorsInit	1
+../Core/Src/motors.c:23:6:vMotorsSetPWM	7
+../Core/Src/motors.c:47:6:vMotorsSetVelocity	7
+../Core/Src/motors.c:74:6:vMotorsSetPWMTimer	7
+../Core/Src/motors.c:103:6:vMotorsSetOff	3
