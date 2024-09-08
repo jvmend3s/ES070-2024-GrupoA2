@@ -60,12 +60,20 @@ void Error_Handler(void);
 #define B1_Pin GPIO_PIN_13
 #define B1_GPIO_Port GPIOC
 #define B1_EXTI_IRQn EXTI15_10_IRQn
+#define Motor_Esq_PWM_Pin GPIO_PIN_0
+#define Motor_Esq_PWM_GPIO_Port GPIOC
+#define Motor_Dir_PWM_Pin GPIO_PIN_1
+#define Motor_Dir_PWM_GPIO_Port GPIOC
 #define LPUART1_TX_Pin GPIO_PIN_2
 #define LPUART1_TX_GPIO_Port GPIOA
 #define LPUART1_RX_Pin GPIO_PIN_3
 #define LPUART1_RX_GPIO_Port GPIOA
 #define LD2_Pin GPIO_PIN_5
 #define LD2_GPIO_Port GPIOA
+#define Motor_Dir_IN1_Pin GPIO_PIN_12
+#define Motor_Dir_IN1_GPIO_Port GPIOB
+#define Motor_Esq_IN4_Pin GPIO_PIN_10
+#define Motor_Esq_IN4_GPIO_Port GPIOA
 #define RED_LED_Pin GPIO_PIN_11
 #define RED_LED_GPIO_Port GPIOA
 #define T_SWDIO_Pin GPIO_PIN_13
@@ -74,6 +82,10 @@ void Error_Handler(void);
 #define T_SWCLK_GPIO_Port GPIOA
 #define T_SWO_Pin GPIO_PIN_3
 #define T_SWO_GPIO_Port GPIOB
+#define Motor_Esq_IN3_Pin GPIO_PIN_7
+#define Motor_Esq_IN3_GPIO_Port GPIOB
+#define Motor_Dir_IN2_Pin GPIO_PIN_9
+#define Motor_Dir_IN2_GPIO_Port GPIOB
 
 /* USER CODE BEGIN Private defines */
 

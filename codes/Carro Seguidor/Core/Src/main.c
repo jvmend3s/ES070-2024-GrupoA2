@@ -32,7 +32,7 @@
 #include "ultrassonico.h"
 #include "lcd_hd44780_i2c.h"
 #include "communication.h"
-
+#include "motors.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -104,7 +104,10 @@ int main(void)
   /* MCU Configuration--------------------------------------------------------*/
 
   /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
-  HAL_Init();
+
+
+
+	HAL_Init();
 
   /* USER CODE BEGIN Init */
 
@@ -124,11 +127,15 @@ int main(void)
   MX_TIM3_Init();
   MX_TIM20_Init();
   MX_I2C2_Init();
+  MX_TIM1_Init();
   /* USER CODE BEGIN 2 */
   lcdInit(&hi2c2, (uint8_t)0x27, (uint8_t)2, (uint8_t)16);
 
   vUltrassonicoInit(pTimerEcoUltrassonicoFrontal,pTimerPWMTrigger) ;
   vCommunicationInit();
+
+  vMotorsInit();
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -139,19 +146,26 @@ int main(void)
 
 
 
-  lcdSetCursorPosition(0, 1);
-  lcdPrintStr((uint8_t*)pCommunicationFloatToString(fDistance, 2), strlen((char *)pCommunicationFloatToString(fDistance, 2)));
 
 
 
   while (1)
   {
     /* USER CODE END WHILE */
+
+    /* USER CODE BEGIN 3 */
 	  HAL_Delay(800);
 	  lcdSetCursorPosition(0, 1);
 	  lcdPrintStr((uint8_t*)pCommunicationFloatToString(fDistance, 2), strlen((char *)pCommunicationFloatToString(fDistance, 2)));
+	  if(fDistance<6.0){
+		  while(fDistance<6.0){
+		   vMotorsSetPWM(left, 0.8, 1);
+		   vMotorsSetPWM(right, 0.8, 0);
+		  }
+		  vMotorsSetOff(0);
+		  vMotorsSetOff(1);
+	  }
 
-    /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
 }
@@ -213,6 +227,9 @@ void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef * htim){
 	  uiAuxDistanceUltrassonicoFrontal2 = HAL_TIM_ReadCapturedValue(pTimerEcoUltrassonicoFrontal,TIM_CHANNEL_1);
 	  fDistance=fUltrassonicoGetDistance( uiAuxDistanceUltrassonicoFrontal1,uiAuxDistanceUltrassonicoFrontal2);
 	  CountMode=0;
+  }
+  if(fDistance<0){
+	  fDistance=fDistance*(-1);
   }
 }
 
