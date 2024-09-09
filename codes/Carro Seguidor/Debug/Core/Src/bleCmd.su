@@ -1,0 +1,3 @@
+../Core/Src/bleCmd.c:8:6:vBleCmdMotorForward	4	static
+../Core/Src/bleCmd.c:11:6:vBleCmdMotorLeftward	4	static
+../Core/Src/bleCmd.c:14:6:vBleCmdMotorRightward	4	static

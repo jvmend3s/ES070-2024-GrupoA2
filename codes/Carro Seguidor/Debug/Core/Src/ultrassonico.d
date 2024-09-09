@@ -30,7 +30,9 @@ Core/Src/ultrassonico.o: ../Core/Src/ultrassonico.c \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_tim.h \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_tim_ex.h \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart.h \
- ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart_ex.h
+ ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart_ex.h \
+ ../Core/Inc/bluetooth.h ../Core/Inc/main.h ../Core/Inc/usart.h \
+ ../Core/Inc/bleCmd.h ../Core/Inc/motors.h
 ../Core/Inc/ultrassonico.h:
 ../Core/Inc/main.h:
 ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h:
@@ -64,3 +66,8 @@ Core/Src/ultrassonico.o: ../Core/Src/ultrassonico.c \
 ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_tim_ex.h:
 ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart.h:
 ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart_ex.h:
+../Core/Inc/bluetooth.h:
+../Core/Inc/main.h:
+../Core/Inc/usart.h:
+../Core/Inc/bleCmd.h:
+../Core/Inc/motors.h:

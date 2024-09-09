@@ -1,3 +1,5 @@
+"./Core/Src/bleCmd.o"
+"./Core/Src/bluetooth.o"
 "./Core/Src/communication.o"
 "./Core/Src/dma.o"
 "./Core/Src/gpio.o"

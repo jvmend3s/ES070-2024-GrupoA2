@@ -63,7 +63,7 @@ typedef enum
 
 TIM_HandleTypeDef* pTimerPWMTrigger = &htim20;
 TIM_HandleTypeDef* pTimerEcoUltrassonicoFrontal = &htim3;
-
+UART_HandleTypeDef * pBluetoothControllerUARTApp = &huart3;
 
 //   Ints
 //flags
@@ -104,10 +104,7 @@ int main(void)
   /* MCU Configuration--------------------------------------------------------*/
 
   /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
-
-
-
-	HAL_Init();
+  HAL_Init();
 
   /* USER CODE BEGIN Init */
 
@@ -128,11 +125,13 @@ int main(void)
   MX_TIM20_Init();
   MX_I2C2_Init();
   MX_TIM1_Init();
+  MX_USART3_UART_Init();
   /* USER CODE BEGIN 2 */
   lcdInit(&hi2c2, (uint8_t)0x27, (uint8_t)2, (uint8_t)16);
 
   vUltrassonicoInit(pTimerEcoUltrassonicoFrontal,pTimerPWMTrigger) ;
   vCommunicationInit();
+  vBluetoothInit(pBluetoothControllerUARTApp);
 
   vMotorsInit();
 

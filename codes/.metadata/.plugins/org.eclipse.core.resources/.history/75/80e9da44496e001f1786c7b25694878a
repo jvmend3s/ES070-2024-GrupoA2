@@ -1,0 +1,15 @@
+/*
+ * bleCmd.h
+ *
+ *  Created on: Sep 8, 2024
+ *      Author: jvmen
+ */
+
+#ifndef INC_BLECMD_H_
+#define INC_BLECMD_H_
+
+void vBleCmdMotorRightward();
+void vBleCmdMotorLeftward();
+void vBleCmdMotorRightward();
+
+#endif /* INC_BLECMD_H_ */
