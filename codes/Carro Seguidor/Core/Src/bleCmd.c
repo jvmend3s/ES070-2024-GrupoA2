@@ -1,17 +1,32 @@
 /*
  * bleCmd.c
  *
- *  Created on: Sep 8, 2024
+ *  Created on: Sep 9, 2024
  *      Author: jvmen
  */
+#include <bleCmd.h>
 
 void vBleCmdMotorForward(){
-
+	vMotorsSetPWM(left, 0.8, 1);
+	vMotorsSetPWM(right, 0.8, 0);
+	HAL_Delay(500);
+	vMotorsSetOff(left);
+	vMotorsSetOff(right);
 }
+
 void vBleCmdMotorLeftward(){
-
+	vMotorsSetPWM(left, 0.8, 1);
+	vMotorsSetPWM(right, 0.1, 0);
+	HAL_Delay(500);
+	vMotorsSetOff(left);
+	vMotorsSetOff(right);
 }
+
 void vBleCmdMotorRightward(){
+	vMotorsSetPWM(left, 0.1, 1);
+	vMotorsSetPWM(right, 0.8, 0);
+	HAL_Delay(500);
+	vMotorsSetOff(left);
+	vMotorsSetOff(right);
 
 }
-

@@ -1,3 +1,3 @@
-../Core/Src/bleCmd.c:8:6:vBleCmdMotorForward	1
-../Core/Src/bleCmd.c:11:6:vBleCmdMotorLeftward	1
-../Core/Src/bleCmd.c:14:6:vBleCmdMotorRightward	1
+../Core/Src/bleCmd.c:9:6:vBleCmdMotorForward	1
+../Core/Src/bleCmd.c:17:6:vBleCmdMotorLeftward	1
+../Core/Src/bleCmd.c:25:6:vBleCmdMotorRightward	1

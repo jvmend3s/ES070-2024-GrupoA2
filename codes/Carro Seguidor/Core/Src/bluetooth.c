@@ -1,35 +1,27 @@
-/*
- * controllerComm.c
- *
- *  Created on: Sep 3, 2024
- *      Author: jvmen
- */
 
 #include <bluetooth.h>
 
 
-char cInput;
+unsigned char ucInput;
 UART_HandleTypeDef * pBluetoothControllerUART;
-
 void vBluetoothInit(UART_HandleTypeDef * huart){
-	pBluetoothControllerUART = &huart;
-    HAL_UART_Receive_IT(pBluetoothControllerUART, &cInput, 1);
-
+    pBluetoothControllerUART = huart;
+    HAL_UART_Receive_IT(pBluetoothControllerUART, &ucInput, 1);
 }
 
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef * huart){
-    if(&huart == pBluetoothControllerUART){
-        if(cInput == '1'){
+    if(huart == pBluetoothControllerUART){
+        if(ucInput == '1'){
             vBleCmdMotorForward();
         }
-        else if (cInput == '2')
+        else if (ucInput == '2')
         {
         	vBleCmdMotorLeftward();
         }
-        else if (cInput == '3')
+        else if (ucInput == '3')
         {
         	vBleCmdMotorRightward();
         }
-        
+
     }
 }

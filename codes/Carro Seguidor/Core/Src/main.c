@@ -63,7 +63,8 @@ typedef enum
 
 TIM_HandleTypeDef* pTimerPWMTrigger = &htim20;
 TIM_HandleTypeDef* pTimerEcoUltrassonicoFrontal = &htim3;
-UART_HandleTypeDef * pBluetoothControllerUARTApp = &huart3;
+UART_HandleTypeDef * pBleCtrlMain = &huart3;
+
 
 //   Ints
 //flags
@@ -131,9 +132,9 @@ int main(void)
 
   vUltrassonicoInit(pTimerEcoUltrassonicoFrontal,pTimerPWMTrigger) ;
   vCommunicationInit();
-  vBluetoothInit(pBluetoothControllerUARTApp);
 
   vMotorsInit();
+  vBluetoothInit(pBleCtrlMain);
 
   /* USER CODE END 2 */
 
@@ -153,17 +154,19 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-	  HAL_Delay(800);
-	  lcdSetCursorPosition(0, 1);
-	  lcdPrintStr((uint8_t*)pCommunicationFloatToString(fDistance, 2), strlen((char *)pCommunicationFloatToString(fDistance, 2)));
-	  if(fDistance<6.0){
-		  while(fDistance<6.0){
-		   vMotorsSetPWM(left, 0.8, 1);
-		   vMotorsSetPWM(right, 0.8, 0);
-		  }
-		  vMotorsSetOff(0);
-		  vMotorsSetOff(1);
-	  }
+	  HAL_Delay(200);
+//	  lcdSetCursorPosition(0, 1);
+//	  lcdPrintStr((uint8_t*)pCommunicationFloatToString(fDistance, 2), strlen((char *)pCommunicationFloatToString(fDistance, 2)));
+//	  if(fDistance<6.0){
+//		  while(fDistance<6.0){
+//		   vMotorsSetPWM(left, 0.8, 1);
+//		   vMotorsSetPWM(right, 0.8, 0);
+//		  }
+//		  vMotorsSetOff(0);
+//		  vMotorsSetOff(1);
+//	  }
+
+
 
   }
   /* USER CODE END 3 */

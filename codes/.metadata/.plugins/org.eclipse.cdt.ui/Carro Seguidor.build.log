@@ -1,51 +1,10 @@
-22:54:42 **** Incremental Build of configuration Debug for project Carro Seguidor ****
+16:24:32 **** Incremental Build of configuration Debug for project Carro Seguidor ****
 make -j16 all 
-arm-none-eabi-gcc "../Core/Src/bluetooth.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G474xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/bluetooth.d" -MT"Core/Src/bluetooth.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/bluetooth.o"
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G474xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
-In file included from ../Core/Inc/bluetooth.h:10,
-                 from ../Core/Src/bluetooth.c:8:
-../Core/Inc/main.h:34:23: warning: extra tokens at end of #include directive
-   34 | #include <bluetooth.h>;
-      |                       ^
-../Core/Src/bluetooth.c: In function 'vBluetoothInit':
-../Core/Src/bluetooth.c:15:34: warning: assignment to 'UART_HandleTypeDef *' {aka 'struct __UART_HandleTypeDef *'} from incompatible pointer type 'UART_HandleTypeDef **' {aka 'struct __UART_HandleTypeDef **'} [-Wincompatible-pointer-types]
-   15 |         pBluetoothControllerUART = &huart;
-      |                                  ^
-../Core/Src/bluetooth.c:16:51: warning: pointer targets in passing argument 2 of 'HAL_UART_Receive_IT' differ in signedness [-Wpointer-sign]
-   16 |     HAL_UART_Receive_IT(pBluetoothControllerUART, &cInput, 1);
-      |                                                   ^~~~~~~
-      |                                                   |
-      |                                                   char *
-In file included from ../Core/Src/main.c:20:
-../Core/Inc/main.h:34:23: warning: extra tokens at end of #include directive
-   34 | #include <bluetooth.h>;
-      |                       ^
-In file included from ../Core/Inc/stm32g4xx_hal_conf.h:348,
-                 from ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h:29,
-                 from ../Core/Inc/main.h:30:
-../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart.h:1636:75: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
- 1636 | HAL_StatusTypeDef HAL_UART_Receive_IT(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size);
-      |                                                                  ~~~~~~~~~^~~~~
-../Core/Src/bluetooth.c: In function 'HAL_UART_RxCpltCallback':
-../Core/Src/bluetooth.c:21:15: warning: comparison of distinct pointer types lacks a cast
-   21 |     if(&huart == pBluetoothControllerUART){
-      |               ^~
-../Core/Src/main.c: In function 'main':
-../Core/Src/main.c:100:38: warning: unused variable 'ucLCD1Msg' [-Wunused-variable]
-  100 |         unsigned char ucLCD0Msg[17], ucLCD1Msg[17];
-      |                                      ^~~~~~~~~
-arm-none-eabi-gcc -o "Carro Seguidor.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\jvmen\Documents\ES070-2024-GrupoA2\codes\Carro Seguidor\STM32G474RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Carro Seguidor.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-C:/ST/STM32CubeIDE_1.16.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: warning: Carro Seguidor.elf has a LOAD segment with RWX permissions
-Finished building target: Carro Seguidor.elf
- 
 arm-none-eabi-size  Carro\ Seguidor.elf 
-arm-none-eabi-objdump -h -S Carro\ Seguidor.elf  > "Carro Seguidor.list"
    text	   data	    bss	    dec	    hex	filename
-  45332	    112	   2872	  48316	   bcbc	Carro Seguidor.elf
+  43656	    112	   2776	  46544	   b5d0	Carro Seguidor.elf
 Finished building: default.size.stdout
  
-Finished building: Carro Seguidor.list
- 
 
-22:54:44 Build Finished. 0 errors, 7 warnings. (took 1s.966ms)
+16:24:32 Build Finished. 0 errors, 0 warnings. (took 319ms)
 

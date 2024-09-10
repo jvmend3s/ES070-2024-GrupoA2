@@ -1,12 +1,13 @@
 /*
- * controllerComm.h
+ * bluetooth.h
  *
- *  Created on: Sep 5, 2024
+ *  Created on: Sep 9, 2024
  *      Author: jvmen
  */
 
-#ifndef INC_CONTROLLERCOMM_H_
-#define INC_CONTROLLERCOMM_H_
+#ifndef INC_BLUETOOTH_H_
+#define INC_BLUETOOTH_H_
+
 #include <main.h>
 #include <usart.h>
 #include <bleCmd.h>
@@ -14,5 +15,4 @@
 void vBluetoothInit(UART_HandleTypeDef * huart);
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef * huart);
 
-
-#endif /* INC_CONTROLLERCOMM_H_ */
+#endif /* INC_BLUETOOTH_H_ */

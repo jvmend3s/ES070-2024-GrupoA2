@@ -31,7 +31,8 @@ extern "C" {
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include <bluetooth.h>;
+#include <bluetooth.h>
+#include <bleCmd.h>
 /* USER CODE END Includes */
 
 /* Exported types ------------------------------------------------------------*/
