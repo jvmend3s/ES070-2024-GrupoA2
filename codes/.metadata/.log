@@ -1,17 +1,14 @@
-!SESSION 2024-09-10 15:42:04.276 -----------------------------------------------
+!SESSION 2024-09-11 16:09:19.271 -----------------------------------------------
 eclipse.buildId=Version 1.16.0
 java.version=17.0.11
 java.vendor=Eclipse Adoptium
 BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=pt_BR
 Command-line arguments:  -os win32 -ws win32 -arch x86_64
 
-This is a continuation of log file C:\Users\jvmen\Documents\ES070-2024-GrupoA2\codes\.metadata\.bak_9.log
-Created Time: 2024-09-10 16:28:44.796
+This is a continuation of log file C:\Users\jvmen\Documents\ES070-2024-GrupoA2\codes\.metadata\.bak_2.log
+Created Time: 2024-09-11 18:25:37.916
 
-!ENTRY org.eclipse.cdt.core 4 0 2024-09-10 16:28:44.796
-!MESSAGE Corrupted database: Carro Seguidor.1724766259048.pdom
-
-!ENTRY org.eclipse.cdt.core 4 0 2024-09-10 16:28:44.797
+!ENTRY org.eclipse.cdt.core 4 0 2024-09-11 18:25:37.917
 !MESSAGE Error
 !STACK 1
 org.eclipse.core.runtime.CoreException: Corrupted database: Carro Seguidor.1724766259048.pdom
@@ -36,14 +33,11 @@ org.eclipse.core.runtime.CoreException: Corrupted database: Carro Seguidor.17247
 	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightingReconciler$AbstractPositionCollector.visit(SemanticHighlightingReconciler.java:194)
 	at org.eclipse.cdt.internal.core.dom.parser.c.CASTName.accept(CASTName.java:132)
 	at org.eclipse.cdt.internal.core.dom.parser.c.CASTIdExpression.accept(CASTIdExpression.java:88)
-	at org.eclipse.cdt.internal.core.dom.parser.c.CASTFunctionCallExpression.accept(CASTFunctionCallExpression.java:118)
-	at org.eclipse.cdt.internal.core.dom.parser.c.CASTExpressionStatement.accept(CASTExpressionStatement.java:80)
-	at org.eclipse.cdt.internal.core.dom.parser.c.CASTCompoundStatement.accept(CASTCompoundStatement.java:89)
-	at org.eclipse.cdt.internal.core.dom.parser.c.CASTIfStatement.accept(CASTIfStatement.java:140)
-	at org.eclipse.cdt.internal.core.dom.parser.c.CASTCompoundStatement.accept(CASTCompoundStatement.java:89)
-	at org.eclipse.cdt.internal.core.dom.parser.c.CASTIfStatement.accept(CASTIfStatement.java:140)
-	at org.eclipse.cdt.internal.core.dom.parser.c.CASTCompoundStatement.accept(CASTCompoundStatement.java:89)
-	at org.eclipse.cdt.internal.core.dom.parser.c.CASTFunctionDefinition.accept(CASTFunctionDefinition.java:141)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTUnaryExpression.accept(CASTUnaryExpression.java:97)
+	at org.eclipse.cdt.internal.core.dom.parser.ASTEqualsInitializer.accept(ASTEqualsInitializer.java:64)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTDeclarator.postAccept(CASTDeclarator.java:189)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTDeclarator.accept(CASTDeclarator.java:179)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTSimpleDeclaration.accept(CASTSimpleDeclaration.java:111)
 	at org.eclipse.cdt.internal.core.dom.parser.ASTTranslationUnit.accept(ASTTranslationUnit.java:289)
 	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightingReconciler.reconcilePositions(SemanticHighlightingReconciler.java:450)
 	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightingReconciler.reconciled(SemanticHighlightingReconciler.java:413)
@@ -55,10 +49,10 @@ org.eclipse.core.runtime.CoreException: Corrupted database: Carro Seguidor.17247
 	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:78)
 	at org.eclipse.cdt.internal.ui.text.CReconciler.process(CReconciler.java:346)
 	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:207)
-!SUBENTRY 1 org.eclipse.cdt.core 4 0 2024-09-10 16:28:44.797
+!SUBENTRY 1 org.eclipse.cdt.core 4 0 2024-09-11 18:25:37.917
 !MESSAGE Corrupted database: Carro Seguidor.1724766259048.pdom
 
-!ENTRY org.eclipse.cdt.core 4 0 2024-09-10 16:28:44.798
+!ENTRY org.eclipse.cdt.core 4 0 2024-09-11 18:25:37.919
 !MESSAGE Error
 !STACK 1
 org.eclipse.core.runtime.CoreException: Corrupted database: Carro Seguidor.1724766259048.pdom
@@ -83,14 +77,11 @@ org.eclipse.core.runtime.CoreException: Corrupted database: Carro Seguidor.17247
 	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightingReconciler$AbstractPositionCollector.visit(SemanticHighlightingReconciler.java:194)
 	at org.eclipse.cdt.internal.core.dom.parser.c.CASTName.accept(CASTName.java:132)
 	at org.eclipse.cdt.internal.core.dom.parser.c.CASTIdExpression.accept(CASTIdExpression.java:88)
-	at org.eclipse.cdt.internal.core.dom.parser.c.CASTFunctionCallExpression.accept(CASTFunctionCallExpression.java:118)
-	at org.eclipse.cdt.internal.core.dom.parser.c.CASTExpressionStatement.accept(CASTExpressionStatement.java:80)
-	at org.eclipse.cdt.internal.core.dom.parser.c.CASTCompoundStatement.accept(CASTCompoundStatement.java:89)
-	at org.eclipse.cdt.internal.core.dom.parser.c.CASTIfStatement.accept(CASTIfStatement.java:140)
-	at org.eclipse.cdt.internal.core.dom.parser.c.CASTCompoundStatement.accept(CASTCompoundStatement.java:89)
-	at org.eclipse.cdt.internal.core.dom.parser.c.CASTIfStatement.accept(CASTIfStatement.java:140)
-	at org.eclipse.cdt.internal.core.dom.parser.c.CASTCompoundStatement.accept(CASTCompoundStatement.java:89)
-	at org.eclipse.cdt.internal.core.dom.parser.c.CASTFunctionDefinition.accept(CASTFunctionDefinition.java:141)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTUnaryExpression.accept(CASTUnaryExpression.java:97)
+	at org.eclipse.cdt.internal.core.dom.parser.ASTEqualsInitializer.accept(ASTEqualsInitializer.java:64)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTDeclarator.postAccept(CASTDeclarator.java:189)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTDeclarator.accept(CASTDeclarator.java:179)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTSimpleDeclaration.accept(CASTSimpleDeclaration.java:111)
 	at org.eclipse.cdt.internal.core.dom.parser.ASTTranslationUnit.accept(ASTTranslationUnit.java:289)
 	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightingReconciler.reconcilePositions(SemanticHighlightingReconciler.java:450)
 	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightingReconciler.reconciled(SemanticHighlightingReconciler.java:413)
@@ -102,13 +93,10 @@ org.eclipse.core.runtime.CoreException: Corrupted database: Carro Seguidor.17247
 	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:78)
 	at org.eclipse.cdt.internal.ui.text.CReconciler.process(CReconciler.java:346)
 	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:207)
-!SUBENTRY 1 org.eclipse.cdt.core 4 0 2024-09-10 16:28:44.798
+!SUBENTRY 1 org.eclipse.cdt.core 4 0 2024-09-11 18:25:37.919
 !MESSAGE Corrupted database: Carro Seguidor.1724766259048.pdom
 
-!ENTRY org.eclipse.cdt.core 4 0 2024-09-10 16:28:44.798
-!MESSAGE Corrupted database: Carro Seguidor.1724766259048.pdom
-
-!ENTRY org.eclipse.cdt.core 4 0 2024-09-10 16:28:44.799
+!ENTRY org.eclipse.cdt.core 4 0 2024-09-11 18:25:37.920
 !MESSAGE Error
 !STACK 1
 org.eclipse.core.runtime.CoreException: Corrupted database: Carro Seguidor.1724766259048.pdom
@@ -133,14 +121,11 @@ org.eclipse.core.runtime.CoreException: Corrupted database: Carro Seguidor.17247
 	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightingReconciler$AbstractPositionCollector.visit(SemanticHighlightingReconciler.java:194)
 	at org.eclipse.cdt.internal.core.dom.parser.c.CASTName.accept(CASTName.java:132)
 	at org.eclipse.cdt.internal.core.dom.parser.c.CASTIdExpression.accept(CASTIdExpression.java:88)
-	at org.eclipse.cdt.internal.core.dom.parser.c.CASTFunctionCallExpression.accept(CASTFunctionCallExpression.java:118)
-	at org.eclipse.cdt.internal.core.dom.parser.c.CASTExpressionStatement.accept(CASTExpressionStatement.java:80)
-	at org.eclipse.cdt.internal.core.dom.parser.c.CASTCompoundStatement.accept(CASTCompoundStatement.java:89)
-	at org.eclipse.cdt.internal.core.dom.parser.c.CASTIfStatement.accept(CASTIfStatement.java:140)
-	at org.eclipse.cdt.internal.core.dom.parser.c.CASTCompoundStatement.accept(CASTCompoundStatement.java:89)
-	at org.eclipse.cdt.internal.core.dom.parser.c.CASTIfStatement.accept(CASTIfStatement.java:140)
-	at org.eclipse.cdt.internal.core.dom.parser.c.CASTCompoundStatement.accept(CASTCompoundStatement.java:89)
-	at org.eclipse.cdt.internal.core.dom.parser.c.CASTFunctionDefinition.accept(CASTFunctionDefinition.java:141)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTUnaryExpression.accept(CASTUnaryExpression.java:97)
+	at org.eclipse.cdt.internal.core.dom.parser.ASTEqualsInitializer.accept(ASTEqualsInitializer.java:64)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTDeclarator.postAccept(CASTDeclarator.java:189)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTDeclarator.accept(CASTDeclarator.java:179)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTSimpleDeclaration.accept(CASTSimpleDeclaration.java:111)
 	at org.eclipse.cdt.internal.core.dom.parser.ASTTranslationUnit.accept(ASTTranslationUnit.java:289)
 	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightingReconciler.reconcilePositions(SemanticHighlightingReconciler.java:450)
 	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightingReconciler.reconciled(SemanticHighlightingReconciler.java:413)
@@ -152,10 +137,10 @@ org.eclipse.core.runtime.CoreException: Corrupted database: Carro Seguidor.17247
 	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:78)
 	at org.eclipse.cdt.internal.ui.text.CReconciler.process(CReconciler.java:346)
 	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:207)
-!SUBENTRY 1 org.eclipse.cdt.core 4 0 2024-09-10 16:28:44.799
+!SUBENTRY 1 org.eclipse.cdt.core 4 0 2024-09-11 18:25:37.920
 !MESSAGE Corrupted database: Carro Seguidor.1724766259048.pdom
 
-!ENTRY org.eclipse.cdt.core 4 0 2024-09-10 16:28:44.800
+!ENTRY org.eclipse.cdt.core 4 0 2024-09-11 18:25:37.920
 !MESSAGE Error
 !STACK 1
 org.eclipse.core.runtime.CoreException: Corrupted database: Carro Seguidor.1724766259048.pdom
@@ -180,12 +165,55 @@ org.eclipse.core.runtime.CoreException: Corrupted database: Carro Seguidor.17247
 	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightingReconciler$AbstractPositionCollector.visit(SemanticHighlightingReconciler.java:194)
 	at org.eclipse.cdt.internal.core.dom.parser.c.CASTName.accept(CASTName.java:132)
 	at org.eclipse.cdt.internal.core.dom.parser.c.CASTIdExpression.accept(CASTIdExpression.java:88)
-	at org.eclipse.cdt.internal.core.dom.parser.c.CASTFunctionCallExpression.accept(CASTFunctionCallExpression.java:118)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTUnaryExpression.accept(CASTUnaryExpression.java:97)
+	at org.eclipse.cdt.internal.core.dom.parser.ASTEqualsInitializer.accept(ASTEqualsInitializer.java:64)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTDeclarator.postAccept(CASTDeclarator.java:189)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTDeclarator.accept(CASTDeclarator.java:179)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTSimpleDeclaration.accept(CASTSimpleDeclaration.java:111)
+	at org.eclipse.cdt.internal.core.dom.parser.ASTTranslationUnit.accept(ASTTranslationUnit.java:289)
+	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightingReconciler.reconcilePositions(SemanticHighlightingReconciler.java:450)
+	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightingReconciler.reconciled(SemanticHighlightingReconciler.java:413)
+	at org.eclipse.cdt.internal.ui.editor.CEditor.reconciled(CEditor.java:3107)
+	at org.eclipse.cdt.internal.ui.text.CReconcilingStrategy.reconcile(CReconcilingStrategy.java:100)
+	at org.eclipse.cdt.internal.ui.text.CReconcilingStrategy.reconcile(CReconcilingStrategy.java:64)
+	at org.eclipse.cdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:89)
+	at org.eclipse.cdt.internal.ui.text.CCompositeReconcilingStrategy.reconcile(CCompositeReconcilingStrategy.java:90)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:78)
+	at org.eclipse.cdt.internal.ui.text.CReconciler.process(CReconciler.java:346)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:207)
+!SUBENTRY 1 org.eclipse.cdt.core 4 0 2024-09-11 18:25:37.920
+!MESSAGE Corrupted database: Carro Seguidor.1724766259048.pdom
+
+!ENTRY org.eclipse.cdt.core 4 0 2024-09-11 18:25:37.920
+!MESSAGE Error
+!STACK 1
+org.eclipse.core.runtime.CoreException: Corrupted database: Carro Seguidor.1724766259048.pdom
+	at org.eclipse.cdt.internal.core.pdom.db.Database.databaseCorruptionDetected(Database.java:323)
+	at org.eclipse.cdt.internal.core.pdom.db.Database.getChunk(Database.java:303)
+	at org.eclipse.cdt.internal.core.pdom.db.Database.getRecPtr(Database.java:518)
+	at org.eclipse.cdt.internal.core.pdom.dom.PDOMNamedNode.getDBName(PDOMNamedNode.java:74)
+	at org.eclipse.cdt.internal.core.pdom.dom.NamedNodeCollector.compare(NamedNodeCollector.java:96)
+	at org.eclipse.cdt.internal.core.pdom.db.BTree.accept(BTree.java:569)
+	at org.eclipse.cdt.internal.core.pdom.db.BTree.accept(BTree.java:588)
+	at org.eclipse.cdt.internal.core.pdom.db.BTree.accept(BTree.java:541)
+	at org.eclipse.cdt.internal.core.pdom.dom.PDOMLinkage.getBindingsViaCache(PDOMLinkage.java:427)
+	at org.eclipse.cdt.internal.core.pdom.PDOM.findBindings(PDOM.java:1417)
+	at org.eclipse.cdt.internal.core.pdom.PDOM.findBindings(PDOM.java:1407)
+	at org.eclipse.cdt.internal.core.index.CIndex.findBindings(CIndex.java:650)
+	at org.eclipse.cdt.internal.core.index.CIndex.findBindings(CIndex.java:510)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CScope.getBinding(CScope.java:285)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CVisitor.lookup(CVisitor.java:1063)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CVisitor.resolveBinding(CVisitor.java:837)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CVisitor.createBinding(CVisitor.java:454)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTName.resolveBinding(CASTName.java:66)
+	at org.eclipse.cdt.internal.ui.editor.SemanticToken.getBinding(SemanticToken.java:50)
+	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightings$ExternalSDKHighlighting.consumes(SemanticHighlightings.java:1608)
+	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightingReconciler$AbstractPositionCollector.visitNode(SemanticHighlightingReconciler.java:232)
+	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightingReconciler$AbstractPositionCollector.visit(SemanticHighlightingReconciler.java:194)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTName.accept(CASTName.java:132)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTIdExpression.accept(CASTIdExpression.java:88)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTFunctionCallExpression.accept(CASTFunctionCallExpression.java:114)
 	at org.eclipse.cdt.internal.core.dom.parser.c.CASTExpressionStatement.accept(CASTExpressionStatement.java:80)
-	at org.eclipse.cdt.internal.core.dom.parser.c.CASTCompoundStatement.accept(CASTCompoundStatement.java:89)
-	at org.eclipse.cdt.internal.core.dom.parser.c.CASTIfStatement.accept(CASTIfStatement.java:140)
-	at org.eclipse.cdt.internal.core.dom.parser.c.CASTCompoundStatement.accept(CASTCompoundStatement.java:89)
-	at org.eclipse.cdt.internal.core.dom.parser.c.CASTIfStatement.accept(CASTIfStatement.java:140)
 	at org.eclipse.cdt.internal.core.dom.parser.c.CASTCompoundStatement.accept(CASTCompoundStatement.java:89)
 	at org.eclipse.cdt.internal.core.dom.parser.c.CASTFunctionDefinition.accept(CASTFunctionDefinition.java:141)
 	at org.eclipse.cdt.internal.core.dom.parser.ASTTranslationUnit.accept(ASTTranslationUnit.java:289)
@@ -199,16 +227,1101 @@ org.eclipse.core.runtime.CoreException: Corrupted database: Carro Seguidor.17247
 	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:78)
 	at org.eclipse.cdt.internal.ui.text.CReconciler.process(CReconciler.java:346)
 	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:207)
-!SUBENTRY 1 org.eclipse.cdt.core 4 0 2024-09-10 16:28:44.800
+!SUBENTRY 1 org.eclipse.cdt.core 4 0 2024-09-11 18:25:37.920
 !MESSAGE Corrupted database: Carro Seguidor.1724766259048.pdom
 
-!ENTRY org.eclipse.cdt.core 4 0 2024-09-10 16:28:44.802
+!ENTRY org.eclipse.cdt.core 4 0 2024-09-11 18:25:37.921
+!MESSAGE Corrupted database: Carro Seguidor.1724766259048.pdom
+
+!ENTRY org.eclipse.cdt.core 4 0 2024-09-11 18:25:37.921
 !MESSAGE Error
 !STACK 1
 org.eclipse.core.runtime.CoreException: Corrupted database: Carro Seguidor.1724766259048.pdom
 	at org.eclipse.cdt.internal.core.pdom.db.Database.databaseCorruptionDetected(Database.java:323)
 	at org.eclipse.cdt.internal.core.pdom.db.Database.getChunk(Database.java:303)
 	at org.eclipse.cdt.internal.core.pdom.db.BTree.accept(BTree.java:555)
+	at org.eclipse.cdt.internal.core.pdom.db.BTree.accept(BTree.java:588)
+	at org.eclipse.cdt.internal.core.pdom.db.BTree.accept(BTree.java:541)
+	at org.eclipse.cdt.internal.core.pdom.dom.PDOMLinkage.getBindingsViaCache(PDOMLinkage.java:427)
+	at org.eclipse.cdt.internal.core.pdom.PDOM.findBindings(PDOM.java:1417)
+	at org.eclipse.cdt.internal.core.pdom.PDOM.findBindings(PDOM.java:1407)
+	at org.eclipse.cdt.internal.core.index.CIndex.findBindings(CIndex.java:650)
+	at org.eclipse.cdt.internal.core.index.CIndex.findBindings(CIndex.java:510)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CScope.getBinding(CScope.java:285)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CVisitor.lookup(CVisitor.java:1063)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CVisitor.resolveBinding(CVisitor.java:837)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CVisitor.createBinding(CVisitor.java:454)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTName.resolveBinding(CASTName.java:66)
+	at org.eclipse.cdt.internal.ui.editor.SemanticToken.getBinding(SemanticToken.java:50)
+	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightings$ExternalSDKHighlighting.consumes(SemanticHighlightings.java:1608)
+	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightingReconciler$AbstractPositionCollector.visitNode(SemanticHighlightingReconciler.java:232)
+	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightingReconciler$AbstractPositionCollector.visit(SemanticHighlightingReconciler.java:194)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTName.accept(CASTName.java:132)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTIdExpression.accept(CASTIdExpression.java:88)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTFunctionCallExpression.accept(CASTFunctionCallExpression.java:114)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTExpressionStatement.accept(CASTExpressionStatement.java:80)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTCompoundStatement.accept(CASTCompoundStatement.java:89)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTFunctionDefinition.accept(CASTFunctionDefinition.java:141)
+	at org.eclipse.cdt.internal.core.dom.parser.ASTTranslationUnit.accept(ASTTranslationUnit.java:289)
+	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightingReconciler.reconcilePositions(SemanticHighlightingReconciler.java:450)
+	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightingReconciler.reconciled(SemanticHighlightingReconciler.java:413)
+	at org.eclipse.cdt.internal.ui.editor.CEditor.reconciled(CEditor.java:3107)
+	at org.eclipse.cdt.internal.ui.text.CReconcilingStrategy.reconcile(CReconcilingStrategy.java:100)
+	at org.eclipse.cdt.internal.ui.text.CReconcilingStrategy.reconcile(CReconcilingStrategy.java:64)
+	at org.eclipse.cdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:89)
+	at org.eclipse.cdt.internal.ui.text.CCompositeReconcilingStrategy.reconcile(CCompositeReconcilingStrategy.java:90)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:78)
+	at org.eclipse.cdt.internal.ui.text.CReconciler.process(CReconciler.java:346)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:207)
+!SUBENTRY 1 org.eclipse.cdt.core 4 0 2024-09-11 18:25:37.921
+!MESSAGE Corrupted database: Carro Seguidor.1724766259048.pdom
+
+!ENTRY org.eclipse.cdt.core 4 0 2024-09-11 18:25:37.921
+!MESSAGE Corrupted database: Carro Seguidor.1724766259048.pdom
+
+!ENTRY org.eclipse.cdt.core 4 0 2024-09-11 18:25:37.922
+!MESSAGE Error
+!STACK 1
+org.eclipse.core.runtime.CoreException: Corrupted database: Carro Seguidor.1724766259048.pdom
+	at org.eclipse.cdt.internal.core.pdom.db.Database.databaseCorruptionDetected(Database.java:323)
+	at org.eclipse.cdt.internal.core.pdom.db.Database.getChunk(Database.java:303)
+	at org.eclipse.cdt.internal.core.pdom.db.BTree.accept(BTree.java:555)
+	at org.eclipse.cdt.internal.core.pdom.db.BTree.accept(BTree.java:588)
+	at org.eclipse.cdt.internal.core.pdom.db.BTree.accept(BTree.java:541)
+	at org.eclipse.cdt.internal.core.pdom.dom.PDOMLinkage.getBindingsViaCache(PDOMLinkage.java:427)
+	at org.eclipse.cdt.internal.core.pdom.PDOM.findBindings(PDOM.java:1417)
+	at org.eclipse.cdt.internal.core.pdom.PDOM.findBindings(PDOM.java:1407)
+	at org.eclipse.cdt.internal.core.index.CIndex.findBindings(CIndex.java:650)
+	at org.eclipse.cdt.internal.core.index.CIndex.findBindings(CIndex.java:510)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CScope.getBinding(CScope.java:285)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CVisitor.lookup(CVisitor.java:1063)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CVisitor.resolveBinding(CVisitor.java:837)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CVisitor.createBinding(CVisitor.java:454)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTName.resolveBinding(CASTName.java:66)
+	at org.eclipse.cdt.internal.ui.editor.SemanticToken.getBinding(SemanticToken.java:50)
+	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightings$ExternalSDKHighlighting.consumes(SemanticHighlightings.java:1608)
+	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightingReconciler$AbstractPositionCollector.visitNode(SemanticHighlightingReconciler.java:232)
+	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightingReconciler$AbstractPositionCollector.visit(SemanticHighlightingReconciler.java:194)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTName.accept(CASTName.java:132)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTIdExpression.accept(CASTIdExpression.java:88)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTFunctionCallExpression.accept(CASTFunctionCallExpression.java:114)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTExpressionStatement.accept(CASTExpressionStatement.java:80)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTCompoundStatement.accept(CASTCompoundStatement.java:89)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTFunctionDefinition.accept(CASTFunctionDefinition.java:141)
+	at org.eclipse.cdt.internal.core.dom.parser.ASTTranslationUnit.accept(ASTTranslationUnit.java:289)
+	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightingReconciler.reconcilePositions(SemanticHighlightingReconciler.java:450)
+	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightingReconciler.reconciled(SemanticHighlightingReconciler.java:413)
+	at org.eclipse.cdt.internal.ui.editor.CEditor.reconciled(CEditor.java:3107)
+	at org.eclipse.cdt.internal.ui.text.CReconcilingStrategy.reconcile(CReconcilingStrategy.java:100)
+	at org.eclipse.cdt.internal.ui.text.CReconcilingStrategy.reconcile(CReconcilingStrategy.java:64)
+	at org.eclipse.cdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:89)
+	at org.eclipse.cdt.internal.ui.text.CCompositeReconcilingStrategy.reconcile(CCompositeReconcilingStrategy.java:90)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:78)
+	at org.eclipse.cdt.internal.ui.text.CReconciler.process(CReconciler.java:346)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:207)
+!SUBENTRY 1 org.eclipse.cdt.core 4 0 2024-09-11 18:25:37.922
+!MESSAGE Corrupted database: Carro Seguidor.1724766259048.pdom
+
+!ENTRY org.eclipse.cdt.core 4 0 2024-09-11 18:25:37.922
+!MESSAGE Corrupted database: Carro Seguidor.1724766259048.pdom
+
+!ENTRY org.eclipse.cdt.core 4 0 2024-09-11 18:25:37.924
+!MESSAGE Error
+!STACK 1
+org.eclipse.core.runtime.CoreException: Corrupted database: Carro Seguidor.1724766259048.pdom
+	at org.eclipse.cdt.internal.core.pdom.db.Database.databaseCorruptionDetected(Database.java:323)
+	at org.eclipse.cdt.internal.core.pdom.db.Database.getChunk(Database.java:303)
+	at org.eclipse.cdt.internal.core.pdom.db.BTree.accept(BTree.java:555)
+	at org.eclipse.cdt.internal.core.pdom.db.BTree.accept(BTree.java:588)
+	at org.eclipse.cdt.internal.core.pdom.db.BTree.accept(BTree.java:541)
+	at org.eclipse.cdt.internal.core.pdom.dom.PDOMLinkage.getBindingsViaCache(PDOMLinkage.java:427)
+	at org.eclipse.cdt.internal.core.pdom.PDOM.findBindings(PDOM.java:1417)
+	at org.eclipse.cdt.internal.core.pdom.PDOM.findBindings(PDOM.java:1407)
+	at org.eclipse.cdt.internal.core.index.CIndex.findBindings(CIndex.java:650)
+	at org.eclipse.cdt.internal.core.index.CIndex.findBindings(CIndex.java:510)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CScope.getBinding(CScope.java:285)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CVisitor.lookup(CVisitor.java:1063)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CVisitor.resolveBinding(CVisitor.java:837)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CVisitor.createBinding(CVisitor.java:454)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTName.resolveBinding(CASTName.java:66)
+	at org.eclipse.cdt.internal.ui.editor.SemanticToken.getBinding(SemanticToken.java:50)
+	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightings$ExternalSDKHighlighting.consumes(SemanticHighlightings.java:1608)
+	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightingReconciler$AbstractPositionCollector.visitNode(SemanticHighlightingReconciler.java:232)
+	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightingReconciler$AbstractPositionCollector.visit(SemanticHighlightingReconciler.java:194)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTName.accept(CASTName.java:132)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTIdExpression.accept(CASTIdExpression.java:88)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTFunctionCallExpression.accept(CASTFunctionCallExpression.java:114)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTExpressionStatement.accept(CASTExpressionStatement.java:80)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTCompoundStatement.accept(CASTCompoundStatement.java:89)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTFunctionDefinition.accept(CASTFunctionDefinition.java:141)
+	at org.eclipse.cdt.internal.core.dom.parser.ASTTranslationUnit.accept(ASTTranslationUnit.java:289)
+	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightingReconciler.reconcilePositions(SemanticHighlightingReconciler.java:450)
+	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightingReconciler.reconciled(SemanticHighlightingReconciler.java:413)
+	at org.eclipse.cdt.internal.ui.editor.CEditor.reconciled(CEditor.java:3107)
+	at org.eclipse.cdt.internal.ui.text.CReconcilingStrategy.reconcile(CReconcilingStrategy.java:100)
+	at org.eclipse.cdt.internal.ui.text.CReconcilingStrategy.reconcile(CReconcilingStrategy.java:64)
+	at org.eclipse.cdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:89)
+	at org.eclipse.cdt.internal.ui.text.CCompositeReconcilingStrategy.reconcile(CCompositeReconcilingStrategy.java:90)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:78)
+	at org.eclipse.cdt.internal.ui.text.CReconciler.process(CReconciler.java:346)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:207)
+!SUBENTRY 1 org.eclipse.cdt.core 4 0 2024-09-11 18:25:37.924
+!MESSAGE Corrupted database: Carro Seguidor.1724766259048.pdom
+
+!ENTRY org.eclipse.cdt.core 4 0 2024-09-11 18:25:37.924
+!MESSAGE Corrupted database: Carro Seguidor.1724766259048.pdom
+
+!ENTRY org.eclipse.cdt.core 4 0 2024-09-11 18:25:37.925
+!MESSAGE Error
+!STACK 1
+org.eclipse.core.runtime.CoreException: Corrupted database: Carro Seguidor.1724766259048.pdom
+	at org.eclipse.cdt.internal.core.pdom.db.Database.databaseCorruptionDetected(Database.java:323)
+	at org.eclipse.cdt.internal.core.pdom.db.Database.getChunk(Database.java:303)
+	at org.eclipse.cdt.internal.core.pdom.db.BTree.accept(BTree.java:555)
+	at org.eclipse.cdt.internal.core.pdom.db.BTree.accept(BTree.java:588)
+	at org.eclipse.cdt.internal.core.pdom.db.BTree.accept(BTree.java:541)
+	at org.eclipse.cdt.internal.core.pdom.dom.PDOMLinkage.getBindingsViaCache(PDOMLinkage.java:427)
+	at org.eclipse.cdt.internal.core.pdom.PDOM.findBindings(PDOM.java:1417)
+	at org.eclipse.cdt.internal.core.pdom.PDOM.findBindings(PDOM.java:1407)
+	at org.eclipse.cdt.internal.core.index.CIndex.findBindings(CIndex.java:650)
+	at org.eclipse.cdt.internal.core.index.CIndex.findBindings(CIndex.java:510)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CScope.getBinding(CScope.java:285)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CVisitor.lookup(CVisitor.java:1063)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CVisitor.resolveBinding(CVisitor.java:837)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CVisitor.createBinding(CVisitor.java:454)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTName.resolveBinding(CASTName.java:66)
+	at org.eclipse.cdt.internal.ui.editor.SemanticToken.getBinding(SemanticToken.java:50)
+	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightings$ExternalSDKHighlighting.consumes(SemanticHighlightings.java:1608)
+	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightingReconciler$AbstractPositionCollector.visitNode(SemanticHighlightingReconciler.java:232)
+	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightingReconciler$AbstractPositionCollector.visit(SemanticHighlightingReconciler.java:194)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTName.accept(CASTName.java:132)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTIdExpression.accept(CASTIdExpression.java:88)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTFunctionCallExpression.accept(CASTFunctionCallExpression.java:114)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTExpressionStatement.accept(CASTExpressionStatement.java:80)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTCompoundStatement.accept(CASTCompoundStatement.java:89)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTFunctionDefinition.accept(CASTFunctionDefinition.java:141)
+	at org.eclipse.cdt.internal.core.dom.parser.ASTTranslationUnit.accept(ASTTranslationUnit.java:289)
+	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightingReconciler.reconcilePositions(SemanticHighlightingReconciler.java:450)
+	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightingReconciler.reconciled(SemanticHighlightingReconciler.java:413)
+	at org.eclipse.cdt.internal.ui.editor.CEditor.reconciled(CEditor.java:3107)
+	at org.eclipse.cdt.internal.ui.text.CReconcilingStrategy.reconcile(CReconcilingStrategy.java:100)
+	at org.eclipse.cdt.internal.ui.text.CReconcilingStrategy.reconcile(CReconcilingStrategy.java:64)
+	at org.eclipse.cdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:89)
+	at org.eclipse.cdt.internal.ui.text.CCompositeReconcilingStrategy.reconcile(CCompositeReconcilingStrategy.java:90)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:78)
+	at org.eclipse.cdt.internal.ui.text.CReconciler.process(CReconciler.java:346)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:207)
+!SUBENTRY 1 org.eclipse.cdt.core 4 0 2024-09-11 18:25:37.925
+!MESSAGE Corrupted database: Carro Seguidor.1724766259048.pdom
+
+!ENTRY org.eclipse.cdt.core 4 0 2024-09-11 18:25:37.925
+!MESSAGE Corrupted database: Carro Seguidor.1724766259048.pdom
+
+!ENTRY org.eclipse.cdt.core 4 0 2024-09-11 18:25:37.926
+!MESSAGE Error
+!STACK 1
+org.eclipse.core.runtime.CoreException: Corrupted database: Carro Seguidor.1724766259048.pdom
+	at org.eclipse.cdt.internal.core.pdom.db.Database.databaseCorruptionDetected(Database.java:323)
+	at org.eclipse.cdt.internal.core.pdom.db.Database.getChunk(Database.java:303)
+	at org.eclipse.cdt.internal.core.pdom.db.BTree.accept(BTree.java:555)
+	at org.eclipse.cdt.internal.core.pdom.db.BTree.accept(BTree.java:588)
+	at org.eclipse.cdt.internal.core.pdom.db.BTree.accept(BTree.java:541)
+	at org.eclipse.cdt.internal.core.pdom.dom.PDOMLinkage.getBindingsViaCache(PDOMLinkage.java:427)
+	at org.eclipse.cdt.internal.core.pdom.PDOM.findBindings(PDOM.java:1417)
+	at org.eclipse.cdt.internal.core.pdom.PDOM.findBindings(PDOM.java:1407)
+	at org.eclipse.cdt.internal.core.index.CIndex.findBindings(CIndex.java:650)
+	at org.eclipse.cdt.internal.core.index.CIndex.findBindings(CIndex.java:510)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CScope.getBinding(CScope.java:285)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CVisitor.lookup(CVisitor.java:1063)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CVisitor.resolveBinding(CVisitor.java:837)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CVisitor.createBinding(CVisitor.java:454)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTName.resolveBinding(CASTName.java:66)
+	at org.eclipse.cdt.internal.ui.editor.SemanticToken.getBinding(SemanticToken.java:50)
+	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightings$ExternalSDKHighlighting.consumes(SemanticHighlightings.java:1608)
+	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightingReconciler$AbstractPositionCollector.visitNode(SemanticHighlightingReconciler.java:232)
+	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightingReconciler$AbstractPositionCollector.visit(SemanticHighlightingReconciler.java:194)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTName.accept(CASTName.java:132)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTIdExpression.accept(CASTIdExpression.java:88)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTFunctionCallExpression.accept(CASTFunctionCallExpression.java:114)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTExpressionStatement.accept(CASTExpressionStatement.java:80)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTCompoundStatement.accept(CASTCompoundStatement.java:89)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTFunctionDefinition.accept(CASTFunctionDefinition.java:141)
+	at org.eclipse.cdt.internal.core.dom.parser.ASTTranslationUnit.accept(ASTTranslationUnit.java:289)
+	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightingReconciler.reconcilePositions(SemanticHighlightingReconciler.java:450)
+	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightingReconciler.reconciled(SemanticHighlightingReconciler.java:413)
+	at org.eclipse.cdt.internal.ui.editor.CEditor.reconciled(CEditor.java:3107)
+	at org.eclipse.cdt.internal.ui.text.CReconcilingStrategy.reconcile(CReconcilingStrategy.java:100)
+	at org.eclipse.cdt.internal.ui.text.CReconcilingStrategy.reconcile(CReconcilingStrategy.java:64)
+	at org.eclipse.cdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:89)
+	at org.eclipse.cdt.internal.ui.text.CCompositeReconcilingStrategy.reconcile(CCompositeReconcilingStrategy.java:90)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:78)
+	at org.eclipse.cdt.internal.ui.text.CReconciler.process(CReconciler.java:346)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:207)
+!SUBENTRY 1 org.eclipse.cdt.core 4 0 2024-09-11 18:25:37.926
+!MESSAGE Corrupted database: Carro Seguidor.1724766259048.pdom
+
+!ENTRY org.eclipse.cdt.core 4 0 2024-09-11 18:25:37.926
+!MESSAGE Corrupted database: Carro Seguidor.1724766259048.pdom
+
+!ENTRY org.eclipse.cdt.core 4 0 2024-09-11 18:25:37.926
+!MESSAGE Error
+!STACK 1
+org.eclipse.core.runtime.CoreException: Corrupted database: Carro Seguidor.1724766259048.pdom
+	at org.eclipse.cdt.internal.core.pdom.db.Database.databaseCorruptionDetected(Database.java:323)
+	at org.eclipse.cdt.internal.core.pdom.db.Database.getChunk(Database.java:303)
+	at org.eclipse.cdt.internal.core.pdom.db.BTree.accept(BTree.java:555)
+	at org.eclipse.cdt.internal.core.pdom.db.BTree.accept(BTree.java:588)
+	at org.eclipse.cdt.internal.core.pdom.db.BTree.accept(BTree.java:541)
+	at org.eclipse.cdt.internal.core.pdom.dom.PDOMLinkage.getBindingsViaCache(PDOMLinkage.java:427)
+	at org.eclipse.cdt.internal.core.pdom.PDOM.findBindings(PDOM.java:1417)
+	at org.eclipse.cdt.internal.core.pdom.PDOM.findBindings(PDOM.java:1407)
+	at org.eclipse.cdt.internal.core.index.CIndex.findBindings(CIndex.java:650)
+	at org.eclipse.cdt.internal.core.index.CIndex.findBindings(CIndex.java:510)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CScope.getBinding(CScope.java:285)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CVisitor.lookup(CVisitor.java:1063)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CVisitor.resolveBinding(CVisitor.java:837)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CVisitor.createBinding(CVisitor.java:454)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTName.resolveBinding(CASTName.java:66)
+	at org.eclipse.cdt.internal.ui.editor.SemanticToken.getBinding(SemanticToken.java:50)
+	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightings$ExternalSDKHighlighting.consumes(SemanticHighlightings.java:1608)
+	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightingReconciler$AbstractPositionCollector.visitNode(SemanticHighlightingReconciler.java:232)
+	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightingReconciler$AbstractPositionCollector.visit(SemanticHighlightingReconciler.java:194)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTName.accept(CASTName.java:132)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTIdExpression.accept(CASTIdExpression.java:88)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTFunctionCallExpression.accept(CASTFunctionCallExpression.java:114)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTExpressionStatement.accept(CASTExpressionStatement.java:80)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTCompoundStatement.accept(CASTCompoundStatement.java:89)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTFunctionDefinition.accept(CASTFunctionDefinition.java:141)
+	at org.eclipse.cdt.internal.core.dom.parser.ASTTranslationUnit.accept(ASTTranslationUnit.java:289)
+	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightingReconciler.reconcilePositions(SemanticHighlightingReconciler.java:450)
+	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightingReconciler.reconciled(SemanticHighlightingReconciler.java:413)
+	at org.eclipse.cdt.internal.ui.editor.CEditor.reconciled(CEditor.java:3107)
+	at org.eclipse.cdt.internal.ui.text.CReconcilingStrategy.reconcile(CReconcilingStrategy.java:100)
+	at org.eclipse.cdt.internal.ui.text.CReconcilingStrategy.reconcile(CReconcilingStrategy.java:64)
+	at org.eclipse.cdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:89)
+	at org.eclipse.cdt.internal.ui.text.CCompositeReconcilingStrategy.reconcile(CCompositeReconcilingStrategy.java:90)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:78)
+	at org.eclipse.cdt.internal.ui.text.CReconciler.process(CReconciler.java:346)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:207)
+!SUBENTRY 1 org.eclipse.cdt.core 4 0 2024-09-11 18:25:37.926
+!MESSAGE Corrupted database: Carro Seguidor.1724766259048.pdom
+
+!ENTRY org.eclipse.cdt.core 4 0 2024-09-11 18:25:37.926
+!MESSAGE Corrupted database: Carro Seguidor.1724766259048.pdom
+
+!ENTRY org.eclipse.cdt.core 4 0 2024-09-11 18:25:37.927
+!MESSAGE Error
+!STACK 1
+org.eclipse.core.runtime.CoreException: Corrupted database: Carro Seguidor.1724766259048.pdom
+	at org.eclipse.cdt.internal.core.pdom.db.Database.databaseCorruptionDetected(Database.java:323)
+	at org.eclipse.cdt.internal.core.pdom.db.Database.getChunk(Database.java:303)
+	at org.eclipse.cdt.internal.core.pdom.db.BTree.accept(BTree.java:555)
+	at org.eclipse.cdt.internal.core.pdom.db.BTree.accept(BTree.java:588)
+	at org.eclipse.cdt.internal.core.pdom.db.BTree.accept(BTree.java:541)
+	at org.eclipse.cdt.internal.core.pdom.dom.PDOMLinkage.getBindingsViaCache(PDOMLinkage.java:427)
+	at org.eclipse.cdt.internal.core.pdom.PDOM.findBindings(PDOM.java:1417)
+	at org.eclipse.cdt.internal.core.pdom.PDOM.findBindings(PDOM.java:1407)
+	at org.eclipse.cdt.internal.core.index.CIndex.findBindings(CIndex.java:650)
+	at org.eclipse.cdt.internal.core.index.CIndex.findBindings(CIndex.java:510)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CScope.getBinding(CScope.java:285)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CVisitor.lookup(CVisitor.java:1063)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CVisitor.resolveBinding(CVisitor.java:837)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CVisitor.createBinding(CVisitor.java:454)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTName.resolveBinding(CASTName.java:66)
+	at org.eclipse.cdt.internal.ui.editor.SemanticToken.getBinding(SemanticToken.java:50)
+	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightings$ExternalSDKHighlighting.consumes(SemanticHighlightings.java:1608)
+	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightingReconciler$AbstractPositionCollector.visitNode(SemanticHighlightingReconciler.java:232)
+	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightingReconciler$AbstractPositionCollector.visit(SemanticHighlightingReconciler.java:194)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTName.accept(CASTName.java:132)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTIdExpression.accept(CASTIdExpression.java:88)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTFunctionCallExpression.accept(CASTFunctionCallExpression.java:114)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTExpressionStatement.accept(CASTExpressionStatement.java:80)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTCompoundStatement.accept(CASTCompoundStatement.java:89)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTFunctionDefinition.accept(CASTFunctionDefinition.java:141)
+	at org.eclipse.cdt.internal.core.dom.parser.ASTTranslationUnit.accept(ASTTranslationUnit.java:289)
+	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightingReconciler.reconcilePositions(SemanticHighlightingReconciler.java:450)
+	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightingReconciler.reconciled(SemanticHighlightingReconciler.java:413)
+	at org.eclipse.cdt.internal.ui.editor.CEditor.reconciled(CEditor.java:3107)
+	at org.eclipse.cdt.internal.ui.text.CReconcilingStrategy.reconcile(CReconcilingStrategy.java:100)
+	at org.eclipse.cdt.internal.ui.text.CReconcilingStrategy.reconcile(CReconcilingStrategy.java:64)
+	at org.eclipse.cdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:89)
+	at org.eclipse.cdt.internal.ui.text.CCompositeReconcilingStrategy.reconcile(CCompositeReconcilingStrategy.java:90)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:78)
+	at org.eclipse.cdt.internal.ui.text.CReconciler.process(CReconciler.java:346)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:207)
+!SUBENTRY 1 org.eclipse.cdt.core 4 0 2024-09-11 18:25:37.927
+!MESSAGE Corrupted database: Carro Seguidor.1724766259048.pdom
+
+!ENTRY org.eclipse.cdt.core 4 0 2024-09-11 18:25:37.927
+!MESSAGE Corrupted database: Carro Seguidor.1724766259048.pdom
+
+!ENTRY org.eclipse.cdt.core 4 0 2024-09-11 18:25:37.928
+!MESSAGE Error
+!STACK 1
+org.eclipse.core.runtime.CoreException: Corrupted database: Carro Seguidor.1724766259048.pdom
+	at org.eclipse.cdt.internal.core.pdom.db.Database.databaseCorruptionDetected(Database.java:323)
+	at org.eclipse.cdt.internal.core.pdom.db.Database.getChunk(Database.java:303)
+	at org.eclipse.cdt.internal.core.pdom.db.BTree.accept(BTree.java:555)
+	at org.eclipse.cdt.internal.core.pdom.db.BTree.accept(BTree.java:588)
+	at org.eclipse.cdt.internal.core.pdom.db.BTree.accept(BTree.java:541)
+	at org.eclipse.cdt.internal.core.pdom.dom.PDOMLinkage.getBindingsViaCache(PDOMLinkage.java:427)
+	at org.eclipse.cdt.internal.core.pdom.PDOM.findBindings(PDOM.java:1417)
+	at org.eclipse.cdt.internal.core.pdom.PDOM.findBindings(PDOM.java:1407)
+	at org.eclipse.cdt.internal.core.index.CIndex.findBindings(CIndex.java:650)
+	at org.eclipse.cdt.internal.core.index.CIndex.findBindings(CIndex.java:510)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CScope.getBinding(CScope.java:285)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CVisitor.lookup(CVisitor.java:1063)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CVisitor.resolveBinding(CVisitor.java:837)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CVisitor.createBinding(CVisitor.java:454)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTName.resolveBinding(CASTName.java:66)
+	at org.eclipse.cdt.internal.ui.editor.SemanticToken.getBinding(SemanticToken.java:50)
+	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightings$ExternalSDKHighlighting.consumes(SemanticHighlightings.java:1608)
+	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightingReconciler$AbstractPositionCollector.visitNode(SemanticHighlightingReconciler.java:232)
+	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightingReconciler$AbstractPositionCollector.visit(SemanticHighlightingReconciler.java:194)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTName.accept(CASTName.java:132)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTIdExpression.accept(CASTIdExpression.java:88)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTFunctionCallExpression.accept(CASTFunctionCallExpression.java:114)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTExpressionStatement.accept(CASTExpressionStatement.java:80)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTCompoundStatement.accept(CASTCompoundStatement.java:89)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTFunctionDefinition.accept(CASTFunctionDefinition.java:141)
+	at org.eclipse.cdt.internal.core.dom.parser.ASTTranslationUnit.accept(ASTTranslationUnit.java:289)
+	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightingReconciler.reconcilePositions(SemanticHighlightingReconciler.java:450)
+	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightingReconciler.reconciled(SemanticHighlightingReconciler.java:413)
+	at org.eclipse.cdt.internal.ui.editor.CEditor.reconciled(CEditor.java:3107)
+	at org.eclipse.cdt.internal.ui.text.CReconcilingStrategy.reconcile(CReconcilingStrategy.java:100)
+	at org.eclipse.cdt.internal.ui.text.CReconcilingStrategy.reconcile(CReconcilingStrategy.java:64)
+	at org.eclipse.cdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:89)
+	at org.eclipse.cdt.internal.ui.text.CCompositeReconcilingStrategy.reconcile(CCompositeReconcilingStrategy.java:90)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:78)
+	at org.eclipse.cdt.internal.ui.text.CReconciler.process(CReconciler.java:346)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:207)
+!SUBENTRY 1 org.eclipse.cdt.core 4 0 2024-09-11 18:25:37.928
+!MESSAGE Corrupted database: Carro Seguidor.1724766259048.pdom
+
+!ENTRY org.eclipse.cdt.core 4 0 2024-09-11 18:25:37.928
+!MESSAGE Corrupted database: Carro Seguidor.1724766259048.pdom
+
+!ENTRY org.eclipse.cdt.core 4 0 2024-09-11 18:25:37.928
+!MESSAGE Error
+!STACK 1
+org.eclipse.core.runtime.CoreException: Corrupted database: Carro Seguidor.1724766259048.pdom
+	at org.eclipse.cdt.internal.core.pdom.db.Database.databaseCorruptionDetected(Database.java:323)
+	at org.eclipse.cdt.internal.core.pdom.db.Database.getChunk(Database.java:303)
+	at org.eclipse.cdt.internal.core.pdom.db.BTree.accept(BTree.java:555)
+	at org.eclipse.cdt.internal.core.pdom.db.BTree.accept(BTree.java:588)
+	at org.eclipse.cdt.internal.core.pdom.db.BTree.accept(BTree.java:541)
+	at org.eclipse.cdt.internal.core.pdom.dom.PDOMLinkage.getBindingsViaCache(PDOMLinkage.java:427)
+	at org.eclipse.cdt.internal.core.pdom.PDOM.findBindings(PDOM.java:1417)
+	at org.eclipse.cdt.internal.core.pdom.PDOM.findBindings(PDOM.java:1407)
+	at org.eclipse.cdt.internal.core.index.CIndex.findBindings(CIndex.java:650)
+	at org.eclipse.cdt.internal.core.index.CIndex.findBindings(CIndex.java:510)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CScope.getBinding(CScope.java:285)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CVisitor.lookup(CVisitor.java:1063)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CVisitor.resolveBinding(CVisitor.java:837)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CVisitor.createBinding(CVisitor.java:454)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTName.resolveBinding(CASTName.java:66)
+	at org.eclipse.cdt.internal.ui.editor.SemanticToken.getBinding(SemanticToken.java:50)
+	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightings$ExternalSDKHighlighting.consumes(SemanticHighlightings.java:1608)
+	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightingReconciler$AbstractPositionCollector.visitNode(SemanticHighlightingReconciler.java:232)
+	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightingReconciler$AbstractPositionCollector.visit(SemanticHighlightingReconciler.java:194)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTName.accept(CASTName.java:132)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTIdExpression.accept(CASTIdExpression.java:88)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTFunctionCallExpression.accept(CASTFunctionCallExpression.java:114)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTExpressionStatement.accept(CASTExpressionStatement.java:80)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTCompoundStatement.accept(CASTCompoundStatement.java:89)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTFunctionDefinition.accept(CASTFunctionDefinition.java:141)
+	at org.eclipse.cdt.internal.core.dom.parser.ASTTranslationUnit.accept(ASTTranslationUnit.java:289)
+	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightingReconciler.reconcilePositions(SemanticHighlightingReconciler.java:450)
+	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightingReconciler.reconciled(SemanticHighlightingReconciler.java:413)
+	at org.eclipse.cdt.internal.ui.editor.CEditor.reconciled(CEditor.java:3107)
+	at org.eclipse.cdt.internal.ui.text.CReconcilingStrategy.reconcile(CReconcilingStrategy.java:100)
+	at org.eclipse.cdt.internal.ui.text.CReconcilingStrategy.reconcile(CReconcilingStrategy.java:64)
+	at org.eclipse.cdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:89)
+	at org.eclipse.cdt.internal.ui.text.CCompositeReconcilingStrategy.reconcile(CCompositeReconcilingStrategy.java:90)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:78)
+	at org.eclipse.cdt.internal.ui.text.CReconciler.process(CReconciler.java:346)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:207)
+!SUBENTRY 1 org.eclipse.cdt.core 4 0 2024-09-11 18:25:37.928
+!MESSAGE Corrupted database: Carro Seguidor.1724766259048.pdom
+
+!ENTRY org.eclipse.cdt.core 4 0 2024-09-11 18:25:37.929
+!MESSAGE Corrupted database: Carro Seguidor.1724766259048.pdom
+
+!ENTRY org.eclipse.cdt.core 4 0 2024-09-11 18:25:37.929
+!MESSAGE Error
+!STACK 1
+org.eclipse.core.runtime.CoreException: Corrupted database: Carro Seguidor.1724766259048.pdom
+	at org.eclipse.cdt.internal.core.pdom.db.Database.databaseCorruptionDetected(Database.java:323)
+	at org.eclipse.cdt.internal.core.pdom.db.Database.getChunk(Database.java:303)
+	at org.eclipse.cdt.internal.core.pdom.db.BTree.accept(BTree.java:555)
+	at org.eclipse.cdt.internal.core.pdom.db.BTree.accept(BTree.java:588)
+	at org.eclipse.cdt.internal.core.pdom.db.BTree.accept(BTree.java:541)
+	at org.eclipse.cdt.internal.core.pdom.dom.PDOMLinkage.getBindingsViaCache(PDOMLinkage.java:427)
+	at org.eclipse.cdt.internal.core.pdom.PDOM.findBindings(PDOM.java:1417)
+	at org.eclipse.cdt.internal.core.pdom.PDOM.findBindings(PDOM.java:1407)
+	at org.eclipse.cdt.internal.core.index.CIndex.findBindings(CIndex.java:650)
+	at org.eclipse.cdt.internal.core.index.CIndex.findBindings(CIndex.java:510)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CScope.getBinding(CScope.java:285)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CVisitor.lookup(CVisitor.java:1063)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CVisitor.resolveBinding(CVisitor.java:837)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CVisitor.createBinding(CVisitor.java:454)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTName.resolveBinding(CASTName.java:66)
+	at org.eclipse.cdt.internal.ui.editor.SemanticToken.getBinding(SemanticToken.java:50)
+	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightings$ExternalSDKHighlighting.consumes(SemanticHighlightings.java:1608)
+	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightingReconciler$AbstractPositionCollector.visitNode(SemanticHighlightingReconciler.java:232)
+	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightingReconciler$AbstractPositionCollector.visit(SemanticHighlightingReconciler.java:194)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTName.accept(CASTName.java:132)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTIdExpression.accept(CASTIdExpression.java:88)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTFunctionCallExpression.accept(CASTFunctionCallExpression.java:114)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTExpressionStatement.accept(CASTExpressionStatement.java:80)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTCompoundStatement.accept(CASTCompoundStatement.java:89)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTFunctionDefinition.accept(CASTFunctionDefinition.java:141)
+	at org.eclipse.cdt.internal.core.dom.parser.ASTTranslationUnit.accept(ASTTranslationUnit.java:289)
+	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightingReconciler.reconcilePositions(SemanticHighlightingReconciler.java:450)
+	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightingReconciler.reconciled(SemanticHighlightingReconciler.java:413)
+	at org.eclipse.cdt.internal.ui.editor.CEditor.reconciled(CEditor.java:3107)
+	at org.eclipse.cdt.internal.ui.text.CReconcilingStrategy.reconcile(CReconcilingStrategy.java:100)
+	at org.eclipse.cdt.internal.ui.text.CReconcilingStrategy.reconcile(CReconcilingStrategy.java:64)
+	at org.eclipse.cdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:89)
+	at org.eclipse.cdt.internal.ui.text.CCompositeReconcilingStrategy.reconcile(CCompositeReconcilingStrategy.java:90)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:78)
+	at org.eclipse.cdt.internal.ui.text.CReconciler.process(CReconciler.java:346)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:207)
+!SUBENTRY 1 org.eclipse.cdt.core 4 0 2024-09-11 18:25:37.929
+!MESSAGE Corrupted database: Carro Seguidor.1724766259048.pdom
+
+!ENTRY org.eclipse.cdt.core 4 0 2024-09-11 18:25:37.929
+!MESSAGE Corrupted database: Carro Seguidor.1724766259048.pdom
+
+!ENTRY org.eclipse.cdt.core 4 0 2024-09-11 18:25:37.929
+!MESSAGE Error
+!STACK 1
+org.eclipse.core.runtime.CoreException: Corrupted database: Carro Seguidor.1724766259048.pdom
+	at org.eclipse.cdt.internal.core.pdom.db.Database.databaseCorruptionDetected(Database.java:323)
+	at org.eclipse.cdt.internal.core.pdom.db.Database.getChunk(Database.java:303)
+	at org.eclipse.cdt.internal.core.pdom.db.BTree.accept(BTree.java:555)
+	at org.eclipse.cdt.internal.core.pdom.db.BTree.accept(BTree.java:588)
+	at org.eclipse.cdt.internal.core.pdom.db.BTree.accept(BTree.java:541)
+	at org.eclipse.cdt.internal.core.pdom.dom.PDOMLinkage.getBindingsViaCache(PDOMLinkage.java:427)
+	at org.eclipse.cdt.internal.core.pdom.PDOM.findBindings(PDOM.java:1417)
+	at org.eclipse.cdt.internal.core.pdom.PDOM.findBindings(PDOM.java:1407)
+	at org.eclipse.cdt.internal.core.index.CIndex.findBindings(CIndex.java:650)
+	at org.eclipse.cdt.internal.core.index.CIndex.findBindings(CIndex.java:510)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CScope.getBinding(CScope.java:285)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CVisitor.lookup(CVisitor.java:1063)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CVisitor.resolveBinding(CVisitor.java:837)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CVisitor.createBinding(CVisitor.java:454)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTName.resolveBinding(CASTName.java:66)
+	at org.eclipse.cdt.internal.ui.editor.SemanticToken.getBinding(SemanticToken.java:50)
+	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightings$ExternalSDKHighlighting.consumes(SemanticHighlightings.java:1608)
+	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightingReconciler$AbstractPositionCollector.visitNode(SemanticHighlightingReconciler.java:232)
+	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightingReconciler$AbstractPositionCollector.visit(SemanticHighlightingReconciler.java:194)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTName.accept(CASTName.java:132)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTIdExpression.accept(CASTIdExpression.java:88)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTUnaryExpression.accept(CASTUnaryExpression.java:97)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTFunctionCallExpression.accept(CASTFunctionCallExpression.java:118)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTExpressionStatement.accept(CASTExpressionStatement.java:80)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTCompoundStatement.accept(CASTCompoundStatement.java:89)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTFunctionDefinition.accept(CASTFunctionDefinition.java:141)
+	at org.eclipse.cdt.internal.core.dom.parser.ASTTranslationUnit.accept(ASTTranslationUnit.java:289)
+	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightingReconciler.reconcilePositions(SemanticHighlightingReconciler.java:450)
+	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightingReconciler.reconciled(SemanticHighlightingReconciler.java:413)
+	at org.eclipse.cdt.internal.ui.editor.CEditor.reconciled(CEditor.java:3107)
+	at org.eclipse.cdt.internal.ui.text.CReconcilingStrategy.reconcile(CReconcilingStrategy.java:100)
+	at org.eclipse.cdt.internal.ui.text.CReconcilingStrategy.reconcile(CReconcilingStrategy.java:64)
+	at org.eclipse.cdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:89)
+	at org.eclipse.cdt.internal.ui.text.CCompositeReconcilingStrategy.reconcile(CCompositeReconcilingStrategy.java:90)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:78)
+	at org.eclipse.cdt.internal.ui.text.CReconciler.process(CReconciler.java:346)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:207)
+!SUBENTRY 1 org.eclipse.cdt.core 4 0 2024-09-11 18:25:37.929
+!MESSAGE Corrupted database: Carro Seguidor.1724766259048.pdom
+
+!ENTRY org.eclipse.cdt.core 4 0 2024-09-11 18:25:37.931
+!MESSAGE Error
+!STACK 1
+org.eclipse.core.runtime.CoreException: Corrupted database: Carro Seguidor.1724766259048.pdom
+	at org.eclipse.cdt.internal.core.pdom.db.Database.databaseCorruptionDetected(Database.java:323)
+	at org.eclipse.cdt.internal.core.pdom.db.Database.getChunk(Database.java:303)
+	at org.eclipse.cdt.internal.core.pdom.db.BTree.accept(BTree.java:555)
+	at org.eclipse.cdt.internal.core.pdom.db.BTree.accept(BTree.java:588)
+	at org.eclipse.cdt.internal.core.pdom.db.BTree.accept(BTree.java:541)
+	at org.eclipse.cdt.internal.core.pdom.dom.PDOMLinkage.getBindingsViaCache(PDOMLinkage.java:427)
+	at org.eclipse.cdt.internal.core.pdom.PDOM.findBindings(PDOM.java:1417)
+	at org.eclipse.cdt.internal.core.pdom.PDOM.findBindings(PDOM.java:1407)
+	at org.eclipse.cdt.internal.core.index.CIndex.findBindings(CIndex.java:650)
+	at org.eclipse.cdt.internal.core.index.CIndex.findBindings(CIndex.java:510)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CScope.getBinding(CScope.java:285)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CVisitor.lookup(CVisitor.java:1063)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CVisitor.resolveBinding(CVisitor.java:837)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CVisitor.createBinding(CVisitor.java:454)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTName.resolveBinding(CASTName.java:66)
+	at org.eclipse.cdt.internal.ui.editor.SemanticToken.getBinding(SemanticToken.java:50)
+	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightings$ExternalSDKHighlighting.consumes(SemanticHighlightings.java:1608)
+	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightingReconciler$AbstractPositionCollector.visitNode(SemanticHighlightingReconciler.java:232)
+	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightingReconciler$AbstractPositionCollector.visit(SemanticHighlightingReconciler.java:194)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTName.accept(CASTName.java:132)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTIdExpression.accept(CASTIdExpression.java:88)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTFunctionCallExpression.accept(CASTFunctionCallExpression.java:114)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTExpressionStatement.accept(CASTExpressionStatement.java:80)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTCompoundStatement.accept(CASTCompoundStatement.java:89)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTFunctionDefinition.accept(CASTFunctionDefinition.java:141)
+	at org.eclipse.cdt.internal.core.dom.parser.ASTTranslationUnit.accept(ASTTranslationUnit.java:289)
+	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightingReconciler.reconcilePositions(SemanticHighlightingReconciler.java:450)
+	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightingReconciler.reconciled(SemanticHighlightingReconciler.java:413)
+	at org.eclipse.cdt.internal.ui.editor.CEditor.reconciled(CEditor.java:3107)
+	at org.eclipse.cdt.internal.ui.text.CReconcilingStrategy.reconcile(CReconcilingStrategy.java:100)
+	at org.eclipse.cdt.internal.ui.text.CReconcilingStrategy.reconcile(CReconcilingStrategy.java:64)
+	at org.eclipse.cdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:89)
+	at org.eclipse.cdt.internal.ui.text.CCompositeReconcilingStrategy.reconcile(CCompositeReconcilingStrategy.java:90)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:78)
+	at org.eclipse.cdt.internal.ui.text.CReconciler.process(CReconciler.java:346)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:207)
+!SUBENTRY 1 org.eclipse.cdt.core 4 0 2024-09-11 18:25:37.932
+!MESSAGE Corrupted database: Carro Seguidor.1724766259048.pdom
+
+!ENTRY org.eclipse.cdt.core 4 0 2024-09-11 18:25:37.932
+!MESSAGE Corrupted database: Carro Seguidor.1724766259048.pdom
+
+!ENTRY org.eclipse.cdt.core 4 0 2024-09-11 18:25:37.933
+!MESSAGE Corrupted database: Carro Seguidor.1724766259048.pdom
+
+!ENTRY org.eclipse.cdt.core 4 0 2024-09-11 18:25:37.934
+!MESSAGE Error
+!STACK 1
+org.eclipse.core.runtime.CoreException: Corrupted database: Carro Seguidor.1724766259048.pdom
+	at org.eclipse.cdt.internal.core.pdom.db.Database.databaseCorruptionDetected(Database.java:323)
+	at org.eclipse.cdt.internal.core.pdom.db.Database.getChunk(Database.java:303)
+	at org.eclipse.cdt.internal.core.pdom.db.BTree.accept(BTree.java:555)
+	at org.eclipse.cdt.internal.core.pdom.db.BTree.accept(BTree.java:588)
+	at org.eclipse.cdt.internal.core.pdom.db.BTree.accept(BTree.java:541)
+	at org.eclipse.cdt.internal.core.pdom.dom.PDOMLinkage.getBindingsViaCache(PDOMLinkage.java:427)
+	at org.eclipse.cdt.internal.core.pdom.PDOM.findBindings(PDOM.java:1417)
+	at org.eclipse.cdt.internal.core.pdom.PDOM.findBindings(PDOM.java:1407)
+	at org.eclipse.cdt.internal.core.index.CIndex.findBindings(CIndex.java:650)
+	at org.eclipse.cdt.internal.core.index.CIndex.findBindings(CIndex.java:510)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CScope.getBinding(CScope.java:285)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CVisitor.lookup(CVisitor.java:1063)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CVisitor.resolveBinding(CVisitor.java:846)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CVisitor.createBinding(CVisitor.java:456)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTName.resolveBinding(CASTName.java:66)
+	at org.eclipse.cdt.internal.ui.editor.SemanticToken.getBinding(SemanticToken.java:50)
+	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightings$ExternalSDKHighlighting.consumes(SemanticHighlightings.java:1608)
+	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightingReconciler$AbstractPositionCollector.visitNode(SemanticHighlightingReconciler.java:232)
+	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightingReconciler$AbstractPositionCollector.visit(SemanticHighlightingReconciler.java:194)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTName.accept(CASTName.java:132)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTTypedefNameSpecifier.accept(CASTTypedefNameSpecifier.java:81)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTSimpleDeclaration.accept(CASTSimpleDeclaration.java:106)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTDeclarationStatement.accept(CASTDeclarationStatement.java:82)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTCompoundStatement.accept(CASTCompoundStatement.java:89)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTFunctionDefinition.accept(CASTFunctionDefinition.java:141)
+	at org.eclipse.cdt.internal.core.dom.parser.ASTTranslationUnit.accept(ASTTranslationUnit.java:289)
+	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightingReconciler.reconcilePositions(SemanticHighlightingReconciler.java:450)
+	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightingReconciler.reconciled(SemanticHighlightingReconciler.java:413)
+	at org.eclipse.cdt.internal.ui.editor.CEditor.reconciled(CEditor.java:3107)
+	at org.eclipse.cdt.internal.ui.text.CReconcilingStrategy.reconcile(CReconcilingStrategy.java:100)
+	at org.eclipse.cdt.internal.ui.text.CReconcilingStrategy.reconcile(CReconcilingStrategy.java:64)
+	at org.eclipse.cdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:89)
+	at org.eclipse.cdt.internal.ui.text.CCompositeReconcilingStrategy.reconcile(CCompositeReconcilingStrategy.java:90)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:78)
+	at org.eclipse.cdt.internal.ui.text.CReconciler.process(CReconciler.java:346)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:207)
+!SUBENTRY 1 org.eclipse.cdt.core 4 0 2024-09-11 18:25:37.934
+!MESSAGE Corrupted database: Carro Seguidor.1724766259048.pdom
+
+!ENTRY org.eclipse.cdt.core 4 0 2024-09-11 18:25:37.935
+!MESSAGE Error
+!STACK 1
+org.eclipse.core.runtime.CoreException: Corrupted database: Carro Seguidor.1724766259048.pdom
+	at org.eclipse.cdt.internal.core.pdom.db.Database.databaseCorruptionDetected(Database.java:323)
+	at org.eclipse.cdt.internal.core.pdom.db.Database.getChunk(Database.java:303)
+	at org.eclipse.cdt.internal.core.pdom.db.BTree.accept(BTree.java:555)
+	at org.eclipse.cdt.internal.core.pdom.db.BTree.accept(BTree.java:588)
+	at org.eclipse.cdt.internal.core.pdom.db.BTree.accept(BTree.java:541)
+	at org.eclipse.cdt.internal.core.pdom.dom.PDOMLinkage.getBindingsViaCache(PDOMLinkage.java:427)
+	at org.eclipse.cdt.internal.core.pdom.PDOM.findBindings(PDOM.java:1417)
+	at org.eclipse.cdt.internal.core.pdom.PDOM.findBindings(PDOM.java:1407)
+	at org.eclipse.cdt.internal.core.index.CIndex.findBindings(CIndex.java:650)
+	at org.eclipse.cdt.internal.core.index.CIndex.findBindings(CIndex.java:510)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CScope.getBinding(CScope.java:285)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CVisitor.lookup(CVisitor.java:1063)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CVisitor.resolveBinding(CVisitor.java:846)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CVisitor.createBinding(CVisitor.java:456)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTName.resolveBinding(CASTName.java:66)
+	at org.eclipse.cdt.internal.ui.editor.SemanticToken.getBinding(SemanticToken.java:50)
+	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightings$ExternalSDKHighlighting.consumes(SemanticHighlightings.java:1608)
+	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightingReconciler$AbstractPositionCollector.visitNode(SemanticHighlightingReconciler.java:232)
+	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightingReconciler$AbstractPositionCollector.visit(SemanticHighlightingReconciler.java:194)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTName.accept(CASTName.java:132)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTTypedefNameSpecifier.accept(CASTTypedefNameSpecifier.java:81)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTSimpleDeclaration.accept(CASTSimpleDeclaration.java:106)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTDeclarationStatement.accept(CASTDeclarationStatement.java:82)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTCompoundStatement.accept(CASTCompoundStatement.java:89)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTFunctionDefinition.accept(CASTFunctionDefinition.java:141)
+	at org.eclipse.cdt.internal.core.dom.parser.ASTTranslationUnit.accept(ASTTranslationUnit.java:289)
+	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightingReconciler.reconcilePositions(SemanticHighlightingReconciler.java:450)
+	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightingReconciler.reconciled(SemanticHighlightingReconciler.java:413)
+	at org.eclipse.cdt.internal.ui.editor.CEditor.reconciled(CEditor.java:3107)
+	at org.eclipse.cdt.internal.ui.text.CReconcilingStrategy.reconcile(CReconcilingStrategy.java:100)
+	at org.eclipse.cdt.internal.ui.text.CReconcilingStrategy.reconcile(CReconcilingStrategy.java:64)
+	at org.eclipse.cdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:89)
+	at org.eclipse.cdt.internal.ui.text.CCompositeReconcilingStrategy.reconcile(CCompositeReconcilingStrategy.java:90)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:78)
+	at org.eclipse.cdt.internal.ui.text.CReconciler.process(CReconciler.java:346)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:207)
+!SUBENTRY 1 org.eclipse.cdt.core 4 0 2024-09-11 18:25:37.935
+!MESSAGE Corrupted database: Carro Seguidor.1724766259048.pdom
+
+!ENTRY org.eclipse.cdt.core 4 0 2024-09-11 18:25:37.935
+!MESSAGE Corrupted database: Carro Seguidor.1724766259048.pdom
+
+!ENTRY org.eclipse.cdt.core 4 0 2024-09-11 18:25:37.936
+!MESSAGE Error
+!STACK 1
+org.eclipse.core.runtime.CoreException: Corrupted database: Carro Seguidor.1724766259048.pdom
+	at org.eclipse.cdt.internal.core.pdom.db.Database.databaseCorruptionDetected(Database.java:323)
+	at org.eclipse.cdt.internal.core.pdom.db.Database.getChunk(Database.java:303)
+	at org.eclipse.cdt.internal.core.pdom.db.BTree.accept(BTree.java:555)
+	at org.eclipse.cdt.internal.core.pdom.db.BTree.accept(BTree.java:588)
+	at org.eclipse.cdt.internal.core.pdom.db.BTree.accept(BTree.java:541)
+	at org.eclipse.cdt.internal.core.pdom.dom.PDOMLinkage.getBindingsViaCache(PDOMLinkage.java:427)
+	at org.eclipse.cdt.internal.core.pdom.PDOM.findBindings(PDOM.java:1417)
+	at org.eclipse.cdt.internal.core.pdom.PDOM.findBindings(PDOM.java:1407)
+	at org.eclipse.cdt.internal.core.index.CIndex.findBindings(CIndex.java:650)
+	at org.eclipse.cdt.internal.core.index.CIndex.findBindings(CIndex.java:510)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CScope.getBinding(CScope.java:285)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CVisitor.lookup(CVisitor.java:1063)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CVisitor.resolveBinding(CVisitor.java:837)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CVisitor.createBinding(CVisitor.java:454)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTName.resolveBinding(CASTName.java:66)
+	at org.eclipse.cdt.internal.ui.editor.SemanticToken.getBinding(SemanticToken.java:50)
+	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightings$ExternalSDKHighlighting.consumes(SemanticHighlightings.java:1608)
+	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightingReconciler$AbstractPositionCollector.visitNode(SemanticHighlightingReconciler.java:232)
+	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightingReconciler$AbstractPositionCollector.visit(SemanticHighlightingReconciler.java:194)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTName.accept(CASTName.java:132)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTIdExpression.accept(CASTIdExpression.java:88)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTBinaryExpression.accept(CASTBinaryExpression.java:134)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTExpressionStatement.accept(CASTExpressionStatement.java:80)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTCompoundStatement.accept(CASTCompoundStatement.java:89)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTFunctionDefinition.accept(CASTFunctionDefinition.java:141)
+	at org.eclipse.cdt.internal.core.dom.parser.ASTTranslationUnit.accept(ASTTranslationUnit.java:289)
+	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightingReconciler.reconcilePositions(SemanticHighlightingReconciler.java:450)
+	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightingReconciler.reconciled(SemanticHighlightingReconciler.java:413)
+	at org.eclipse.cdt.internal.ui.editor.CEditor.reconciled(CEditor.java:3107)
+	at org.eclipse.cdt.internal.ui.text.CReconcilingStrategy.reconcile(CReconcilingStrategy.java:100)
+	at org.eclipse.cdt.internal.ui.text.CReconcilingStrategy.reconcile(CReconcilingStrategy.java:64)
+	at org.eclipse.cdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:89)
+	at org.eclipse.cdt.internal.ui.text.CCompositeReconcilingStrategy.reconcile(CCompositeReconcilingStrategy.java:90)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:78)
+	at org.eclipse.cdt.internal.ui.text.CReconciler.process(CReconciler.java:346)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:207)
+!SUBENTRY 1 org.eclipse.cdt.core 4 0 2024-09-11 18:25:37.936
+!MESSAGE Corrupted database: Carro Seguidor.1724766259048.pdom
+
+!ENTRY org.eclipse.cdt.core 4 0 2024-09-11 18:25:37.937
+!MESSAGE Error
+!STACK 1
+org.eclipse.core.runtime.CoreException: Corrupted database: Carro Seguidor.1724766259048.pdom
+	at org.eclipse.cdt.internal.core.pdom.db.Database.databaseCorruptionDetected(Database.java:323)
+	at org.eclipse.cdt.internal.core.pdom.db.Database.getChunk(Database.java:303)
+	at org.eclipse.cdt.internal.core.pdom.db.BTree.accept(BTree.java:555)
+	at org.eclipse.cdt.internal.core.pdom.db.BTree.accept(BTree.java:588)
+	at org.eclipse.cdt.internal.core.pdom.db.BTree.accept(BTree.java:541)
+	at org.eclipse.cdt.internal.core.pdom.dom.PDOMLinkage.getBindingsViaCache(PDOMLinkage.java:427)
+	at org.eclipse.cdt.internal.core.pdom.PDOM.findBindings(PDOM.java:1417)
+	at org.eclipse.cdt.internal.core.pdom.PDOM.findBindings(PDOM.java:1407)
+	at org.eclipse.cdt.internal.core.index.CIndex.findBindings(CIndex.java:650)
+	at org.eclipse.cdt.internal.core.index.CIndex.findBindings(CIndex.java:510)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CScope.getBinding(CScope.java:285)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CVisitor.lookup(CVisitor.java:1063)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CVisitor.resolveBinding(CVisitor.java:837)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CVisitor.createBinding(CVisitor.java:454)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTName.resolveBinding(CASTName.java:66)
+	at org.eclipse.cdt.internal.ui.editor.SemanticToken.getBinding(SemanticToken.java:50)
+	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightings$ExternalSDKHighlighting.consumes(SemanticHighlightings.java:1608)
+	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightingReconciler$AbstractPositionCollector.visitNode(SemanticHighlightingReconciler.java:232)
+	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightingReconciler$AbstractPositionCollector.visit(SemanticHighlightingReconciler.java:194)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTName.accept(CASTName.java:132)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTIdExpression.accept(CASTIdExpression.java:88)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTBinaryExpression.accept(CASTBinaryExpression.java:134)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTExpressionStatement.accept(CASTExpressionStatement.java:80)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTCompoundStatement.accept(CASTCompoundStatement.java:89)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTFunctionDefinition.accept(CASTFunctionDefinition.java:141)
+	at org.eclipse.cdt.internal.core.dom.parser.ASTTranslationUnit.accept(ASTTranslationUnit.java:289)
+	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightingReconciler.reconcilePositions(SemanticHighlightingReconciler.java:450)
+	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightingReconciler.reconciled(SemanticHighlightingReconciler.java:413)
+	at org.eclipse.cdt.internal.ui.editor.CEditor.reconciled(CEditor.java:3107)
+	at org.eclipse.cdt.internal.ui.text.CReconcilingStrategy.reconcile(CReconcilingStrategy.java:100)
+	at org.eclipse.cdt.internal.ui.text.CReconcilingStrategy.reconcile(CReconcilingStrategy.java:64)
+	at org.eclipse.cdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:89)
+	at org.eclipse.cdt.internal.ui.text.CCompositeReconcilingStrategy.reconcile(CCompositeReconcilingStrategy.java:90)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:78)
+	at org.eclipse.cdt.internal.ui.text.CReconciler.process(CReconciler.java:346)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:207)
+!SUBENTRY 1 org.eclipse.cdt.core 4 0 2024-09-11 18:25:37.937
+!MESSAGE Corrupted database: Carro Seguidor.1724766259048.pdom
+
+!ENTRY org.eclipse.cdt.core 4 0 2024-09-11 18:25:37.938
+!MESSAGE Error
+!STACK 1
+org.eclipse.core.runtime.CoreException: Corrupted database: Carro Seguidor.1724766259048.pdom
+	at org.eclipse.cdt.internal.core.pdom.db.Database.databaseCorruptionDetected(Database.java:323)
+	at org.eclipse.cdt.internal.core.pdom.db.Database.getChunk(Database.java:303)
+	at org.eclipse.cdt.internal.core.pdom.db.BTree.accept(BTree.java:555)
+	at org.eclipse.cdt.internal.core.pdom.db.BTree.accept(BTree.java:588)
+	at org.eclipse.cdt.internal.core.pdom.db.BTree.accept(BTree.java:541)
+	at org.eclipse.cdt.internal.core.pdom.dom.PDOMLinkage.getBindingsViaCache(PDOMLinkage.java:427)
+	at org.eclipse.cdt.internal.core.pdom.PDOM.findBindings(PDOM.java:1417)
+	at org.eclipse.cdt.internal.core.pdom.PDOM.findBindings(PDOM.java:1407)
+	at org.eclipse.cdt.internal.core.index.CIndex.findBindings(CIndex.java:650)
+	at org.eclipse.cdt.internal.core.index.CIndex.findBindings(CIndex.java:510)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CScope.getBinding(CScope.java:285)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CVisitor.lookup(CVisitor.java:1063)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CVisitor.resolveBinding(CVisitor.java:837)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CVisitor.createBinding(CVisitor.java:454)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTName.resolveBinding(CASTName.java:66)
+	at org.eclipse.cdt.internal.ui.editor.SemanticToken.getBinding(SemanticToken.java:50)
+	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightings$ExternalSDKHighlighting.consumes(SemanticHighlightings.java:1608)
+	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightingReconciler$AbstractPositionCollector.visitNode(SemanticHighlightingReconciler.java:232)
+	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightingReconciler$AbstractPositionCollector.visit(SemanticHighlightingReconciler.java:194)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTName.accept(CASTName.java:132)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTIdExpression.accept(CASTIdExpression.java:88)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTBinaryExpression.accept(CASTBinaryExpression.java:134)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTExpressionStatement.accept(CASTExpressionStatement.java:80)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTCompoundStatement.accept(CASTCompoundStatement.java:89)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTFunctionDefinition.accept(CASTFunctionDefinition.java:141)
+	at org.eclipse.cdt.internal.core.dom.parser.ASTTranslationUnit.accept(ASTTranslationUnit.java:289)
+	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightingReconciler.reconcilePositions(SemanticHighlightingReconciler.java:450)
+	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightingReconciler.reconciled(SemanticHighlightingReconciler.java:413)
+	at org.eclipse.cdt.internal.ui.editor.CEditor.reconciled(CEditor.java:3107)
+	at org.eclipse.cdt.internal.ui.text.CReconcilingStrategy.reconcile(CReconcilingStrategy.java:100)
+	at org.eclipse.cdt.internal.ui.text.CReconcilingStrategy.reconcile(CReconcilingStrategy.java:64)
+	at org.eclipse.cdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:89)
+	at org.eclipse.cdt.internal.ui.text.CCompositeReconcilingStrategy.reconcile(CCompositeReconcilingStrategy.java:90)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:78)
+	at org.eclipse.cdt.internal.ui.text.CReconciler.process(CReconciler.java:346)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:207)
+!SUBENTRY 1 org.eclipse.cdt.core 4 0 2024-09-11 18:25:37.938
+!MESSAGE Corrupted database: Carro Seguidor.1724766259048.pdom
+
+!ENTRY org.eclipse.cdt.core 4 0 2024-09-11 18:25:37.940
+!MESSAGE Error
+!STACK 1
+org.eclipse.core.runtime.CoreException: Corrupted database: Carro Seguidor.1724766259048.pdom
+	at org.eclipse.cdt.internal.core.pdom.db.Database.databaseCorruptionDetected(Database.java:323)
+	at org.eclipse.cdt.internal.core.pdom.db.Database.getChunk(Database.java:303)
+	at org.eclipse.cdt.internal.core.pdom.db.BTree.accept(BTree.java:555)
+	at org.eclipse.cdt.internal.core.pdom.db.BTree.accept(BTree.java:588)
+	at org.eclipse.cdt.internal.core.pdom.db.BTree.accept(BTree.java:541)
+	at org.eclipse.cdt.internal.core.pdom.dom.PDOMLinkage.getBindingsViaCache(PDOMLinkage.java:427)
+	at org.eclipse.cdt.internal.core.pdom.PDOM.findBindings(PDOM.java:1417)
+	at org.eclipse.cdt.internal.core.pdom.PDOM.findBindings(PDOM.java:1407)
+	at org.eclipse.cdt.internal.core.index.CIndex.findBindings(CIndex.java:650)
+	at org.eclipse.cdt.internal.core.index.CIndex.findBindings(CIndex.java:510)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CScope.getBinding(CScope.java:285)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CVisitor.lookup(CVisitor.java:1063)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CVisitor.resolveBinding(CVisitor.java:837)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CVisitor.createBinding(CVisitor.java:454)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTName.resolveBinding(CASTName.java:66)
+	at org.eclipse.cdt.internal.ui.editor.SemanticToken.getBinding(SemanticToken.java:50)
+	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightings$ExternalSDKHighlighting.consumes(SemanticHighlightings.java:1608)
+	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightingReconciler$AbstractPositionCollector.visitNode(SemanticHighlightingReconciler.java:232)
+	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightingReconciler$AbstractPositionCollector.visit(SemanticHighlightingReconciler.java:194)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTName.accept(CASTName.java:132)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTIdExpression.accept(CASTIdExpression.java:88)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTBinaryExpression.accept(CASTBinaryExpression.java:134)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTExpressionStatement.accept(CASTExpressionStatement.java:80)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTCompoundStatement.accept(CASTCompoundStatement.java:89)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTFunctionDefinition.accept(CASTFunctionDefinition.java:141)
+	at org.eclipse.cdt.internal.core.dom.parser.ASTTranslationUnit.accept(ASTTranslationUnit.java:289)
+	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightingReconciler.reconcilePositions(SemanticHighlightingReconciler.java:450)
+	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightingReconciler.reconciled(SemanticHighlightingReconciler.java:413)
+	at org.eclipse.cdt.internal.ui.editor.CEditor.reconciled(CEditor.java:3107)
+	at org.eclipse.cdt.internal.ui.text.CReconcilingStrategy.reconcile(CReconcilingStrategy.java:100)
+	at org.eclipse.cdt.internal.ui.text.CReconcilingStrategy.reconcile(CReconcilingStrategy.java:64)
+	at org.eclipse.cdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:89)
+	at org.eclipse.cdt.internal.ui.text.CCompositeReconcilingStrategy.reconcile(CCompositeReconcilingStrategy.java:90)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:78)
+	at org.eclipse.cdt.internal.ui.text.CReconciler.process(CReconciler.java:346)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:207)
+!SUBENTRY 1 org.eclipse.cdt.core 4 0 2024-09-11 18:25:37.940
+!MESSAGE Corrupted database: Carro Seguidor.1724766259048.pdom
+
+!ENTRY org.eclipse.cdt.core 4 0 2024-09-11 18:25:37.941
+!MESSAGE Error
+!STACK 1
+org.eclipse.core.runtime.CoreException: Corrupted database: Carro Seguidor.1724766259048.pdom
+	at org.eclipse.cdt.internal.core.pdom.db.Database.databaseCorruptionDetected(Database.java:323)
+	at org.eclipse.cdt.internal.core.pdom.db.Database.getChunk(Database.java:303)
+	at org.eclipse.cdt.internal.core.pdom.db.BTree.accept(BTree.java:555)
+	at org.eclipse.cdt.internal.core.pdom.db.BTree.accept(BTree.java:588)
+	at org.eclipse.cdt.internal.core.pdom.db.BTree.accept(BTree.java:541)
+	at org.eclipse.cdt.internal.core.pdom.dom.PDOMLinkage.getBindingsViaCache(PDOMLinkage.java:427)
+	at org.eclipse.cdt.internal.core.pdom.PDOM.findBindings(PDOM.java:1417)
+	at org.eclipse.cdt.internal.core.pdom.PDOM.findBindings(PDOM.java:1407)
+	at org.eclipse.cdt.internal.core.index.CIndex.findBindings(CIndex.java:650)
+	at org.eclipse.cdt.internal.core.index.CIndex.findBindings(CIndex.java:510)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CScope.getBinding(CScope.java:285)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CVisitor.lookup(CVisitor.java:1063)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CVisitor.resolveBinding(CVisitor.java:837)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CVisitor.createBinding(CVisitor.java:454)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTName.resolveBinding(CASTName.java:66)
+	at org.eclipse.cdt.internal.ui.editor.SemanticToken.getBinding(SemanticToken.java:50)
+	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightings$ExternalSDKHighlighting.consumes(SemanticHighlightings.java:1608)
+	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightingReconciler$AbstractPositionCollector.visitNode(SemanticHighlightingReconciler.java:232)
+	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightingReconciler$AbstractPositionCollector.visit(SemanticHighlightingReconciler.java:194)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTName.accept(CASTName.java:132)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTIdExpression.accept(CASTIdExpression.java:88)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTBinaryExpression.accept(CASTBinaryExpression.java:134)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTExpressionStatement.accept(CASTExpressionStatement.java:80)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTCompoundStatement.accept(CASTCompoundStatement.java:89)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTFunctionDefinition.accept(CASTFunctionDefinition.java:141)
+	at org.eclipse.cdt.internal.core.dom.parser.ASTTranslationUnit.accept(ASTTranslationUnit.java:289)
+	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightingReconciler.reconcilePositions(SemanticHighlightingReconciler.java:450)
+	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightingReconciler.reconciled(SemanticHighlightingReconciler.java:413)
+	at org.eclipse.cdt.internal.ui.editor.CEditor.reconciled(CEditor.java:3107)
+	at org.eclipse.cdt.internal.ui.text.CReconcilingStrategy.reconcile(CReconcilingStrategy.java:100)
+	at org.eclipse.cdt.internal.ui.text.CReconcilingStrategy.reconcile(CReconcilingStrategy.java:64)
+	at org.eclipse.cdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:89)
+	at org.eclipse.cdt.internal.ui.text.CCompositeReconcilingStrategy.reconcile(CCompositeReconcilingStrategy.java:90)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:78)
+	at org.eclipse.cdt.internal.ui.text.CReconciler.process(CReconciler.java:346)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:207)
+!SUBENTRY 1 org.eclipse.cdt.core 4 0 2024-09-11 18:25:37.941
+!MESSAGE Corrupted database: Carro Seguidor.1724766259048.pdom
+
+!ENTRY org.eclipse.cdt.core 4 0 2024-09-11 18:25:37.941
+!MESSAGE Error
+!STACK 1
+org.eclipse.core.runtime.CoreException: Corrupted database: Carro Seguidor.1724766259048.pdom
+	at org.eclipse.cdt.internal.core.pdom.db.Database.databaseCorruptionDetected(Database.java:323)
+	at org.eclipse.cdt.internal.core.pdom.db.Database.getChunk(Database.java:303)
+	at org.eclipse.cdt.internal.core.pdom.db.BTree.accept(BTree.java:555)
+	at org.eclipse.cdt.internal.core.pdom.db.BTree.accept(BTree.java:588)
+	at org.eclipse.cdt.internal.core.pdom.db.BTree.accept(BTree.java:541)
+	at org.eclipse.cdt.internal.core.pdom.dom.PDOMLinkage.getBindingsViaCache(PDOMLinkage.java:427)
+	at org.eclipse.cdt.internal.core.pdom.PDOM.findBindings(PDOM.java:1417)
+	at org.eclipse.cdt.internal.core.pdom.PDOM.findBindings(PDOM.java:1407)
+	at org.eclipse.cdt.internal.core.index.CIndex.findBindings(CIndex.java:650)
+	at org.eclipse.cdt.internal.core.index.CIndex.findBindings(CIndex.java:510)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CScope.getBinding(CScope.java:285)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CVisitor.lookup(CVisitor.java:1063)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CVisitor.resolveBinding(CVisitor.java:837)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CVisitor.createBinding(CVisitor.java:454)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTName.resolveBinding(CASTName.java:66)
+	at org.eclipse.cdt.internal.ui.editor.SemanticToken.getBinding(SemanticToken.java:50)
+	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightings$ExternalSDKHighlighting.consumes(SemanticHighlightings.java:1608)
+	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightingReconciler$AbstractPositionCollector.visitNode(SemanticHighlightingReconciler.java:232)
+	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightingReconciler$AbstractPositionCollector.visit(SemanticHighlightingReconciler.java:194)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTName.accept(CASTName.java:132)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTIdExpression.accept(CASTIdExpression.java:88)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTBinaryExpression.accept(CASTBinaryExpression.java:134)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTExpressionStatement.accept(CASTExpressionStatement.java:80)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTCompoundStatement.accept(CASTCompoundStatement.java:89)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTFunctionDefinition.accept(CASTFunctionDefinition.java:141)
+	at org.eclipse.cdt.internal.core.dom.parser.ASTTranslationUnit.accept(ASTTranslationUnit.java:289)
+	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightingReconciler.reconcilePositions(SemanticHighlightingReconciler.java:450)
+	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightingReconciler.reconciled(SemanticHighlightingReconciler.java:413)
+	at org.eclipse.cdt.internal.ui.editor.CEditor.reconciled(CEditor.java:3107)
+	at org.eclipse.cdt.internal.ui.text.CReconcilingStrategy.reconcile(CReconcilingStrategy.java:100)
+	at org.eclipse.cdt.internal.ui.text.CReconcilingStrategy.reconcile(CReconcilingStrategy.java:64)
+	at org.eclipse.cdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:89)
+	at org.eclipse.cdt.internal.ui.text.CCompositeReconcilingStrategy.reconcile(CCompositeReconcilingStrategy.java:90)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:78)
+	at org.eclipse.cdt.internal.ui.text.CReconciler.process(CReconciler.java:346)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:207)
+!SUBENTRY 1 org.eclipse.cdt.core 4 0 2024-09-11 18:25:37.941
+!MESSAGE Corrupted database: Carro Seguidor.1724766259048.pdom
+
+!ENTRY org.eclipse.cdt.core 4 0 2024-09-11 18:25:37.942
+!MESSAGE Error
+!STACK 1
+org.eclipse.core.runtime.CoreException: Corrupted database: Carro Seguidor.1724766259048.pdom
+	at org.eclipse.cdt.internal.core.pdom.db.Database.databaseCorruptionDetected(Database.java:323)
+	at org.eclipse.cdt.internal.core.pdom.db.Database.getChunk(Database.java:303)
+	at org.eclipse.cdt.internal.core.pdom.db.BTree.accept(BTree.java:555)
+	at org.eclipse.cdt.internal.core.pdom.db.BTree.accept(BTree.java:588)
+	at org.eclipse.cdt.internal.core.pdom.db.BTree.accept(BTree.java:541)
+	at org.eclipse.cdt.internal.core.pdom.dom.PDOMLinkage.getBindingsViaCache(PDOMLinkage.java:427)
+	at org.eclipse.cdt.internal.core.pdom.PDOM.findBindings(PDOM.java:1417)
+	at org.eclipse.cdt.internal.core.pdom.PDOM.findBindings(PDOM.java:1407)
+	at org.eclipse.cdt.internal.core.index.CIndex.findBindings(CIndex.java:650)
+	at org.eclipse.cdt.internal.core.index.CIndex.findBindings(CIndex.java:510)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CScope.getBinding(CScope.java:285)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CVisitor.lookup(CVisitor.java:1063)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CVisitor.resolveBinding(CVisitor.java:837)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CVisitor.createBinding(CVisitor.java:454)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTName.resolveBinding(CASTName.java:66)
+	at org.eclipse.cdt.internal.ui.editor.SemanticToken.getBinding(SemanticToken.java:50)
+	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightings$ExternalSDKHighlighting.consumes(SemanticHighlightings.java:1608)
+	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightingReconciler$AbstractPositionCollector.visitNode(SemanticHighlightingReconciler.java:232)
+	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightingReconciler$AbstractPositionCollector.visit(SemanticHighlightingReconciler.java:194)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTName.accept(CASTName.java:132)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTIdExpression.accept(CASTIdExpression.java:88)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTBinaryExpression.accept(CASTBinaryExpression.java:134)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTExpressionStatement.accept(CASTExpressionStatement.java:80)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTCompoundStatement.accept(CASTCompoundStatement.java:89)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTFunctionDefinition.accept(CASTFunctionDefinition.java:141)
+	at org.eclipse.cdt.internal.core.dom.parser.ASTTranslationUnit.accept(ASTTranslationUnit.java:289)
+	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightingReconciler.reconcilePositions(SemanticHighlightingReconciler.java:450)
+	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightingReconciler.reconciled(SemanticHighlightingReconciler.java:413)
+	at org.eclipse.cdt.internal.ui.editor.CEditor.reconciled(CEditor.java:3107)
+	at org.eclipse.cdt.internal.ui.text.CReconcilingStrategy.reconcile(CReconcilingStrategy.java:100)
+	at org.eclipse.cdt.internal.ui.text.CReconcilingStrategy.reconcile(CReconcilingStrategy.java:64)
+	at org.eclipse.cdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:89)
+	at org.eclipse.cdt.internal.ui.text.CCompositeReconcilingStrategy.reconcile(CCompositeReconcilingStrategy.java:90)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:78)
+	at org.eclipse.cdt.internal.ui.text.CReconciler.process(CReconciler.java:346)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:207)
+!SUBENTRY 1 org.eclipse.cdt.core 4 0 2024-09-11 18:25:37.942
+!MESSAGE Corrupted database: Carro Seguidor.1724766259048.pdom
+
+!ENTRY org.eclipse.cdt.core 4 0 2024-09-11 18:25:37.942
+!MESSAGE Error
+!STACK 1
+org.eclipse.core.runtime.CoreException: Corrupted database: Carro Seguidor.1724766259048.pdom
+	at org.eclipse.cdt.internal.core.pdom.db.Database.databaseCorruptionDetected(Database.java:323)
+	at org.eclipse.cdt.internal.core.pdom.db.Database.getChunk(Database.java:303)
+	at org.eclipse.cdt.internal.core.pdom.db.BTree.accept(BTree.java:555)
+	at org.eclipse.cdt.internal.core.pdom.db.BTree.accept(BTree.java:588)
+	at org.eclipse.cdt.internal.core.pdom.db.BTree.accept(BTree.java:541)
+	at org.eclipse.cdt.internal.core.pdom.dom.PDOMLinkage.getBindingsViaCache(PDOMLinkage.java:427)
+	at org.eclipse.cdt.internal.core.pdom.PDOM.findBindings(PDOM.java:1417)
+	at org.eclipse.cdt.internal.core.pdom.PDOM.findBindings(PDOM.java:1407)
+	at org.eclipse.cdt.internal.core.index.CIndex.findBindings(CIndex.java:650)
+	at org.eclipse.cdt.internal.core.index.CIndex.findBindings(CIndex.java:510)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CScope.getBinding(CScope.java:285)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CVisitor.lookup(CVisitor.java:1063)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CVisitor.resolveBinding(CVisitor.java:837)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CVisitor.createBinding(CVisitor.java:454)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTName.resolveBinding(CASTName.java:66)
+	at org.eclipse.cdt.internal.ui.editor.SemanticToken.getBinding(SemanticToken.java:50)
+	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightings$ExternalSDKHighlighting.consumes(SemanticHighlightings.java:1608)
+	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightingReconciler$AbstractPositionCollector.visitNode(SemanticHighlightingReconciler.java:232)
+	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightingReconciler$AbstractPositionCollector.visit(SemanticHighlightingReconciler.java:194)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTName.accept(CASTName.java:132)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTIdExpression.accept(CASTIdExpression.java:88)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTBinaryExpression.accept(CASTBinaryExpression.java:134)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTExpressionStatement.accept(CASTExpressionStatement.java:80)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTCompoundStatement.accept(CASTCompoundStatement.java:89)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTFunctionDefinition.accept(CASTFunctionDefinition.java:141)
+	at org.eclipse.cdt.internal.core.dom.parser.ASTTranslationUnit.accept(ASTTranslationUnit.java:289)
+	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightingReconciler.reconcilePositions(SemanticHighlightingReconciler.java:450)
+	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightingReconciler.reconciled(SemanticHighlightingReconciler.java:413)
+	at org.eclipse.cdt.internal.ui.editor.CEditor.reconciled(CEditor.java:3107)
+	at org.eclipse.cdt.internal.ui.text.CReconcilingStrategy.reconcile(CReconcilingStrategy.java:100)
+	at org.eclipse.cdt.internal.ui.text.CReconcilingStrategy.reconcile(CReconcilingStrategy.java:64)
+	at org.eclipse.cdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:89)
+	at org.eclipse.cdt.internal.ui.text.CCompositeReconcilingStrategy.reconcile(CCompositeReconcilingStrategy.java:90)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:78)
+	at org.eclipse.cdt.internal.ui.text.CReconciler.process(CReconciler.java:346)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:207)
+!SUBENTRY 1 org.eclipse.cdt.core 4 0 2024-09-11 18:25:37.942
+!MESSAGE Corrupted database: Carro Seguidor.1724766259048.pdom
+
+!ENTRY org.eclipse.cdt.core 4 0 2024-09-11 18:25:37.942
+!MESSAGE Error
+!STACK 1
+org.eclipse.core.runtime.CoreException: Corrupted database: Carro Seguidor.1724766259048.pdom
+	at org.eclipse.cdt.internal.core.pdom.db.Database.databaseCorruptionDetected(Database.java:323)
+	at org.eclipse.cdt.internal.core.pdom.db.Database.getChunk(Database.java:303)
+	at org.eclipse.cdt.internal.core.pdom.db.BTree.accept(BTree.java:555)
+	at org.eclipse.cdt.internal.core.pdom.db.BTree.accept(BTree.java:588)
+	at org.eclipse.cdt.internal.core.pdom.db.BTree.accept(BTree.java:541)
+	at org.eclipse.cdt.internal.core.pdom.dom.PDOMLinkage.getBindingsViaCache(PDOMLinkage.java:427)
+	at org.eclipse.cdt.internal.core.pdom.PDOM.findBindings(PDOM.java:1417)
+	at org.eclipse.cdt.internal.core.pdom.PDOM.findBindings(PDOM.java:1407)
+	at org.eclipse.cdt.internal.core.index.CIndex.findBindings(CIndex.java:650)
+	at org.eclipse.cdt.internal.core.index.CIndex.findBindings(CIndex.java:510)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CScope.getBinding(CScope.java:285)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CVisitor.lookup(CVisitor.java:1063)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CVisitor.resolveBinding(CVisitor.java:837)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CVisitor.createBinding(CVisitor.java:454)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTName.resolveBinding(CASTName.java:66)
+	at org.eclipse.cdt.internal.ui.editor.SemanticToken.getBinding(SemanticToken.java:50)
+	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightings$ExternalSDKHighlighting.consumes(SemanticHighlightings.java:1608)
+	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightingReconciler$AbstractPositionCollector.visitNode(SemanticHighlightingReconciler.java:232)
+	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightingReconciler$AbstractPositionCollector.visit(SemanticHighlightingReconciler.java:194)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTName.accept(CASTName.java:132)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTIdExpression.accept(CASTIdExpression.java:88)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTBinaryExpression.accept(CASTBinaryExpression.java:134)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTExpressionStatement.accept(CASTExpressionStatement.java:80)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTCompoundStatement.accept(CASTCompoundStatement.java:89)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTFunctionDefinition.accept(CASTFunctionDefinition.java:141)
+	at org.eclipse.cdt.internal.core.dom.parser.ASTTranslationUnit.accept(ASTTranslationUnit.java:289)
+	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightingReconciler.reconcilePositions(SemanticHighlightingReconciler.java:450)
+	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightingReconciler.reconciled(SemanticHighlightingReconciler.java:413)
+	at org.eclipse.cdt.internal.ui.editor.CEditor.reconciled(CEditor.java:3107)
+	at org.eclipse.cdt.internal.ui.text.CReconcilingStrategy.reconcile(CReconcilingStrategy.java:100)
+	at org.eclipse.cdt.internal.ui.text.CReconcilingStrategy.reconcile(CReconcilingStrategy.java:64)
+	at org.eclipse.cdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:89)
+	at org.eclipse.cdt.internal.ui.text.CCompositeReconcilingStrategy.reconcile(CCompositeReconcilingStrategy.java:90)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:78)
+	at org.eclipse.cdt.internal.ui.text.CReconciler.process(CReconciler.java:346)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:207)
+!SUBENTRY 1 org.eclipse.cdt.core 4 0 2024-09-11 18:25:37.942
+!MESSAGE Corrupted database: Carro Seguidor.1724766259048.pdom
+
+!ENTRY org.eclipse.cdt.core 4 0 2024-09-11 18:25:37.943
+!MESSAGE Error
+!STACK 1
+org.eclipse.core.runtime.CoreException: Corrupted database: Carro Seguidor.1724766259048.pdom
+	at org.eclipse.cdt.internal.core.pdom.db.Database.databaseCorruptionDetected(Database.java:323)
+	at org.eclipse.cdt.internal.core.pdom.db.Database.getChunk(Database.java:303)
+	at org.eclipse.cdt.internal.core.pdom.db.Database.getRecPtr(Database.java:518)
+	at org.eclipse.cdt.internal.core.pdom.dom.PDOMNamedNode.getDBName(PDOMNamedNode.java:74)
+	at org.eclipse.cdt.internal.core.pdom.dom.NamedNodeCollector.compare(NamedNodeCollector.java:96)
+	at org.eclipse.cdt.internal.core.pdom.db.BTree.accept(BTree.java:569)
+	at org.eclipse.cdt.internal.core.pdom.db.BTree.accept(BTree.java:588)
+	at org.eclipse.cdt.internal.core.pdom.db.BTree.accept(BTree.java:541)
+	at org.eclipse.cdt.internal.core.pdom.dom.PDOMLinkage.getBindingsViaCache(PDOMLinkage.java:427)
+	at org.eclipse.cdt.internal.core.pdom.PDOM.findBindings(PDOM.java:1417)
+	at org.eclipse.cdt.internal.core.pdom.PDOM.findBindings(PDOM.java:1407)
+	at org.eclipse.cdt.internal.core.index.CIndex.findBindings(CIndex.java:650)
+	at org.eclipse.cdt.internal.core.index.CIndex.findBindings(CIndex.java:510)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CScope.getBinding(CScope.java:285)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CVisitor.lookup(CVisitor.java:1063)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CVisitor.resolveBinding(CVisitor.java:837)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CVisitor.createBinding(CVisitor.java:454)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTName.resolveBinding(CASTName.java:66)
+	at org.eclipse.cdt.internal.ui.editor.SemanticToken.getBinding(SemanticToken.java:50)
+	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightings$ExternalSDKHighlighting.consumes(SemanticHighlightings.java:1608)
+	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightingReconciler$AbstractPositionCollector.visitNode(SemanticHighlightingReconciler.java:232)
+	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightingReconciler$AbstractPositionCollector.visit(SemanticHighlightingReconciler.java:194)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTName.accept(CASTName.java:132)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTIdExpression.accept(CASTIdExpression.java:88)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTFunctionCallExpression.accept(CASTFunctionCallExpression.java:114)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTBinaryExpression.accept(CASTBinaryExpression.java:132)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTIfStatement.accept(CASTIfStatement.java:137)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTCompoundStatement.accept(CASTCompoundStatement.java:89)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTFunctionDefinition.accept(CASTFunctionDefinition.java:141)
+	at org.eclipse.cdt.internal.core.dom.parser.ASTTranslationUnit.accept(ASTTranslationUnit.java:289)
+	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightingReconciler.reconcilePositions(SemanticHighlightingReconciler.java:450)
+	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightingReconciler.reconciled(SemanticHighlightingReconciler.java:413)
+	at org.eclipse.cdt.internal.ui.editor.CEditor.reconciled(CEditor.java:3107)
+	at org.eclipse.cdt.internal.ui.text.CReconcilingStrategy.reconcile(CReconcilingStrategy.java:100)
+	at org.eclipse.cdt.internal.ui.text.CReconcilingStrategy.reconcile(CReconcilingStrategy.java:64)
+	at org.eclipse.cdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:89)
+	at org.eclipse.cdt.internal.ui.text.CCompositeReconcilingStrategy.reconcile(CCompositeReconcilingStrategy.java:90)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:78)
+	at org.eclipse.cdt.internal.ui.text.CReconciler.process(CReconciler.java:346)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:207)
+!SUBENTRY 1 org.eclipse.cdt.core 4 0 2024-09-11 18:25:37.943
+!MESSAGE Corrupted database: Carro Seguidor.1724766259048.pdom
+
+!ENTRY org.eclipse.cdt.core 4 0 2024-09-11 18:25:37.943
+!MESSAGE Corrupted database: Carro Seguidor.1724766259048.pdom
+
+!ENTRY org.eclipse.cdt.core 4 0 2024-09-11 18:25:37.943
+!MESSAGE Error
+!STACK 1
+org.eclipse.core.runtime.CoreException: Corrupted database: Carro Seguidor.1724766259048.pdom
+	at org.eclipse.cdt.internal.core.pdom.db.Database.databaseCorruptionDetected(Database.java:323)
+	at org.eclipse.cdt.internal.core.pdom.db.Database.getChunk(Database.java:303)
+	at org.eclipse.cdt.internal.core.pdom.db.Database.getRecPtr(Database.java:518)
+	at org.eclipse.cdt.internal.core.pdom.dom.PDOMNamedNode.getDBName(PDOMNamedNode.java:74)
+	at org.eclipse.cdt.internal.core.pdom.dom.NamedNodeCollector.compare(NamedNodeCollector.java:96)
+	at org.eclipse.cdt.internal.core.pdom.db.BTree.accept(BTree.java:569)
 	at org.eclipse.cdt.internal.core.pdom.db.BTree.accept(BTree.java:588)
 	at org.eclipse.cdt.internal.core.pdom.db.BTree.accept(BTree.java:541)
 	at org.eclipse.cdt.internal.core.pdom.dom.PDOMLinkage.getBindingsViaCache(PDOMLinkage.java:427)
@@ -242,13 +1355,10 @@ org.eclipse.core.runtime.CoreException: Corrupted database: Carro Seguidor.17247
 	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:78)
 	at org.eclipse.cdt.internal.ui.text.CReconciler.process(CReconciler.java:346)
 	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:207)
-!SUBENTRY 1 org.eclipse.cdt.core 4 0 2024-09-10 16:28:44.802
+!SUBENTRY 1 org.eclipse.cdt.core 4 0 2024-09-11 18:25:37.943
 !MESSAGE Corrupted database: Carro Seguidor.1724766259048.pdom
 
-!ENTRY org.eclipse.cdt.core 4 0 2024-09-10 16:28:44.803
-!MESSAGE Corrupted database: Carro Seguidor.1724766259048.pdom
-
-!ENTRY org.eclipse.cdt.core 4 0 2024-09-10 16:28:44.803
+!ENTRY org.eclipse.cdt.core 4 0 2024-09-11 18:25:37.944
 !MESSAGE Error
 !STACK 1
 org.eclipse.core.runtime.CoreException: Corrupted database: Carro Seguidor.1724766259048.pdom
@@ -273,12 +1383,9 @@ org.eclipse.core.runtime.CoreException: Corrupted database: Carro Seguidor.17247
 	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightingReconciler$AbstractPositionCollector.visit(SemanticHighlightingReconciler.java:194)
 	at org.eclipse.cdt.internal.core.dom.parser.c.CASTName.accept(CASTName.java:132)
 	at org.eclipse.cdt.internal.core.dom.parser.c.CASTIdExpression.accept(CASTIdExpression.java:88)
-	at org.eclipse.cdt.internal.core.dom.parser.c.CASTFunctionCallExpression.accept(CASTFunctionCallExpression.java:118)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTBinaryExpression.acceptWithoutRecursion(CASTBinaryExpression.java:175)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTBinaryExpression.accept(CASTBinaryExpression.java:118)
 	at org.eclipse.cdt.internal.core.dom.parser.c.CASTExpressionStatement.accept(CASTExpressionStatement.java:80)
-	at org.eclipse.cdt.internal.core.dom.parser.c.CASTCompoundStatement.accept(CASTCompoundStatement.java:89)
-	at org.eclipse.cdt.internal.core.dom.parser.c.CASTIfStatement.accept(CASTIfStatement.java:140)
-	at org.eclipse.cdt.internal.core.dom.parser.c.CASTCompoundStatement.accept(CASTCompoundStatement.java:89)
-	at org.eclipse.cdt.internal.core.dom.parser.c.CASTIfStatement.accept(CASTIfStatement.java:140)
 	at org.eclipse.cdt.internal.core.dom.parser.c.CASTCompoundStatement.accept(CASTCompoundStatement.java:89)
 	at org.eclipse.cdt.internal.core.dom.parser.c.CASTFunctionDefinition.accept(CASTFunctionDefinition.java:141)
 	at org.eclipse.cdt.internal.core.dom.parser.ASTTranslationUnit.accept(ASTTranslationUnit.java:289)
@@ -292,10 +1399,10 @@ org.eclipse.core.runtime.CoreException: Corrupted database: Carro Seguidor.17247
 	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:78)
 	at org.eclipse.cdt.internal.ui.text.CReconciler.process(CReconciler.java:346)
 	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:207)
-!SUBENTRY 1 org.eclipse.cdt.core 4 0 2024-09-10 16:28:44.803
+!SUBENTRY 1 org.eclipse.cdt.core 4 0 2024-09-11 18:25:37.944
 !MESSAGE Corrupted database: Carro Seguidor.1724766259048.pdom
 
-!ENTRY org.eclipse.cdt.core 4 0 2024-09-10 16:28:44.804
+!ENTRY org.eclipse.cdt.core 4 0 2024-09-11 18:25:37.944
 !MESSAGE Error
 !STACK 1
 org.eclipse.core.runtime.CoreException: Corrupted database: Carro Seguidor.1724766259048.pdom
@@ -320,12 +1427,9 @@ org.eclipse.core.runtime.CoreException: Corrupted database: Carro Seguidor.17247
 	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightingReconciler$AbstractPositionCollector.visit(SemanticHighlightingReconciler.java:194)
 	at org.eclipse.cdt.internal.core.dom.parser.c.CASTName.accept(CASTName.java:132)
 	at org.eclipse.cdt.internal.core.dom.parser.c.CASTIdExpression.accept(CASTIdExpression.java:88)
-	at org.eclipse.cdt.internal.core.dom.parser.c.CASTFunctionCallExpression.accept(CASTFunctionCallExpression.java:118)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTBinaryExpression.acceptWithoutRecursion(CASTBinaryExpression.java:188)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTBinaryExpression.accept(CASTBinaryExpression.java:118)
 	at org.eclipse.cdt.internal.core.dom.parser.c.CASTExpressionStatement.accept(CASTExpressionStatement.java:80)
-	at org.eclipse.cdt.internal.core.dom.parser.c.CASTCompoundStatement.accept(CASTCompoundStatement.java:89)
-	at org.eclipse.cdt.internal.core.dom.parser.c.CASTIfStatement.accept(CASTIfStatement.java:140)
-	at org.eclipse.cdt.internal.core.dom.parser.c.CASTCompoundStatement.accept(CASTCompoundStatement.java:89)
-	at org.eclipse.cdt.internal.core.dom.parser.c.CASTIfStatement.accept(CASTIfStatement.java:140)
 	at org.eclipse.cdt.internal.core.dom.parser.c.CASTCompoundStatement.accept(CASTCompoundStatement.java:89)
 	at org.eclipse.cdt.internal.core.dom.parser.c.CASTFunctionDefinition.accept(CASTFunctionDefinition.java:141)
 	at org.eclipse.cdt.internal.core.dom.parser.ASTTranslationUnit.accept(ASTTranslationUnit.java:289)
@@ -339,13 +1443,10 @@ org.eclipse.core.runtime.CoreException: Corrupted database: Carro Seguidor.17247
 	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:78)
 	at org.eclipse.cdt.internal.ui.text.CReconciler.process(CReconciler.java:346)
 	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:207)
-!SUBENTRY 1 org.eclipse.cdt.core 4 0 2024-09-10 16:28:44.804
+!SUBENTRY 1 org.eclipse.cdt.core 4 0 2024-09-11 18:25:37.944
 !MESSAGE Corrupted database: Carro Seguidor.1724766259048.pdom
 
-!ENTRY org.eclipse.cdt.core 4 0 2024-09-10 16:28:44.804
-!MESSAGE Corrupted database: Carro Seguidor.1724766259048.pdom
-
-!ENTRY org.eclipse.cdt.core 4 0 2024-09-10 16:28:44.805
+!ENTRY org.eclipse.cdt.core 4 0 2024-09-11 18:25:37.945
 !MESSAGE Error
 !STACK 1
 org.eclipse.core.runtime.CoreException: Corrupted database: Carro Seguidor.1724766259048.pdom
@@ -370,12 +1471,9 @@ org.eclipse.core.runtime.CoreException: Corrupted database: Carro Seguidor.17247
 	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightingReconciler$AbstractPositionCollector.visit(SemanticHighlightingReconciler.java:194)
 	at org.eclipse.cdt.internal.core.dom.parser.c.CASTName.accept(CASTName.java:132)
 	at org.eclipse.cdt.internal.core.dom.parser.c.CASTIdExpression.accept(CASTIdExpression.java:88)
-	at org.eclipse.cdt.internal.core.dom.parser.c.CASTFunctionCallExpression.accept(CASTFunctionCallExpression.java:118)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTBinaryExpression.acceptWithoutRecursion(CASTBinaryExpression.java:188)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTBinaryExpression.accept(CASTBinaryExpression.java:118)
 	at org.eclipse.cdt.internal.core.dom.parser.c.CASTExpressionStatement.accept(CASTExpressionStatement.java:80)
-	at org.eclipse.cdt.internal.core.dom.parser.c.CASTCompoundStatement.accept(CASTCompoundStatement.java:89)
-	at org.eclipse.cdt.internal.core.dom.parser.c.CASTIfStatement.accept(CASTIfStatement.java:140)
-	at org.eclipse.cdt.internal.core.dom.parser.c.CASTCompoundStatement.accept(CASTCompoundStatement.java:89)
-	at org.eclipse.cdt.internal.core.dom.parser.c.CASTIfStatement.accept(CASTIfStatement.java:140)
 	at org.eclipse.cdt.internal.core.dom.parser.c.CASTCompoundStatement.accept(CASTCompoundStatement.java:89)
 	at org.eclipse.cdt.internal.core.dom.parser.c.CASTFunctionDefinition.accept(CASTFunctionDefinition.java:141)
 	at org.eclipse.cdt.internal.core.dom.parser.ASTTranslationUnit.accept(ASTTranslationUnit.java:289)
@@ -389,10 +1487,10 @@ org.eclipse.core.runtime.CoreException: Corrupted database: Carro Seguidor.17247
 	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:78)
 	at org.eclipse.cdt.internal.ui.text.CReconciler.process(CReconciler.java:346)
 	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:207)
-!SUBENTRY 1 org.eclipse.cdt.core 4 0 2024-09-10 16:28:44.805
+!SUBENTRY 1 org.eclipse.cdt.core 4 0 2024-09-11 18:25:37.945
 !MESSAGE Corrupted database: Carro Seguidor.1724766259048.pdom
 
-!ENTRY org.eclipse.cdt.core 4 0 2024-09-10 16:28:44.805
+!ENTRY org.eclipse.cdt.core 4 0 2024-09-11 18:25:37.945
 !MESSAGE Error
 !STACK 1
 org.eclipse.core.runtime.CoreException: Corrupted database: Carro Seguidor.1724766259048.pdom
@@ -417,12 +1515,9 @@ org.eclipse.core.runtime.CoreException: Corrupted database: Carro Seguidor.17247
 	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightingReconciler$AbstractPositionCollector.visit(SemanticHighlightingReconciler.java:194)
 	at org.eclipse.cdt.internal.core.dom.parser.c.CASTName.accept(CASTName.java:132)
 	at org.eclipse.cdt.internal.core.dom.parser.c.CASTIdExpression.accept(CASTIdExpression.java:88)
-	at org.eclipse.cdt.internal.core.dom.parser.c.CASTFunctionCallExpression.accept(CASTFunctionCallExpression.java:118)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTBinaryExpression.acceptWithoutRecursion(CASTBinaryExpression.java:188)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTBinaryExpression.accept(CASTBinaryExpression.java:118)
 	at org.eclipse.cdt.internal.core.dom.parser.c.CASTExpressionStatement.accept(CASTExpressionStatement.java:80)
-	at org.eclipse.cdt.internal.core.dom.parser.c.CASTCompoundStatement.accept(CASTCompoundStatement.java:89)
-	at org.eclipse.cdt.internal.core.dom.parser.c.CASTIfStatement.accept(CASTIfStatement.java:140)
-	at org.eclipse.cdt.internal.core.dom.parser.c.CASTCompoundStatement.accept(CASTCompoundStatement.java:89)
-	at org.eclipse.cdt.internal.core.dom.parser.c.CASTIfStatement.accept(CASTIfStatement.java:140)
 	at org.eclipse.cdt.internal.core.dom.parser.c.CASTCompoundStatement.accept(CASTCompoundStatement.java:89)
 	at org.eclipse.cdt.internal.core.dom.parser.c.CASTFunctionDefinition.accept(CASTFunctionDefinition.java:141)
 	at org.eclipse.cdt.internal.core.dom.parser.ASTTranslationUnit.accept(ASTTranslationUnit.java:289)
@@ -436,13 +1531,10 @@ org.eclipse.core.runtime.CoreException: Corrupted database: Carro Seguidor.17247
 	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:78)
 	at org.eclipse.cdt.internal.ui.text.CReconciler.process(CReconciler.java:346)
 	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:207)
-!SUBENTRY 1 org.eclipse.cdt.core 4 0 2024-09-10 16:28:44.805
+!SUBENTRY 1 org.eclipse.cdt.core 4 0 2024-09-11 18:25:37.945
 !MESSAGE Corrupted database: Carro Seguidor.1724766259048.pdom
 
-!ENTRY org.eclipse.cdt.core 4 0 2024-09-10 16:28:44.806
-!MESSAGE Corrupted database: Carro Seguidor.1724766259048.pdom
-
-!ENTRY org.eclipse.cdt.core 4 0 2024-09-10 16:28:44.806
+!ENTRY org.eclipse.cdt.core 4 0 2024-09-11 18:25:37.946
 !MESSAGE Error
 !STACK 1
 org.eclipse.core.runtime.CoreException: Corrupted database: Carro Seguidor.1724766259048.pdom
@@ -467,12 +1559,8 @@ org.eclipse.core.runtime.CoreException: Corrupted database: Carro Seguidor.17247
 	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightingReconciler$AbstractPositionCollector.visit(SemanticHighlightingReconciler.java:194)
 	at org.eclipse.cdt.internal.core.dom.parser.c.CASTName.accept(CASTName.java:132)
 	at org.eclipse.cdt.internal.core.dom.parser.c.CASTIdExpression.accept(CASTIdExpression.java:88)
-	at org.eclipse.cdt.internal.core.dom.parser.c.CASTFunctionCallExpression.accept(CASTFunctionCallExpression.java:118)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTBinaryExpression.accept(CASTBinaryExpression.java:134)
 	at org.eclipse.cdt.internal.core.dom.parser.c.CASTExpressionStatement.accept(CASTExpressionStatement.java:80)
-	at org.eclipse.cdt.internal.core.dom.parser.c.CASTCompoundStatement.accept(CASTCompoundStatement.java:89)
-	at org.eclipse.cdt.internal.core.dom.parser.c.CASTIfStatement.accept(CASTIfStatement.java:140)
-	at org.eclipse.cdt.internal.core.dom.parser.c.CASTCompoundStatement.accept(CASTCompoundStatement.java:89)
-	at org.eclipse.cdt.internal.core.dom.parser.c.CASTIfStatement.accept(CASTIfStatement.java:140)
 	at org.eclipse.cdt.internal.core.dom.parser.c.CASTCompoundStatement.accept(CASTCompoundStatement.java:89)
 	at org.eclipse.cdt.internal.core.dom.parser.c.CASTFunctionDefinition.accept(CASTFunctionDefinition.java:141)
 	at org.eclipse.cdt.internal.core.dom.parser.ASTTranslationUnit.accept(ASTTranslationUnit.java:289)
@@ -486,10 +1574,10 @@ org.eclipse.core.runtime.CoreException: Corrupted database: Carro Seguidor.17247
 	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:78)
 	at org.eclipse.cdt.internal.ui.text.CReconciler.process(CReconciler.java:346)
 	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:207)
-!SUBENTRY 1 org.eclipse.cdt.core 4 0 2024-09-10 16:28:44.806
+!SUBENTRY 1 org.eclipse.cdt.core 4 0 2024-09-11 18:25:37.946
 !MESSAGE Corrupted database: Carro Seguidor.1724766259048.pdom
 
-!ENTRY org.eclipse.cdt.core 4 0 2024-09-10 16:28:44.807
+!ENTRY org.eclipse.cdt.core 4 0 2024-09-11 18:25:37.946
 !MESSAGE Error
 !STACK 1
 org.eclipse.core.runtime.CoreException: Corrupted database: Carro Seguidor.1724766259048.pdom
@@ -514,12 +1602,8 @@ org.eclipse.core.runtime.CoreException: Corrupted database: Carro Seguidor.17247
 	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightingReconciler$AbstractPositionCollector.visit(SemanticHighlightingReconciler.java:194)
 	at org.eclipse.cdt.internal.core.dom.parser.c.CASTName.accept(CASTName.java:132)
 	at org.eclipse.cdt.internal.core.dom.parser.c.CASTIdExpression.accept(CASTIdExpression.java:88)
-	at org.eclipse.cdt.internal.core.dom.parser.c.CASTFunctionCallExpression.accept(CASTFunctionCallExpression.java:118)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTBinaryExpression.accept(CASTBinaryExpression.java:134)
 	at org.eclipse.cdt.internal.core.dom.parser.c.CASTExpressionStatement.accept(CASTExpressionStatement.java:80)
-	at org.eclipse.cdt.internal.core.dom.parser.c.CASTCompoundStatement.accept(CASTCompoundStatement.java:89)
-	at org.eclipse.cdt.internal.core.dom.parser.c.CASTIfStatement.accept(CASTIfStatement.java:140)
-	at org.eclipse.cdt.internal.core.dom.parser.c.CASTCompoundStatement.accept(CASTCompoundStatement.java:89)
-	at org.eclipse.cdt.internal.core.dom.parser.c.CASTIfStatement.accept(CASTIfStatement.java:140)
 	at org.eclipse.cdt.internal.core.dom.parser.c.CASTCompoundStatement.accept(CASTCompoundStatement.java:89)
 	at org.eclipse.cdt.internal.core.dom.parser.c.CASTFunctionDefinition.accept(CASTFunctionDefinition.java:141)
 	at org.eclipse.cdt.internal.core.dom.parser.ASTTranslationUnit.accept(ASTTranslationUnit.java:289)
@@ -533,13 +1617,10 @@ org.eclipse.core.runtime.CoreException: Corrupted database: Carro Seguidor.17247
 	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:78)
 	at org.eclipse.cdt.internal.ui.text.CReconciler.process(CReconciler.java:346)
 	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:207)
-!SUBENTRY 1 org.eclipse.cdt.core 4 0 2024-09-10 16:28:44.807
+!SUBENTRY 1 org.eclipse.cdt.core 4 0 2024-09-11 18:25:37.946
 !MESSAGE Corrupted database: Carro Seguidor.1724766259048.pdom
 
-!ENTRY org.eclipse.cdt.core 4 0 2024-09-10 16:28:44.807
-!MESSAGE Corrupted database: Carro Seguidor.1724766259048.pdom
-
-!ENTRY org.eclipse.cdt.core 4 0 2024-09-10 16:28:44.807
+!ENTRY org.eclipse.cdt.core 4 0 2024-09-11 18:25:37.947
 !MESSAGE Error
 !STACK 1
 org.eclipse.core.runtime.CoreException: Corrupted database: Carro Seguidor.1724766259048.pdom
@@ -564,12 +1645,8 @@ org.eclipse.core.runtime.CoreException: Corrupted database: Carro Seguidor.17247
 	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightingReconciler$AbstractPositionCollector.visit(SemanticHighlightingReconciler.java:194)
 	at org.eclipse.cdt.internal.core.dom.parser.c.CASTName.accept(CASTName.java:132)
 	at org.eclipse.cdt.internal.core.dom.parser.c.CASTIdExpression.accept(CASTIdExpression.java:88)
-	at org.eclipse.cdt.internal.core.dom.parser.c.CASTFunctionCallExpression.accept(CASTFunctionCallExpression.java:118)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTBinaryExpression.accept(CASTBinaryExpression.java:134)
 	at org.eclipse.cdt.internal.core.dom.parser.c.CASTExpressionStatement.accept(CASTExpressionStatement.java:80)
-	at org.eclipse.cdt.internal.core.dom.parser.c.CASTCompoundStatement.accept(CASTCompoundStatement.java:89)
-	at org.eclipse.cdt.internal.core.dom.parser.c.CASTIfStatement.accept(CASTIfStatement.java:140)
-	at org.eclipse.cdt.internal.core.dom.parser.c.CASTCompoundStatement.accept(CASTCompoundStatement.java:89)
-	at org.eclipse.cdt.internal.core.dom.parser.c.CASTIfStatement.accept(CASTIfStatement.java:140)
 	at org.eclipse.cdt.internal.core.dom.parser.c.CASTCompoundStatement.accept(CASTCompoundStatement.java:89)
 	at org.eclipse.cdt.internal.core.dom.parser.c.CASTFunctionDefinition.accept(CASTFunctionDefinition.java:141)
 	at org.eclipse.cdt.internal.core.dom.parser.ASTTranslationUnit.accept(ASTTranslationUnit.java:289)
@@ -583,10 +1660,10 @@ org.eclipse.core.runtime.CoreException: Corrupted database: Carro Seguidor.17247
 	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:78)
 	at org.eclipse.cdt.internal.ui.text.CReconciler.process(CReconciler.java:346)
 	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:207)
-!SUBENTRY 1 org.eclipse.cdt.core 4 0 2024-09-10 16:28:44.807
+!SUBENTRY 1 org.eclipse.cdt.core 4 0 2024-09-11 18:25:37.947
 !MESSAGE Corrupted database: Carro Seguidor.1724766259048.pdom
 
-!ENTRY org.eclipse.cdt.core 4 0 2024-09-10 16:28:44.808
+!ENTRY org.eclipse.cdt.core 4 0 2024-09-11 18:25:37.947
 !MESSAGE Error
 !STACK 1
 org.eclipse.core.runtime.CoreException: Corrupted database: Carro Seguidor.1724766259048.pdom
@@ -611,12 +1688,8 @@ org.eclipse.core.runtime.CoreException: Corrupted database: Carro Seguidor.17247
 	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightingReconciler$AbstractPositionCollector.visit(SemanticHighlightingReconciler.java:194)
 	at org.eclipse.cdt.internal.core.dom.parser.c.CASTName.accept(CASTName.java:132)
 	at org.eclipse.cdt.internal.core.dom.parser.c.CASTIdExpression.accept(CASTIdExpression.java:88)
-	at org.eclipse.cdt.internal.core.dom.parser.c.CASTFunctionCallExpression.accept(CASTFunctionCallExpression.java:118)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTBinaryExpression.accept(CASTBinaryExpression.java:134)
 	at org.eclipse.cdt.internal.core.dom.parser.c.CASTExpressionStatement.accept(CASTExpressionStatement.java:80)
-	at org.eclipse.cdt.internal.core.dom.parser.c.CASTCompoundStatement.accept(CASTCompoundStatement.java:89)
-	at org.eclipse.cdt.internal.core.dom.parser.c.CASTIfStatement.accept(CASTIfStatement.java:140)
-	at org.eclipse.cdt.internal.core.dom.parser.c.CASTCompoundStatement.accept(CASTCompoundStatement.java:89)
-	at org.eclipse.cdt.internal.core.dom.parser.c.CASTIfStatement.accept(CASTIfStatement.java:140)
 	at org.eclipse.cdt.internal.core.dom.parser.c.CASTCompoundStatement.accept(CASTCompoundStatement.java:89)
 	at org.eclipse.cdt.internal.core.dom.parser.c.CASTFunctionDefinition.accept(CASTFunctionDefinition.java:141)
 	at org.eclipse.cdt.internal.core.dom.parser.ASTTranslationUnit.accept(ASTTranslationUnit.java:289)
@@ -630,16 +1703,69 @@ org.eclipse.core.runtime.CoreException: Corrupted database: Carro Seguidor.17247
 	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:78)
 	at org.eclipse.cdt.internal.ui.text.CReconciler.process(CReconciler.java:346)
 	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:207)
-!SUBENTRY 1 org.eclipse.cdt.core 4 0 2024-09-10 16:28:44.808
+!SUBENTRY 1 org.eclipse.cdt.core 4 0 2024-09-11 18:25:37.947
 !MESSAGE Corrupted database: Carro Seguidor.1724766259048.pdom
 
-!ENTRY org.eclipse.cdt.core 4 0 2024-09-10 16:28:44.808
+!ENTRY org.eclipse.cdt.core 4 0 2024-09-11 18:25:37.948
 !MESSAGE Error
 !STACK 1
 org.eclipse.core.runtime.CoreException: Corrupted database: Carro Seguidor.1724766259048.pdom
 	at org.eclipse.cdt.internal.core.pdom.db.Database.databaseCorruptionDetected(Database.java:323)
 	at org.eclipse.cdt.internal.core.pdom.db.Database.getChunk(Database.java:303)
-	at org.eclipse.cdt.internal.core.pdom.db.BTree.accept(BTree.java:555)
+	at org.eclipse.cdt.internal.core.pdom.db.Database.getRecPtr(Database.java:518)
+	at org.eclipse.cdt.internal.core.pdom.dom.PDOMNamedNode.getDBName(PDOMNamedNode.java:74)
+	at org.eclipse.cdt.internal.core.pdom.dom.NamedNodeCollector.compare(NamedNodeCollector.java:96)
+	at org.eclipse.cdt.internal.core.pdom.db.BTree.accept(BTree.java:569)
+	at org.eclipse.cdt.internal.core.pdom.db.BTree.accept(BTree.java:588)
+	at org.eclipse.cdt.internal.core.pdom.db.BTree.accept(BTree.java:541)
+	at org.eclipse.cdt.internal.core.pdom.dom.PDOMLinkage.getBindingsViaCache(PDOMLinkage.java:427)
+	at org.eclipse.cdt.internal.core.pdom.PDOM.findBindings(PDOM.java:1417)
+	at org.eclipse.cdt.internal.core.pdom.PDOM.findBindings(PDOM.java:1407)
+	at org.eclipse.cdt.internal.core.index.CIndex.findBindings(CIndex.java:650)
+	at org.eclipse.cdt.internal.core.index.CIndex.findBindings(CIndex.java:510)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CScope.getBinding(CScope.java:285)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CVisitor.lookup(CVisitor.java:1063)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CVisitor.resolveBinding(CVisitor.java:837)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CVisitor.createBinding(CVisitor.java:454)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTName.resolveBinding(CASTName.java:66)
+	at org.eclipse.cdt.internal.ui.editor.SemanticToken.getBinding(SemanticToken.java:50)
+	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightings$ExternalSDKHighlighting.consumes(SemanticHighlightings.java:1608)
+	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightingReconciler$AbstractPositionCollector.visitNode(SemanticHighlightingReconciler.java:232)
+	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightingReconciler$AbstractPositionCollector.visit(SemanticHighlightingReconciler.java:194)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTName.accept(CASTName.java:132)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTIdExpression.accept(CASTIdExpression.java:88)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTFunctionCallExpression.accept(CASTFunctionCallExpression.java:114)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTBinaryExpression.accept(CASTBinaryExpression.java:132)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTIfStatement.accept(CASTIfStatement.java:137)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTCompoundStatement.accept(CASTCompoundStatement.java:89)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTFunctionDefinition.accept(CASTFunctionDefinition.java:141)
+	at org.eclipse.cdt.internal.core.dom.parser.ASTTranslationUnit.accept(ASTTranslationUnit.java:289)
+	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightingReconciler.reconcilePositions(SemanticHighlightingReconciler.java:450)
+	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightingReconciler.reconciled(SemanticHighlightingReconciler.java:413)
+	at org.eclipse.cdt.internal.ui.editor.CEditor.reconciled(CEditor.java:3107)
+	at org.eclipse.cdt.internal.ui.text.CReconcilingStrategy.reconcile(CReconcilingStrategy.java:100)
+	at org.eclipse.cdt.internal.ui.text.CReconcilingStrategy.reconcile(CReconcilingStrategy.java:64)
+	at org.eclipse.cdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:89)
+	at org.eclipse.cdt.internal.ui.text.CCompositeReconcilingStrategy.reconcile(CCompositeReconcilingStrategy.java:90)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:78)
+	at org.eclipse.cdt.internal.ui.text.CReconciler.process(CReconciler.java:346)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:207)
+!SUBENTRY 1 org.eclipse.cdt.core 4 0 2024-09-11 18:25:37.948
+!MESSAGE Corrupted database: Carro Seguidor.1724766259048.pdom
+
+!ENTRY org.eclipse.cdt.core 4 0 2024-09-11 18:25:37.949
+!MESSAGE Corrupted database: Carro Seguidor.1724766259048.pdom
+
+!ENTRY org.eclipse.cdt.core 4 0 2024-09-11 18:25:37.950
+!MESSAGE Error
+!STACK 1
+org.eclipse.core.runtime.CoreException: Corrupted database: Carro Seguidor.1724766259048.pdom
+	at org.eclipse.cdt.internal.core.pdom.db.Database.databaseCorruptionDetected(Database.java:323)
+	at org.eclipse.cdt.internal.core.pdom.db.Database.getChunk(Database.java:303)
+	at org.eclipse.cdt.internal.core.pdom.db.Database.getRecPtr(Database.java:518)
+	at org.eclipse.cdt.internal.core.pdom.dom.PDOMNamedNode.getDBName(PDOMNamedNode.java:74)
+	at org.eclipse.cdt.internal.core.pdom.dom.NamedNodeCollector.compare(NamedNodeCollector.java:96)
+	at org.eclipse.cdt.internal.core.pdom.db.BTree.accept(BTree.java:569)
 	at org.eclipse.cdt.internal.core.pdom.db.BTree.accept(BTree.java:588)
 	at org.eclipse.cdt.internal.core.pdom.db.BTree.accept(BTree.java:541)
 	at org.eclipse.cdt.internal.core.pdom.dom.PDOMLinkage.getBindingsViaCache(PDOMLinkage.java:427)
@@ -673,20 +1799,21 @@ org.eclipse.core.runtime.CoreException: Corrupted database: Carro Seguidor.17247
 	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:78)
 	at org.eclipse.cdt.internal.ui.text.CReconciler.process(CReconciler.java:346)
 	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:207)
-!SUBENTRY 1 org.eclipse.cdt.core 4 0 2024-09-10 16:28:44.808
+!SUBENTRY 1 org.eclipse.cdt.core 4 0 2024-09-11 18:25:37.950
 !MESSAGE Corrupted database: Carro Seguidor.1724766259048.pdom
 
-!ENTRY org.eclipse.cdt.core 4 0 2024-09-10 16:28:44.810
-!MESSAGE Corrupted database: Carro Seguidor.1724766259048.pdom
-
-!ENTRY org.eclipse.cdt.core 4 0 2024-09-10 16:28:44.811
+!ENTRY org.eclipse.cdt.core 4 0 2024-09-11 18:25:37.950
 !MESSAGE Error
 !STACK 1
 org.eclipse.core.runtime.CoreException: Corrupted database: Carro Seguidor.1724766259048.pdom
 	at org.eclipse.cdt.internal.core.pdom.db.Database.databaseCorruptionDetected(Database.java:323)
 	at org.eclipse.cdt.internal.core.pdom.db.Database.getChunk(Database.java:303)
-	at org.eclipse.cdt.internal.core.pdom.db.BTree.accept(BTree.java:555)
+	at org.eclipse.cdt.internal.core.pdom.db.Database.getRecPtr(Database.java:518)
+	at org.eclipse.cdt.internal.core.pdom.dom.PDOMNamedNode.getDBName(PDOMNamedNode.java:74)
+	at org.eclipse.cdt.internal.core.pdom.dom.NamedNodeCollector.compare(NamedNodeCollector.java:96)
+	at org.eclipse.cdt.internal.core.pdom.db.BTree.accept(BTree.java:569)
 	at org.eclipse.cdt.internal.core.pdom.db.BTree.accept(BTree.java:588)
+	at org.eclipse.cdt.internal.core.pdom.db.BTree.accept(BTree.java:596)
 	at org.eclipse.cdt.internal.core.pdom.db.BTree.accept(BTree.java:541)
 	at org.eclipse.cdt.internal.core.pdom.dom.PDOMLinkage.getBindingsViaCache(PDOMLinkage.java:427)
 	at org.eclipse.cdt.internal.core.pdom.PDOM.findBindings(PDOM.java:1417)
@@ -695,21 +1822,19 @@ org.eclipse.core.runtime.CoreException: Corrupted database: Carro Seguidor.17247
 	at org.eclipse.cdt.internal.core.index.CIndex.findBindings(CIndex.java:510)
 	at org.eclipse.cdt.internal.core.dom.parser.c.CScope.getBinding(CScope.java:285)
 	at org.eclipse.cdt.internal.core.dom.parser.c.CVisitor.lookup(CVisitor.java:1063)
-	at org.eclipse.cdt.internal.core.dom.parser.c.CVisitor.resolveBinding(CVisitor.java:837)
-	at org.eclipse.cdt.internal.core.dom.parser.c.CVisitor.createBinding(CVisitor.java:454)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CVisitor.resolveBinding(CVisitor.java:846)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CVisitor.createBinding(CVisitor.java:456)
 	at org.eclipse.cdt.internal.core.dom.parser.c.CASTName.resolveBinding(CASTName.java:66)
 	at org.eclipse.cdt.internal.ui.editor.SemanticToken.getBinding(SemanticToken.java:50)
 	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightings$ExternalSDKHighlighting.consumes(SemanticHighlightings.java:1608)
 	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightingReconciler$AbstractPositionCollector.visitNode(SemanticHighlightingReconciler.java:232)
 	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightingReconciler$AbstractPositionCollector.visit(SemanticHighlightingReconciler.java:194)
 	at org.eclipse.cdt.internal.core.dom.parser.c.CASTName.accept(CASTName.java:132)
-	at org.eclipse.cdt.internal.core.dom.parser.c.CASTIdExpression.accept(CASTIdExpression.java:88)
-	at org.eclipse.cdt.internal.core.dom.parser.c.CASTFunctionCallExpression.accept(CASTFunctionCallExpression.java:118)
-	at org.eclipse.cdt.internal.core.dom.parser.c.CASTExpressionStatement.accept(CASTExpressionStatement.java:80)
-	at org.eclipse.cdt.internal.core.dom.parser.c.CASTCompoundStatement.accept(CASTCompoundStatement.java:89)
-	at org.eclipse.cdt.internal.core.dom.parser.c.CASTIfStatement.accept(CASTIfStatement.java:140)
-	at org.eclipse.cdt.internal.core.dom.parser.c.CASTCompoundStatement.accept(CASTCompoundStatement.java:89)
-	at org.eclipse.cdt.internal.core.dom.parser.c.CASTFunctionDefinition.accept(CASTFunctionDefinition.java:141)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTTypedefNameSpecifier.accept(CASTTypedefNameSpecifier.java:81)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTParameterDeclaration.accept(CASTParameterDeclaration.java:99)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTFunctionDeclarator.postAccept(CASTFunctionDeclarator.java:94)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTDeclarator.accept(CASTDeclarator.java:179)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTFunctionDefinition.accept(CASTFunctionDefinition.java:139)
 	at org.eclipse.cdt.internal.core.dom.parser.ASTTranslationUnit.accept(ASTTranslationUnit.java:289)
 	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightingReconciler.reconcilePositions(SemanticHighlightingReconciler.java:450)
 	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightingReconciler.reconciled(SemanticHighlightingReconciler.java:413)
@@ -721,17 +1846,21 @@ org.eclipse.core.runtime.CoreException: Corrupted database: Carro Seguidor.17247
 	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:78)
 	at org.eclipse.cdt.internal.ui.text.CReconciler.process(CReconciler.java:346)
 	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:207)
-!SUBENTRY 1 org.eclipse.cdt.core 4 0 2024-09-10 16:28:44.811
+!SUBENTRY 1 org.eclipse.cdt.core 4 0 2024-09-11 18:25:37.950
 !MESSAGE Corrupted database: Carro Seguidor.1724766259048.pdom
 
-!ENTRY org.eclipse.cdt.core 4 0 2024-09-10 16:28:44.812
+!ENTRY org.eclipse.cdt.core 4 0 2024-09-11 18:25:37.951
 !MESSAGE Error
 !STACK 1
 org.eclipse.core.runtime.CoreException: Corrupted database: Carro Seguidor.1724766259048.pdom
 	at org.eclipse.cdt.internal.core.pdom.db.Database.databaseCorruptionDetected(Database.java:323)
 	at org.eclipse.cdt.internal.core.pdom.db.Database.getChunk(Database.java:303)
-	at org.eclipse.cdt.internal.core.pdom.db.BTree.accept(BTree.java:555)
+	at org.eclipse.cdt.internal.core.pdom.db.Database.getRecPtr(Database.java:518)
+	at org.eclipse.cdt.internal.core.pdom.dom.PDOMNamedNode.getDBName(PDOMNamedNode.java:74)
+	at org.eclipse.cdt.internal.core.pdom.dom.NamedNodeCollector.compare(NamedNodeCollector.java:96)
+	at org.eclipse.cdt.internal.core.pdom.db.BTree.accept(BTree.java:569)
 	at org.eclipse.cdt.internal.core.pdom.db.BTree.accept(BTree.java:588)
+	at org.eclipse.cdt.internal.core.pdom.db.BTree.accept(BTree.java:596)
 	at org.eclipse.cdt.internal.core.pdom.db.BTree.accept(BTree.java:541)
 	at org.eclipse.cdt.internal.core.pdom.dom.PDOMLinkage.getBindingsViaCache(PDOMLinkage.java:427)
 	at org.eclipse.cdt.internal.core.pdom.PDOM.findBindings(PDOM.java:1417)
@@ -740,21 +1869,19 @@ org.eclipse.core.runtime.CoreException: Corrupted database: Carro Seguidor.17247
 	at org.eclipse.cdt.internal.core.index.CIndex.findBindings(CIndex.java:510)
 	at org.eclipse.cdt.internal.core.dom.parser.c.CScope.getBinding(CScope.java:285)
 	at org.eclipse.cdt.internal.core.dom.parser.c.CVisitor.lookup(CVisitor.java:1063)
-	at org.eclipse.cdt.internal.core.dom.parser.c.CVisitor.resolveBinding(CVisitor.java:837)
-	at org.eclipse.cdt.internal.core.dom.parser.c.CVisitor.createBinding(CVisitor.java:454)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CVisitor.resolveBinding(CVisitor.java:846)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CVisitor.createBinding(CVisitor.java:456)
 	at org.eclipse.cdt.internal.core.dom.parser.c.CASTName.resolveBinding(CASTName.java:66)
 	at org.eclipse.cdt.internal.ui.editor.SemanticToken.getBinding(SemanticToken.java:50)
 	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightings$ExternalSDKHighlighting.consumes(SemanticHighlightings.java:1608)
 	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightingReconciler$AbstractPositionCollector.visitNode(SemanticHighlightingReconciler.java:232)
 	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightingReconciler$AbstractPositionCollector.visit(SemanticHighlightingReconciler.java:194)
 	at org.eclipse.cdt.internal.core.dom.parser.c.CASTName.accept(CASTName.java:132)
-	at org.eclipse.cdt.internal.core.dom.parser.c.CASTIdExpression.accept(CASTIdExpression.java:88)
-	at org.eclipse.cdt.internal.core.dom.parser.c.CASTFunctionCallExpression.accept(CASTFunctionCallExpression.java:118)
-	at org.eclipse.cdt.internal.core.dom.parser.c.CASTExpressionStatement.accept(CASTExpressionStatement.java:80)
-	at org.eclipse.cdt.internal.core.dom.parser.c.CASTCompoundStatement.accept(CASTCompoundStatement.java:89)
-	at org.eclipse.cdt.internal.core.dom.parser.c.CASTIfStatement.accept(CASTIfStatement.java:140)
-	at org.eclipse.cdt.internal.core.dom.parser.c.CASTCompoundStatement.accept(CASTCompoundStatement.java:89)
-	at org.eclipse.cdt.internal.core.dom.parser.c.CASTFunctionDefinition.accept(CASTFunctionDefinition.java:141)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTTypedefNameSpecifier.accept(CASTTypedefNameSpecifier.java:81)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTParameterDeclaration.accept(CASTParameterDeclaration.java:99)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTFunctionDeclarator.postAccept(CASTFunctionDeclarator.java:94)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTDeclarator.accept(CASTDeclarator.java:179)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTFunctionDefinition.accept(CASTFunctionDefinition.java:139)
 	at org.eclipse.cdt.internal.core.dom.parser.ASTTranslationUnit.accept(ASTTranslationUnit.java:289)
 	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightingReconciler.reconcilePositions(SemanticHighlightingReconciler.java:450)
 	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightingReconciler.reconciled(SemanticHighlightingReconciler.java:413)
@@ -766,19 +1893,19 @@ org.eclipse.core.runtime.CoreException: Corrupted database: Carro Seguidor.17247
 	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:78)
 	at org.eclipse.cdt.internal.ui.text.CReconciler.process(CReconciler.java:346)
 	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:207)
-!SUBENTRY 1 org.eclipse.cdt.core 4 0 2024-09-10 16:28:44.812
+!SUBENTRY 1 org.eclipse.cdt.core 4 0 2024-09-11 18:25:37.951
 !MESSAGE Corrupted database: Carro Seguidor.1724766259048.pdom
 
-!ENTRY org.eclipse.cdt.core 4 0 2024-09-10 16:28:44.813
-!MESSAGE Corrupted database: Carro Seguidor.1724766259048.pdom
-
-!ENTRY org.eclipse.cdt.core 4 0 2024-09-10 16:28:44.813
+!ENTRY org.eclipse.cdt.core 4 0 2024-09-11 18:25:37.951
 !MESSAGE Error
 !STACK 1
 org.eclipse.core.runtime.CoreException: Corrupted database: Carro Seguidor.1724766259048.pdom
 	at org.eclipse.cdt.internal.core.pdom.db.Database.databaseCorruptionDetected(Database.java:323)
 	at org.eclipse.cdt.internal.core.pdom.db.Database.getChunk(Database.java:303)
-	at org.eclipse.cdt.internal.core.pdom.db.BTree.accept(BTree.java:555)
+	at org.eclipse.cdt.internal.core.pdom.db.Database.getRecPtr(Database.java:518)
+	at org.eclipse.cdt.internal.core.pdom.dom.PDOMNamedNode.getDBName(PDOMNamedNode.java:74)
+	at org.eclipse.cdt.internal.core.pdom.dom.NamedNodeCollector.compare(NamedNodeCollector.java:96)
+	at org.eclipse.cdt.internal.core.pdom.db.BTree.accept(BTree.java:569)
 	at org.eclipse.cdt.internal.core.pdom.db.BTree.accept(BTree.java:588)
 	at org.eclipse.cdt.internal.core.pdom.db.BTree.accept(BTree.java:541)
 	at org.eclipse.cdt.internal.core.pdom.dom.PDOMLinkage.getBindingsViaCache(PDOMLinkage.java:427)
@@ -797,98 +1924,11 @@ org.eclipse.core.runtime.CoreException: Corrupted database: Carro Seguidor.17247
 	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightingReconciler$AbstractPositionCollector.visit(SemanticHighlightingReconciler.java:194)
 	at org.eclipse.cdt.internal.core.dom.parser.c.CASTName.accept(CASTName.java:132)
 	at org.eclipse.cdt.internal.core.dom.parser.c.CASTIdExpression.accept(CASTIdExpression.java:88)
-	at org.eclipse.cdt.internal.core.dom.parser.c.CASTFunctionCallExpression.accept(CASTFunctionCallExpression.java:118)
-	at org.eclipse.cdt.internal.core.dom.parser.c.CASTExpressionStatement.accept(CASTExpressionStatement.java:80)
-	at org.eclipse.cdt.internal.core.dom.parser.c.CASTCompoundStatement.accept(CASTCompoundStatement.java:89)
-	at org.eclipse.cdt.internal.core.dom.parser.c.CASTIfStatement.accept(CASTIfStatement.java:140)
-	at org.eclipse.cdt.internal.core.dom.parser.c.CASTCompoundStatement.accept(CASTCompoundStatement.java:89)
-	at org.eclipse.cdt.internal.core.dom.parser.c.CASTFunctionDefinition.accept(CASTFunctionDefinition.java:141)
-	at org.eclipse.cdt.internal.core.dom.parser.ASTTranslationUnit.accept(ASTTranslationUnit.java:289)
-	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightingReconciler.reconcilePositions(SemanticHighlightingReconciler.java:450)
-	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightingReconciler.reconciled(SemanticHighlightingReconciler.java:413)
-	at org.eclipse.cdt.internal.ui.editor.CEditor.reconciled(CEditor.java:3107)
-	at org.eclipse.cdt.internal.ui.text.CReconcilingStrategy.reconcile(CReconcilingStrategy.java:100)
-	at org.eclipse.cdt.internal.ui.text.CReconcilingStrategy.reconcile(CReconcilingStrategy.java:64)
-	at org.eclipse.cdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:89)
-	at org.eclipse.cdt.internal.ui.text.CCompositeReconcilingStrategy.reconcile(CCompositeReconcilingStrategy.java:90)
-	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:78)
-	at org.eclipse.cdt.internal.ui.text.CReconciler.process(CReconciler.java:346)
-	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:207)
-!SUBENTRY 1 org.eclipse.cdt.core 4 0 2024-09-10 16:28:44.813
-!MESSAGE Corrupted database: Carro Seguidor.1724766259048.pdom
-
-!ENTRY org.eclipse.cdt.core 4 0 2024-09-10 16:28:44.814
-!MESSAGE Error
-!STACK 1
-org.eclipse.core.runtime.CoreException: Corrupted database: Carro Seguidor.1724766259048.pdom
-	at org.eclipse.cdt.internal.core.pdom.db.Database.databaseCorruptionDetected(Database.java:323)
-	at org.eclipse.cdt.internal.core.pdom.db.Database.getChunk(Database.java:303)
-	at org.eclipse.cdt.internal.core.pdom.db.BTree.accept(BTree.java:555)
-	at org.eclipse.cdt.internal.core.pdom.db.BTree.accept(BTree.java:588)
-	at org.eclipse.cdt.internal.core.pdom.db.BTree.accept(BTree.java:541)
-	at org.eclipse.cdt.internal.core.pdom.dom.PDOMLinkage.getBindingsViaCache(PDOMLinkage.java:427)
-	at org.eclipse.cdt.internal.core.pdom.PDOM.findBindings(PDOM.java:1417)
-	at org.eclipse.cdt.internal.core.pdom.PDOM.findBindings(PDOM.java:1407)
-	at org.eclipse.cdt.internal.core.index.CIndex.findBindings(CIndex.java:650)
-	at org.eclipse.cdt.internal.core.index.CIndex.findBindings(CIndex.java:510)
-	at org.eclipse.cdt.internal.core.dom.parser.c.CScope.getBinding(CScope.java:285)
-	at org.eclipse.cdt.internal.core.dom.parser.c.CVisitor.lookup(CVisitor.java:1063)
-	at org.eclipse.cdt.internal.core.dom.parser.c.CVisitor.resolveBinding(CVisitor.java:837)
-	at org.eclipse.cdt.internal.core.dom.parser.c.CVisitor.createBinding(CVisitor.java:454)
-	at org.eclipse.cdt.internal.core.dom.parser.c.CASTName.resolveBinding(CASTName.java:66)
-	at org.eclipse.cdt.internal.ui.editor.SemanticToken.getBinding(SemanticToken.java:50)
-	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightings$ExternalSDKHighlighting.consumes(SemanticHighlightings.java:1608)
-	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightingReconciler$AbstractPositionCollector.visitNode(SemanticHighlightingReconciler.java:232)
-	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightingReconciler$AbstractPositionCollector.visit(SemanticHighlightingReconciler.java:194)
-	at org.eclipse.cdt.internal.core.dom.parser.c.CASTName.accept(CASTName.java:132)
-	at org.eclipse.cdt.internal.core.dom.parser.c.CASTIdExpression.accept(CASTIdExpression.java:88)
-	at org.eclipse.cdt.internal.core.dom.parser.c.CASTFunctionCallExpression.accept(CASTFunctionCallExpression.java:118)
-	at org.eclipse.cdt.internal.core.dom.parser.c.CASTExpressionStatement.accept(CASTExpressionStatement.java:80)
-	at org.eclipse.cdt.internal.core.dom.parser.c.CASTCompoundStatement.accept(CASTCompoundStatement.java:89)
-	at org.eclipse.cdt.internal.core.dom.parser.c.CASTIfStatement.accept(CASTIfStatement.java:140)
-	at org.eclipse.cdt.internal.core.dom.parser.c.CASTCompoundStatement.accept(CASTCompoundStatement.java:89)
-	at org.eclipse.cdt.internal.core.dom.parser.c.CASTFunctionDefinition.accept(CASTFunctionDefinition.java:141)
-	at org.eclipse.cdt.internal.core.dom.parser.ASTTranslationUnit.accept(ASTTranslationUnit.java:289)
-	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightingReconciler.reconcilePositions(SemanticHighlightingReconciler.java:450)
-	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightingReconciler.reconciled(SemanticHighlightingReconciler.java:413)
-	at org.eclipse.cdt.internal.ui.editor.CEditor.reconciled(CEditor.java:3107)
-	at org.eclipse.cdt.internal.ui.text.CReconcilingStrategy.reconcile(CReconcilingStrategy.java:100)
-	at org.eclipse.cdt.internal.ui.text.CReconcilingStrategy.reconcile(CReconcilingStrategy.java:64)
-	at org.eclipse.cdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:89)
-	at org.eclipse.cdt.internal.ui.text.CCompositeReconcilingStrategy.reconcile(CCompositeReconcilingStrategy.java:90)
-	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:78)
-	at org.eclipse.cdt.internal.ui.text.CReconciler.process(CReconciler.java:346)
-	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:207)
-!SUBENTRY 1 org.eclipse.cdt.core 4 0 2024-09-10 16:28:44.814
-!MESSAGE Corrupted database: Carro Seguidor.1724766259048.pdom
-
-!ENTRY org.eclipse.cdt.core 4 0 2024-09-10 16:28:44.814
-!MESSAGE Error
-!STACK 1
-org.eclipse.core.runtime.CoreException: Corrupted database: Carro Seguidor.1724766259048.pdom
-	at org.eclipse.cdt.internal.core.pdom.db.Database.databaseCorruptionDetected(Database.java:323)
-	at org.eclipse.cdt.internal.core.pdom.db.Database.getChunk(Database.java:303)
-	at org.eclipse.cdt.internal.core.pdom.db.BTree.accept(BTree.java:555)
-	at org.eclipse.cdt.internal.core.pdom.db.BTree.accept(BTree.java:588)
-	at org.eclipse.cdt.internal.core.pdom.db.BTree.accept(BTree.java:541)
-	at org.eclipse.cdt.internal.core.pdom.dom.PDOMLinkage.getBindingsViaCache(PDOMLinkage.java:427)
-	at org.eclipse.cdt.internal.core.pdom.PDOM.findBindings(PDOM.java:1417)
-	at org.eclipse.cdt.internal.core.pdom.PDOM.findBindings(PDOM.java:1407)
-	at org.eclipse.cdt.internal.core.index.CIndex.findBindings(CIndex.java:650)
-	at org.eclipse.cdt.internal.core.index.CIndex.findBindings(CIndex.java:510)
-	at org.eclipse.cdt.internal.core.dom.parser.c.CScope.getBinding(CScope.java:285)
-	at org.eclipse.cdt.internal.core.dom.parser.c.CVisitor.lookup(CVisitor.java:1063)
-	at org.eclipse.cdt.internal.core.dom.parser.c.CVisitor.resolveBinding(CVisitor.java:837)
-	at org.eclipse.cdt.internal.core.dom.parser.c.CVisitor.createBinding(CVisitor.java:454)
-	at org.eclipse.cdt.internal.core.dom.parser.c.CASTName.resolveBinding(CASTName.java:66)
-	at org.eclipse.cdt.internal.ui.editor.SemanticToken.getBinding(SemanticToken.java:50)
-	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightings$ExternalSDKHighlighting.consumes(SemanticHighlightings.java:1608)
-	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightingReconciler$AbstractPositionCollector.visitNode(SemanticHighlightingReconciler.java:232)
-	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightingReconciler$AbstractPositionCollector.visit(SemanticHighlightingReconciler.java:194)
-	at org.eclipse.cdt.internal.core.dom.parser.c.CASTName.accept(CASTName.java:132)
-	at org.eclipse.cdt.internal.core.dom.parser.c.CASTIdExpression.accept(CASTIdExpression.java:88)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTFunctionCallExpression.accept(CASTFunctionCallExpression.java:114)
 	at org.eclipse.cdt.internal.core.dom.parser.c.CASTBinaryExpression.accept(CASTBinaryExpression.java:134)
-	at org.eclipse.cdt.internal.core.dom.parser.c.CASTIfStatement.accept(CASTIfStatement.java:137)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTExpressionStatement.accept(CASTExpressionStatement.java:80)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTCompoundStatement.accept(CASTCompoundStatement.java:89)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTIfStatement.accept(CASTIfStatement.java:140)
 	at org.eclipse.cdt.internal.core.dom.parser.c.CASTCompoundStatement.accept(CASTCompoundStatement.java:89)
 	at org.eclipse.cdt.internal.core.dom.parser.c.CASTFunctionDefinition.accept(CASTFunctionDefinition.java:141)
 	at org.eclipse.cdt.internal.core.dom.parser.ASTTranslationUnit.accept(ASTTranslationUnit.java:289)
@@ -902,20 +1942,24 @@ org.eclipse.core.runtime.CoreException: Corrupted database: Carro Seguidor.17247
 	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:78)
 	at org.eclipse.cdt.internal.ui.text.CReconciler.process(CReconciler.java:346)
 	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:207)
-!SUBENTRY 1 org.eclipse.cdt.core 4 0 2024-09-10 16:28:44.815
+!SUBENTRY 1 org.eclipse.cdt.core 4 0 2024-09-11 18:25:37.951
 !MESSAGE Corrupted database: Carro Seguidor.1724766259048.pdom
 
-!ENTRY org.eclipse.cdt.core 4 0 2024-09-10 16:28:44.815
+!ENTRY org.eclipse.cdt.core 4 0 2024-09-11 18:25:37.951
 !MESSAGE Corrupted database: Carro Seguidor.1724766259048.pdom
 
-!ENTRY org.eclipse.cdt.core 4 0 2024-09-10 16:28:44.815
+!ENTRY org.eclipse.cdt.core 4 0 2024-09-11 18:25:37.951
 !MESSAGE Error
 !STACK 1
 org.eclipse.core.runtime.CoreException: Corrupted database: Carro Seguidor.1724766259048.pdom
 	at org.eclipse.cdt.internal.core.pdom.db.Database.databaseCorruptionDetected(Database.java:323)
 	at org.eclipse.cdt.internal.core.pdom.db.Database.getChunk(Database.java:303)
-	at org.eclipse.cdt.internal.core.pdom.db.BTree.accept(BTree.java:555)
+	at org.eclipse.cdt.internal.core.pdom.db.Database.getRecPtr(Database.java:518)
+	at org.eclipse.cdt.internal.core.pdom.dom.PDOMNamedNode.getDBName(PDOMNamedNode.java:74)
+	at org.eclipse.cdt.internal.core.pdom.dom.NamedNodeCollector.compare(NamedNodeCollector.java:96)
+	at org.eclipse.cdt.internal.core.pdom.db.BTree.accept(BTree.java:569)
 	at org.eclipse.cdt.internal.core.pdom.db.BTree.accept(BTree.java:588)
+	at org.eclipse.cdt.internal.core.pdom.db.BTree.accept(BTree.java:596)
 	at org.eclipse.cdt.internal.core.pdom.db.BTree.accept(BTree.java:541)
 	at org.eclipse.cdt.internal.core.pdom.dom.PDOMLinkage.getBindingsViaCache(PDOMLinkage.java:427)
 	at org.eclipse.cdt.internal.core.pdom.PDOM.findBindings(PDOM.java:1417)
@@ -934,6 +1978,7 @@ org.eclipse.core.runtime.CoreException: Corrupted database: Carro Seguidor.17247
 	at org.eclipse.cdt.internal.core.dom.parser.c.CASTName.accept(CASTName.java:132)
 	at org.eclipse.cdt.internal.core.dom.parser.c.CASTIdExpression.accept(CASTIdExpression.java:88)
 	at org.eclipse.cdt.internal.core.dom.parser.c.CASTFunctionCallExpression.accept(CASTFunctionCallExpression.java:118)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTBinaryExpression.accept(CASTBinaryExpression.java:134)
 	at org.eclipse.cdt.internal.core.dom.parser.c.CASTExpressionStatement.accept(CASTExpressionStatement.java:80)
 	at org.eclipse.cdt.internal.core.dom.parser.c.CASTCompoundStatement.accept(CASTCompoundStatement.java:89)
 	at org.eclipse.cdt.internal.core.dom.parser.c.CASTIfStatement.accept(CASTIfStatement.java:140)
@@ -950,17 +1995,24 @@ org.eclipse.core.runtime.CoreException: Corrupted database: Carro Seguidor.17247
 	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:78)
 	at org.eclipse.cdt.internal.ui.text.CReconciler.process(CReconciler.java:346)
 	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:207)
-!SUBENTRY 1 org.eclipse.cdt.core 4 0 2024-09-10 16:28:44.815
+!SUBENTRY 1 org.eclipse.cdt.core 4 0 2024-09-11 18:25:37.951
 !MESSAGE Corrupted database: Carro Seguidor.1724766259048.pdom
 
-!ENTRY org.eclipse.cdt.core 4 0 2024-09-10 16:28:44.816
+!ENTRY org.eclipse.cdt.core 4 0 2024-09-11 18:25:37.952
+!MESSAGE Corrupted database: Carro Seguidor.1724766259048.pdom
+
+!ENTRY org.eclipse.cdt.core 4 0 2024-09-11 18:25:37.952
 !MESSAGE Error
 !STACK 1
 org.eclipse.core.runtime.CoreException: Corrupted database: Carro Seguidor.1724766259048.pdom
 	at org.eclipse.cdt.internal.core.pdom.db.Database.databaseCorruptionDetected(Database.java:323)
 	at org.eclipse.cdt.internal.core.pdom.db.Database.getChunk(Database.java:303)
-	at org.eclipse.cdt.internal.core.pdom.db.BTree.accept(BTree.java:555)
+	at org.eclipse.cdt.internal.core.pdom.db.Database.getRecPtr(Database.java:518)
+	at org.eclipse.cdt.internal.core.pdom.dom.PDOMNamedNode.getDBName(PDOMNamedNode.java:74)
+	at org.eclipse.cdt.internal.core.pdom.dom.NamedNodeCollector.compare(NamedNodeCollector.java:96)
+	at org.eclipse.cdt.internal.core.pdom.db.BTree.accept(BTree.java:569)
 	at org.eclipse.cdt.internal.core.pdom.db.BTree.accept(BTree.java:588)
+	at org.eclipse.cdt.internal.core.pdom.db.BTree.accept(BTree.java:596)
 	at org.eclipse.cdt.internal.core.pdom.db.BTree.accept(BTree.java:541)
 	at org.eclipse.cdt.internal.core.pdom.dom.PDOMLinkage.getBindingsViaCache(PDOMLinkage.java:427)
 	at org.eclipse.cdt.internal.core.pdom.PDOM.findBindings(PDOM.java:1417)
@@ -979,9 +2031,10 @@ org.eclipse.core.runtime.CoreException: Corrupted database: Carro Seguidor.17247
 	at org.eclipse.cdt.internal.core.dom.parser.c.CASTName.accept(CASTName.java:132)
 	at org.eclipse.cdt.internal.core.dom.parser.c.CASTIdExpression.accept(CASTIdExpression.java:88)
 	at org.eclipse.cdt.internal.core.dom.parser.c.CASTFunctionCallExpression.accept(CASTFunctionCallExpression.java:118)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTBinaryExpression.accept(CASTBinaryExpression.java:134)
 	at org.eclipse.cdt.internal.core.dom.parser.c.CASTExpressionStatement.accept(CASTExpressionStatement.java:80)
 	at org.eclipse.cdt.internal.core.dom.parser.c.CASTCompoundStatement.accept(CASTCompoundStatement.java:89)
-	at org.eclipse.cdt.internal.core.dom.parser.c.CASTIfStatement.accept(CASTIfStatement.java:140)
+	at org.eclipse.cdt.internal.core.dom.parser.c.CASTIfStatement.accept(CASTIfStatement.java:151)
 	at org.eclipse.cdt.internal.core.dom.parser.c.CASTCompoundStatement.accept(CASTCompoundStatement.java:89)
 	at org.eclipse.cdt.internal.core.dom.parser.c.CASTFunctionDefinition.accept(CASTFunctionDefinition.java:141)
 	at org.eclipse.cdt.internal.core.dom.parser.ASTTranslationUnit.accept(ASTTranslationUnit.java:289)
@@ -995,98 +2048,5 @@ org.eclipse.core.runtime.CoreException: Corrupted database: Carro Seguidor.17247
 	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:78)
 	at org.eclipse.cdt.internal.ui.text.CReconciler.process(CReconciler.java:346)
 	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:207)
-!SUBENTRY 1 org.eclipse.cdt.core 4 0 2024-09-10 16:28:44.816
-!MESSAGE Corrupted database: Carro Seguidor.1724766259048.pdom
-
-!ENTRY org.eclipse.cdt.core 4 0 2024-09-10 16:28:44.816
-!MESSAGE Corrupted database: Carro Seguidor.1724766259048.pdom
-
-!ENTRY org.eclipse.cdt.core 4 0 2024-09-10 16:28:44.817
-!MESSAGE Error
-!STACK 1
-org.eclipse.core.runtime.CoreException: Corrupted database: Carro Seguidor.1724766259048.pdom
-	at org.eclipse.cdt.internal.core.pdom.db.Database.databaseCorruptionDetected(Database.java:323)
-	at org.eclipse.cdt.internal.core.pdom.db.Database.getChunk(Database.java:303)
-	at org.eclipse.cdt.internal.core.pdom.db.BTree.accept(BTree.java:555)
-	at org.eclipse.cdt.internal.core.pdom.db.BTree.accept(BTree.java:588)
-	at org.eclipse.cdt.internal.core.pdom.db.BTree.accept(BTree.java:541)
-	at org.eclipse.cdt.internal.core.pdom.dom.PDOMLinkage.getBindingsViaCache(PDOMLinkage.java:427)
-	at org.eclipse.cdt.internal.core.pdom.PDOM.findBindings(PDOM.java:1417)
-	at org.eclipse.cdt.internal.core.pdom.PDOM.findBindings(PDOM.java:1407)
-	at org.eclipse.cdt.internal.core.index.CIndex.findBindings(CIndex.java:650)
-	at org.eclipse.cdt.internal.core.index.CIndex.findBindings(CIndex.java:510)
-	at org.eclipse.cdt.internal.core.dom.parser.c.CScope.getBinding(CScope.java:285)
-	at org.eclipse.cdt.internal.core.dom.parser.c.CVisitor.lookup(CVisitor.java:1063)
-	at org.eclipse.cdt.internal.core.dom.parser.c.CVisitor.resolveBinding(CVisitor.java:837)
-	at org.eclipse.cdt.internal.core.dom.parser.c.CVisitor.createBinding(CVisitor.java:454)
-	at org.eclipse.cdt.internal.core.dom.parser.c.CASTName.resolveBinding(CASTName.java:66)
-	at org.eclipse.cdt.internal.ui.editor.SemanticToken.getBinding(SemanticToken.java:50)
-	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightings$ExternalSDKHighlighting.consumes(SemanticHighlightings.java:1608)
-	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightingReconciler$AbstractPositionCollector.visitNode(SemanticHighlightingReconciler.java:232)
-	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightingReconciler$AbstractPositionCollector.visit(SemanticHighlightingReconciler.java:194)
-	at org.eclipse.cdt.internal.core.dom.parser.c.CASTName.accept(CASTName.java:132)
-	at org.eclipse.cdt.internal.core.dom.parser.c.CASTIdExpression.accept(CASTIdExpression.java:88)
-	at org.eclipse.cdt.internal.core.dom.parser.c.CASTFunctionCallExpression.accept(CASTFunctionCallExpression.java:118)
-	at org.eclipse.cdt.internal.core.dom.parser.c.CASTExpressionStatement.accept(CASTExpressionStatement.java:80)
-	at org.eclipse.cdt.internal.core.dom.parser.c.CASTCompoundStatement.accept(CASTCompoundStatement.java:89)
-	at org.eclipse.cdt.internal.core.dom.parser.c.CASTIfStatement.accept(CASTIfStatement.java:140)
-	at org.eclipse.cdt.internal.core.dom.parser.c.CASTCompoundStatement.accept(CASTCompoundStatement.java:89)
-	at org.eclipse.cdt.internal.core.dom.parser.c.CASTFunctionDefinition.accept(CASTFunctionDefinition.java:141)
-	at org.eclipse.cdt.internal.core.dom.parser.ASTTranslationUnit.accept(ASTTranslationUnit.java:289)
-	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightingReconciler.reconcilePositions(SemanticHighlightingReconciler.java:450)
-	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightingReconciler.reconciled(SemanticHighlightingReconciler.java:413)
-	at org.eclipse.cdt.internal.ui.editor.CEditor.reconciled(CEditor.java:3107)
-	at org.eclipse.cdt.internal.ui.text.CReconcilingStrategy.reconcile(CReconcilingStrategy.java:100)
-	at org.eclipse.cdt.internal.ui.text.CReconcilingStrategy.reconcile(CReconcilingStrategy.java:64)
-	at org.eclipse.cdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:89)
-	at org.eclipse.cdt.internal.ui.text.CCompositeReconcilingStrategy.reconcile(CCompositeReconcilingStrategy.java:90)
-	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:78)
-	at org.eclipse.cdt.internal.ui.text.CReconciler.process(CReconciler.java:346)
-	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:207)
-!SUBENTRY 1 org.eclipse.cdt.core 4 0 2024-09-10 16:28:44.817
-!MESSAGE Corrupted database: Carro Seguidor.1724766259048.pdom
-
-!ENTRY org.eclipse.cdt.core 4 0 2024-09-10 16:28:44.817
-!MESSAGE Error
-!STACK 1
-org.eclipse.core.runtime.CoreException: Corrupted database: Carro Seguidor.1724766259048.pdom
-	at org.eclipse.cdt.internal.core.pdom.db.Database.databaseCorruptionDetected(Database.java:323)
-	at org.eclipse.cdt.internal.core.pdom.db.Database.getChunk(Database.java:303)
-	at org.eclipse.cdt.internal.core.pdom.db.BTree.accept(BTree.java:555)
-	at org.eclipse.cdt.internal.core.pdom.db.BTree.accept(BTree.java:588)
-	at org.eclipse.cdt.internal.core.pdom.db.BTree.accept(BTree.java:541)
-	at org.eclipse.cdt.internal.core.pdom.dom.PDOMLinkage.getBindingsViaCache(PDOMLinkage.java:427)
-	at org.eclipse.cdt.internal.core.pdom.PDOM.findBindings(PDOM.java:1417)
-	at org.eclipse.cdt.internal.core.pdom.PDOM.findBindings(PDOM.java:1407)
-	at org.eclipse.cdt.internal.core.index.CIndex.findBindings(CIndex.java:650)
-	at org.eclipse.cdt.internal.core.index.CIndex.findBindings(CIndex.java:510)
-	at org.eclipse.cdt.internal.core.dom.parser.c.CScope.getBinding(CScope.java:285)
-	at org.eclipse.cdt.internal.core.dom.parser.c.CVisitor.lookup(CVisitor.java:1063)
-	at org.eclipse.cdt.internal.core.dom.parser.c.CVisitor.resolveBinding(CVisitor.java:837)
-	at org.eclipse.cdt.internal.core.dom.parser.c.CVisitor.createBinding(CVisitor.java:454)
-	at org.eclipse.cdt.internal.core.dom.parser.c.CASTName.resolveBinding(CASTName.java:66)
-	at org.eclipse.cdt.internal.ui.editor.SemanticToken.getBinding(SemanticToken.java:50)
-	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightings$ExternalSDKHighlighting.consumes(SemanticHighlightings.java:1608)
-	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightingReconciler$AbstractPositionCollector.visitNode(SemanticHighlightingReconciler.java:232)
-	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightingReconciler$AbstractPositionCollector.visit(SemanticHighlightingReconciler.java:194)
-	at org.eclipse.cdt.internal.core.dom.parser.c.CASTName.accept(CASTName.java:132)
-	at org.eclipse.cdt.internal.core.dom.parser.c.CASTIdExpression.accept(CASTIdExpression.java:88)
-	at org.eclipse.cdt.internal.core.dom.parser.c.CASTFunctionCallExpression.accept(CASTFunctionCallExpression.java:118)
-	at org.eclipse.cdt.internal.core.dom.parser.c.CASTExpressionStatement.accept(CASTExpressionStatement.java:80)
-	at org.eclipse.cdt.internal.core.dom.parser.c.CASTCompoundStatement.accept(CASTCompoundStatement.java:89)
-	at org.eclipse.cdt.internal.core.dom.parser.c.CASTIfStatement.accept(CASTIfStatement.java:140)
-	at org.eclipse.cdt.internal.core.dom.parser.c.CASTCompoundStatement.accept(CASTCompoundStatement.java:89)
-	at org.eclipse.cdt.internal.core.dom.parser.c.CASTFunctionDefinition.accept(CASTFunctionDefinition.java:141)
-	at org.eclipse.cdt.internal.core.dom.parser.ASTTranslationUnit.accept(ASTTranslationUnit.java:289)
-	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightingReconciler.reconcilePositions(SemanticHighlightingReconciler.java:450)
-	at org.eclipse.cdt.internal.ui.editor.SemanticHighlightingReconciler.reconciled(SemanticHighlightingReconciler.java:413)
-	at org.eclipse.cdt.internal.ui.editor.CEditor.reconciled(CEditor.java:3107)
-	at org.eclipse.cdt.internal.ui.text.CReconcilingStrategy.reconcile(CReconcilingStrategy.java:100)
-	at org.eclipse.cdt.internal.ui.text.CReconcilingStrategy.reconcile(CReconcilingStrategy.java:64)
-	at org.eclipse.cdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:89)
-	at org.eclipse.cdt.internal.ui.text.CCompositeReconcilingStrategy.reconcile(CCompositeReconcilingStrategy.java:90)
-	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:78)
-	at org.eclipse.cdt.internal.ui.text.CReconciler.process(CReconciler.java:346)
-	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:207)
-!SUBENTRY 1 org.eclipse.cdt.core 4 0 2024-09-10 16:28:44.817
+!SUBENTRY 1 org.eclipse.cdt.core 4 0 2024-09-11 18:25:37.952
 !MESSAGE Corrupted database: Carro Seguidor.1724766259048.pdom

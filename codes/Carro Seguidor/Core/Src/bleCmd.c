@@ -7,26 +7,23 @@
 #include <bleCmd.h>
 
 void vBleCmdMotorForward(){
-	vMotorsSetPWM(left, 0.8, 1);
-	vMotorsSetPWM(right, 0.8, 0);
-	HAL_Delay(500);
-	vMotorsSetOff(left);
-	vMotorsSetOff(right);
+	vMotorsSetPWMTimer(left, 0.8, 1, 300);
+	vMotorsSetPWMTimer(right, 0.8, 1, 300);
 }
 
 void vBleCmdMotorLeftward(){
-	vMotorsSetPWM(left, 0.8, 1);
-	vMotorsSetPWM(right, 0.1, 0);
-	HAL_Delay(500);
-	vMotorsSetOff(left);
-	vMotorsSetOff(right);
+	vMotorsSetPWMTimer(left, 0.8, 1, 300);
+	vMotorsSetPWMTimer(right, 0.1, 0, 300);
+
 }
 
 void vBleCmdMotorRightward(){
-	vMotorsSetPWM(left, 0.1, 1);
-	vMotorsSetPWM(right, 0.8, 0);
-	HAL_Delay(500);
+	vMotorsSetPWMTimer(left, 0.1, 0, 300);
+	vMotorsSetPWMTimer(right, 0.8, 1, 300);
+}
+
+void vBleCmdMotorStop(){
 	vMotorsSetOff(left);
 	vMotorsSetOff(right);
-
 }
+

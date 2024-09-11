@@ -16,5 +16,6 @@ void vBleCmdMotorForward();
 void vBleCmdMotorLeftward();
 
 void vBleCmdMotorRightward();
+void vBleCmdMotorStop();
 
 #endif /* INC_BLECMD_H_ */

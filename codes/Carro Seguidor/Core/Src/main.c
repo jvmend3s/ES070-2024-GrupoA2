@@ -61,9 +61,12 @@ typedef enum
 
 //    Timer & Counters
 
-TIM_HandleTypeDef* pTimerPWMTrigger = &htim20;
-TIM_HandleTypeDef* pTimerEcoUltrassonicoFrontal = &htim3;
+TIM_HandleTypeDef * pTimerPWMTrigger = &htim20;
+TIM_HandleTypeDef * pTimerEcoUltrassonicoFrontal = &htim3;
 UART_HandleTypeDef * pBleCtrlMain = &huart3;
+TIM_HandleTypeDef * pTimDurationMotor = &htim5;
+TIM_HandleTypeDef * pTimPWMMotor = &htim1;
+
 
 
 //   Ints
@@ -98,7 +101,7 @@ int main(void)
 {
 
   /* USER CODE BEGIN 1 */
-	unsigned char ucLCD0Msg[17], ucLCD1Msg[17];
+//	unsigned char ucLCD0Msg[17], ucLCD1Msg[17];
 
   /* USER CODE END 1 */
 
@@ -127,13 +130,15 @@ int main(void)
   MX_I2C2_Init();
   MX_TIM1_Init();
   MX_USART3_UART_Init();
+  MX_TIM5_Init();
   /* USER CODE BEGIN 2 */
+
   lcdInit(&hi2c2, (uint8_t)0x27, (uint8_t)2, (uint8_t)16);
 
   vUltrassonicoInit(pTimerEcoUltrassonicoFrontal,pTimerPWMTrigger) ;
   vCommunicationInit();
 
-  vMotorsInit();
+  vMotorsInit(pTimPWMMotor, pTimDurationMotor);
   vBluetoothInit(pBleCtrlMain);
 
   /* USER CODE END 2 */
@@ -141,8 +146,9 @@ int main(void)
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   lcdSetCursorPosition(0, 0);
-  sprintf((char *)ucLCD0Msg, "Distancia (cm)");
-  lcdPrintStr((uint8_t*)ucLCD0Msg, strlen((char *)ucLCD0Msg));
+  HAL_TIM_Base_Start_IT(pTimDurationMotor);
+//  sprintf((char *)ucLCD0Msg, "Distancia (cm)");
+//  lcdPrintStr((uint8_t*)ucLCD0Msg, strlen((char *)ucLCD0Msg));
 
 
 
@@ -219,6 +225,13 @@ void SystemClock_Config(void)
 }
 
 /* USER CODE BEGIN 4 */
+
+void HAL_TIM_PeriodElapsedCallback (TIM_HandleTypeDef * htim){
+	if (htim == pTimDurationMotor)
+	{
+	vMotorDurationCallback();
+	}
+}
 
 void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef * htim){
 

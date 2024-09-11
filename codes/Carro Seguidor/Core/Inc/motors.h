@@ -13,10 +13,12 @@ enum Motor {
 	right
 };
 
+
 void vMotorsInit();
 void vMotorsSetPWM(char, float, char);
 void vMotorsSetVelocity(char, float, char);
 void vMotorsSetPWMTimer(char, float, char, unsigned int );
 void vMotorsSetOff(char);
+void vMotorDurationCallback();
 
 #endif /* INC_MOTORS_H_ */

@@ -14,7 +14,7 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef * huart){
         if(ucInput == '1'){
             vBleCmdMotorForward();
         }
-        else if (ucInput == '2')
+        else if (ucInput == '4')
         {
         	vBleCmdMotorLeftward();
         }
@@ -22,6 +22,11 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef * huart){
         {
         	vBleCmdMotorRightward();
         }
-
+        else if (ucInput == '2')
+        {
+        	vBleCmdMotorStop();
+        }
+        HAL_UART_Receive_IT(pBluetoothControllerUART, &ucInput, 1);
     }
+
 }

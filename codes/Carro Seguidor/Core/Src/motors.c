@@ -10,12 +10,21 @@
 #include "tim.h"
 
 TIM_HandleTypeDef* pTimPWM;
+TIM_HandleTypeDef* pTimDuration;
+unsigned char ucDurationCounter;
+unsigned short int usTimeOn;
 
-void vMotorsInit() {
-	pTimPWM = &htim1;
+void vMotorsInit(TIM_HandleTypeDef* htimPWM, TIM_HandleTypeDef* htimTimer) {
+	pTimPWM = htimPWM;
+	pTimDuration =htimPWM;
 	HAL_TIM_PWM_Start(pTimPWM, TIM_CHANNEL_1);
 	HAL_TIM_PWM_Start(pTimPWM, TIM_CHANNEL_2);
 	//pTimPWM->Instance->CCR1 = 0;
+	HAL_NVIC_DisableIRQ(TIM5_IRQn);
+
+	ucDurationCounter = 0;
+	usTimeOn =0;
+
 }
 
 //char: motor da direita ou esquerda
@@ -93,11 +102,11 @@ void vMotorsSetPWMTimer(char motor, float PWM, char rotation, unsigned int durat
 			HAL_GPIO_WritePin(Motor_Dir_IN2_GPIO_Port,Motor_Dir_IN2_Pin, 1);
 		}
 	}
+	usTimeOn = duration;
+	ucDurationCounter = 0;
+	HAL_NVIC_EnableIRQ(TIM5_IRQn);
 
-	//inicia timer
-
-	//finaliza timer
-	vMotorsSetOff(motor);
+//	vMotorsSetOff(motor);
 }
 
 void vMotorsSetOff(char motor) {
@@ -115,6 +124,21 @@ void vMotorsSetOff(char motor) {
 
 	}
 }
+
+void vMotorDurationCallback(){
+	if((ucDurationCounter*10)==usTimeOn){
+		vMotorsSetOff(left);
+		vMotorsSetOff(right);
+		usTimeOn = 0;
+		ucDurationCounter = 0;
+		HAL_NVIC_DisableIRQ(TIM5_IRQn);
+	}
+	else
+	{
+		ucDurationCounter++;
+	}
+}
+
 
 
   //HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_1);
