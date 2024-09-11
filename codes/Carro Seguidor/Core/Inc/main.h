@@ -80,6 +80,10 @@ void Error_Handler(void);
 #define T_SWCLK_GPIO_Port GPIOA
 #define T_SWO_Pin GPIO_PIN_3
 #define T_SWO_GPIO_Port GPIOB
+#define Encoder_Esq_TIM_Pin GPIO_PIN_4
+#define Encoder_Esq_TIM_GPIO_Port GPIOB
+#define Encoder_Dir_TIM_Pin GPIO_PIN_5
+#define Encoder_Dir_TIM_GPIO_Port GPIOB
 #define Motor_Esq_IN3_Pin GPIO_PIN_7
 #define Motor_Esq_IN3_GPIO_Port GPIOB
 #define Motor_Dir_IN2_Pin GPIO_PIN_9

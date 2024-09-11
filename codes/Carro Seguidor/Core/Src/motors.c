@@ -10,6 +10,10 @@
 #include "tim.h"
 
 TIM_HandleTypeDef* pTimPWM;
+unsigned int timer;
+unsigned int timerMax;
+unsigned int contar;
+char motor;
 
 void vMotorsInit() {
 	pTimPWM = &htim1;
@@ -72,6 +76,7 @@ void vMotorsSetVelocity(char motor, float linearVelocity, char rotation){
 }
 
 void vMotorsSetPWMTimer(char motor, float PWM, char rotation, unsigned int duration) {
+	timerMax = duration*2;
 	if (motor == left) {
 		pTimPWM->Instance->CCR1 = (PWM*1000) - 1;
 
@@ -95,9 +100,12 @@ void vMotorsSetPWMTimer(char motor, float PWM, char rotation, unsigned int durat
 	}
 
 	//inicia timer
+	timer = 0;
+	contar = 1;
+	motor = motor;
 
 	//finaliza timer
-	vMotorsSetOff(motor);
+	//vMotorsSetOff(motor);
 }
 
 void vMotorsSetOff(char motor) {
@@ -116,6 +124,18 @@ void vMotorsSetOff(char motor) {
 	}
 }
 
+
+void vUpdateTimerPWM(){
+	if (contar == 1)
+	{
+		timer += 1;
+		if (timer == timerMax)
+		{
+			vMotorsSetOff(motor);
+			contar = 0;
+		}
+	}
+}
 
   //HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_1);
   //(&htim1)->Instance->CCR1 = 1000-1;

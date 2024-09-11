@@ -46,6 +46,18 @@
 
 /* USER CODE BEGIN PV */
 
+TIM_HandleTypeDef* pTim500ms;
+
+// encoders
+TIM_HandleTypeDef* pTimFreqFixa_esq = &htim16;
+TIM_HandleTypeDef* pTimFreqFixa_dir = &htim17;
+uint32_t T1_esq, T2_esq;
+uint32_t T1_dir, T2_dir;
+unsigned int estorou_esq, estorou_dir;
+long long int T11_esq, T11_dir;
+float vel_esq, vel_dir;
+
+
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -89,11 +101,20 @@ int main(void)
   MX_GPIO_Init();
   MX_LPUART1_UART_Init();
   MX_TIM1_Init();
+  MX_TIM6_Init();
+  MX_TIM16_Init();
+  MX_TIM17_Init();
   /* USER CODE BEGIN 2 */
+
   vMotorsInit();
 
-  vMotorsSetPWM(left, 1, 1);
-  vMotorsSetPWM(right, 0.5, 1);
+  HAL_TIM_Base_Start_IT(pTimFreqFixa_esq);
+  HAL_TIM_Base_Start_IT(pTimFreqFixa_dir);
+  HAL_TIM_IC_Start_IT(pTimFreqFixa_esq, TIM_CHANNEL_1);
+  HAL_TIM_IC_Start_IT(pTimFreqFixa_dir, TIM_CHANNEL_1);
+
+ //vMotorsSetPWM(left, 1, 1);
+ //vMotorsSetPWM(right, 0.5, 1);
 
   //vMotorsSetOff(left);
   //vMotorsSetOff(right);
@@ -158,6 +179,46 @@ void SystemClock_Config(void)
 }
 
 /* USER CODE BEGIN 4 */
+
+void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef * htim){
+	if (htim == pTimFreqFixa_esq)
+		estorou_esq++;
+	else if (htim == pTimFreqFixa_dir)
+		estorou_dir++;
+//	if (htim == pTim500ms)
+//	{
+//		vUpdateTimerPWM();
+//	}
+
+
+}
+
+void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef *htim) {
+	//int diferenca =
+	if (htim == pTimFreqFixa_esq)
+	{
+		T1_esq =  HAL_TIM_ReadCapturedValue(htim,  TIM_CHANNEL_1);
+		if (estorou_esq != 0)
+			T11_esq = T1_esq + estorou_esq*10000;
+		else
+			T11_esq = T1_esq;
+		__HAL_TIM_SET_COUNTER(htim, 0);
+		estorou_esq = 0;
+		vel_esq = 10/(T11_esq/1000000); //velocidade em mm/s
+	}
+	else
+	{
+		T1_dir =  HAL_TIM_ReadCapturedValue(htim,  TIM_CHANNEL_1);
+		if (estorou_dir != 0)
+			T11_dir = T1_dir + estorou_dir*10000;
+		else
+			T11_dir = T1_dir;
+		__HAL_TIM_SET_COUNTER(htim, 0);
+		estorou_dir = 0;
+		vel_dir = 10/(T11_dir/1000000); //velocidade em mm/s
+	}
+
+}
 
 /* USER CODE END 4 */
 
