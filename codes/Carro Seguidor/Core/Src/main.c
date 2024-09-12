@@ -18,16 +18,30 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+#include "dma.h"
+#include "i2c.h"
 #include "usart.h"
+#include "tim.h"
 #include "gpio.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
+#include <stdio.h>
+#include <string.h>
+#include "ultrassonico.h"
+#include "lcd_hd44780_i2c.h"
+#include "communication.h"
+#include "motors.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
+typedef enum
+{ Bit_RESET = 0,
+  Bit_SET
+}BitAction;
+
 
 /* USER CODE END PTD */
 
@@ -44,6 +58,27 @@
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
+
+//    Timer & Counters
+
+TIM_HandleTypeDef * pTimerPWMTrigger = &htim20;
+TIM_HandleTypeDef * pTimerEcoUltrassonicoFrontal = &htim3;
+UART_HandleTypeDef * pBleCtrlMain = &huart3;
+TIM_HandleTypeDef * pTimDurationMotor = &htim5;
+TIM_HandleTypeDef * pTimPWMMotor = &htim1;
+
+
+
+//   Ints
+//flags
+char CountMode=0;
+
+uint16_t uiAuxDistanceUltrassonicoFrontal1=0;
+uint16_t uiAuxDistanceUltrassonicoFrontal2=0;
+//Floats
+
+float fDistance=0;
+
 
 /* USER CODE END PV */
 
@@ -66,6 +101,7 @@ int main(void)
 {
 
   /* USER CODE BEGIN 1 */
+//	unsigned char ucLCD0Msg[17], ucLCD1Msg[17];
 
   /* USER CODE END 1 */
 
@@ -87,19 +123,57 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
+  MX_DMA_Init();
   MX_LPUART1_UART_Init();
+  MX_TIM3_Init();
+  MX_TIM20_Init();
+  MX_I2C2_Init();
+  MX_TIM1_Init();
+  MX_USART3_UART_Init();
+  MX_TIM5_Init();
   /* USER CODE BEGIN 2 */
+
+  lcdInit(&hi2c2, (uint8_t)0x27, (uint8_t)2, (uint8_t)16);
+
+  vUltrassonicoInit(pTimerEcoUltrassonicoFrontal,pTimerPWMTrigger) ;
+  vCommunicationInit();
+
+  vMotorsInit(pTimPWMMotor, pTimDurationMotor);
+  vBluetoothInit(pBleCtrlMain);
 
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
+  lcdSetCursorPosition(0, 0);
+  HAL_TIM_Base_Start_IT(pTimDurationMotor);
+//  sprintf((char *)ucLCD0Msg, "Distancia (cm)");
+//  lcdPrintStr((uint8_t*)ucLCD0Msg, strlen((char *)ucLCD0Msg));
+
+
+
+
+
+
   while (1)
   {
     /* USER CODE END WHILE */
-	  HAL_GPIO_TogglePin(RED_LED_GPIO_Port, RED_LED_Pin);
-	  HAL_Delay(1000);
+
     /* USER CODE BEGIN 3 */
+	  HAL_Delay(200);
+//	  lcdSetCursorPosition(0, 1);
+//	  lcdPrintStr((uint8_t*)pCommunicationFloatToString(fDistance, 2), strlen((char *)pCommunicationFloatToString(fDistance, 2)));
+//	  if(fDistance<6.0){
+//		  while(fDistance<6.0){
+//		   vMotorsSetPWM(left, 0.8, 1);
+//		   vMotorsSetPWM(right, 0.8, 0);
+//		  }
+//		  vMotorsSetOff(0);
+//		  vMotorsSetOff(1);
+//	  }
+
+
+
   }
   /* USER CODE END 3 */
 }
@@ -151,6 +225,31 @@ void SystemClock_Config(void)
 }
 
 /* USER CODE BEGIN 4 */
+
+void HAL_TIM_PeriodElapsedCallback (TIM_HandleTypeDef * htim){
+	if (htim == pTimDurationMotor)
+	{
+	vMotorsDurationCallback();
+	}
+}
+
+void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef * htim){
+
+  if(0==CountMode){
+	  uiAuxDistanceUltrassonicoFrontal1= HAL_TIM_ReadCapturedValue(pTimerEcoUltrassonicoFrontal,TIM_CHANNEL_1);
+	  CountMode=1;
+  }else{
+	  uiAuxDistanceUltrassonicoFrontal2 = HAL_TIM_ReadCapturedValue(pTimerEcoUltrassonicoFrontal,TIM_CHANNEL_1);
+	  fDistance=fUltrassonicoGetDistance( uiAuxDistanceUltrassonicoFrontal1,uiAuxDistanceUltrassonicoFrontal2);
+	  CountMode=0;
+  }
+  if(fDistance<0){
+	  fDistance=fDistance*(-1);
+  }
+}
+
+
+
 
 /* USER CODE END 4 */
 

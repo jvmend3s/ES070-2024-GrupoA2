@@ -1,0 +1,29 @@
+/*
+ * bleCmd.c
+ *
+ *  Created on: Sep 9, 2024
+ *      Author: jvmen
+ */
+#include <bleCmd.h>
+
+void vBleCmdMotorForward(){
+	vMotorsSetPWMTimer(left, 0.5, 1, 300);
+	vMotorsSetPWMTimer(right, 0.5, 1, 300);
+}
+
+void vBleCmdMotorLeftward(){
+	vMotorsSetPWMTimer(left, 0.5, 1, 300);
+	vMotorsSetPWMTimer(right, 0.1, 0, 300);
+
+}
+
+void vBleCmdMotorRightward(){
+	vMotorsSetPWMTimer(left, 0.1, 0, 300);
+	vMotorsSetPWMTimer(right, 0.5, 1, 300);
+}
+
+void vBleCmdMotorStop(){
+	vMotorsSetOff(left);
+	vMotorsSetOff(right);
+}
+
