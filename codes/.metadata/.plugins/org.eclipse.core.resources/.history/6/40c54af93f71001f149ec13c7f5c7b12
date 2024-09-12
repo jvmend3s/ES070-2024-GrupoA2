@@ -1,0 +1,30 @@
+/*
+ * bleCmd.h
+ *
+ *  Created on: Sep 9, 2024
+ *      Author: jvmen
+ */
+
+#ifndef INC_BLECMD_H_
+#define INC_BLECMD_H_
+
+#include <motors.h>
+#include <main.h>
+
+//	Function name	: 	vBleCmdMotorForward															   //
+//-----------------------------------------------------------------------------------------------------//
+//	 Description	:	This function command the robot to go forward								   //
+//-----------------------------------------------------------------------------------------------------//
+//	      Inputs	:	n/a																			   //
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
+void vBleCmdMotorForward();
+
+void vBleCmdMotorLeftward();
+
+void vBleCmdMotorRightward();
+
+void vBleCmdMotorBackward();
+
+void vBleCmdMotorStop();
+
+#endif /* INC_BLECMD_H_ */

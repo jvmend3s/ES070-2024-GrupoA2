@@ -1,0 +1,40 @@
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
+//----------------------------------------------File Name----------------------------------------------//
+//	motors.h																						   //
+//----------------------------------------------Desciption---------------------------------------------//
+//																									   //
+//	This file implements the motors using PWM														   //
+//	The functions implemented on this file are:														   //
+//	-	vMotorsInit																					   //
+//  -	vMotorsSetPWM																				   //
+//  -	vMotorsSetVelocity																			   //
+//  -	vMotorsSetPWMTimer																			   //
+//  -	vMotorsSetOff																		 		   //
+//  -	vMotorsDurationCallback																		   //
+//																									   //
+//-----------------------------------------------Author------------------------------------------------//
+//	Gustavo Wyatt Varga																				   //
+//	Maria Clara 																					   //
+//	João Vitor Mendes																				   //
+//-----------------------------------------------Version-----------------------------------------------//
+//	Created on :									07/09/24										   //
+//	Revised on :									12/09/24										   //
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
+#ifndef INC_MOTORS_H_
+#define INC_MOTORS_H_
+
+enum Motor {
+	left = 0,
+	right
+};
+
+
+void vMotorsInit();
+void vMotorsSetPWM(char, float, char);
+void vMotorsSetVelocity(char, float, char);
+void vMotorsSetPWMTimer(char, float, char, unsigned int );
+void vMotorsSetOff(char);
+void vMotorsDurationCallback();
+
+#endif /* INC_MOTORS_H_ */

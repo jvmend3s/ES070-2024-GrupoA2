@@ -1,1 +1,5 @@
 ucInput
+usTimeOn
+ucDurationCounter
+!((ucDurationCounter*10)%usTimeOn))
+ucDurationCounter*10

@@ -1,2 +1,2 @@
-../Core/Src/bluetooth.c:7:6:vBluetoothInit	1
-../Core/Src/bluetooth.c:12:6:HAL_UART_RxCpltCallback	6
+../Core/Src/bluetooth.c:31:6:vBluetoothInit	1
+../Core/Src/bluetooth.c:44:6:HAL_UART_RxCpltCallback	6

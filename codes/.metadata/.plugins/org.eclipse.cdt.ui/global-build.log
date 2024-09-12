@@ -1,152 +1,4 @@
-17:31:55 **** Incremental Build of configuration Debug for project Carro Seguidor ****
-make -j16 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G474xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
-arm-none-eabi-gcc "../Core/Src/motors.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G474xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/motors.d" -MT"Core/Src/motors.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/motors.o"
-arm-none-eabi-gcc "../Core/Src/stm32g4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G474xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32g4xx_it.d" -MT"Core/Src/stm32g4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32g4xx_it.o"
-arm-none-eabi-gcc "../Core/Src/tim.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G474xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/tim.d" -MT"Core/Src/tim.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/tim.o"
-../Core/Src/main.c: In function 'main':
-../Core/Src/main.c:150:19: error: 'ucLCD0Msg' undeclared (first use in this function)
-  150 |   sprintf((char *)ucLCD0Msg, "Distancia (cm)");
-      |                   ^~~~~~~~~
-../Core/Src/main.c:150:19: note: each undeclared identifier is reported only once for each function it appears in
-make: *** [Core/Src/subdir.mk:67: Core/Src/main.o] Error 1
-make: *** Waiting for unfinished jobs....
-"make -j16 all" terminated with exit code 2. Build might be incomplete.
-17:32:11 **** Incremental Build of configuration Debug for project Carro Seguidor ****
-make -j16 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G474xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
-../Core/Src/main.c: In function 'main':
-../Core/Src/main.c:151:25: error: 'ucLCD0Msg' undeclared (first use in this function)
-  151 |   lcdPrintStr((uint8_t*)ucLCD0Msg, strlen((char *)ucLCD0Msg));
-      |                         ^~~~~~~~~
-../Core/Src/main.c:151:25: note: each undeclared identifier is reported only once for each function it appears in
-make: *** [Core/Src/subdir.mk:67: Core/Src/main.o] Error 1
-"make -j16 all" terminated with exit code 2. Build might be incomplete.
-17:32:21 **** Incremental Build of configuration Debug for project Carro Seguidor ****
-make -j16 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G474xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
-arm-none-eabi-gcc -o "Carro Seguidor.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\jvmen\Documents\ES070-2024-GrupoA2\codes\Carro Seguidor\STM32G474RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Carro Seguidor.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-C:/ST/STM32CubeIDE_1.16.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: warning: Carro Seguidor.elf has a LOAD segment with RWX permissions
-Finished building target: Carro Seguidor.elf
- 
-arm-none-eabi-size  Carro\ Seguidor.elf 
-arm-none-eabi-objdump -h -S Carro\ Seguidor.elf  > "Carro Seguidor.list"
-   text	   data	    bss	    dec	    hex	filename
-  41812	     40	   2680	  44532	   adf4	Carro Seguidor.elf
-Finished building: default.size.stdout
- 
-Finished building: Carro Seguidor.list
- 
-17:35:50 **** Incremental Build of configuration Debug for project Carro Seguidor ****
-make -j16 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G474xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
-../Core/Src/main.c: In function 'main':
-../Core/Src/main.c:137:3: error: too few arguments to function 'HAL_TIM_Base_Start_IT'
-  137 |   HAL_TIM_Base_Start_IT();
-      |   ^~~~~~~~~~~~~~~~~~~~~
-In file included from ../Core/Inc/stm32g4xx_hal_conf.h:344,
-                 from ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h:29,
-                 from ../Core/Inc/main.h:30,
-                 from ../Core/Src/main.c:20:
-../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_tim.h:2354:19: note: declared here
- 2354 | HAL_StatusTypeDef HAL_TIM_Base_Start_IT(TIM_HandleTypeDef *htim);
-      |                   ^~~~~~~~~~~~~~~~~~~~~
-make: *** [Core/Src/subdir.mk:67: Core/Src/main.o] Error 1
-"make -j16 all" terminated with exit code 2. Build might be incomplete.
-17:36:04 **** Incremental Build of configuration Debug for project Carro Seguidor ****
-make -j16 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G474xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
-arm-none-eabi-gcc -o "Carro Seguidor.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\jvmen\Documents\ES070-2024-GrupoA2\codes\Carro Seguidor\STM32G474RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Carro Seguidor.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-C:/ST/STM32CubeIDE_1.16.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: warning: Carro Seguidor.elf has a LOAD segment with RWX permissions
-Finished building target: Carro Seguidor.elf
- 
-arm-none-eabi-size  Carro\ Seguidor.elf 
-arm-none-eabi-objdump -h -S Carro\ Seguidor.elf  > "Carro Seguidor.list"
-   text	   data	    bss	    dec	    hex	filename
-  42064	     40	   2680	  44784	   aef0	Carro Seguidor.elf
-Finished building: default.size.stdout
- 
-Finished building: Carro Seguidor.list
- 
-17:36:26 **** Incremental Build of configuration Debug for project Carro Seguidor ****
-make -j16 all 
-arm-none-eabi-size  Carro\ Seguidor.elf 
-   text	   data	    bss	    dec	    hex	filename
-  42064	     40	   2680	  44784	   aef0	Carro Seguidor.elf
-Finished building: default.size.stdout
- 
-17:37:59 **** Incremental Build of configuration Debug for project Carro Seguidor ****
-make -j16 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G474xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
-arm-none-eabi-gcc -o "Carro Seguidor.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\jvmen\Documents\ES070-2024-GrupoA2\codes\Carro Seguidor\STM32G474RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Carro Seguidor.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-C:/ST/STM32CubeIDE_1.16.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: warning: Carro Seguidor.elf has a LOAD segment with RWX permissions
-Finished building target: Carro Seguidor.elf
- 
-arm-none-eabi-size  Carro\ Seguidor.elf 
-arm-none-eabi-objdump -h -S Carro\ Seguidor.elf  > "Carro Seguidor.list"
-   text	   data	    bss	    dec	    hex	filename
-  42064	     40	   2680	  44784	   aef0	Carro Seguidor.elf
-Finished building: default.size.stdout
- 
-Finished building: Carro Seguidor.list
- 
-17:39:22 **** Incremental Build of configuration Debug for project Carro Seguidor ****
-make -j16 all 
-arm-none-eabi-gcc "../Core/Src/motors.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G474xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/motors.d" -MT"Core/Src/motors.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/motors.o"
-../Core/Src/motors.c: In function 'vMotorDurationCallback':
-../Core/Src/motors.c:129:31: warning: '*' in boolean context, suggest '&&' instead [-Wint-in-bool-context]
-  129 |         if(!(ucDurationCounter*10)%usTimeOn){
-      |             ~~~~~~~~~~~~~~~~~~^~~~
-arm-none-eabi-gcc -o "Carro Seguidor.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\jvmen\Documents\ES070-2024-GrupoA2\codes\Carro Seguidor\STM32G474RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Carro Seguidor.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-C:/ST/STM32CubeIDE_1.16.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: warning: Carro Seguidor.elf has a LOAD segment with RWX permissions
-Finished building target: Carro Seguidor.elf
- 
-arm-none-eabi-size  Carro\ Seguidor.elf 
-arm-none-eabi-objdump -h -S Carro\ Seguidor.elf  > "Carro Seguidor.list"
-   text	   data	    bss	    dec	    hex	filename
-  42064	     40	   2680	  44784	   aef0	Carro Seguidor.elf
-Finished building: default.size.stdout
- 
-Finished building: Carro Seguidor.list
- 
-17:40:20 **** Incremental Build of configuration Debug for project Carro Seguidor ****
-make -j16 all 
-arm-none-eabi-gcc "../Core/Src/motors.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G474xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/motors.d" -MT"Core/Src/motors.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/motors.o"
-arm-none-eabi-gcc -o "Carro Seguidor.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\jvmen\Documents\ES070-2024-GrupoA2\codes\Carro Seguidor\STM32G474RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Carro Seguidor.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-C:/ST/STM32CubeIDE_1.16.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: warning: Carro Seguidor.elf has a LOAD segment with RWX permissions
-Finished building target: Carro Seguidor.elf
- 
-arm-none-eabi-size  Carro\ Seguidor.elf 
-arm-none-eabi-objdump -h -S Carro\ Seguidor.elf  > "Carro Seguidor.list"
-   text	   data	    bss	    dec	    hex	filename
-  42064	     40	   2680	  44784	   aef0	Carro Seguidor.elf
-Finished building: default.size.stdout
- 
-Finished building: Carro Seguidor.list
- 
-17:40:52 **** Incremental Build of configuration Debug for project Carro Seguidor ****
-make -j16 all 
-arm-none-eabi-size  Carro\ Seguidor.elf 
-   text	   data	    bss	    dec	    hex	filename
-  42064	     40	   2680	  44784	   aef0	Carro Seguidor.elf
-Finished building: default.size.stdout
- 
-17:43:22 **** Incremental Build of configuration Debug for project Carro Seguidor ****
-make -j16 all 
-arm-none-eabi-gcc "../Core/Src/motors.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G474xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/motors.d" -MT"Core/Src/motors.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/motors.o"
-arm-none-eabi-gcc -o "Carro Seguidor.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\jvmen\Documents\ES070-2024-GrupoA2\codes\Carro Seguidor\STM32G474RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Carro Seguidor.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-C:/ST/STM32CubeIDE_1.16.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: warning: Carro Seguidor.elf has a LOAD segment with RWX permissions
-Finished building target: Carro Seguidor.elf
- 
-arm-none-eabi-size  Carro\ Seguidor.elf 
-arm-none-eabi-objdump -h -S Carro\ Seguidor.elf  > "Carro Seguidor.list"
-   text	   data	    bss	    dec	    hex	filename
-  42056	     40	   2680	  44776	   aee8	Carro Seguidor.elf
-Finished building: default.size.stdout
- 
-Finished building: Carro Seguidor.list
- 
-17:47:52 **** Incremental Build of configuration Debug for project Carro Seguidor ****
+17:16:38 **** Incremental Build of configuration Debug for project Carro Seguidor ****
 make -j16 all 
 arm-none-eabi-gcc "../Core/Src/bleCmd.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G474xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/bleCmd.d" -MT"Core/Src/bleCmd.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/bleCmd.o"
 arm-none-eabi-gcc -o "Carro Seguidor.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\jvmen\Documents\ES070-2024-GrupoA2\codes\Carro Seguidor\STM32G474RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Carro Seguidor.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
@@ -156,34 +8,19 @@ Finished building target: Carro Seguidor.elf
 arm-none-eabi-size  Carro\ Seguidor.elf 
 arm-none-eabi-objdump -h -S Carro\ Seguidor.elf  > "Carro Seguidor.list"
    text	   data	    bss	    dec	    hex	filename
-  42064	     40	   2680	  44784	   aef0	Carro Seguidor.elf
+  41760	     40	   2528	  44328	   ad28	Carro Seguidor.elf
 Finished building: default.size.stdout
  
 Finished building: Carro Seguidor.list
  
-17:50:49 **** Incremental Build of configuration Debug for project Carro Seguidor ****
-make -j16 all 
-arm-none-eabi-gcc "../Core/Src/bluetooth.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G474xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/bluetooth.d" -MT"Core/Src/bluetooth.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/bluetooth.o"
-arm-none-eabi-gcc -o "Carro Seguidor.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\jvmen\Documents\ES070-2024-GrupoA2\codes\Carro Seguidor\STM32G474RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Carro Seguidor.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-C:/ST/STM32CubeIDE_1.16.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: warning: Carro Seguidor.elf has a LOAD segment with RWX permissions
-Finished building target: Carro Seguidor.elf
- 
-arm-none-eabi-size  Carro\ Seguidor.elf 
-arm-none-eabi-objdump -h -S Carro\ Seguidor.elf  > "Carro Seguidor.list"
-   text	   data	    bss	    dec	    hex	filename
-  42064	     40	   2680	  44784	   aef0	Carro Seguidor.elf
-Finished building: default.size.stdout
- 
-Finished building: Carro Seguidor.list
- 
-17:52:22 **** Incremental Build of configuration Debug for project Carro Seguidor ****
+17:16:52 **** Incremental Build of configuration Debug for project Carro Seguidor ****
 make -j16 all 
 arm-none-eabi-size  Carro\ Seguidor.elf 
    text	   data	    bss	    dec	    hex	filename
-  42064	     40	   2680	  44784	   aef0	Carro Seguidor.elf
+  41760	     40	   2528	  44328	   ad28	Carro Seguidor.elf
 Finished building: default.size.stdout
  
-17:55:53 **** Incremental Build of configuration Debug for project Carro Seguidor ****
+17:17:48 **** Incremental Build of configuration Debug for project Carro Seguidor ****
 make -j16 all 
 arm-none-eabi-gcc "../Core/Src/bleCmd.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G474xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/bleCmd.d" -MT"Core/Src/bleCmd.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/bleCmd.o"
 arm-none-eabi-gcc -o "Carro Seguidor.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\jvmen\Documents\ES070-2024-GrupoA2\codes\Carro Seguidor\STM32G474RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Carro Seguidor.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
@@ -193,7 +30,7 @@ Finished building target: Carro Seguidor.elf
 arm-none-eabi-size  Carro\ Seguidor.elf 
 arm-none-eabi-objdump -h -S Carro\ Seguidor.elf  > "Carro Seguidor.list"
    text	   data	    bss	    dec	    hex	filename
-  42080	     40	   2680	  44800	   af00	Carro Seguidor.elf
+  41760	     40	   2528	  44328	   ad28	Carro Seguidor.elf
 Finished building: default.size.stdout
  
 Finished building: Carro Seguidor.list

@@ -1,0 +1,55 @@
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
+//----------------------------------------------File Name----------------------------------------------//
+//	bluetooth.c
+//----------------------------------------------Desciption---------------------------------------------//
+//
+//	This file implements the usage of the arrows keyboard from the hardware kit, then implements the resourse
+//	of debouncing, witch can be usefull to prevent ghosting or double clicking. Therefore, was
+//	created in this file the time pressing event, for 500 ms and for 3 second. Each function will
+//	be explained before it implementation.
+//
+//	The functions implemented on this file are:
+//	-	vButtonsEventsInit
+//
+//	There are two _weak functions in this file, ther are:
+//	-	vButtonsEventCallbackReleasedEvent
+//
+//-----------------------------------------------Author------------------------------------------------//
+//	João Vitor Mendes
+//	Vitor Akio Isawa
+//-----------------------------------------------Version-----------------------------------------------//
+//	Created on :									19/04/24
+//	Revised on :									03/05/24
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
+#include <bluetooth.h>
+
+
+unsigned char ucInput;
+UART_HandleTypeDef * pBluetoothControllerUART;
+void vBluetoothInit(UART_HandleTypeDef * huart){
+    pBluetoothControllerUART = huart;
+    HAL_UART_Receive_IT(pBluetoothControllerUART, &ucInput, 1);
+}
+
+void HAL_UART_RxCpltCallback(UART_HandleTypeDef * huart){
+    if(huart == pBluetoothControllerUART){
+        if(ucInput == '1'){
+            vBleCmdMotorForward();
+        }
+        else if (ucInput == '4')
+        {
+        	vBleCmdMotorLeftward();
+        }
+        else if (ucInput == '3')
+        {
+        	vBleCmdMotorRightward();
+        }
+        else if (ucInput == '2')
+        {
+        	vBleCmdMotorStop();
+        }
+        HAL_UART_Receive_IT(pBluetoothControllerUART, &ucInput, 1);
+    }
+
+}

@@ -1,0 +1,44 @@
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
+//----------------------------------------------File Name----------------------------------------------//
+//	bluetooth.h  																					   //
+//----------------------------------------------Desciption---------------------------------------------//
+//																									   //
+//	This file implements the commands sent by bluetooth based on with message it receives, the idea is //
+//	The bluetooth communicates only with this lybrary and this library uses all the others libs to     //
+//	implements everything 																			   //
+//	The functions implemented on this file are:														   //
+//	-	vBleCmdMotorForward																			   //
+//  -	vBleCmdMotorLeftward																		   //
+//  -	vBleCmdMotorRightward																		   //
+//  -	vBleCmdMotorBackward																		   //
+//																									   //
+//-----------------------------------------------Author------------------------------------------------//
+//	João Vitor Mendes																				   //
+//-----------------------------------------------Version-----------------------------------------------//
+//	Created on :									07/09/24										   //
+//	Revised on :									12/09/24										   //
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
+#include <bleCmd.h>
+
+void vBleCmdMotorForward(){
+	vMotorsSetPWMTimer(left, 0.8, 1, 300);
+	vMotorsSetPWMTimer(right, 0.8, 1, 300);
+}
+
+void vBleCmdMotorLeftward(){
+	vMotorsSetPWMTimer(left, 0.8, 1, 300);
+	vMotorsSetPWMTimer(right, 0.1, 0, 300);
+
+}
+
+void vBleCmdMotorRightward(){
+	vMotorsSetPWMTimer(left, 0.1, 0, 300);
+	vMotorsSetPWMTimer(right, 0.8, 1, 300);
+}
+
+void vBleCmdMotorStop(){
+	vMotorsSetOff(left);
+	vMotorsSetOff(right);
+}
+

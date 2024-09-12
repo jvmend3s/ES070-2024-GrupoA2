@@ -229,7 +229,7 @@ void SystemClock_Config(void)
 void HAL_TIM_PeriodElapsedCallback (TIM_HandleTypeDef * htim){
 	if (htim == pTimDurationMotor)
 	{
-	vMotorDurationCallback();
+	vMotorsDurationCallback();
 	}
 }
 

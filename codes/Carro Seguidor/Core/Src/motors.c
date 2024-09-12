@@ -1,10 +1,26 @@
-/*
- * Motors.c
- *
- *  Created on: Aug 28, 2024
- *      Author: ES670 B
- */
-
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
+//----------------------------------------------File Name----------------------------------------------//
+//	motors.c																						   //
+//----------------------------------------------Desciption---------------------------------------------//
+//																									   //
+//	This file implements the motors using PWM														   //
+//	The functions implemented on this file are:														   //
+//	-	vMotorsInit																					   //
+//  -	vMotorsSetPWM																				   //
+//  -	vMotorsSetVelocity																			   //
+//  -	vMotorsSetPWMTimer																			   //
+//  -	vMotorsSetOff																		 		   //
+//  -	vMotorsDurationCallback																		   //
+//																									   //
+//-----------------------------------------------Author------------------------------------------------//
+//	Gustavo Wyatt Varga																				   //
+//	Maria Clara 																					   //
+//	João Vitor Mendes																				   //
+//-----------------------------------------------Version-----------------------------------------------//
+//	Created on :									07/09/24										   //
+//	Revised on :									12/09/24										   //
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
 #include "motors.h"
 #include "main.h"
 #include "tim.h"
@@ -79,7 +95,14 @@ void vMotorsSetVelocity(char motor, float linearVelocity, char rotation){
 		}
 	}
 }
-
+//	Function name	: 	vMotorsSetPWMTimer 															   //
+//-----------------------------------------------------------------------------------------------------//
+//	 Description	:	This function set one motor to run based on PWM, and a rotation direction for  //
+//						a pre-set time, it enable the interrupion that after some cycles defined by    //
+//						duration input will stop the motor in vMotorsDurationCallback function         //
+//-----------------------------------------------------------------------------------------------------//
+//	      Inputs	:	char motor, float PWM, char rotation, unsigned int duration					   //
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
 void vMotorsSetPWMTimer(char motor, float PWM, char rotation, unsigned int duration) {
 	if (motor == left) {
 		pTimPWM->Instance->CCR1 = (PWM*1000) - 1;
@@ -125,7 +148,15 @@ void vMotorsSetOff(char motor) {
 	}
 }
 
-void vMotorDurationCallback(){
+//	Function name	: 	vMotorsDurationCallback 															   //
+//-----------------------------------------------------------------------------------------------------//
+//	 Description	:	This function deals with Motors running duration callback, it will counts how  //
+//						many interruptions for stop the motor based on usTimeOn (duration set) then	   //
+//						stops the motors.															   //
+//-----------------------------------------------------------------------------------------------------//
+//	      Inputs	:	n/a																			   //
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
+void vMotorsDurationCallback(){
 	if((ucDurationCounter*10)==usTimeOn){
 		vMotorsSetOff(left);
 		vMotorsSetOff(right);
