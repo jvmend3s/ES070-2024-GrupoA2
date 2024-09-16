@@ -30,8 +30,11 @@ void vUltrassonicoInit(TIM_HandleTypeDef* pTimerEcoUltrassonicoFrontal ,TIM_Hand
   //Define um pulso de 10us a cada 100ms no trigger, utilizando logica pwm
   xUltrassonicoData.TimerTrigger->Instance->CCR1 = 8;
 
+  //Sensor frontal
   HAL_TIM_IC_Start_IT(xUltrassonicoData.pTimerEcoUltrassonicoFrontal, TIM_CHANNEL_1);
 
+  //Sensor esquerdo
+  HAL_TIM_IC_Start_IT(xUltrassonicoData.pTimerEcoUltrassonicoFrontal, TIM_CHANNEL_2);
 }
 
 // ********************************************** //

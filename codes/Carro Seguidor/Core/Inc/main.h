@@ -70,12 +70,20 @@ void Error_Handler(void);
 #define LPUART1_RX_GPIO_Port GPIOA
 #define LD2_Pin GPIO_PIN_5
 #define LD2_GPIO_Port GPIOA
+#define BT_Enter_Pin GPIO_PIN_5
+#define BT_Enter_GPIO_Port GPIOC
+#define BT_Enter_EXTI_IRQn EXTI9_5_IRQn
 #define Motor_Dir_IN1_Pin GPIO_PIN_12
 #define Motor_Dir_IN1_GPIO_Port GPIOB
+#define BT_Down_Pin GPIO_PIN_7
+#define BT_Down_GPIO_Port GPIOC
+#define BT_Down_EXTI_IRQn EXTI9_5_IRQn
 #define Motor_Esq_IN4_Pin GPIO_PIN_10
 #define Motor_Esq_IN4_GPIO_Port GPIOA
-#define RED_LED_Pin GPIO_PIN_11
-#define RED_LED_GPIO_Port GPIOA
+#define LED_R_PWM_Pin GPIO_PIN_11
+#define LED_R_PWM_GPIO_Port GPIOA
+#define LED_G_PWM_Pin GPIO_PIN_12
+#define LED_G_PWM_GPIO_Port GPIOA
 #define T_SWDIO_Pin GPIO_PIN_13
 #define T_SWDIO_GPIO_Port GPIOA
 #define T_SWCLK_Pin GPIO_PIN_14
@@ -84,6 +92,8 @@ void Error_Handler(void);
 #define T_SWO_GPIO_Port GPIOB
 #define Motor_Esq_IN3_Pin GPIO_PIN_7
 #define Motor_Esq_IN3_GPIO_Port GPIOB
+#define LED_B_PWM_Pin GPIO_PIN_8
+#define LED_B_PWM_GPIO_Port GPIOB
 #define Motor_Dir_IN2_Pin GPIO_PIN_9
 #define Motor_Dir_IN2_GPIO_Port GPIOB
 

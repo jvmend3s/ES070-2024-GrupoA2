@@ -33,6 +33,9 @@
 #include "lcd_hd44780_i2c.h"
 #include "communication.h"
 #include "motors.h"
+#include "led.h"
+#include "buzzer.h"
+
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -64,17 +67,23 @@ typedef enum
 TIM_HandleTypeDef* pTimerPWMTrigger = &htim20;
 TIM_HandleTypeDef* pTimerEcoUltrassonicoFrontal = &htim3;
 
+TIM_HandleTypeDef* pTimerBuzzer = &htim5;
+TIM_HandleTypeDef* pTimerPWMBuzzer = &htim8;
 
 //   Ints
 //flags
 char CountMode=0;
+char cBuzzerState=0;
 
 uint16_t uiAuxDistanceUltrassonicoFrontal1=0;
 uint16_t uiAuxDistanceUltrassonicoFrontal2=0;
+
+uint16_t uiAuxDistanceUltrassonicoEsquerdo1=0;
+uint16_t uiAuxDistanceUltrassonicoEsquerdo2=0;
 //Floats
 
-float fDistance=0;
-
+float fDistanceFrontal=0;
+float fDistanceEsquerdo=0;
 
 /* USER CODE END PV */
 
@@ -104,10 +113,7 @@ int main(void)
   /* MCU Configuration--------------------------------------------------------*/
 
   /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
-
-
-
-	HAL_Init();
+  HAL_Init();
 
   /* USER CODE BEGIN Init */
 
@@ -128,6 +134,8 @@ int main(void)
   MX_TIM20_Init();
   MX_I2C2_Init();
   MX_TIM1_Init();
+  MX_TIM8_Init();
+  MX_TIM5_Init();
   /* USER CODE BEGIN 2 */
   lcdInit(&hi2c2, (uint8_t)0x27, (uint8_t)2, (uint8_t)16);
 
@@ -136,15 +144,20 @@ int main(void)
 
   vMotorsInit();
 
+  vBuzzerConfig(100, 100, pTimerPWMBuzzer, pTimerBuzzer);
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   lcdSetCursorPosition(0, 0);
-  sprintf((char *)ucLCD0Msg, "Distancia (cm)");
+  sprintf((char *)ucLCD0Msg, "Dist (cm)");
   lcdPrintStr((uint8_t*)ucLCD0Msg, strlen((char *)ucLCD0Msg));
 
 
+  lcdSetCursorPosition(0,1);
+  sprintf((char *)ucLCD1Msg, "Sensor Frontal");
+  lcdPrintStr((uint8_t*)ucLCD1Msg, strlen((char *)ucLCD1Msg));
 
 
 
@@ -154,16 +167,32 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-	  HAL_Delay(800);
-	  lcdSetCursorPosition(0, 1);
-	  lcdPrintStr((uint8_t*)pCommunicationFloatToString(fDistance, 2), strlen((char *)pCommunicationFloatToString(fDistance, 2)));
-	  if(fDistance<6.0){
-		  while(fDistance<6.0){
-		   vMotorsSetPWM(left, 0.8, 1);
-		   vMotorsSetPWM(right, 0.8, 0);
+	  HAL_Delay(500);
+	  lcdSetCursorPosition(10, 0);
+	  lcdPrintStr((uint8_t*)pCommunicationFloatToString(fDistanceFrontal, 2), strlen((char *)pCommunicationFloatToString(fDistanceFrontal, 2)));
+
+
+
+	  	  if(fDistanceFrontal<4.0){
+		  while(fDistanceFrontal<4.0){
+		  //vMotorsSetPWM(left, 0.6, 0);
+		  //vMotorsSetPWM(right, 0.6, 0);
+		  vLedWriteLed(0b001);
+		  //vBuzzerPlay();
+		  //cBuzzerState=1;
 		  }
-		  vMotorsSetOff(0);
-		  vMotorsSetOff(1);
+	  }
+
+	  else if(20.0>fDistanceFrontal && fDistanceFrontal >4.0){
+
+		  //vMotorsSetOff(left);
+		  //vMotorsSetOff(right);
+		  vLedWriteLed(0b100);
+	  }
+	  else if(20.0<fDistanceFrontal){
+		  //vMotorsSetPWM(left, 0.6, 1);
+		  //vMotorsSetPWM(right, 0.6, 1);
+		  vLedWriteLed(0b010);
 	  }
 
   }
@@ -222,19 +251,42 @@ void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef * htim){
 
   if(0==CountMode){
 	  uiAuxDistanceUltrassonicoFrontal1= HAL_TIM_ReadCapturedValue(pTimerEcoUltrassonicoFrontal,TIM_CHANNEL_1);
+	  uiAuxDistanceUltrassonicoEsquerdo1=HAL_TIM_ReadCapturedValue(pTimerEcoUltrassonicoFrontal,TIM_CHANNEL_2);
 	  CountMode=1;
   }else{
 	  uiAuxDistanceUltrassonicoFrontal2 = HAL_TIM_ReadCapturedValue(pTimerEcoUltrassonicoFrontal,TIM_CHANNEL_1);
-	  fDistance=fUltrassonicoGetDistance( uiAuxDistanceUltrassonicoFrontal1,uiAuxDistanceUltrassonicoFrontal2);
+	  uiAuxDistanceUltrassonicoEsquerdo2=HAL_TIM_ReadCapturedValue(pTimerEcoUltrassonicoFrontal,TIM_CHANNEL_2);
+
+	  fDistanceFrontal=fUltrassonicoGetDistance( uiAuxDistanceUltrassonicoFrontal1,uiAuxDistanceUltrassonicoFrontal2);
+	  fDistanceEsquerdo=fUltrassonicoGetDistance( uiAuxDistanceUltrassonicoEsquerdo1 , uiAuxDistanceUltrassonicoEsquerdo2);
 	  CountMode=0;
   }
-  if(fDistance<0){
-	  fDistance=fDistance*(-1);
+  if(fDistanceFrontal<0){
+	  fDistanceFrontal=fDistanceFrontal*(-1);
   }
+  if(fDistanceEsquerdo<0)
+	  fDistanceEsquerdo=fDistanceEsquerdo*(-1);
+}
+
+void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin){
+	if(GPIO_Pin==GPIO_PIN_7){
+	vMotorsSetPWM(left, 1, 1);
+	vMotorsSetPWM(right, 1, 0);
+	}
+	if(GPIO_Pin==GPIO_PIN_5){
+	vMotorsSetOff(left);
+	vMotorsSetOff(right);
+	}
+
+
 }
 
 
-
+void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef * htim){
+	  //Fim do timer do Buzzer = Buzzer->OFF
+	  if (htim == pTimerBuzzer)
+		  vBuzzerStop();
+}
 
 /* USER CODE END 4 */
 
