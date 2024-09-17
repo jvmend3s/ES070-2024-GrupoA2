@@ -67,6 +67,15 @@ UART_HandleTypeDef * pBleCtrlMain = &huart3;
 TIM_HandleTypeDef * pTimDurationMotor = &htim5;
 TIM_HandleTypeDef * pTimPWMMotor = &htim1;
 
+// encoders
+TIM_HandleTypeDef* pTimFreqFixa_esq = &htim16;
+TIM_HandleTypeDef* pTimFreqFixa_dir = &htim17;
+uint32_t uiLeftCapturedTime, uiRightCapturedTime;
+unsigned int uiLeftTimeBurst, uiRightTimeBurst;
+unsigned long long int ullLeftTimeRan, ullRightTimeRan;
+float fLeftSpeed, fRightSpeed, fSpeed;
+
+
 
 
 //   Ints
@@ -101,7 +110,7 @@ int main(void)
 {
 
   /* USER CODE BEGIN 1 */
-//	unsigned char ucLCD0Msg[17], ucLCD1Msg[17];
+	unsigned char ucLCD0Msg[17], ucLCD1Msg[17];
 
   /* USER CODE END 1 */
 
@@ -131,10 +140,11 @@ int main(void)
   MX_TIM1_Init();
   MX_USART3_UART_Init();
   MX_TIM5_Init();
+  MX_TIM16_Init();
+  MX_TIM17_Init();
   /* USER CODE BEGIN 2 */
 
   lcdInit(&hi2c2, (uint8_t)0x27, (uint8_t)2, (uint8_t)16);
-
   vUltrassonicoInit(pTimerEcoUltrassonicoFrontal,pTimerPWMTrigger) ;
   vCommunicationInit();
 
@@ -145,34 +155,31 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  lcdSetCursorPosition(0, 0);
+
   HAL_TIM_Base_Start_IT(pTimDurationMotor);
-//  sprintf((char *)ucLCD0Msg, "Distancia (cm)");
-//  lcdPrintStr((uint8_t*)ucLCD0Msg, strlen((char *)ucLCD0Msg));
+  HAL_TIM_Base_Start_IT(pTimFreqFixa_esq);
+  HAL_TIM_Base_Start_IT(pTimFreqFixa_dir);
+  HAL_TIM_IC_Start_IT(pTimFreqFixa_esq, TIM_CHANNEL_1);
+  HAL_TIM_IC_Start_IT(pTimFreqFixa_dir, TIM_CHANNEL_1);
 
-
-
-
-
+  lcdSetCursorPosition(0, 0);
+  sprintf((char *)ucLCD0Msg, "Dist(cm):");
+  lcdPrintStr((uint8_t*)ucLCD0Msg, strlen((char *)ucLCD0Msg));
+  lcdSetCursorPosition(0, 1);
+  sprintf((char *)ucLCD0Msg, "Vel(mm/s):");
+  lcdPrintStr((uint8_t*)ucLCD0Msg, strlen((char *)ucLCD0Msg));
 
   while (1)
   {
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-	  HAL_Delay(200);
-//	  lcdSetCursorPosition(0, 1);
-//	  lcdPrintStr((uint8_t*)pCommunicationFloatToString(fDistance, 2), strlen((char *)pCommunicationFloatToString(fDistance, 2)));
-//	  if(fDistance<6.0){
-//		  while(fDistance<6.0){
-//		   vMotorsSetPWM(left, 0.8, 1);
-//		   vMotorsSetPWM(right, 0.8, 0);
-//		  }
-//		  vMotorsSetOff(0);
-//		  vMotorsSetOff(1);
-//	  }
-
-
+	  HAL_Delay(1000);
+	  lcdSetCursorPosition(11, 0);
+	  lcdPrintStr((uint8_t*)pCommunicationFloatToString(fDistance, 2), strlen((char *)pCommunicationFloatToString(fDistance, 2)));
+	  fSpeed = (fLeftSpeed + fRightSpeed)/2;
+	  lcdSetCursorPosition(11, 1);
+	  lcdPrintStr((uint8_t*)pCommunicationFloatToString(fSpeed, 2), strlen((char *)pCommunicationFloatToString(fSpeed, 2)));
 
   }
   /* USER CODE END 3 */
@@ -231,21 +238,64 @@ void HAL_TIM_PeriodElapsedCallback (TIM_HandleTypeDef * htim){
 	{
 	vMotorsDurationCallback();
 	}
+	if (htim == pTimFreqFixa_esq){
+		if(uiLeftTimeBurst > 200){
+			uiLeftTimeBurst = 1;
+			fLeftSpeed = 0;
+		}else{
+		uiLeftTimeBurst++;
+		}
+	}
+	if (htim == pTimFreqFixa_dir){
+		if(uiRightTimeBurst > 200){
+			uiRightTimeBurst = 1;
+			fRightSpeed = 0;
+		}else{
+		uiRightTimeBurst++;
+		}
+	}
 }
 
 void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef * htim){
-
-  if(0==CountMode){
-	  uiAuxDistanceUltrassonicoFrontal1= HAL_TIM_ReadCapturedValue(pTimerEcoUltrassonicoFrontal,TIM_CHANNEL_1);
-	  CountMode=1;
-  }else{
-	  uiAuxDistanceUltrassonicoFrontal2 = HAL_TIM_ReadCapturedValue(pTimerEcoUltrassonicoFrontal,TIM_CHANNEL_1);
-	  fDistance=fUltrassonicoGetDistance( uiAuxDistanceUltrassonicoFrontal1,uiAuxDistanceUltrassonicoFrontal2);
-	  CountMode=0;
+  if(htim == pTimerEcoUltrassonicoFrontal){
+	  if(0==CountMode){
+		  uiAuxDistanceUltrassonicoFrontal1= HAL_TIM_ReadCapturedValue(pTimerEcoUltrassonicoFrontal,TIM_CHANNEL_1);
+		  CountMode=1;
+	  }else{
+		  uiAuxDistanceUltrassonicoFrontal2 = HAL_TIM_ReadCapturedValue(pTimerEcoUltrassonicoFrontal,TIM_CHANNEL_1);
+		  fDistance=fUltrassonicoGetDistance( uiAuxDistanceUltrassonicoFrontal1,uiAuxDistanceUltrassonicoFrontal2);
+		  CountMode=0;
+	  }
+	  if(fDistance<0){
+		  fDistance=fDistance*(-1);
+	  }
   }
-  if(fDistance<0){
-	  fDistance=fDistance*(-1);
-  }
+  if (htim == pTimFreqFixa_esq)
+  	{
+  		uiLeftCapturedTime =  HAL_TIM_ReadCapturedValue(htim,  TIM_CHANNEL_1);
+  		if (uiLeftTimeBurst != 0)
+  			ullLeftTimeRan = uiLeftCapturedTime + uiLeftTimeBurst*10000;
+  		else
+  			ullLeftTimeRan = uiLeftCapturedTime;
+  		__HAL_TIM_SET_COUNTER(htim, 0);
+  		uiLeftTimeBurst = 0;
+  		fLeftSpeed = 10.0f/(ullLeftTimeRan/1000000.0f); //velocidade em mm/s
+  	}
+  if (htim == pTimFreqFixa_dir)
+  	{
+  		uiRightCapturedTime =  HAL_TIM_ReadCapturedValue(htim,  TIM_CHANNEL_1);
+  		if (uiRightTimeBurst != 0)
+  		{
+  			ullRightTimeRan = uiRightCapturedTime + uiRightTimeBurst*10000;
+  		}
+  		else
+  		{
+  			ullRightTimeRan = uiRightCapturedTime;
+  		}
+  		__HAL_TIM_SET_COUNTER(htim, 0);
+  		uiRightTimeBurst = 0;
+  		fRightSpeed = 10.0f/(ullRightTimeRan/1000000.0f); //velocidade em mm/s
+  	}
 }
 
 
