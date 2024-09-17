@@ -66,6 +66,8 @@ TIM_HandleTypeDef * pTimerEcoUltrassonicoFrontal = &htim3;
 UART_HandleTypeDef * pBleCtrlMain = &huart3;
 TIM_HandleTypeDef * pTimDurationMotor = &htim5;
 TIM_HandleTypeDef * pTimPWMMotor = &htim1;
+//TIM_HandleTypeDef* pTimerPWMBuzzer = &htim8;
+TIM_HandleTypeDef* pTimerBuzzer = &htim6;
 
 // encoders
 TIM_HandleTypeDef* pTimFreqFixa_esq = &htim16;
@@ -76,11 +78,10 @@ unsigned long long int ullLeftTimeRan, ullRightTimeRan;
 float fLeftSpeed, fRightSpeed, fSpeed;
 
 
-
-
 //   Ints
 //flags
 char CountMode=0;
+char cBuzzerState=0;
 
 uint16_t uiAuxDistanceUltrassonicoFrontal1=0;
 uint16_t uiAuxDistanceUltrassonicoFrontal2=0;
@@ -142,6 +143,7 @@ int main(void)
   MX_TIM5_Init();
   MX_TIM16_Init();
   MX_TIM17_Init();
+  MX_TIM6_Init();
   /* USER CODE BEGIN 2 */
 
   lcdInit(&hi2c2, (uint8_t)0x27, (uint8_t)2, (uint8_t)16);
@@ -174,16 +176,35 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-	  HAL_Delay(1000);
+	  HAL_Delay(200);
 	  lcdSetCursorPosition(11, 0);
 	  lcdPrintStr((uint8_t*)pCommunicationFloatToString(fDistance, 2), strlen((char *)pCommunicationFloatToString(fDistance, 2)));
 	  fSpeed = (fLeftSpeed + fRightSpeed)/2;
 	  lcdSetCursorPosition(11, 1);
 	  lcdPrintStr((uint8_t*)pCommunicationFloatToString(fSpeed, 2), strlen((char *)pCommunicationFloatToString(fSpeed, 2)));
 
+	  if(fDistance<6.0){
+		  while(fDistance<6.0){
+			  vMotorsSetPWM(left, 0.6, 0);
+			  vMotorsSetPWM(right, 0.6, 0);
+			  vLedWriteLed(0b001);
+		  }
+	  }
+	  else if(18.0>fDistance && fDistance >6.0){
+
+		  vMotorsSetOff(left);
+		  vMotorsSetOff(right);
+		  vLedWriteLed(0b100);
+	  }
+	  else if(18.0<fDistance){
+		  vMotorsSetPWM(left, 0.6, 1);
+		  vMotorsSetPWM(right, 0.6, 1);
+		  vLedWriteLed(0b010);
+	  }
   }
-  /* USER CODE END 3 */
 }
+
+  /* USER CODE END 3 */
 
 /**
   * @brief System Clock Configuration
@@ -254,6 +275,10 @@ void HAL_TIM_PeriodElapsedCallback (TIM_HandleTypeDef * htim){
 		uiRightTimeBurst++;
 		}
 	}
+
+	if (htim == pTimerBuzzer){
+//		vBuzzerStop();
+	}
 }
 
 void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef * htim){
@@ -298,6 +323,18 @@ void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef * htim){
   	}
 }
 
+void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin){
+	if(GPIO_Pin==GPIO_PIN_7){
+	vMotorsSetPWM(left, 1, 1);
+	vMotorsSetPWM(right, 1, 0);
+	}
+	if(GPIO_Pin==GPIO_PIN_5){
+	vMotorsSetOff(left);
+	vMotorsSetOff(right);
+	}
+
+
+}
 
 
 

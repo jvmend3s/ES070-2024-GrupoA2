@@ -32,7 +32,8 @@ Core/Src/communication.o: ../Core/Src/communication.c \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart.h \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart_ex.h \
  ../Core/Inc/bluetooth.h ../Core/Inc/main.h ../Core/Inc/usart.h \
- ../Core/Inc/bleCmd.h ../Core/Inc/motors.h
+ ../Core/Inc/bleCmd.h ../Core/Inc/motors.h ../Core/Inc/led.h \
+ ../Core/Inc/buzzer.h
 ../Core/Inc/communication.h:
 ../Core/Inc/usart.h:
 ../Core/Inc/main.h:
@@ -72,3 +73,5 @@ Core/Src/communication.o: ../Core/Src/communication.c \
 ../Core/Inc/usart.h:
 ../Core/Inc/bleCmd.h:
 ../Core/Inc/motors.h:
+../Core/Inc/led.h:
+../Core/Inc/buzzer.h:

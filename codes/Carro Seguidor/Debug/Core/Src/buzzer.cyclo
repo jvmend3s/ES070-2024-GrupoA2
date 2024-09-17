@@ -1,0 +1,3 @@
+../Core/Src/buzzer.c:33:6:vBuzzerConfig	3
+../Core/Src/buzzer.c:62:6:vBuzzerPlay	1
+../Core/Src/buzzer.c:68:6:vBuzzerStop	1
