@@ -2,7 +2,7 @@
 .settings/
 
 #metadata
-.metadata/
+.metadata/*
 
 #Debug
 Debug/
