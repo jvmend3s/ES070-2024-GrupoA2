@@ -109,7 +109,6 @@ void SystemClock_Config(void);
   */
 int main(void)
 {
-
   /* USER CODE BEGIN 1 */
 	unsigned char ucLCD0Msg[17], ucLCD1Msg[17];
 
@@ -135,15 +134,16 @@ int main(void)
   MX_GPIO_Init();
   MX_DMA_Init();
   MX_LPUART1_UART_Init();
-  MX_TIM3_Init();
-  MX_TIM20_Init();
   MX_I2C2_Init();
-  MX_TIM1_Init();
   MX_USART3_UART_Init();
+  MX_TIM1_Init();
+  MX_TIM3_Init();
   MX_TIM5_Init();
+  MX_TIM6_Init();
   MX_TIM16_Init();
   MX_TIM17_Init();
-  MX_TIM6_Init();
+  MX_TIM20_Init();
+  MX_TIM2_Init();
   /* USER CODE BEGIN 2 */
 
   lcdInit(&hi2c2, (uint8_t)0x27, (uint8_t)2, (uint8_t)16);
@@ -205,6 +205,7 @@ int main(void)
 }
 
   /* USER CODE END 3 */
+}
 
 /**
   * @brief System Clock Configuration
