@@ -144,6 +144,7 @@ int main(void)
   MX_TIM17_Init();
   MX_TIM20_Init();
   MX_TIM2_Init();
+  MX_USART1_UART_Init();
   /* USER CODE BEGIN 2 */
 
   lcdInit(&hi2c2, (uint8_t)0x27, (uint8_t)2, (uint8_t)16);
