@@ -33,8 +33,13 @@ void vUltrassonicoInit(TIM_HandleTypeDef* pTimerEcoUltrassonicoFrontal ,TIM_Hand
   //Sensor frontal
   HAL_TIM_IC_Start_IT(xUltrassonicoData.pTimerEcoUltrassonicoFrontal, TIM_CHANNEL_1);
 
-  //Sensor esquerdo
+  //Sensor esquerdo (F)
   HAL_TIM_IC_Start_IT(xUltrassonicoData.pTimerEcoUltrassonicoFrontal, TIM_CHANNEL_2);
+
+  //Sensor direito (T)
+  HAL_TIM_IC_Start_IT(xUltrassonicoData.pTimerEcoUltrassonicoFrontal, TIM_CHANNEL_3);
+
+
 }
 
 // ********************************************** //

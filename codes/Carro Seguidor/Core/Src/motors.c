@@ -10,12 +10,22 @@
 #include "tim.h"
 
 TIM_HandleTypeDef* pTimPWM;
+TIM_HandleTypeDef* pTimDuration;
+unsigned char ucDurationCounter;
+unsigned short int usTimeOn;
 
-void vMotorsInit() {
-	pTimPWM = &htim1;
+
+void vMotorsInit(TIM_HandleTypeDef* htimPWM, TIM_HandleTypeDef* htimTimer) {
+	pTimPWM = htimPWM;
+	pTimDuration =htimPWM;
 	HAL_TIM_PWM_Start(pTimPWM, TIM_CHANNEL_1);
 	HAL_TIM_PWM_Start(pTimPWM, TIM_CHANNEL_2);
 	//pTimPWM->Instance->CCR1 = 0;
+	HAL_NVIC_DisableIRQ(TIM5_IRQn);
+
+	ucDurationCounter = 0;
+	usTimeOn =0;
+
 }
 
 //char: motor da direita ou esquerda
