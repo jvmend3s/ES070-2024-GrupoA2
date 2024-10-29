@@ -1,0 +1,2 @@
+../Core/Src/pid_motors.c:30:6:vPidInit	32	static
+../Core/Src/pid_motors.c:58:7:fPidUpdateData	48	static

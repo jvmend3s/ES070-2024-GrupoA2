@@ -1,0 +1,7 @@
+../Core/Src/commStateMachine.c:68:6:vCommStateMachineInit	16	static
+../Core/Src/commStateMachine.c:81:6:HAL_UART_RxCpltCallback	16	static
+../Core/Src/commStateMachine.c:177:6:vCommStateMachineReturnParam	24	static
+../Core/Src/commStateMachine.c:232:6:vCommStateMachineSetParam	24	static
+../Core/Src/commStateMachine.c:269:7:fCommStateMachineStringToFloat	16	static
+../Core/Src/commStateMachine.c:295:6:vCommStateMachineFloatToString	56	static
+../Core/Src/commStateMachine.c:370:6:vCommStateMachineSendMessage	24	static

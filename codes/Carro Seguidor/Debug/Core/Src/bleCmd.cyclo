@@ -1,0 +1,5 @@
+../Core/Src/bleCmd.c:31:6:vBleCmdMotorForward	1
+../Core/Src/bleCmd.c:42:6:vBleCmdMotorLeftward	1
+../Core/Src/bleCmd.c:53:6:vBleCmdMotorRightward	1
+../Core/Src/bleCmd.c:64:6:vBleCmdMotorBackward	1
+../Core/Src/bleCmd.c:76:6:vBleCmdMotorStop	1

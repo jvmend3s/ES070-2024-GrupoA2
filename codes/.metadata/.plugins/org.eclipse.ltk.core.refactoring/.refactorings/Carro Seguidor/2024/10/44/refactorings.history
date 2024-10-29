@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Rename resource &apos;Carro Seguidor/Core/Src/pid_motors.c&apos; to &apos;pid.c&apos;" description="Rename resource &apos;pid_motors.c&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="Core/Src/pid_motors.c" name="pid.c" stamp="1730228555818" updateReferences="true"/>&#x0A;<refactoring comment="Rename resource &apos;Carro Seguidor/Core/Inc/pid_motors.h&apos; to &apos;pid.h&apos;" description="Rename resource &apos;pid_motors.h&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="Core/Inc/pid_motors.h" name="pid.h" stamp="1730228912452" updateReferences="true"/>
+</session>

@@ -1,0 +1,13 @@
+../Core/Src/lcd.c:48:6:vLcdInitLcd	1
+../Core/Src/lcd.c:88:6:vLcdWriteData	1
+../Core/Src/lcd.c:101:6:vLcdSendCommand	1
+../Core/Src/lcd.c:115:6:vLcdSetCursor	2
+../Core/Src/lcd.c:140:6:vLcdWriteString	2
+../Core/Src/lcd.c:155:6:vLcdDummyText	1
+../Core/Src/lcd.c:178:6:vLcdTestDisplay	1
+../Core/Src/lcd.c:201:6:vLcdTestDisplayCounter	1
+../Core/Src/lcd.c:218:6:vLcdDisplayTemperature	1
+../Core/Src/lcd.c:233:6:vPIDOnLCD	1
+../Core/Src/lcd.c:263:13:vLcdWrite2Lcd	3
+../Core/Src/lcd.c:317:6:vLcdBacklightOFF	1
+../Core/Src/lcd.c:320:6:vLcdBacklightON	1
