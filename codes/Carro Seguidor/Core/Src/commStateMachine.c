@@ -84,7 +84,7 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart){
 
 
     if (huart == pBluetoothControllerUART){
-//        HAL_UART_Receive_IT(huart, &ucDigit, 1);
+        HAL_UART_Receive_IT(huart, &ucDigit, 1);
 
         if('#' == ucDigit){
             ucState = _READY;
@@ -99,18 +99,6 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart){
 						break;
 					case 's':
 						ucState = _SET;
-						break;
-					case '1':
-						vBleCmdMotorForward();
-						break;
-					case '4':
-						vBleCmdMotorLeftward();
-						break;
-					case '3':
-						vBleCmdMotorRightward();
-						break;
-					case '2':
-						vBleCmdMotorBackward();
 						break;
 					default:
 						ucState = _IDDLE;
@@ -163,9 +151,19 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart){
 					break;
 				}
 			}
+			else{
+		        if(ucDigit == '1')
+				    vBleCmdMotorForward();
+				else if (ucDigit == '4')
+					vBleCmdMotorLeftward();
+				else if (ucDigit == '3')
+					vBleCmdMotorRightward();
+				else if (ucDigit == '2')
+					vBleCmdMotorBackward();
+			}
 		}
     }
-    HAL_UART_Receive_IT(pBluetoothControllerUART, &ucDigit, 1);
+//    HAL_UART_Receive_IT(pBluetoothControllerUART, &ucDigit, 1);
 }
 
 
@@ -177,48 +175,42 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart){
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
 void vCommStateMachineReturnParam(unsigned char ucParam){
 	unsigned char ucValue[MAX_VALUE_LENGTH];
+	char * pMessage;
     switch (ucParam){
         case 'v': //temp
-        	vCommStateMachineFloatToString(fSpeed, 5, ucValue);
-            vCommStateMachineSendMessage(pBluetoothControllerUART, &ucValue);
-            sprintf(ucTransmitVector, "\r\n");
-            vCommStateMachineSendMessage(pBluetoothControllerUART, &ucTransmitVector);
+        	pMessage = pCommunicationFloatToString(fSpeed, 2);
+        	vCommunicationSendString(pMessage);
+//        	vCommStateMachineFloatToString(fSpeed, 5, ucValue);
             break;
         case 'a': //kp left
-        	vCommStateMachineFloatToString(fLeftMotorKp, 5, ucValue);
-            vCommStateMachineSendMessage(pBluetoothControllerUART, &ucValue);
-            sprintf(ucTransmitVector, "\r\n");
-            vCommStateMachineSendMessage(pBluetoothControllerUART, &ucTransmitVector);
+        	pMessage = pCommunicationFloatToString(fLeftMotorKp, 4);
+//        	vCommunicationSendString(pMessage);
+        	vCommStateMachineSendMessage(pBluetoothControllerUART, pMessage);
             break;
         case 'b': //ki left
-        	vCommStateMachineFloatToString(fLeftMotorKi, 5, ucValue);
-            vCommStateMachineSendMessage(pBluetoothControllerUART, &ucValue);
-            sprintf(ucTransmitVector, "\r\n");
-            vCommStateMachineSendMessage(pBluetoothControllerUART, &ucTransmitVector);
+        	pMessage = pCommunicationFloatToString(fLeftMotorKi, 4);
+//        	vCommunicationSendString(pMessage);
+        	vCommStateMachineSendMessage(pBluetoothControllerUART, pMessage);
             break;
         case 'c': //kp right
-        	vCommStateMachineFloatToString(fRightMotorKp, 5, ucValue);
-            vCommStateMachineSendMessage(pBluetoothControllerUART, &ucValue);
-            sprintf(ucTransmitVector, "\r\n");
-            vCommStateMachineSendMessage(pBluetoothControllerUART, &ucTransmitVector);
+        	pMessage = pCommunicationFloatToString(fRightMotorKp, 4);
+//        	vCommunicationSendString(pMessage);
+        	vCommStateMachineSendMessage(pBluetoothControllerUART, pMessage);
             break;
         case 'd': //ki left
-        	vCommStateMachineFloatToString(fRightMotorKi, 5, ucValue);
-            vCommStateMachineSendMessage(pBluetoothControllerUART, &ucValue);
-            sprintf(ucTransmitVector, "\r\n");
-            vCommStateMachineSendMessage(pBluetoothControllerUART, &ucTransmitVector);
+        	pMessage = pCommunicationFloatToString(fRightMotorKi, 4);
+//        	vCommunicationSendString(pMessage);
+        	vCommStateMachineSendMessage(pBluetoothControllerUART, pMessage);
             break;
         case 'e': //setpoint left
-        	vCommStateMachineFloatToString(fSetPoint_left, 5, ucValue);
-            vCommStateMachineSendMessage(pBluetoothControllerUART, &ucValue);
-            sprintf(ucTransmitVector, "\r\n");
-            vCommStateMachineSendMessage(pBluetoothControllerUART, &ucTransmitVector);
+        	pMessage = pCommunicationFloatToString(fSetPoint_left, 2);
+//        	vCommunicationSendString(pMessage);
+        	vCommStateMachineSendMessage(pBluetoothControllerUART, pMessage);
             break;
         case 'f': //setpoint right
-        	vCommStateMachineFloatToString(fSetPoint_right, 5, ucValue);
-            vCommStateMachineSendMessage(pBluetoothControllerUART, &ucValue);
-            sprintf(ucTransmitVector, "\r\n");
-            vCommStateMachineSendMessage(pBluetoothControllerUART, &ucTransmitVector);
+        	pMessage = pCommunicationFloatToString(fSetPoint_right, 2);
+//        	vCommunicationSendString(pMessage);
+        	vCommStateMachineSendMessage(pBluetoothControllerUART, pMessage);
             break;
 
     }
@@ -376,11 +368,11 @@ void vCommStateMachineSendMessage (UART_HandleTypeDef * huart, unsigned char* uc
 				iPos = -1;
 			}
 			else if(ucMessage[iPos] =='\n'){
-				HAL_UART_Transmit(&hlpuart1, &ucMessage[iPos], 1, 100);
+				HAL_UART_Transmit(huart, &ucMessage[iPos], 1, 100);
 				iPos = -1;
 			}
 			else{
-				HAL_UART_Transmit(&hlpuart1, &ucMessage[iPos], 1, 100);
+				HAL_UART_Transmit(huart, &ucMessage[iPos], 1, 100);
 				iPos ++;
 			}
 		}

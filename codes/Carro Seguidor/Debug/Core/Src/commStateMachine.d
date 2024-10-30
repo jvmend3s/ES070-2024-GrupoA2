@@ -33,7 +33,7 @@ Core/Src/commStateMachine.o: ../Core/Src/commStateMachine.c \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart_ex.h \
  ../Core/Inc/bluetooth.h ../Core/Inc/main.h ../Core/Inc/usart.h \
  ../Core/Inc/bleCmd.h ../Core/Inc/motors.h ../Core/Inc/led.h \
- ../Core/Inc/buzzer.h
+ ../Core/Inc/buzzer.h ../Core/Inc/communication.h ../Core/Inc/usart.h
 ../Core/Inc/commStateMachine.h:
 ../Core/Inc/main.h:
 ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h:
@@ -74,3 +74,5 @@ Core/Src/commStateMachine.o: ../Core/Src/commStateMachine.c \
 ../Core/Inc/motors.h:
 ../Core/Inc/led.h:
 ../Core/Inc/buzzer.h:
+../Core/Inc/communication.h:
+../Core/Inc/usart.h:

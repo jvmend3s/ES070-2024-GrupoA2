@@ -1,9 +1,38 @@
-18:17:11 **** Incremental Build of configuration Debug for project Carro Seguidor ****
+17:56:47 **** Incremental Build of configuration Debug for project Carro Seguidor ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G474xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:174:3: warning: implicit declaration of function 'vCommStateMachineInit' [-Wimplicit-function-declaration]
+  174 |   vCommStateMachineInit(pBleCtrlMain);
+      |   ^~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:132:38: warning: unused variable 'ucLCD1Msg' [-Wunused-variable]
+  132 |         unsigned char ucLCD0Msg[17], ucLCD1Msg[17];
+      |                                      ^~~~~~~~~
+arm-none-eabi-gcc -o "Carro Seguidor.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\jvmen\Documents\ES070-2024-GrupoA2\codes\Carro Seguidor\STM32G474RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Carro Seguidor.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+C:/ST/STM32CubeIDE_1.16.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: warning: Carro Seguidor.elf has a LOAD segment with RWX permissions
+Finished building target: Carro Seguidor.elf
+ 
+arm-none-eabi-size  Carro\ Seguidor.elf 
+arm-none-eabi-objdump -h -S Carro\ Seguidor.elf  > "Carro Seguidor.list"
+   text	   data	    bss	    dec	    hex	filename
+  63652	    536	   4528	  68716	  10c6c	Carro Seguidor.elf
+Finished building: default.size.stdout
+ 
+Finished building: Carro Seguidor.list
+ 
+17:56:51 **** Incremental Build of configuration Debug for project Carro Seguidor ****
+make -j16 all 
+arm-none-eabi-size  Carro\ Seguidor.elf 
+   text	   data	    bss	    dec	    hex	filename
+  63652	    536	   4528	  68716	  10c6c	Carro Seguidor.elf
+Finished building: default.size.stdout
+ 
+18:02:52 **** Incremental Build of configuration Debug for project Carro Seguidor ****
 make -j16 all 
 arm-none-eabi-gcc "../Core/Src/commStateMachine.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G474xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/commStateMachine.d" -MT"Core/Src/commStateMachine.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/commStateMachine.o"
 ../Core/Src/commStateMachine.c: In function 'HAL_UART_RxCpltCallback':
-../Core/Src/commStateMachine.c:158:92: warning: passing argument 2 of 'vCommStateMachineSetParam' makes integer from pointer without a cast [-Wint-conversion]
-  158 |                                                         vCommStateMachineSetParam(ucParam, ucValue);
+../Core/Src/commStateMachine.c:155:92: warning: passing argument 2 of 'vCommStateMachineSetParam' makes integer from pointer without a cast [-Wint-conversion]
+  155 |                                                         vCommStateMachineSetParam(ucParam, ucValue);
       |                                                                                            ^~~~~~~
       |                                                                                            |
       |                                                                                            unsigned char *
@@ -12,213 +41,180 @@ In file included from ../Core/Src/commStateMachine.c:36:
    34 | void vCommStateMachineSetParam(unsigned char ucParam, unsigned char ucValue);
       |                                                       ~~~~~~~~~~~~~~^~~~~~~
 ../Core/Src/commStateMachine.c: In function 'vCommStateMachineReturnParam':
-../Core/Src/commStateMachine.c:182:68: warning: passing argument 2 of 'vCommStateMachineSendMessage' from incompatible pointer type [-Wincompatible-pointer-types]
-  182 |             vCommStateMachineSendMessage(pBluetoothControllerUART, &ucValue);
-      |                                                                    ^~~~~~~~
-      |                                                                    |
-      |                                                                    unsigned char (*)[7]
-../Core/Inc/commStateMachine.h:41:79: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[7]'
+../Core/Src/commStateMachine.c:186:72: warning: pointer targets in passing argument 2 of 'vCommStateMachineSendMessage' differ in signedness [-Wpointer-sign]
+  186 |                 vCommStateMachineSendMessage(pBluetoothControllerUART, pMessage);
+      |                                                                        ^~~~~~~~
+      |                                                                        |
+      |                                                                        char *
+../Core/Inc/commStateMachine.h:41:79: note: expected 'unsigned char *' but argument is of type 'char *'
    41 | void vCommStateMachineSendMessage (UART_HandleTypeDef * huart, unsigned char* ucMessage);
       |                                                                ~~~~~~~~~~~~~~~^~~~~~~~~
-../Core/Src/commStateMachine.c:183:21: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
-  183 |             sprintf(ucTransmitVector, "\r\n");
-      |                     ^~~~~~~~~~~~~~~~
-      |                     |
-      |                     unsigned char *
-In file included from ../Core/Inc/commStateMachine.h:32:
-C:\ST\STM32CubeIDE_1.16.0\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:250:18: note: expected 'char * restrict' but argument is of type 'unsigned char *'
-  250 | int     sprintf (char *__restrict, const char *__restrict, ...)
-      |                  ^
-../Core/Src/commStateMachine.c:184:68: warning: passing argument 2 of 'vCommStateMachineSendMessage' from incompatible pointer type [-Wincompatible-pointer-types]
-  184 |             vCommStateMachineSendMessage(pBluetoothControllerUART, &ucTransmitVector);
-      |                                                                    ^~~~~~~~~~~~~~~~~
-      |                                                                    |
-      |                                                                    unsigned char (*)[100]
-../Core/Inc/commStateMachine.h:41:79: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[100]'
-   41 | void vCommStateMachineSendMessage (UART_HandleTypeDef * huart, unsigned char* ucMessage);
-      |                                                                ~~~~~~~~~~~~~~~^~~~~~~~~
-../Core/Src/commStateMachine.c:188:68: warning: passing argument 2 of 'vCommStateMachineSendMessage' from incompatible pointer type [-Wincompatible-pointer-types]
-  188 |             vCommStateMachineSendMessage(pBluetoothControllerUART, &ucValue);
-      |                                                                    ^~~~~~~~
-      |                                                                    |
-      |                                                                    unsigned char (*)[7]
-../Core/Inc/commStateMachine.h:41:79: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[7]'
-   41 | void vCommStateMachineSendMessage (UART_HandleTypeDef * huart, unsigned char* ucMessage);
-      |                                                                ~~~~~~~~~~~~~~~^~~~~~~~~
-../Core/Src/commStateMachine.c:189:21: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
-  189 |             sprintf(ucTransmitVector, "\r\n");
-      |                     ^~~~~~~~~~~~~~~~
-      |                     |
-      |                     unsigned char *
-C:\ST\STM32CubeIDE_1.16.0\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:250:18: note: expected 'char * restrict' but argument is of type 'unsigned char *'
-  250 | int     sprintf (char *__restrict, const char *__restrict, ...)
-      |                  ^
-../Core/Src/commStateMachine.c:190:68: warning: passing argument 2 of 'vCommStateMachineSendMessage' from incompatible pointer type [-Wincompatible-pointer-types]
-  190 |             vCommStateMachineSendMessage(pBluetoothControllerUART, &ucTransmitVector);
-      |                                                                    ^~~~~~~~~~~~~~~~~
-      |                                                                    |
-      |                                                                    unsigned char (*)[100]
-../Core/Inc/commStateMachine.h:41:79: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[100]'
-   41 | void vCommStateMachineSendMessage (UART_HandleTypeDef * huart, unsigned char* ucMessage);
-      |                                                                ~~~~~~~~~~~~~~~^~~~~~~~~
-../Core/Src/commStateMachine.c:194:68: warning: passing argument 2 of 'vCommStateMachineSendMessage' from incompatible pointer type [-Wincompatible-pointer-types]
-  194 |             vCommStateMachineSendMessage(pBluetoothControllerUART, &ucValue);
-      |                                                                    ^~~~~~~~
-      |                                                                    |
-      |                                                                    unsigned char (*)[7]
-../Core/Inc/commStateMachine.h:41:79: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[7]'
-   41 | void vCommStateMachineSendMessage (UART_HandleTypeDef * huart, unsigned char* ucMessage);
-      |                                                                ~~~~~~~~~~~~~~~^~~~~~~~~
-../Core/Src/commStateMachine.c:195:21: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
-  195 |             sprintf(ucTransmitVector, "\r\n");
-      |                     ^~~~~~~~~~~~~~~~
-      |                     |
-      |                     unsigned char *
-C:\ST\STM32CubeIDE_1.16.0\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:250:18: note: expected 'char * restrict' but argument is of type 'unsigned char *'
-  250 | int     sprintf (char *__restrict, const char *__restrict, ...)
-      |                  ^
-../Core/Src/commStateMachine.c:196:68: warning: passing argument 2 of 'vCommStateMachineSendMessage' from incompatible pointer type [-Wincompatible-pointer-types]
-  196 |             vCommStateMachineSendMessage(pBluetoothControllerUART, &ucTransmitVector);
-      |                                                                    ^~~~~~~~~~~~~~~~~
-      |                                                                    |
-      |                                                                    unsigned char (*)[100]
-../Core/Inc/commStateMachine.h:41:79: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[100]'
-   41 | void vCommStateMachineSendMessage (UART_HandleTypeDef * huart, unsigned char* ucMessage);
-      |                                                                ~~~~~~~~~~~~~~~^~~~~~~~~
-../Core/Src/commStateMachine.c:200:68: warning: passing argument 2 of 'vCommStateMachineSendMessage' from incompatible pointer type [-Wincompatible-pointer-types]
-  200 |             vCommStateMachineSendMessage(pBluetoothControllerUART, &ucValue);
-      |                                                                    ^~~~~~~~
-      |                                                                    |
-      |                                                                    unsigned char (*)[7]
-../Core/Inc/commStateMachine.h:41:79: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[7]'
-   41 | void vCommStateMachineSendMessage (UART_HandleTypeDef * huart, unsigned char* ucMessage);
-      |                                                                ~~~~~~~~~~~~~~~^~~~~~~~~
-../Core/Src/commStateMachine.c:201:21: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
-  201 |             sprintf(ucTransmitVector, "\r\n");
-      |                     ^~~~~~~~~~~~~~~~
-      |                     |
-      |                     unsigned char *
-C:\ST\STM32CubeIDE_1.16.0\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:250:18: note: expected 'char * restrict' but argument is of type 'unsigned char *'
-  250 | int     sprintf (char *__restrict, const char *__restrict, ...)
-      |                  ^
-../Core/Src/commStateMachine.c:202:68: warning: passing argument 2 of 'vCommStateMachineSendMessage' from incompatible pointer type [-Wincompatible-pointer-types]
-  202 |             vCommStateMachineSendMessage(pBluetoothControllerUART, &ucTransmitVector);
-      |                                                                    ^~~~~~~~~~~~~~~~~
-      |                                                                    |
-      |                                                                    unsigned char (*)[100]
-../Core/Inc/commStateMachine.h:41:79: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[100]'
-   41 | void vCommStateMachineSendMessage (UART_HandleTypeDef * huart, unsigned char* ucMessage);
-      |                                                                ~~~~~~~~~~~~~~~^~~~~~~~~
-../Core/Src/commStateMachine.c:206:68: warning: passing argument 2 of 'vCommStateMachineSendMessage' from incompatible pointer type [-Wincompatible-pointer-types]
-  206 |             vCommStateMachineSendMessage(pBluetoothControllerUART, &ucValue);
-      |                                                                    ^~~~~~~~
-      |                                                                    |
-      |                                                                    unsigned char (*)[7]
-../Core/Inc/commStateMachine.h:41:79: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[7]'
-   41 | void vCommStateMachineSendMessage (UART_HandleTypeDef * huart, unsigned char* ucMessage);
-      |                                                                ~~~~~~~~~~~~~~~^~~~~~~~~
-../Core/Src/commStateMachine.c:207:21: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
-  207 |             sprintf(ucTransmitVector, "\r\n");
-      |                     ^~~~~~~~~~~~~~~~
-      |                     |
-      |                     unsigned char *
-C:\ST\STM32CubeIDE_1.16.0\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:250:18: note: expected 'char * restrict' but argument is of type 'unsigned char *'
-  250 | int     sprintf (char *__restrict, const char *__restrict, ...)
-      |                  ^
-../Core/Src/commStateMachine.c:208:68: warning: passing argument 2 of 'vCommStateMachineSendMessage' from incompatible pointer type [-Wincompatible-pointer-types]
-  208 |             vCommStateMachineSendMessage(pBluetoothControllerUART, &ucTransmitVector);
-      |                                                                    ^~~~~~~~~~~~~~~~~
-      |                                                                    |
-      |                                                                    unsigned char (*)[100]
-../Core/Inc/commStateMachine.h:41:79: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[100]'
-   41 | void vCommStateMachineSendMessage (UART_HandleTypeDef * huart, unsigned char* ucMessage);
-      |                                                                ~~~~~~~~~~~~~~~^~~~~~~~~
-../Core/Src/commStateMachine.c:212:68: warning: passing argument 2 of 'vCommStateMachineSendMessage' from incompatible pointer type [-Wincompatible-pointer-types]
-  212 |             vCommStateMachineSendMessage(pBluetoothControllerUART, &ucValue);
-      |                                                                    ^~~~~~~~
-      |                                                                    |
-      |                                                                    unsigned char (*)[7]
-../Core/Inc/commStateMachine.h:41:79: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[7]'
-   41 | void vCommStateMachineSendMessage (UART_HandleTypeDef * huart, unsigned char* ucMessage);
-      |                                                                ~~~~~~~~~~~~~~~^~~~~~~~~
-../Core/Src/commStateMachine.c:213:21: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
-  213 |             sprintf(ucTransmitVector, "\r\n");
-      |                     ^~~~~~~~~~~~~~~~
-      |                     |
-      |                     unsigned char *
-C:\ST\STM32CubeIDE_1.16.0\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:250:18: note: expected 'char * restrict' but argument is of type 'unsigned char *'
-  250 | int     sprintf (char *__restrict, const char *__restrict, ...)
-      |                  ^
-../Core/Src/commStateMachine.c:214:68: warning: passing argument 2 of 'vCommStateMachineSendMessage' from incompatible pointer type [-Wincompatible-pointer-types]
-  214 |             vCommStateMachineSendMessage(pBluetoothControllerUART, &ucTransmitVector);
-      |                                                                    ^~~~~~~~~~~~~~~~~
-      |                                                                    |
-      |                                                                    unsigned char (*)[100]
-../Core/Inc/commStateMachine.h:41:79: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[100]'
-   41 | void vCommStateMachineSendMessage (UART_HandleTypeDef * huart, unsigned char* ucMessage);
-      |                                                                ~~~~~~~~~~~~~~~^~~~~~~~~
-../Core/Src/commStateMachine.c:218:68: warning: passing argument 2 of 'vCommStateMachineSendMessage' from incompatible pointer type [-Wincompatible-pointer-types]
-  218 |             vCommStateMachineSendMessage(pBluetoothControllerUART, &ucValue);
-      |                                                                    ^~~~~~~~
-      |                                                                    |
-      |                                                                    unsigned char (*)[7]
-../Core/Inc/commStateMachine.h:41:79: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[7]'
-   41 | void vCommStateMachineSendMessage (UART_HandleTypeDef * huart, unsigned char* ucMessage);
-      |                                                                ~~~~~~~~~~~~~~~^~~~~~~~~
-../Core/Src/commStateMachine.c:219:21: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
-  219 |             sprintf(ucTransmitVector, "\r\n");
-      |                     ^~~~~~~~~~~~~~~~
-      |                     |
-      |                     unsigned char *
-C:\ST\STM32CubeIDE_1.16.0\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdio.h:250:18: note: expected 'char * restrict' but argument is of type 'unsigned char *'
-  250 | int     sprintf (char *__restrict, const char *__restrict, ...)
-      |                  ^
-../Core/Src/commStateMachine.c:220:68: warning: passing argument 2 of 'vCommStateMachineSendMessage' from incompatible pointer type [-Wincompatible-pointer-types]
-  220 |             vCommStateMachineSendMessage(pBluetoothControllerUART, &ucTransmitVector);
-      |                                                                    ^~~~~~~~~~~~~~~~~
-      |                                                                    |
-      |                                                                    unsigned char (*)[100]
-../Core/Inc/commStateMachine.h:41:79: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[100]'
-   41 | void vCommStateMachineSendMessage (UART_HandleTypeDef * huart, unsigned char* ucMessage);
-      |                                                                ~~~~~~~~~~~~~~~^~~~~~~~~
+../Core/Src/commStateMachine.c:175:23: warning: unused variable 'ucValue' [-Wunused-variable]
+  175 |         unsigned char ucValue[MAX_VALUE_LENGTH];
+      |                       ^~~~~~~
 ../Core/Src/commStateMachine.c: In function 'fCommStateMachineStringToFloat':
-../Core/Src/commStateMachine.c:283:24: warning: implicit declaration of function 'atof' [-Wimplicit-function-declaration]
-  283 |         fInputNumber = atof (ucValue);
-      |                        ^~~~
-../Core/Src/commStateMachine.c: In function 'vCommStateMachineFloatToString':
-../Core/Src/commStateMachine.c:330:39: warning: implicit declaration of function 'floor' [-Wimplicit-function-declaration]
-  330 |                         int iNumber = floor(fmod(fAux, 10));
-      |                                       ^~~~~
-../Core/Src/commStateMachine.c:37:1: note: include '<math.h>' or provide a declaration of 'floor'
-   36 | #include "commStateMachine.h"
-  +++ |+#include <math.h>
-   37 | #include "bleCmd.h"
-../Core/Src/commStateMachine.c:330:39: warning: incompatible implicit declaration of built-in function 'floor' [-Wbuiltin-declaration-mismatch]
-  330 |                         int iNumber = floor(fmod(fAux, 10));
-      |                                       ^~~~~
-../Core/Src/commStateMachine.c:330:39: note: include '<math.h>' or provide a declaration of 'floor'
-../Core/Src/commStateMachine.c:330:45: warning: implicit declaration of function 'fmod' [-Wimplicit-function-declaration]
-  330 |                         int iNumber = floor(fmod(fAux, 10));
-      |                                             ^~~~
-../Core/Src/commStateMachine.c:330:45: note: include '<math.h>' or provide a declaration of 'fmod'
-../Core/Src/commStateMachine.c:330:45: warning: incompatible implicit declaration of built-in function 'fmod' [-Wbuiltin-declaration-mismatch]
-../Core/Src/commStateMachine.c:330:45: note: include '<math.h>' or provide a declaration of 'fmod'
-arm-none-eabi-gcc -o "Carro Seguidor.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\jvmen\Documents\Lab-Embarcados-26_10_24-Gu\codes\Carro Seguidor\STM32G474RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Carro Seguidor.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+../Core/Src/commStateMachine.c:269:30: warning: pointer targets in passing argument 1 of 'atof' differ in signedness [-Wpointer-sign]
+  269 |         fInputNumber = atof (ucValue);
+      |                              ^~~~~~~
+      |                              |
+      |                              unsigned char *
+In file included from ../Core/Inc/communication.h:16,
+                 from ../Core/Src/commStateMachine.c:38:
+C:\ST\STM32CubeIDE_1.16.0\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdlib.h:77:27: note: expected 'const char *' but argument is of type 'unsigned char *'
+   77 | double  atof (const char *__nptr);
+      |               ~~~~~~~~~~~~^~~~~~
+arm-none-eabi-gcc -o "Carro Seguidor.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\jvmen\Documents\ES070-2024-GrupoA2\codes\Carro Seguidor\STM32G474RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Carro Seguidor.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 C:/ST/STM32CubeIDE_1.16.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: warning: Carro Seguidor.elf has a LOAD segment with RWX permissions
 Finished building target: Carro Seguidor.elf
  
 arm-none-eabi-size  Carro\ Seguidor.elf 
 arm-none-eabi-objdump -h -S Carro\ Seguidor.elf  > "Carro Seguidor.list"
    text	   data	    bss	    dec	    hex	filename
-  63060	    536	   4520	  68116	  10a14	Carro Seguidor.elf
+  64076	    536	   4528	  69140	  10e14	Carro Seguidor.elf
 Finished building: default.size.stdout
  
 Finished building: Carro Seguidor.list
  
-18:17:18 **** Incremental Build of configuration Debug for project Carro Seguidor ****
+18:04:40 **** Incremental Build of configuration Debug for project Carro Seguidor ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/commStateMachine.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G474xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/commStateMachine.d" -MT"Core/Src/commStateMachine.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/commStateMachine.o"
+../Core/Src/commStateMachine.c: In function 'HAL_UART_RxCpltCallback':
+../Core/Src/commStateMachine.c:155:92: warning: passing argument 2 of 'vCommStateMachineSetParam' makes integer from pointer without a cast [-Wint-conversion]
+  155 |                                                         vCommStateMachineSetParam(ucParam, ucValue);
+      |                                                                                            ^~~~~~~
+      |                                                                                            |
+      |                                                                                            unsigned char *
+In file included from ../Core/Src/commStateMachine.c:36:
+../Core/Inc/commStateMachine.h:34:69: note: expected 'unsigned char' but argument is of type 'unsigned char *'
+   34 | void vCommStateMachineSetParam(unsigned char ucParam, unsigned char ucValue);
+      |                                                       ~~~~~~~~~~~~~~^~~~~~~
+../Core/Src/commStateMachine.c: In function 'vCommStateMachineReturnParam':
+../Core/Src/commStateMachine.c:186:72: warning: pointer targets in passing argument 2 of 'vCommStateMachineSendMessage' differ in signedness [-Wpointer-sign]
+  186 |                 vCommStateMachineSendMessage(pBluetoothControllerUART, pMessage);
+      |                                                                        ^~~~~~~~
+      |                                                                        |
+      |                                                                        char *
+../Core/Inc/commStateMachine.h:41:79: note: expected 'unsigned char *' but argument is of type 'char *'
+   41 | void vCommStateMachineSendMessage (UART_HandleTypeDef * huart, unsigned char* ucMessage);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~~~~~
+../Core/Src/commStateMachine.c:175:23: warning: unused variable 'ucValue' [-Wunused-variable]
+  175 |         unsigned char ucValue[MAX_VALUE_LENGTH];
+      |                       ^~~~~~~
+../Core/Src/commStateMachine.c: In function 'fCommStateMachineStringToFloat':
+../Core/Src/commStateMachine.c:269:30: warning: pointer targets in passing argument 1 of 'atof' differ in signedness [-Wpointer-sign]
+  269 |         fInputNumber = atof (ucValue);
+      |                              ^~~~~~~
+      |                              |
+      |                              unsigned char *
+In file included from ../Core/Inc/communication.h:16,
+                 from ../Core/Src/commStateMachine.c:38:
+C:\ST\STM32CubeIDE_1.16.0\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdlib.h:77:27: note: expected 'const char *' but argument is of type 'unsigned char *'
+   77 | double  atof (const char *__nptr);
+      |               ~~~~~~~~~~~~^~~~~~
+arm-none-eabi-gcc -o "Carro Seguidor.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\jvmen\Documents\ES070-2024-GrupoA2\codes\Carro Seguidor\STM32G474RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Carro Seguidor.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+C:/ST/STM32CubeIDE_1.16.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: warning: Carro Seguidor.elf has a LOAD segment with RWX permissions
+Finished building target: Carro Seguidor.elf
+ 
+arm-none-eabi-size  Carro\ Seguidor.elf 
+arm-none-eabi-objdump -h -S Carro\ Seguidor.elf  > "Carro Seguidor.list"
+   text	   data	    bss	    dec	    hex	filename
+  64068	    536	   4528	  69132	  10e0c	Carro Seguidor.elf
+Finished building: default.size.stdout
+ 
+Finished building: Carro Seguidor.list
+ 
+18:20:44 **** Incremental Build of configuration Debug for project Carro Seguidor ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/commStateMachine.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G474xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/commStateMachine.d" -MT"Core/Src/commStateMachine.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/commStateMachine.o"
+../Core/Src/commStateMachine.c: In function 'HAL_UART_RxCpltCallback':
+../Core/Src/commStateMachine.c:147:92: warning: passing argument 2 of 'vCommStateMachineSetParam' makes integer from pointer without a cast [-Wint-conversion]
+  147 |                                                         vCommStateMachineSetParam(ucParam, ucValue);
+      |                                                                                            ^~~~~~~
+      |                                                                                            |
+      |                                                                                            unsigned char *
+In file included from ../Core/Src/commStateMachine.c:36:
+../Core/Inc/commStateMachine.h:34:69: note: expected 'unsigned char' but argument is of type 'unsigned char *'
+   34 | void vCommStateMachineSetParam(unsigned char ucParam, unsigned char ucValue);
+      |                                                       ~~~~~~~~~~~~~~^~~~~~~
+../Core/Src/commStateMachine.c: In function 'vCommStateMachineReturnParam':
+../Core/Src/commStateMachine.c:188:72: warning: pointer targets in passing argument 2 of 'vCommStateMachineSendMessage' differ in signedness [-Wpointer-sign]
+  188 |                 vCommStateMachineSendMessage(pBluetoothControllerUART, pMessage);
+      |                                                                        ^~~~~~~~
+      |                                                                        |
+      |                                                                        char *
+../Core/Inc/commStateMachine.h:41:79: note: expected 'unsigned char *' but argument is of type 'char *'
+   41 | void vCommStateMachineSendMessage (UART_HandleTypeDef * huart, unsigned char* ucMessage);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~~~~~
+../Core/Src/commStateMachine.c:193:72: warning: pointer targets in passing argument 2 of 'vCommStateMachineSendMessage' differ in signedness [-Wpointer-sign]
+  193 |                 vCommStateMachineSendMessage(pBluetoothControllerUART, pMessage);
+      |                                                                        ^~~~~~~~
+      |                                                                        |
+      |                                                                        char *
+../Core/Inc/commStateMachine.h:41:79: note: expected 'unsigned char *' but argument is of type 'char *'
+   41 | void vCommStateMachineSendMessage (UART_HandleTypeDef * huart, unsigned char* ucMessage);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~~~~~
+../Core/Src/commStateMachine.c:198:72: warning: pointer targets in passing argument 2 of 'vCommStateMachineSendMessage' differ in signedness [-Wpointer-sign]
+  198 |                 vCommStateMachineSendMessage(pBluetoothControllerUART, pMessage);
+      |                                                                        ^~~~~~~~
+      |                                                                        |
+      |                                                                        char *
+../Core/Inc/commStateMachine.h:41:79: note: expected 'unsigned char *' but argument is of type 'char *'
+   41 | void vCommStateMachineSendMessage (UART_HandleTypeDef * huart, unsigned char* ucMessage);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~~~~~
+../Core/Src/commStateMachine.c:203:72: warning: pointer targets in passing argument 2 of 'vCommStateMachineSendMessage' differ in signedness [-Wpointer-sign]
+  203 |                 vCommStateMachineSendMessage(pBluetoothControllerUART, pMessage);
+      |                                                                        ^~~~~~~~
+      |                                                                        |
+      |                                                                        char *
+../Core/Inc/commStateMachine.h:41:79: note: expected 'unsigned char *' but argument is of type 'char *'
+   41 | void vCommStateMachineSendMessage (UART_HandleTypeDef * huart, unsigned char* ucMessage);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~~~~~
+../Core/Src/commStateMachine.c:208:72: warning: pointer targets in passing argument 2 of 'vCommStateMachineSendMessage' differ in signedness [-Wpointer-sign]
+  208 |                 vCommStateMachineSendMessage(pBluetoothControllerUART, pMessage);
+      |                                                                        ^~~~~~~~
+      |                                                                        |
+      |                                                                        char *
+../Core/Inc/commStateMachine.h:41:79: note: expected 'unsigned char *' but argument is of type 'char *'
+   41 | void vCommStateMachineSendMessage (UART_HandleTypeDef * huart, unsigned char* ucMessage);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~~~~~
+../Core/Src/commStateMachine.c:213:72: warning: pointer targets in passing argument 2 of 'vCommStateMachineSendMessage' differ in signedness [-Wpointer-sign]
+  213 |                 vCommStateMachineSendMessage(pBluetoothControllerUART, pMessage);
+      |                                                                        ^~~~~~~~
+      |                                                                        |
+      |                                                                        char *
+../Core/Inc/commStateMachine.h:41:79: note: expected 'unsigned char *' but argument is of type 'char *'
+   41 | void vCommStateMachineSendMessage (UART_HandleTypeDef * huart, unsigned char* ucMessage);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~~~~~
+../Core/Src/commStateMachine.c:177:23: warning: unused variable 'ucValue' [-Wunused-variable]
+  177 |         unsigned char ucValue[MAX_VALUE_LENGTH];
+      |                       ^~~~~~~
+../Core/Src/commStateMachine.c: In function 'fCommStateMachineStringToFloat':
+../Core/Src/commStateMachine.c:276:30: warning: pointer targets in passing argument 1 of 'atof' differ in signedness [-Wpointer-sign]
+  276 |         fInputNumber = atof (ucValue);
+      |                              ^~~~~~~
+      |                              |
+      |                              unsigned char *
+In file included from ../Core/Inc/communication.h:16,
+                 from ../Core/Src/commStateMachine.c:38:
+C:\ST\STM32CubeIDE_1.16.0\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdlib.h:77:27: note: expected 'const char *' but argument is of type 'unsigned char *'
+   77 | double  atof (const char *__nptr);
+      |               ~~~~~~~~~~~~^~~~~~
+arm-none-eabi-gcc -o "Carro Seguidor.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\jvmen\Documents\ES070-2024-GrupoA2\codes\Carro Seguidor\STM32G474RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Carro Seguidor.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+C:/ST/STM32CubeIDE_1.16.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: warning: Carro Seguidor.elf has a LOAD segment with RWX permissions
+Finished building target: Carro Seguidor.elf
+ 
+arm-none-eabi-size  Carro\ Seguidor.elf 
+arm-none-eabi-objdump -h -S Carro\ Seguidor.elf  > "Carro Seguidor.list"
+   text	   data	    bss	    dec	    hex	filename
+  64100	    536	   4528	  69164	  10e2c	Carro Seguidor.elf
+Finished building: default.size.stdout
+ 
+Finished building: Carro Seguidor.list
+ 
+18:21:44 **** Incremental Build of configuration Debug for project Carro Seguidor ****
 make -j16 all 
 arm-none-eabi-size  Carro\ Seguidor.elf 
    text	   data	    bss	    dec	    hex	filename
-  63060	    536	   4520	  68116	  10a14	Carro Seguidor.elf
+  64100	    536	   4528	  69164	  10e2c	Carro Seguidor.elf
 Finished building: default.size.stdout
  

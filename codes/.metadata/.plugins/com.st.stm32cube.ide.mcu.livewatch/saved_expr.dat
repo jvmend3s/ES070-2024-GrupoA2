@@ -12,3 +12,5 @@ ucState
 ucParam
 ucValue
 fLeftMotorKp
+pMessage
+pOutputString

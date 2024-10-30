@@ -1,5 +1,5 @@
-../Core/Src/communication.c:29:6:vCommunicationInit	2
-../Core/Src/communication.c:48:6:vCommunicationClearGlobalVariables	3
-../Core/Src/communication.c:67:7:vCommunicationStringToFloat	3
-../Core/Src/communication.c:86:7:pCommunicationFloatToString	7
-../Core/Src/communication.c:146:6:vCommunicationSendString	2
+../Core/Src/communication.c:30:6:vCommunicationInit	2
+../Core/Src/communication.c:49:6:vCommunicationClearGlobalVariables	3
+../Core/Src/communication.c:68:7:vCommunicationStringToFloat	3
+../Core/Src/communication.c:87:7:pCommunicationFloatToString	7
+../Core/Src/communication.c:147:6:vCommunicationSendString	2

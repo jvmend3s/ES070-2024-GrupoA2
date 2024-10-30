@@ -17,7 +17,6 @@
   */
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
-#include <pid.h>
 #include "main.h"
 #include "dma.h"
 #include "i2c.h"
@@ -35,6 +34,7 @@
 #include "communication.h"
 #include "motors.h"
 #include "timer.h"
+#include "pid.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -168,7 +168,7 @@ int main(void)
 
   lcdInit(&hi2c2, (uint8_t)0x27, (uint8_t)2, (uint8_t)16);
   vUltrassonicoInit(pTimerEcoUltrassonicoFrontal,pTimerPWMTrigger) ;
-  vCommunicationInit();
+  vCommunicationInit(&hlpuart1);
 
   vMotorsInit(pTimPWMMotor, pTimDurationMotor);
   vCommStateMachineInit(pBleCtrlMain);

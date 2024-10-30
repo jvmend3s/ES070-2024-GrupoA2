@@ -60,8 +60,8 @@ all: main-build
 main-build: Carro\ Seguidor.elf secondary-outputs
 
 # Tool invocations
-Carro\ Seguidor.elf Carro\ Seguidor.map: $(OBJS) $(USER_OBJS) C:\Users\jvmen\Documents\Lab-Embarcados-26_10_24-Gu\codes\Carro\ Seguidor\STM32G474RETX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "Carro Seguidor.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\jvmen\Documents\Lab-Embarcados-26_10_24-Gu\codes\Carro Seguidor\STM32G474RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Carro Seguidor.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Carro\ Seguidor.elf Carro\ Seguidor.map: $(OBJS) $(USER_OBJS) C:\Users\jvmen\Documents\ES070-2024-GrupoA2\codes\Carro\ Seguidor\STM32G474RETX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "Carro Seguidor.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\jvmen\Documents\ES070-2024-GrupoA2\codes\Carro Seguidor\STM32G474RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Carro Seguidor.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
