@@ -29,6 +29,8 @@ TIM_HandleTypeDef* pTimPWM;
 TIM_HandleTypeDef* pTimDuration;
 unsigned char ucDurationCounter;
 unsigned short int usTimeOn;
+extern float fSetPoint_left; //e
+extern float fSetPoint_right; //f
 
 void vMotorsInit(TIM_HandleTypeDef* htimPWM, TIM_HandleTypeDef* htimTimer) {
 	pTimPWM = htimPWM;
@@ -105,7 +107,7 @@ void vMotorsSetVelocity(char motor, float linearVelocity, char rotation){
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
 void vMotorsSetPWMTimer(char motor, float PWM, char rotation, unsigned int duration) {
 	if (motor == left) {
-		pTimPWM->Instance->CCR2 = (PWM*1000) - 1;
+//		pTimPWM->Instance->CCR2 = (PWM*1000) - 1;
 
 		if (rotation) {
 			HAL_GPIO_WritePin(Motor_Esq_IN3_GPIO_Port,Motor_Esq_IN3_Pin, 1);
@@ -114,8 +116,9 @@ void vMotorsSetPWMTimer(char motor, float PWM, char rotation, unsigned int durat
 			HAL_GPIO_WritePin(Motor_Esq_IN3_GPIO_Port,Motor_Esq_IN3_Pin, 0);
 			HAL_GPIO_WritePin(Motor_Esq_IN4_GPIO_Port,Motor_Esq_IN4_Pin, 1);
 		}
+
 	} else if (motor == right) {
-		pTimPWM->Instance->CCR1 = (PWM*1000) - 1;
+//		pTimPWM->Instance->CCR1 = (PWM*1000) - 1;
 
 		if (rotation) {
 			HAL_GPIO_WritePin(Motor_Dir_IN1_GPIO_Port,Motor_Dir_IN1_Pin, 1);
@@ -158,6 +161,8 @@ void vMotorsSetOff(char motor) {
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
 void vMotorsDurationCallback(){
 	if((ucDurationCounter*10)==usTimeOn){
+		fSetPoint_left = 0;
+		fSetPoint_right = 0;
 		vMotorsSetOff(left);
 		vMotorsSetOff(right);
 		usTimeOn = 0;

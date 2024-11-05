@@ -20,7 +20,10 @@
 //	Revised on :									12/09/24										   //
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
-#include <bleCmd.h>
+#include "bleCmd.h"
+#include "main.h"
+extern float fSetPoint_left; //e
+extern float fSetPoint_right; //f
 
 //	Function name	: 	vBleCmdMotorForward															   //
 //-----------------------------------------------------------------------------------------------------//
@@ -29,8 +32,10 @@
 //	      Inputs	:	n/a																			   //
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
 void vBleCmdMotorForward(){
-	vMotorsSetPWMTimer(left, 0.8, 1, 300);
-	vMotorsSetPWMTimer(right, 0.8, 1, 300);
+	fSetPoint_left = 500;
+	fSetPoint_right = 500;
+	vMotorsSetPWMTimer(left, 0.8, 1, 1000);
+	vMotorsSetPWMTimer(right, 0.8, 1, 1000);
 }
 
 //	Function name	: 	vBleCmdMotorLeftward														   //
@@ -40,8 +45,10 @@ void vBleCmdMotorForward(){
 //	      Inputs	:	n/a																			   //
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
 void vBleCmdMotorLeftward(){
-	vMotorsSetPWMTimer(left, 0.5, 1, 300);
-	vMotorsSetPWMTimer(right, 0.8, 1, 300);
+	fSetPoint_left = 200;
+	fSetPoint_right = 500;
+	vMotorsSetPWMTimer(left, 0.5, 1, 1000);
+	vMotorsSetPWMTimer(right, 0.8, 1, 1000);
 }
 
 //	Function name	: 	vBleCmdMotorRightward														   //
@@ -51,8 +58,10 @@ void vBleCmdMotorLeftward(){
 //	      Inputs	:	n/a																			   //
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
 void vBleCmdMotorRightward(){
-	vMotorsSetPWMTimer(left, 0.8, 1, 300);
-	vMotorsSetPWMTimer(right, 0.5, 1, 300);
+	fSetPoint_left = 500;
+	fSetPoint_right = 200;
+	vMotorsSetPWMTimer(left, 0.8, 1, 1000);
+	vMotorsSetPWMTimer(right, 0.5, 1, 1000);
 }
 
 //	Function name	: 	vBleCmdMotorBackward														   //
@@ -62,8 +71,10 @@ void vBleCmdMotorRightward(){
 //	      Inputs	:	n/a																			   //
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
 void vBleCmdMotorBackward(){
-	vMotorsSetPWMTimer(left, 0.8, 0, 300);
-	vMotorsSetPWMTimer(right, 0.8, 0, 300);
+	fSetPoint_left = -250;
+	fSetPoint_right = -250;
+	vMotorsSetPWMTimer(left, 0.8, 0, 1000);
+	vMotorsSetPWMTimer(right, 0.8, 0, 1000);
 }
 
 

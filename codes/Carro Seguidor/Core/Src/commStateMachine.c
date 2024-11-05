@@ -25,10 +25,11 @@
 //-----------------------------------------------Defines-----------------------------------------------//
 #define _IDDLE   '0'
 #define _READY   '1'
-#define _GET     '2'
-#define _SET     '3'
-#define _PARAM   '4'
-#define _VALUE   '5'
+#define _CAR	 '2'
+#define _GET     '3'
+#define _SET     '4'
+#define _PARAM   '5'
+#define _VALUE   '6'
 
 #define MAX_VALUE_LENGTH 7
 
@@ -38,25 +39,18 @@
 #include "communication.h"
 
 //----------------------------------------Variable and definitions-------------------------------------//
-extern float fSpeed; //v
+extern float fLeftSpeed; // l
+extern float fRightSpeed; // r
 extern float fLeftMotorKp; // a
 extern float fLeftMotorKi; // b
 extern float fRightMotorKp; // c
 extern float fRightMotorKi; // d
 extern float fSetPoint_left; //e
 extern float fSetPoint_right; //f
-//extern float fSetPointValue;
-//extern float fHeaterPWM ;
-//extern float fCoolerPWM ;
-//extern float fAppKp ;
-//extern float fAppKi ;
-//extern float fAppKd ;
-//extern char cCtrlOn;
-//extern unsigned short int usCoolerSpeed;
-//extern unsigned char ucLocalInterfaceLock;
 
 static unsigned char ucValue[MAX_VALUE_LENGTH+1];
 
+char cCar;
 unsigned char ucState = _IDDLE;
 unsigned char ucValueCount;
 unsigned char ucDigit;
@@ -87,11 +81,26 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart){
         HAL_UART_Receive_IT(huart, &ucDigit, 1);
 
         if('#' == ucDigit){
-            ucState = _READY;
+            ucState = _CAR;
         }
         else{
 			if (ucState != _IDDLE){
 				switch (ucState){
+				case _CAR:
+					switch (ucDigit){
+					case '1':
+						cCar = 1; //lider
+						ucState = _READY;
+						break;
+
+					case '2':
+						cCar = 2; //seguidor
+						ucState = _READY;
+						break;
+					default:
+						ucState = _IDDLE;
+					}
+					break;
 				case _READY:
 					switch (ucDigit){
 					case 'g':
@@ -177,10 +186,13 @@ void vCommStateMachineReturnParam(unsigned char ucParam){
 	unsigned char ucValue[MAX_VALUE_LENGTH];
 	char * pMessage;
     switch (ucParam){
-        case 'v': //temp
-        	pMessage = pCommunicationFloatToString(fSpeed, 2);
+        case 'l': //left speed
+        	pMessage = pCommunicationFloatToString(fLeftSpeed, 2);
         	vCommunicationSendString(pMessage);
-//        	vCommStateMachineFloatToString(fSpeed, 5, ucValue);
+            break;
+        case 'r': //right speed
+        	pMessage = pCommunicationFloatToString(fRightSpeed, 2);
+        	vCommunicationSendString(pMessage);
             break;
         case 'a': //kp left
         	pMessage = pCommunicationFloatToString(fLeftMotorKp, 4);
