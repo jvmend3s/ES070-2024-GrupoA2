@@ -16,7 +16,8 @@
 unsigned char ucInputChar;
 char cNumeroString[10]; // tamanho maximo: "-1000.000\n"
 char pOutputString[100];
-UART_HandleTypeDef * pUART;
+UART_HandleTypeDef * pControlComm;
+UART_HandleTypeDef * pV2VComm;
 
 // ********************************************** //
 // METHOD NAME: vCommunicationInit
@@ -27,8 +28,8 @@ UART_HandleTypeDef * pUART;
 //
 // OUTPUT PARAMS: n/a
 // ********************************************** //
-void vCommunicationInit(UART_HandleTypeDef * huart) {
-	pUART = huart;
+void vCommunicationInit(UART_HandleTypeDef * huartController) {
+	pControlComm = huartController;
 	for (int i = 0; i < 10; i++)
 		cNumeroString[i] = 0;
 
@@ -147,7 +148,7 @@ char* pCommunicationFloatToString(float num, int nCasasDec) { // n casas decimai
 void vCommunicationSendString(char* str) {
 	for (int i = 0; i < strlen(str); i++) {
 //	  HAL_UART_Transmit(&huart3, &str[i], 1, 1000);
-	  HAL_UART_Transmit_IT(pUART, &str[i], 1);
+	  HAL_UART_Transmit_IT(pControlComm, &str[i], 1);
 	}
 }
 

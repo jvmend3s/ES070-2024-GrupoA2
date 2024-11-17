@@ -68,6 +68,7 @@ typedef enum
 TIM_HandleTypeDef * pTimerPWMTrigger = &htim20;
 TIM_HandleTypeDef * pTimerEcoUltrassonicoFrontal = &htim3;
 UART_HandleTypeDef * pBleCtrlMain = &huart1;
+UART_HandleTypeDef * pV2V = &huart3;
 TIM_HandleTypeDef * pTimDurationMotor = &htim5;
 TIM_HandleTypeDef * pTimPWMMotor = &htim1;
 //TIM_HandleTypeDef* pTimerPWMBuzzer = &htim8;
@@ -101,10 +102,10 @@ float fActuatorValue_left, fActuatorValue_right=0;
 int iContaOutlier_left = 0, iContaOutlier_right = 0;
 
 float fSpeed; //v
-float fLeftMotorKp = 0.002; // a
-float fLeftMotorKi = 0.004; // b
-float fRightMotorKp = 0.002; // c
-float fRightMotorKi = 0.004; // d
+float fLeftMotorKp = 0.0017; // a
+float fLeftMotorKi = 0.02; // b
+float fRightMotorKp = 0.0017; // c
+float fRightMotorKi = 0.02; // d
 float fSetPoint_left = 0; //e
 float fSetPoint_right = 0; //f
 
@@ -171,7 +172,7 @@ int main(void)
   vCommunicationInit(pBleCtrlMain);
 
   vMotorsInit(pTimPWMMotor, pTimDurationMotor);
-  vCommStateMachineInit(pBleCtrlMain);
+  vCommStateMachineInit(pBleCtrlMain, pV2V);
 
   vTimerInit();
   iSetTimer(100);
@@ -205,6 +206,7 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
+	  HAL_Delay(300);
 
     /* USER CODE BEGIN 3 */
 
@@ -273,7 +275,7 @@ void vPeriodicControlTask(){
 //	  vMotorsSetPWM(right, fActuatorValue_right, 1);
 	   //seguidor
 	  fActuatorValue_left = fPidUpdateData(xPidMotorLeft,fLeftSpeed , abs(fSetPoint_left));
-	  fActuatorValue_left = 0.4 + fActuatorValue_left*0.5;
+	  fActuatorValue_left = 0.3 + fActuatorValue_left*0.7;
 	  if (fSetPoint_left == 0)
 		  fActuatorValue_left = 0;
 	  else if (fSetPoint_left < 0)
@@ -282,8 +284,8 @@ void vPeriodicControlTask(){
 		  vMotorsSetPWM(left, fActuatorValue_left, 1);
 
 
-	  fActuatorValue_right = fPidUpdateData(xPidMotorRight,fRightSpeed , fSetPoint_right);
-	  fActuatorValue_right = 0.4 + fActuatorValue_right*0.5;
+	  fActuatorValue_right = fPidUpdateData(xPidMotorRight,fRightSpeed , abs(fSetPoint_right));
+	  fActuatorValue_right = 0.3 + fActuatorValue_right*0.7;
 	  if (fSetPoint_right == 0)
 		  fActuatorValue_right = 0;
 	  else if (fSetPoint_right < 0)
@@ -317,7 +319,7 @@ void HAL_TIM_PeriodElapsedCallback (TIM_HandleTypeDef * htim){
 	}
 
 	if (htim == pTimFreqFixa_esq){
-		if(uiLeftTimeBurst > 50){
+		if(uiLeftTimeBurst > 30){
 			uiLeftTimeBurst = 1;
 			fLeftSpeed = 0;
 		}else{
@@ -326,7 +328,7 @@ void HAL_TIM_PeriodElapsedCallback (TIM_HandleTypeDef * htim){
 	}
 
 	if (htim == pTimFreqFixa_dir){
-		if(uiRightTimeBurst > 50){
+		if(uiRightTimeBurst > 30){
 			uiRightTimeBurst = 1;
 			fRightSpeed = 0;
 		}else{
