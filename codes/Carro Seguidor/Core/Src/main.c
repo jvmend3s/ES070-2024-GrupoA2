@@ -86,7 +86,7 @@ unsigned long long int ullLeftTimeRan, ullRightTimeRan;
 float fLeftSpeed, fRightSpeed, fSpeedMedia, fRightMedia, fLeftMedia;
 
 //flags
-char CountMode=0;
+char CountModeF=0;
 char cBuzzerState=0;
 
 uint16_t uiAuxDistanceUltrassonicoFrontal1=0;
@@ -206,11 +206,8 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-	  HAL_Delay(300);
-
     /* USER CODE BEGIN 3 */
-
-}
+  }
 
   /* USER CODE END 3 */
 }
@@ -370,7 +367,24 @@ void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef * htim){
   		uiRightTimeBurst = 0;
   		fRightSpeed = 10.0f/(ullRightTimeRan/1000000.0f); //velocidade em mm/s
   	}
+  if(htim == pTimerEcoUltrassonicoFrontal){
+
+	  if (htim->Channel == HAL_TIM_ACTIVE_CHANNEL_1)
+  	      {
+  		  if(0==CountModeF){
+  			  uiAuxDistanceUltrassonicoFrontal1= HAL_TIM_ReadCapturedValue(pTimerEcoUltrassonicoFrontal,TIM_CHANNEL_1);
+  			  CountModeF=1;
+  		  }else{
+  			  uiAuxDistanceUltrassonicoFrontal2 = HAL_TIM_ReadCapturedValue(pTimerEcoUltrassonicoFrontal,TIM_CHANNEL_1);
+      		  //if(!(fUltrassonicoGetDistance( uiAuxDistanceUltrassonicoFrontal1 , uiAuxDistanceUltrassonicoFrontal2)-fDistanceFrontal>50 ||fUltrassonicoGetDistance( uiAuxDistanceUltrassonicoFrontal1 , uiAuxDistanceUltrassonicoFrontal2)-fDistanceFrontal<-50) )
+  			   fDistance=fUltrassonicoGetDistance( uiAuxDistanceUltrassonicoFrontal1 , uiAuxDistanceUltrassonicoFrontal2);
+  			  CountModeF=0;
+  		  }
+  	 }
+  }
 }
+
+
 
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin){
 
