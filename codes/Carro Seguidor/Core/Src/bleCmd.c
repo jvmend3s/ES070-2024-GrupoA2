@@ -32,8 +32,8 @@ extern float fSetPoint_right; //f
 //	      Inputs	:	n/a																			   //
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
 void vBleCmdMotorForward(){
-	fSetPoint_left = 350;
-	fSetPoint_right = 350;
+	fSetPoint_left = 300;
+	fSetPoint_right = 300;
 	vMotorsSetPWMTimer(left, 0.8, 1, 1000);
 	vMotorsSetPWMTimer(right, 0.8, 1, 1000);
 }
@@ -71,8 +71,8 @@ void vBleCmdMotorRightward(){
 //	      Inputs	:	n/a																			   //
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
 void vBleCmdMotorBackward(){
-	fSetPoint_left = -450;
-	fSetPoint_right = -450;
+	fSetPoint_left = -300;
+	fSetPoint_right = -300;
 	vMotorsSetPWMTimer(left, 0.8, 0, 1000);
 	vMotorsSetPWMTimer(right, 0.8, 0, 1000);
 }

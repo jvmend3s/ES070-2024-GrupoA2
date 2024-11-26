@@ -38,6 +38,7 @@
 #include "commStateMachine.h"
 #include "bleCmd.h"
 #include "communication.h"
+#include "stm32g4xx_hal.h"
 
 //----------------------------------------Variable and definitions-------------------------------------//
 extern float fLeftSpeed; // l
@@ -55,7 +56,9 @@ char cCar; // 0 = Carro Lider 1 = Carro Seguidor
 char cWaitAnwser;
 unsigned char ucState = _IDDLE;
 unsigned char ucValueCount;
+unsigned char ucValueCountv2v;
 unsigned char ucDigit;
+unsigned char ucDigitv2v;
 unsigned char ucTransmitVector[_MAX_NUMBER_OF_CHARS];
 UART_HandleTypeDef *pBluetoothControllerUART;
 UART_HandleTypeDef *pV2VUART;
@@ -132,7 +135,7 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart){
 				case _SET:
 //					if ('r' == ucDigit || 'h' == ucDigit || 'c' == ucDigit || 'p' == ucDigit || 'i' == ucDigit || 'd' == ucDigit
 //							|| 'l' == ucDigit || 'o' == ucDigit){
-					if ('a' == ucDigit || 'b' == ucDigit || 'c' == ucDigit || 'd' == ucDigit || 'e' == ucDigit || 'f' == ucDigit || 'l' == ucDigit || 'r' == ucDigit){
+					if ('v' == ucDigit || 'a' == ucDigit || 'b' == ucDigit || 'c' == ucDigit || 'd' == ucDigit || 'e' == ucDigit || 'f' == ucDigit || 'l' == ucDigit || 'r' == ucDigit){
 					ucParam = ucDigit;
 					ucValueCount = 0;
 					ucState = _VALUE;
@@ -145,8 +148,10 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart){
 					if (';' == ucDigit){
 						vCommStateMachineReturnParam(ucParam);
 					}
-					if(cWaitAnwser)
+					if(cWaitAnwser){
 						ucState = _WAIT_VALUE;
+						ucValueCount = 0;
+					}
 					else
 						ucState = _IDDLE;
 					break;
@@ -205,6 +210,7 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart){
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
 void vCommStateMachineReturnParam(unsigned char ucParam){
 	unsigned char ucValue[MAX_VALUE_LENGTH];
+	unsigned char ucValuev2v[MAX_VALUE_LENGTH];
 	char * pMessage;
 	//caso seja carro lider
 	if(!cCar){
@@ -268,6 +274,9 @@ void vCommStateMachineReturnParam(unsigned char ucParam){
 				break;
 			case 'f': //setpoint right
 				vCommStateMachineSendMessage(pV2VUART, "#gf;");
+				break;
+			case 'v': //vMax
+				vCommStateMachineSendMessage(pV2VUART, "#gv;");
 				break;
 		}
 		cWaitAnwser = 1;
@@ -341,9 +350,15 @@ void vCommStateMachineSetParam(unsigned char ucParam, unsigned char * pValue){
 				break;
 			case 'f': //set right
 				vCommStateMachineSendMessage(pV2VUART, "#sf");
-				vCommStateMachineSendMessage(pV2VUART, &ucValue);
+				vCommStateMachineSendMessage(pV2VUART, pValue);
 				vCommStateMachineSendMessage(pV2VUART, ";");
 				break;
+			case 'v': //set right
+				vCommStateMachineSendMessage(pV2VUART, "#sv");
+				vCommStateMachineSendMessage(pV2VUART, pValue);
+				vCommStateMachineSendMessage(pV2VUART, ";");
+				break;
+
 		}
 	}
 }
@@ -429,25 +444,6 @@ void vCommStateMachineFloatToString(float num, int nCasasDec, unsigned char * pO
 			iN--;
 		}
 	}
-
-
-//
-//	gcvt(fInputNumber, iDigits, ucOutputNumber);
-//	ucOutputNumber[MAX_VALUE_LENGTH-1] = '\000';
-//	int iPos =0;
-//	while (iPos >= 0){
-//			if ('\000'!=ucOutputNumber[iPos]){
-//				if (ucOutputNumber[iPos] == '.'){
-//					ucOutputNumber[iPos] = ',';
-//					ucOutputNumber[iPos+4]= '\000';
-//				}
-//				iPos++;
-//			}
-//			else{
-//				iPos = -1;
-//			}
-//	}
-//}
 
 //	Function name	: 	vCommunicationStateMachineSendMessage
 //-----------------------------------------------------------------------------------------------------//

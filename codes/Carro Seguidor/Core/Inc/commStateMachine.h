@@ -30,6 +30,8 @@
 #include "main.h"
 #include <strings.h>
 #include <stdio.h>
+
+
 //----------------------------------------------Functions----------------------------------------------//
 void vCommStateMachineInit(UART_HandleTypeDef *huartcontrol, UART_HandleTypeDef *huartV2V);
 void vCommStateMachineSetParam(unsigned char ucParam, unsigned char * pValue);

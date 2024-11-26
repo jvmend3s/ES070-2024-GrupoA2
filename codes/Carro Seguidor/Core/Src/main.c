@@ -101,13 +101,13 @@ pid_data_type xPidAngle;
 float fActuatorValue_left, fActuatorValue_right=0;
 int iContaOutlier_left = 0, iContaOutlier_right = 0;
 
-float fSpeed; //v
 float fLeftMotorKp = 0.0017; // a
 float fLeftMotorKi = 0.02; // b
 float fRightMotorKp = 0.0017; // c
 float fRightMotorKi = 0.02; // d
 float fSetPoint_left = 0; //e
 float fSetPoint_right = 0; //f
+
 
 /* USER CODE END PV */
 
