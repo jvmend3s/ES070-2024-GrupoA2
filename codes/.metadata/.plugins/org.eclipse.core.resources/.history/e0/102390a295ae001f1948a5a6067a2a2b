@@ -32,7 +32,7 @@ extern float fSetPoint_right; //f
 //	      Inputs	:	n/a																			   //
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
 void vBleCmdMotorForward(){
-	fSetPoint_left = 185;
+	fSetPoint_left = 190;
 	fSetPoint_right = 200;
 	vMotorsSetPWMTimer(left, 0.8, 1, 5000);
 	vMotorsSetPWMTimer(right, 0.8, 1, 5000);

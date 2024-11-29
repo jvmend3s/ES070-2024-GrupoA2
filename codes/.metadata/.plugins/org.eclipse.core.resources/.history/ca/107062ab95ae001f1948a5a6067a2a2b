@@ -272,7 +272,7 @@ void vPeriodicControlTask(){
 //	  vMotorsSetPWM(right, fActuatorValue_right, 1);
 	   //seguidor
 	  fActuatorValue_left = fPidUpdateData(xPidMotorLeft,fLeftSpeed , abs(fSetPoint_left));
-	  fActuatorValue_left = 0.3 + fActuatorValue_left;
+	  fActuatorValue_left = 0.25 + fActuatorValue_left;
 	  if (fSetPoint_left == 0)
 		  fActuatorValue_left = 0;
 	  else if (fSetPoint_left < 0)

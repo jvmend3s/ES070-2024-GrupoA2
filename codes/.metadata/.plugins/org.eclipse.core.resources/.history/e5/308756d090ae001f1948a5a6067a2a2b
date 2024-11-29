@@ -181,8 +181,8 @@ int main(void)
 //  xPidMotorLeft = vPidInit(xPidMotorLeft, 0.005, 0.06, 0, 100, 1);
 //  xPidMotorRight = vPidInit(xPidMotorRight, 0.005, 0.06, 0, 100, 1);
 // seguidor
-   xPidMotorLeft = vPidInit(xPidMotorLeft, fLeftMotorKp, fLeftMotorKi, 0, 100, 0.7);
-   xPidMotorRight = vPidInit(xPidMotorRight, fRightMotorKp, fRightMotorKi, 0, 100, 0.7);
+   xPidMotorLeft = vPidInit(xPidMotorLeft, fLeftMotorKp, fLeftMotorKi, 0, 100, 1);
+   xPidMotorRight = vPidInit(xPidMotorRight, fRightMotorKp, fRightMotorKi, 0, 100, 1);
 
   /* USER CODE END 2 */
 
@@ -272,7 +272,7 @@ void vPeriodicControlTask(){
 //	  vMotorsSetPWM(right, fActuatorValue_right, 1);
 	   //seguidor
 	  fActuatorValue_left = fPidUpdateData(xPidMotorLeft,fLeftSpeed , abs(fSetPoint_left));
-	  fActuatorValue_left = 0.3 + fActuatorValue_left;
+	  fActuatorValue_left = 0.3 + fActuatorValue_left*0.7;
 	  if (fSetPoint_left == 0)
 		  fActuatorValue_left = 0;
 	  else if (fSetPoint_left < 0)
@@ -282,7 +282,7 @@ void vPeriodicControlTask(){
 
 
 	  fActuatorValue_right = fPidUpdateData(xPidMotorRight,fRightSpeed , abs(fSetPoint_right));
-	  fActuatorValue_right = 0.3 + fActuatorValue_right;
+	  fActuatorValue_right = 0.3 + fActuatorValue_right*0.7;
 	  if (fSetPoint_right == 0)
 		  fActuatorValue_right = 0;
 	  else if (fSetPoint_right < 0)
