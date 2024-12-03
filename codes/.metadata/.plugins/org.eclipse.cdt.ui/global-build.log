@@ -1,14 +1,330 @@
-17:28:25 **** Incremental Build of configuration Debug for project Carro Seguidor ****
+17:59:07 **** Incremental Build of configuration Debug for project Carro Seguidor ****
 make -j16 all 
-arm-none-eabi-gcc "../Core/Src/bleCmd.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G474xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/bleCmd.d" -MT"Core/Src/bleCmd.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/bleCmd.o"
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G474xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
-../Core/Src/main.c: In function 'main':
-../Core/Src/main.c:175:3: warning: implicit declaration of function 'vCommStateMachineInit' [-Wimplicit-function-declaration]
-  175 |   vCommStateMachineInit(pBleCtrlMain, pV2V);
-      |   ^~~~~~~~~~~~~~~~~~~~~
-../Core/Src/main.c:133:38: warning: unused variable 'ucLCD1Msg' [-Wunused-variable]
-  133 |         unsigned char ucLCD0Msg[17], ucLCD1Msg[17];
-      |                                      ^~~~~~~~~
+arm-none-eabi-gcc "../Core/Src/commStateMachine.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G474xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/commStateMachine.d" -MT"Core/Src/commStateMachine.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/commStateMachine.o"
+../Core/Src/commStateMachine.c: In function 'HAL_UART_RxCpltCallback':
+../Core/Src/commStateMachine.c:169:92: warning: passing argument 2 of 'vCommStateMachineSetParam' from incompatible pointer type [-Wincompatible-pointer-types]
+  169 |                                                         vCommStateMachineSetParam(ucParam, &ucValue);
+      |                                                                                            ^~~~~~~~
+      |                                                                                            |
+      |                                                                                            unsigned char (*)[8]
+In file included from ../Core/Src/commStateMachine.c:38:
+../Core/Inc/commStateMachine.h:37:71: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[8]'
+   37 | void vCommStateMachineSetParam(unsigned char ucParam, unsigned char * pValue);
+      |                                                       ~~~~~~~~~~~~~~~~^~~~~~
+../Core/Src/commStateMachine.c:183:112: warning: passing argument 2 of 'vCommStateMachineSendMessage' from incompatible pointer type [-Wincompatible-pointer-types]
+  183 |                                                         vCommStateMachineSendMessage(pBluetoothControllerUART, &ucValue);
+      |                                                                                                                ^~~~~~~~
+      |                                                                                                                |
+      |                                                                                                                unsigned char (*)[8]
+../Core/Inc/commStateMachine.h:44:79: note: expected 'unsigned char *' but argument is of type 'unsigned char (*)[8]'
+   44 | void vCommStateMachineSendMessage (UART_HandleTypeDef * huart, unsigned char* ucMessage);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~~~~~
+../Core/Src/commStateMachine.c: In function 'vCommStateMachineReturnParam':
+../Core/Src/commStateMachine.c:221:88: warning: pointer targets in passing argument 2 of 'vCommStateMachineSendMessage' differ in signedness [-Wpointer-sign]
+  221 |                                 vCommStateMachineSendMessage(pBluetoothControllerUART, pMessage);
+      |                                                                                        ^~~~~~~~
+      |                                                                                        |
+      |                                                                                        char *
+../Core/Inc/commStateMachine.h:44:79: note: expected 'unsigned char *' but argument is of type 'char *'
+   44 | void vCommStateMachineSendMessage (UART_HandleTypeDef * huart, unsigned char* ucMessage);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~~~~~
+../Core/Src/commStateMachine.c:225:88: warning: pointer targets in passing argument 2 of 'vCommStateMachineSendMessage' differ in signedness [-Wpointer-sign]
+  225 |                                 vCommStateMachineSendMessage(pBluetoothControllerUART, pMessage);
+      |                                                                                        ^~~~~~~~
+      |                                                                                        |
+      |                                                                                        char *
+../Core/Inc/commStateMachine.h:44:79: note: expected 'unsigned char *' but argument is of type 'char *'
+   44 | void vCommStateMachineSendMessage (UART_HandleTypeDef * huart, unsigned char* ucMessage);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~~~~~
+../Core/Src/commStateMachine.c:229:88: warning: pointer targets in passing argument 2 of 'vCommStateMachineSendMessage' differ in signedness [-Wpointer-sign]
+  229 |                                 vCommStateMachineSendMessage(pBluetoothControllerUART, pMessage);
+      |                                                                                        ^~~~~~~~
+      |                                                                                        |
+      |                                                                                        char *
+../Core/Inc/commStateMachine.h:44:79: note: expected 'unsigned char *' but argument is of type 'char *'
+   44 | void vCommStateMachineSendMessage (UART_HandleTypeDef * huart, unsigned char* ucMessage);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~~~~~
+../Core/Src/commStateMachine.c:233:88: warning: pointer targets in passing argument 2 of 'vCommStateMachineSendMessage' differ in signedness [-Wpointer-sign]
+  233 |                                 vCommStateMachineSendMessage(pBluetoothControllerUART, pMessage);
+      |                                                                                        ^~~~~~~~
+      |                                                                                        |
+      |                                                                                        char *
+../Core/Inc/commStateMachine.h:44:79: note: expected 'unsigned char *' but argument is of type 'char *'
+   44 | void vCommStateMachineSendMessage (UART_HandleTypeDef * huart, unsigned char* ucMessage);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~~~~~
+../Core/Src/commStateMachine.c:237:88: warning: pointer targets in passing argument 2 of 'vCommStateMachineSendMessage' differ in signedness [-Wpointer-sign]
+  237 |                                 vCommStateMachineSendMessage(pBluetoothControllerUART, pMessage);
+      |                                                                                        ^~~~~~~~
+      |                                                                                        |
+      |                                                                                        char *
+../Core/Inc/commStateMachine.h:44:79: note: expected 'unsigned char *' but argument is of type 'char *'
+   44 | void vCommStateMachineSendMessage (UART_HandleTypeDef * huart, unsigned char* ucMessage);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~~~~~
+../Core/Src/commStateMachine.c:241:88: warning: pointer targets in passing argument 2 of 'vCommStateMachineSendMessage' differ in signedness [-Wpointer-sign]
+  241 |                                 vCommStateMachineSendMessage(pBluetoothControllerUART, pMessage);
+      |                                                                                        ^~~~~~~~
+      |                                                                                        |
+      |                                                                                        char *
+../Core/Inc/commStateMachine.h:44:79: note: expected 'unsigned char *' but argument is of type 'char *'
+   44 | void vCommStateMachineSendMessage (UART_HandleTypeDef * huart, unsigned char* ucMessage);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~~~~~
+../Core/Src/commStateMachine.c:245:88: warning: pointer targets in passing argument 2 of 'vCommStateMachineSendMessage' differ in signedness [-Wpointer-sign]
+  245 |                                 vCommStateMachineSendMessage(pBluetoothControllerUART, pMessage);
+      |                                                                                        ^~~~~~~~
+      |                                                                                        |
+      |                                                                                        char *
+../Core/Inc/commStateMachine.h:44:79: note: expected 'unsigned char *' but argument is of type 'char *'
+   44 | void vCommStateMachineSendMessage (UART_HandleTypeDef * huart, unsigned char* ucMessage);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~~~~~
+../Core/Src/commStateMachine.c:249:88: warning: pointer targets in passing argument 2 of 'vCommStateMachineSendMessage' differ in signedness [-Wpointer-sign]
+  249 |                                 vCommStateMachineSendMessage(pBluetoothControllerUART, pMessage);
+      |                                                                                        ^~~~~~~~
+      |                                                                                        |
+      |                                                                                        char *
+../Core/Inc/commStateMachine.h:44:79: note: expected 'unsigned char *' but argument is of type 'char *'
+   44 | void vCommStateMachineSendMessage (UART_HandleTypeDef * huart, unsigned char* ucMessage);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~~~~~
+../Core/Src/commStateMachine.c:253:88: warning: pointer targets in passing argument 2 of 'vCommStateMachineSendMessage' differ in signedness [-Wpointer-sign]
+  253 |                                 vCommStateMachineSendMessage(pBluetoothControllerUART, pMessage);
+      |                                                                                        ^~~~~~~~
+      |                                                                                        |
+      |                                                                                        char *
+../Core/Inc/commStateMachine.h:44:79: note: expected 'unsigned char *' but argument is of type 'char *'
+   44 | void vCommStateMachineSendMessage (UART_HandleTypeDef * huart, unsigned char* ucMessage);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~~~~~
+../Core/Src/commStateMachine.c:260:72: warning: pointer targets in passing argument 2 of 'vCommStateMachineSendMessage' differ in signedness [-Wpointer-sign]
+  260 |                                 vCommStateMachineSendMessage(pV2VUART, "#gl;");
+      |                                                                        ^~~~~~
+      |                                                                        |
+      |                                                                        char *
+../Core/Inc/commStateMachine.h:44:79: note: expected 'unsigned char *' but argument is of type 'char *'
+   44 | void vCommStateMachineSendMessage (UART_HandleTypeDef * huart, unsigned char* ucMessage);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~~~~~
+../Core/Src/commStateMachine.c:263:72: warning: pointer targets in passing argument 2 of 'vCommStateMachineSendMessage' differ in signedness [-Wpointer-sign]
+  263 |                                 vCommStateMachineSendMessage(pV2VUART, "#gr;");
+      |                                                                        ^~~~~~
+      |                                                                        |
+      |                                                                        char *
+../Core/Inc/commStateMachine.h:44:79: note: expected 'unsigned char *' but argument is of type 'char *'
+   44 | void vCommStateMachineSendMessage (UART_HandleTypeDef * huart, unsigned char* ucMessage);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~~~~~
+../Core/Src/commStateMachine.c:266:72: warning: pointer targets in passing argument 2 of 'vCommStateMachineSendMessage' differ in signedness [-Wpointer-sign]
+  266 |                                 vCommStateMachineSendMessage(pV2VUART, "#ga;");
+      |                                                                        ^~~~~~
+      |                                                                        |
+      |                                                                        char *
+../Core/Inc/commStateMachine.h:44:79: note: expected 'unsigned char *' but argument is of type 'char *'
+   44 | void vCommStateMachineSendMessage (UART_HandleTypeDef * huart, unsigned char* ucMessage);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~~~~~
+../Core/Src/commStateMachine.c:269:72: warning: pointer targets in passing argument 2 of 'vCommStateMachineSendMessage' differ in signedness [-Wpointer-sign]
+  269 |                                 vCommStateMachineSendMessage(pV2VUART, "#gb;");
+      |                                                                        ^~~~~~
+      |                                                                        |
+      |                                                                        char *
+../Core/Inc/commStateMachine.h:44:79: note: expected 'unsigned char *' but argument is of type 'char *'
+   44 | void vCommStateMachineSendMessage (UART_HandleTypeDef * huart, unsigned char* ucMessage);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~~~~~
+../Core/Src/commStateMachine.c:272:72: warning: pointer targets in passing argument 2 of 'vCommStateMachineSendMessage' differ in signedness [-Wpointer-sign]
+  272 |                                 vCommStateMachineSendMessage(pV2VUART, "#gc;");
+      |                                                                        ^~~~~~
+      |                                                                        |
+      |                                                                        char *
+../Core/Inc/commStateMachine.h:44:79: note: expected 'unsigned char *' but argument is of type 'char *'
+   44 | void vCommStateMachineSendMessage (UART_HandleTypeDef * huart, unsigned char* ucMessage);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~~~~~
+../Core/Src/commStateMachine.c:275:72: warning: pointer targets in passing argument 2 of 'vCommStateMachineSendMessage' differ in signedness [-Wpointer-sign]
+  275 |                                 vCommStateMachineSendMessage(pV2VUART, "#gd;");
+      |                                                                        ^~~~~~
+      |                                                                        |
+      |                                                                        char *
+../Core/Inc/commStateMachine.h:44:79: note: expected 'unsigned char *' but argument is of type 'char *'
+   44 | void vCommStateMachineSendMessage (UART_HandleTypeDef * huart, unsigned char* ucMessage);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~~~~~
+../Core/Src/commStateMachine.c:278:72: warning: pointer targets in passing argument 2 of 'vCommStateMachineSendMessage' differ in signedness [-Wpointer-sign]
+  278 |                                 vCommStateMachineSendMessage(pV2VUART, "#ge;");
+      |                                                                        ^~~~~~
+      |                                                                        |
+      |                                                                        char *
+../Core/Inc/commStateMachine.h:44:79: note: expected 'unsigned char *' but argument is of type 'char *'
+   44 | void vCommStateMachineSendMessage (UART_HandleTypeDef * huart, unsigned char* ucMessage);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~~~~~
+../Core/Src/commStateMachine.c:281:72: warning: pointer targets in passing argument 2 of 'vCommStateMachineSendMessage' differ in signedness [-Wpointer-sign]
+  281 |                                 vCommStateMachineSendMessage(pV2VUART, "#gf;");
+      |                                                                        ^~~~~~
+      |                                                                        |
+      |                                                                        char *
+../Core/Inc/commStateMachine.h:44:79: note: expected 'unsigned char *' but argument is of type 'char *'
+   44 | void vCommStateMachineSendMessage (UART_HandleTypeDef * huart, unsigned char* ucMessage);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~~~~~
+../Core/Src/commStateMachine.c:284:72: warning: pointer targets in passing argument 2 of 'vCommStateMachineSendMessage' differ in signedness [-Wpointer-sign]
+  284 |                                 vCommStateMachineSendMessage(pV2VUART, "#gv;");
+      |                                                                        ^~~~~~
+      |                                                                        |
+      |                                                                        char *
+../Core/Inc/commStateMachine.h:44:79: note: expected 'unsigned char *' but argument is of type 'char *'
+   44 | void vCommStateMachineSendMessage (UART_HandleTypeDef * huart, unsigned char* ucMessage);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~~~~~
+../Core/Src/commStateMachine.c:287:72: warning: pointer targets in passing argument 2 of 'vCommStateMachineSendMessage' differ in signedness [-Wpointer-sign]
+  287 |                                 vCommStateMachineSendMessage(pV2VUART, "#go;");
+      |                                                                        ^~~~~~
+      |                                                                        |
+      |                                                                        char *
+../Core/Inc/commStateMachine.h:44:79: note: expected 'unsigned char *' but argument is of type 'char *'
+   44 | void vCommStateMachineSendMessage (UART_HandleTypeDef * huart, unsigned char* ucMessage);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~~~~~
+../Core/Src/commStateMachine.c:214:23: warning: unused variable 'ucValuev2v' [-Wunused-variable]
+  214 |         unsigned char ucValuev2v[MAX_VALUE_LENGTH];
+      |                       ^~~~~~~~~~
+../Core/Src/commStateMachine.c:213:23: warning: unused variable 'ucValue' [-Wunused-variable]
+  213 |         unsigned char ucValue[MAX_VALUE_LENGTH];
+      |                       ^~~~~~~
+../Core/Src/commStateMachine.c: In function 'vCommStateMachineSetParam':
+../Core/Src/commStateMachine.c:338:72: warning: pointer targets in passing argument 2 of 'vCommStateMachineSendMessage' differ in signedness [-Wpointer-sign]
+  338 |                                 vCommStateMachineSendMessage(pV2VUART, "#sa");
+      |                                                                        ^~~~~
+      |                                                                        |
+      |                                                                        char *
+../Core/Inc/commStateMachine.h:44:79: note: expected 'unsigned char *' but argument is of type 'char *'
+   44 | void vCommStateMachineSendMessage (UART_HandleTypeDef * huart, unsigned char* ucMessage);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~~~~~
+../Core/Src/commStateMachine.c:340:72: warning: pointer targets in passing argument 2 of 'vCommStateMachineSendMessage' differ in signedness [-Wpointer-sign]
+  340 |                                 vCommStateMachineSendMessage(pV2VUART, ";");
+      |                                                                        ^~~
+      |                                                                        |
+      |                                                                        char *
+../Core/Inc/commStateMachine.h:44:79: note: expected 'unsigned char *' but argument is of type 'char *'
+   44 | void vCommStateMachineSendMessage (UART_HandleTypeDef * huart, unsigned char* ucMessage);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~~~~~
+../Core/Src/commStateMachine.c:343:72: warning: pointer targets in passing argument 2 of 'vCommStateMachineSendMessage' differ in signedness [-Wpointer-sign]
+  343 |                                 vCommStateMachineSendMessage(pV2VUART, "#sb");
+      |                                                                        ^~~~~
+      |                                                                        |
+      |                                                                        char *
+../Core/Inc/commStateMachine.h:44:79: note: expected 'unsigned char *' but argument is of type 'char *'
+   44 | void vCommStateMachineSendMessage (UART_HandleTypeDef * huart, unsigned char* ucMessage);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~~~~~
+../Core/Src/commStateMachine.c:345:72: warning: pointer targets in passing argument 2 of 'vCommStateMachineSendMessage' differ in signedness [-Wpointer-sign]
+  345 |                                 vCommStateMachineSendMessage(pV2VUART, ";");
+      |                                                                        ^~~
+      |                                                                        |
+      |                                                                        char *
+../Core/Inc/commStateMachine.h:44:79: note: expected 'unsigned char *' but argument is of type 'char *'
+   44 | void vCommStateMachineSendMessage (UART_HandleTypeDef * huart, unsigned char* ucMessage);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~~~~~
+../Core/Src/commStateMachine.c:348:72: warning: pointer targets in passing argument 2 of 'vCommStateMachineSendMessage' differ in signedness [-Wpointer-sign]
+  348 |                                 vCommStateMachineSendMessage(pV2VUART, "#sc");
+      |                                                                        ^~~~~
+      |                                                                        |
+      |                                                                        char *
+../Core/Inc/commStateMachine.h:44:79: note: expected 'unsigned char *' but argument is of type 'char *'
+   44 | void vCommStateMachineSendMessage (UART_HandleTypeDef * huart, unsigned char* ucMessage);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~~~~~
+../Core/Src/commStateMachine.c:350:72: warning: pointer targets in passing argument 2 of 'vCommStateMachineSendMessage' differ in signedness [-Wpointer-sign]
+  350 |                                 vCommStateMachineSendMessage(pV2VUART, ";");
+      |                                                                        ^~~
+      |                                                                        |
+      |                                                                        char *
+../Core/Inc/commStateMachine.h:44:79: note: expected 'unsigned char *' but argument is of type 'char *'
+   44 | void vCommStateMachineSendMessage (UART_HandleTypeDef * huart, unsigned char* ucMessage);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~~~~~
+../Core/Src/commStateMachine.c:353:72: warning: pointer targets in passing argument 2 of 'vCommStateMachineSendMessage' differ in signedness [-Wpointer-sign]
+  353 |                                 vCommStateMachineSendMessage(pV2VUART, "#sd");
+      |                                                                        ^~~~~
+      |                                                                        |
+      |                                                                        char *
+../Core/Inc/commStateMachine.h:44:79: note: expected 'unsigned char *' but argument is of type 'char *'
+   44 | void vCommStateMachineSendMessage (UART_HandleTypeDef * huart, unsigned char* ucMessage);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~~~~~
+../Core/Src/commStateMachine.c:355:72: warning: pointer targets in passing argument 2 of 'vCommStateMachineSendMessage' differ in signedness [-Wpointer-sign]
+  355 |                                 vCommStateMachineSendMessage(pV2VUART, ";");
+      |                                                                        ^~~
+      |                                                                        |
+      |                                                                        char *
+../Core/Inc/commStateMachine.h:44:79: note: expected 'unsigned char *' but argument is of type 'char *'
+   44 | void vCommStateMachineSendMessage (UART_HandleTypeDef * huart, unsigned char* ucMessage);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~~~~~
+../Core/Src/commStateMachine.c:358:72: warning: pointer targets in passing argument 2 of 'vCommStateMachineSendMessage' differ in signedness [-Wpointer-sign]
+  358 |                                 vCommStateMachineSendMessage(pV2VUART, "#se");
+      |                                                                        ^~~~~
+      |                                                                        |
+      |                                                                        char *
+../Core/Inc/commStateMachine.h:44:79: note: expected 'unsigned char *' but argument is of type 'char *'
+   44 | void vCommStateMachineSendMessage (UART_HandleTypeDef * huart, unsigned char* ucMessage);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~~~~~
+../Core/Src/commStateMachine.c:360:72: warning: pointer targets in passing argument 2 of 'vCommStateMachineSendMessage' differ in signedness [-Wpointer-sign]
+  360 |                                 vCommStateMachineSendMessage(pV2VUART, ";");
+      |                                                                        ^~~
+      |                                                                        |
+      |                                                                        char *
+../Core/Inc/commStateMachine.h:44:79: note: expected 'unsigned char *' but argument is of type 'char *'
+   44 | void vCommStateMachineSendMessage (UART_HandleTypeDef * huart, unsigned char* ucMessage);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~~~~~
+../Core/Src/commStateMachine.c:363:72: warning: pointer targets in passing argument 2 of 'vCommStateMachineSendMessage' differ in signedness [-Wpointer-sign]
+  363 |                                 vCommStateMachineSendMessage(pV2VUART, "#sf");
+      |                                                                        ^~~~~
+      |                                                                        |
+      |                                                                        char *
+../Core/Inc/commStateMachine.h:44:79: note: expected 'unsigned char *' but argument is of type 'char *'
+   44 | void vCommStateMachineSendMessage (UART_HandleTypeDef * huart, unsigned char* ucMessage);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~~~~~
+../Core/Src/commStateMachine.c:365:72: warning: pointer targets in passing argument 2 of 'vCommStateMachineSendMessage' differ in signedness [-Wpointer-sign]
+  365 |                                 vCommStateMachineSendMessage(pV2VUART, ";");
+      |                                                                        ^~~
+      |                                                                        |
+      |                                                                        char *
+../Core/Inc/commStateMachine.h:44:79: note: expected 'unsigned char *' but argument is of type 'char *'
+   44 | void vCommStateMachineSendMessage (UART_HandleTypeDef * huart, unsigned char* ucMessage);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~~~~~
+../Core/Src/commStateMachine.c:368:72: warning: pointer targets in passing argument 2 of 'vCommStateMachineSendMessage' differ in signedness [-Wpointer-sign]
+  368 |                                 vCommStateMachineSendMessage(pV2VUART, "#sv");
+      |                                                                        ^~~~~
+      |                                                                        |
+      |                                                                        char *
+../Core/Inc/commStateMachine.h:44:79: note: expected 'unsigned char *' but argument is of type 'char *'
+   44 | void vCommStateMachineSendMessage (UART_HandleTypeDef * huart, unsigned char* ucMessage);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~~~~~
+../Core/Src/commStateMachine.c:370:72: warning: pointer targets in passing argument 2 of 'vCommStateMachineSendMessage' differ in signedness [-Wpointer-sign]
+  370 |                                 vCommStateMachineSendMessage(pV2VUART, ";");
+      |                                                                        ^~~
+      |                                                                        |
+      |                                                                        char *
+../Core/Inc/commStateMachine.h:44:79: note: expected 'unsigned char *' but argument is of type 'char *'
+   44 | void vCommStateMachineSendMessage (UART_HandleTypeDef * huart, unsigned char* ucMessage);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~~~~~
+../Core/Src/commStateMachine.c:373:72: warning: pointer targets in passing argument 2 of 'vCommStateMachineSendMessage' differ in signedness [-Wpointer-sign]
+  373 |                                 vCommStateMachineSendMessage(pV2VUART, "#so");
+      |                                                                        ^~~~~
+      |                                                                        |
+      |                                                                        char *
+../Core/Inc/commStateMachine.h:44:79: note: expected 'unsigned char *' but argument is of type 'char *'
+   44 | void vCommStateMachineSendMessage (UART_HandleTypeDef * huart, unsigned char* ucMessage);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~~~~~
+../Core/Src/commStateMachine.c:375:72: warning: pointer targets in passing argument 2 of 'vCommStateMachineSendMessage' differ in signedness [-Wpointer-sign]
+  375 |                                 vCommStateMachineSendMessage(pV2VUART, ";");
+      |                                                                        ^~~
+      |                                                                        |
+      |                                                                        char *
+../Core/Inc/commStateMachine.h:44:79: note: expected 'unsigned char *' but argument is of type 'char *'
+   44 | void vCommStateMachineSendMessage (UART_HandleTypeDef * huart, unsigned char* ucMessage);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~~~~~
+../Core/Src/commStateMachine.c:302:14: warning: unused variable 'cAux' [-Wunused-variable]
+  302 |         char cAux;
+      |              ^~~~
+../Core/Src/commStateMachine.c: In function 'fCommStateMachineStringToFloat':
+../Core/Src/commStateMachine.c:404:30: warning: pointer targets in passing argument 1 of 'atof' differ in signedness [-Wpointer-sign]
+  404 |         fInputNumber = atof (ucValue);
+      |                              ^~~~~~~
+      |                              |
+      |                              unsigned char *
+In file included from ../Core/Inc/communication.h:16,
+                 from ../Core/Src/commStateMachine.c:40:
+C:\ST\STM32CubeIDE_1.16.0\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623\tools\bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/include/stdlib.h:77:27: note: expected 'const char *' but argument is of type 'unsigned char *'
+   77 | double  atof (const char *__nptr);
+      |               ~~~~~~~~~~~~^~~~~~
+../Core/Src/commStateMachine.c: In function 'vCommStateMachineSendMessage':
+../Core/Src/commStateMachine.c:474:23: warning: variable 'a' set but not used [-Wunused-but-set-variable]
+  474 |         unsigned char a;
+      |                       ^
 arm-none-eabi-gcc -o "Carro Seguidor.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\jvmen\Documents\ES070-2024-GrupoA2\codes\Carro Seguidor\STM32G474RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Carro Seguidor.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 C:/ST/STM32CubeIDE_1.16.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: warning: Carro Seguidor.elf has a LOAD segment with RWX permissions
 Finished building target: Carro Seguidor.elf
@@ -16,126 +332,15 @@ Finished building target: Carro Seguidor.elf
 arm-none-eabi-size  Carro\ Seguidor.elf 
 arm-none-eabi-objdump -h -S Carro\ Seguidor.elf  > "Carro Seguidor.list"
    text	   data	    bss	    dec	    hex	filename
-  64540	    532	   4544	  69616	  10ff0	Carro Seguidor.elf
+  64700	    532	   4552	  69784	  11098	Carro Seguidor.elf
 Finished building: default.size.stdout
  
 Finished building: Carro Seguidor.list
  
-17:28:35 **** Incremental Build of configuration Debug for project Carro Seguidor ****
+17:59:18 **** Incremental Build of configuration Debug for project Carro Seguidor ****
 make -j16 all 
 arm-none-eabi-size  Carro\ Seguidor.elf 
    text	   data	    bss	    dec	    hex	filename
-  64540	    532	   4544	  69616	  10ff0	Carro Seguidor.elf
-Finished building: default.size.stdout
- 
-17:32:07 **** Incremental Build of configuration Debug for project Carro Seguidor ****
-make -j16 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G474xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
-../Core/Src/main.c: In function 'main':
-../Core/Src/main.c:175:3: warning: implicit declaration of function 'vCommStateMachineInit' [-Wimplicit-function-declaration]
-  175 |   vCommStateMachineInit(pBleCtrlMain, pV2V);
-      |   ^~~~~~~~~~~~~~~~~~~~~
-../Core/Src/main.c:133:38: warning: unused variable 'ucLCD1Msg' [-Wunused-variable]
-  133 |         unsigned char ucLCD0Msg[17], ucLCD1Msg[17];
-      |                                      ^~~~~~~~~
-arm-none-eabi-gcc -o "Carro Seguidor.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\jvmen\Documents\ES070-2024-GrupoA2\codes\Carro Seguidor\STM32G474RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Carro Seguidor.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-C:/ST/STM32CubeIDE_1.16.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: warning: Carro Seguidor.elf has a LOAD segment with RWX permissions
-Finished building target: Carro Seguidor.elf
- 
-arm-none-eabi-size  Carro\ Seguidor.elf 
-arm-none-eabi-objdump -h -S Carro\ Seguidor.elf  > "Carro Seguidor.list"
-   text	   data	    bss	    dec	    hex	filename
-  64548	    532	   4544	  69624	  10ff8	Carro Seguidor.elf
-Finished building: default.size.stdout
- 
-Finished building: Carro Seguidor.list
- 
-17:33:13 **** Incremental Build of configuration Debug for project Carro Seguidor ****
-make -j16 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G474xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
-../Core/Src/main.c: In function 'main':
-../Core/Src/main.c:175:3: warning: implicit declaration of function 'vCommStateMachineInit' [-Wimplicit-function-declaration]
-  175 |   vCommStateMachineInit(pBleCtrlMain, pV2V);
-      |   ^~~~~~~~~~~~~~~~~~~~~
-../Core/Src/main.c:133:38: warning: unused variable 'ucLCD1Msg' [-Wunused-variable]
-  133 |         unsigned char ucLCD0Msg[17], ucLCD1Msg[17];
-      |                                      ^~~~~~~~~
-arm-none-eabi-gcc -o "Carro Seguidor.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\jvmen\Documents\ES070-2024-GrupoA2\codes\Carro Seguidor\STM32G474RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Carro Seguidor.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-C:/ST/STM32CubeIDE_1.16.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: warning: Carro Seguidor.elf has a LOAD segment with RWX permissions
-Finished building target: Carro Seguidor.elf
- 
-arm-none-eabi-size  Carro\ Seguidor.elf 
-arm-none-eabi-objdump -h -S Carro\ Seguidor.elf  > "Carro Seguidor.list"
-   text	   data	    bss	    dec	    hex	filename
-  64508	    532	   4544	  69584	  10fd0	Carro Seguidor.elf
-Finished building: default.size.stdout
- 
-Finished building: Carro Seguidor.list
- 
-17:34:33 **** Incremental Build of configuration Debug for project Carro Seguidor ****
-make -j16 all 
-arm-none-eabi-gcc "../Core/Src/bleCmd.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G474xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/bleCmd.d" -MT"Core/Src/bleCmd.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/bleCmd.o"
-arm-none-eabi-gcc -o "Carro Seguidor.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\jvmen\Documents\ES070-2024-GrupoA2\codes\Carro Seguidor\STM32G474RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Carro Seguidor.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-C:/ST/STM32CubeIDE_1.16.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: warning: Carro Seguidor.elf has a LOAD segment with RWX permissions
-Finished building target: Carro Seguidor.elf
- 
-arm-none-eabi-size  Carro\ Seguidor.elf 
-arm-none-eabi-objdump -h -S Carro\ Seguidor.elf  > "Carro Seguidor.list"
-   text	   data	    bss	    dec	    hex	filename
-  64508	    532	   4544	  69584	  10fd0	Carro Seguidor.elf
-Finished building: default.size.stdout
- 
-Finished building: Carro Seguidor.list
- 
-17:43:54 **** Incremental Build of configuration Debug for project Carro Seguidor ****
-make -j16 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G474xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
-../Core/Src/main.c: In function 'main':
-../Core/Src/main.c:175:3: warning: implicit declaration of function 'vCommStateMachineInit' [-Wimplicit-function-declaration]
-  175 |   vCommStateMachineInit(pBleCtrlMain, pV2V);
-      |   ^~~~~~~~~~~~~~~~~~~~~
-../Core/Src/main.c:133:38: warning: unused variable 'ucLCD1Msg' [-Wunused-variable]
-  133 |         unsigned char ucLCD0Msg[17], ucLCD1Msg[17];
-      |                                      ^~~~~~~~~
-arm-none-eabi-gcc -o "Carro Seguidor.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\jvmen\Documents\ES070-2024-GrupoA2\codes\Carro Seguidor\STM32G474RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Carro Seguidor.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-C:/ST/STM32CubeIDE_1.16.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: warning: Carro Seguidor.elf has a LOAD segment with RWX permissions
-Finished building target: Carro Seguidor.elf
- 
-arm-none-eabi-size  Carro\ Seguidor.elf 
-arm-none-eabi-objdump -h -S Carro\ Seguidor.elf  > "Carro Seguidor.list"
-   text	   data	    bss	    dec	    hex	filename
-  64484	    532	   4544	  69560	  10fb8	Carro Seguidor.elf
-Finished building: default.size.stdout
- 
-Finished building: Carro Seguidor.list
- 
-18:05:32 **** Incremental Build of configuration Debug for project Carro Seguidor ****
-make -j16 all 
-arm-none-eabi-gcc "../Core/Src/bleCmd.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G474xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/bleCmd.d" -MT"Core/Src/bleCmd.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/bleCmd.o"
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G474xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
-../Core/Src/main.c: In function 'main':
-../Core/Src/main.c:175:3: warning: implicit declaration of function 'vCommStateMachineInit' [-Wimplicit-function-declaration]
-  175 |   vCommStateMachineInit(pBleCtrlMain, pV2V);
-      |   ^~~~~~~~~~~~~~~~~~~~~
-../Core/Src/main.c:133:38: warning: unused variable 'ucLCD1Msg' [-Wunused-variable]
-  133 |         unsigned char ucLCD0Msg[17], ucLCD1Msg[17];
-      |                                      ^~~~~~~~~
-arm-none-eabi-gcc -o "Carro Seguidor.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\jvmen\Documents\ES070-2024-GrupoA2\codes\Carro Seguidor\STM32G474RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Carro Seguidor.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-C:/ST/STM32CubeIDE_1.16.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: warning: Carro Seguidor.elf has a LOAD segment with RWX permissions
-Finished building target: Carro Seguidor.elf
- 
-arm-none-eabi-size  Carro\ Seguidor.elf 
-arm-none-eabi-objdump -h -S Carro\ Seguidor.elf  > "Carro Seguidor.list"
-   text	   data	    bss	    dec	    hex	filename
-  64508	    532	   4544	  69584	  10fd0	Carro Seguidor.elf
-Finished building: default.size.stdout
- 
-Finished building: Carro Seguidor.list
- 
-18:06:13 **** Incremental Build of configuration Debug for project Carro Seguidor ****
-make -j16 all 
-arm-none-eabi-size  Carro\ Seguidor.elf 
-   text	   data	    bss	    dec	    hex	filename
-  64508	    532	   4544	  69584	  10fd0	Carro Seguidor.elf
+  64700	    532	   4552	  69784	  11098	Carro Seguidor.elf
 Finished building: default.size.stdout
  

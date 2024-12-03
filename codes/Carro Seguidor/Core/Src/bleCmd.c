@@ -34,8 +34,8 @@ extern float fSetPoint_right; //f
 void vBleCmdMotorForward(){
 	fSetPoint_left = 185;
 	fSetPoint_right = 200;
-	vMotorsSetPWMTimer(left, 0.8, 1, 5000);
-	vMotorsSetPWMTimer(right, 0.8, 1, 5000);
+	vMotorsSetPWMTimer(left, 0.8, 1, 1000);
+	vMotorsSetPWMTimer(right, 0.8, 1, 1000);
 }
 
 //	Function name	: 	vBleCmdMotorLeftward														   //

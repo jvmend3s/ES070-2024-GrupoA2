@@ -49,6 +49,7 @@ extern float fRightMotorKp; // c
 extern float fRightMotorKi; // d
 extern float fSetPoint_left; //e
 extern float fSetPoint_right; //f
+float fOperation = 0 ;
 
 static unsigned char ucValue[MAX_VALUE_LENGTH+1];
 
@@ -247,6 +248,10 @@ void vCommStateMachineReturnParam(unsigned char ucParam){
 				pMessage = pCommunicationFloatToString(fSetPoint_right, 2);
 				vCommStateMachineSendMessage(pBluetoothControllerUART, pMessage);
 				break;
+			case 'o': //operation
+				pMessage = pCommunicationFloatToString(fOperation, 0);
+				vCommStateMachineSendMessage(pBluetoothControllerUART, pMessage);
+				break;
     	}
 	}
 	else{
@@ -321,6 +326,9 @@ void vCommStateMachineSetParam(unsigned char ucParam, unsigned char * pValue){
 					fSetPoint_right=fValue;
 				}
 				break;
+			case 'o': //op
+				fOperation=fCommStateMachineStringToFloat(pValue);
+				break;
 		}
 	}
 	else{
@@ -365,6 +373,7 @@ void vCommStateMachineSetParam(unsigned char ucParam, unsigned char * pValue){
 				vCommStateMachineSendMessage(pV2VUART, "#so");
 				vCommStateMachineSendMessage(pV2VUART, pValue);
 				vCommStateMachineSendMessage(pV2VUART, ";");
+				fOperation = fCommStateMachineStringToFloat(pValue);
 				break;
 
 		}
