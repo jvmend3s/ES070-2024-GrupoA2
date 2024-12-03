@@ -44,8 +44,6 @@ typedef enum
   Bit_SET
 }BitAction;
 
-#define numValues 3
-
 
 /* USER CODE END PTD */
 

@@ -124,7 +124,7 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart){
 				case _GET:
 //					if ('t' == ucDigit || 'r' == ucDigit || 'h' == ucDigit || 'c' == ucDigit || 'p' == ucDigit || 'i' == ucDigit
 //							|| 'd' == ucDigit || 's' == ucDigit || 'l' == ucDigit || 'o' == ucDigit){
-					if ('v' == ucDigit || 'a' == ucDigit || 'b' == ucDigit || 'c' == ucDigit || 'd' == ucDigit || 'e' == ucDigit || 'f' == ucDigit|| 'l' == ucDigit || 'r' == ucDigit){
+					if ('v' == ucDigit || 'a' == ucDigit || 'b' == ucDigit || 'c' == ucDigit || 'd' == ucDigit || 'e' == ucDigit || 'f' == ucDigit|| 'l' == ucDigit || 'r' == ucDigit || 'o' == ucDigit){
 					ucParam = ucDigit;
 					ucState = _PARAM;
 					}
@@ -135,7 +135,7 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart){
 				case _SET:
 //					if ('r' == ucDigit || 'h' == ucDigit || 'c' == ucDigit || 'p' == ucDigit || 'i' == ucDigit || 'd' == ucDigit
 //							|| 'l' == ucDigit || 'o' == ucDigit){
-					if ('v' == ucDigit || 'a' == ucDigit || 'b' == ucDigit || 'c' == ucDigit || 'd' == ucDigit || 'e' == ucDigit || 'f' == ucDigit || 'l' == ucDigit || 'r' == ucDigit){
+					if ('v' == ucDigit || 'a' == ucDigit || 'b' == ucDigit || 'c' == ucDigit || 'd' == ucDigit || 'e' == ucDigit || 'f' == ucDigit || 'l' == ucDigit || 'r' == ucDigit|| 'o' == ucDigit){
 					ucParam = ucDigit;
 					ucValueCount = 0;
 					ucState = _VALUE;
@@ -278,6 +278,9 @@ void vCommStateMachineReturnParam(unsigned char ucParam){
 			case 'v': //vMax
 				vCommStateMachineSendMessage(pV2VUART, "#gv;");
 				break;
+			case 'o':
+				vCommStateMachineSendMessage(pV2VUART, "#go;");
+				break;
 		}
 		cWaitAnwser = 1;
 	}
@@ -355,6 +358,11 @@ void vCommStateMachineSetParam(unsigned char ucParam, unsigned char * pValue){
 				break;
 			case 'v': //set right
 				vCommStateMachineSendMessage(pV2VUART, "#sv");
+				vCommStateMachineSendMessage(pV2VUART, pValue);
+				vCommStateMachineSendMessage(pV2VUART, ";");
+				break;
+			case 'o': //set right
+				vCommStateMachineSendMessage(pV2VUART, "#so");
 				vCommStateMachineSendMessage(pV2VUART, pValue);
 				vCommStateMachineSendMessage(pV2VUART, ";");
 				break;
