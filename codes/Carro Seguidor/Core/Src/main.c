@@ -35,6 +35,9 @@
 #include "motors.h"
 #include "timer.h"
 #include "pid.h"
+#include "commStateMachine.h"
+#include "odometria.h"
+
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -43,6 +46,8 @@ typedef enum
 { Bit_RESET = 0,
   Bit_SET
 }BitAction;
+
+#define numValues 3
 
 
 /* USER CODE END PTD */
@@ -65,8 +70,7 @@ typedef enum
 
 TIM_HandleTypeDef * pTimerPWMTrigger = &htim20;
 TIM_HandleTypeDef * pTimerEcoUltrassonicoFrontal = &htim3;
-UART_HandleTypeDef * pBleCtrlMain = &huart1;
-UART_HandleTypeDef * pV2V = &huart3;
+UART_HandleTypeDef * pV2V= &huart3;
 TIM_HandleTypeDef * pTimDurationMotor = &htim5;
 TIM_HandleTypeDef * pTimPWMMotor = &htim1;
 //TIM_HandleTypeDef* pTimerPWMBuzzer = &htim8;
@@ -82,30 +86,51 @@ uint32_t uiLeftCapturedTime, uiRightCapturedTime;
 unsigned int uiLeftTimeBurst, uiRightTimeBurst;
 unsigned long long int ullLeftTimeRan, ullRightTimeRan;
 float fLeftSpeed, fRightSpeed, fSpeedMedia, fRightMedia, fLeftMedia;
-
+int iCount500ms=0;
+//flags
 //flags
 char CountModeF=0;
+char CountModeE=0;
+char CountModeD=0;
 char cBuzzerState=0;
 
 uint16_t uiAuxDistanceUltrassonicoFrontal1=0;
 uint16_t uiAuxDistanceUltrassonicoFrontal2=0;
-float fDistance=0;
+
+uint16_t uiAuxDistanceUltrassonicoEsquerdo1=0;
+uint16_t uiAuxDistanceUltrassonicoEsquerdo2=0;
+
+uint16_t uiAuxDistanceUltrassonicoDireito1=0;
+uint16_t uiAuxDistanceUltrassonicoDireito2=0;
 
 //Controller PID Motors
 pid_data_type xPidMotorRight;
 pid_data_type xPidMotorLeft;
 pid_data_type xPidDistance;
-pid_data_type xPidAngle;
+pid_data_type xPidSetSpeed;
+
 float fActuatorValue_left, fActuatorValue_right=0;
+float fActuatorValue_Distance,fActuatorValue_SetSpeed=0;
 int iContaOutlier_left = 0, iContaOutlier_right = 0;
 
-float fLeftMotorKp = 0.0017; // a
-float fLeftMotorKi = 0.02; // b
-float fRightMotorKp = 0.0017; // c
-float fRightMotorKi = 0.02; // d
+float fSpeed; //v
+float fLeftMotorKp = 0.002; // a
+float fLeftMotorKi = .025; // b
+float fRightMotorKp = 0.002; // c
+float fRightMotorKi = .025; // d
+
 float fSetPoint_left = 0; //e
 float fSetPoint_right = 0; //f
 
+float fAvgLeftSpeed, fAvgRightSpeed;
+float fVMax=250;
+float fOffset=0.3;
+float fOperation=0;
+//Floats ultrassonico
+float fDistanceFrontal,fEsq,Fdir=0;
+float fDistanceEsquerdo=0;
+float fDistanceDireito=0;
+float dif;
 
 /* USER CODE END PV */
 
@@ -128,7 +153,7 @@ int main(void)
 {
 
   /* USER CODE BEGIN 1 */
-	unsigned char ucLCD0Msg[17], ucLCD1Msg[17];
+	//unsigned char ucLCD0Msg[17], ucLCD1Msg[17];
 
   /* USER CODE END 1 */
 
@@ -167,20 +192,24 @@ int main(void)
 
   lcdInit(&hi2c2, (uint8_t)0x27, (uint8_t)2, (uint8_t)16);
   vUltrassonicoInit(pTimerEcoUltrassonicoFrontal,pTimerPWMTrigger) ;
-  vCommunicationInit(pBleCtrlMain);
+  vCommunicationInit();
 
   vMotorsInit(pTimPWMMotor, pTimDurationMotor);
-  vCommStateMachineInit(pBleCtrlMain, pV2V);
+  vCommStateMachineInit(pV2V);
+
+  vOdometriaInit();
 
   vTimerInit();
   iSetTimer(100);
+  iSetTimer(500);
 
-// lider
-//  xPidMotorLeft = vPidInit(xPidMotorLeft, 0.005, 0.06, 0, 100, 1);
-//  xPidMotorRight = vPidInit(xPidMotorRight, 0.005, 0.06, 0, 100, 1);
+
 // seguidor
    xPidMotorLeft = vPidInit(xPidMotorLeft, fLeftMotorKp, fLeftMotorKi, 0, 100, 0.7);
    xPidMotorRight = vPidInit(xPidMotorRight, fRightMotorKp, fRightMotorKi, 0, 100, 0.7);
+   xPidDistance = vPidInit(xPidDistance, 0.03, 0.02, 0, 100, 1);
+
+   xPidSetSpeed = vPidInit(xPidSetSpeed, 0.015, 0.02, 0, 100, 1);
 
   /* USER CODE END 2 */
 
@@ -194,19 +223,53 @@ int main(void)
   HAL_TIM_IC_Start_IT(pTimFreqFixa_esq, TIM_CHANNEL_1);
   HAL_TIM_IC_Start_IT(pTimFreqFixa_dir, TIM_CHANNEL_1);
 
-  lcdSetCursorPosition(0, 0);
-  sprintf((char *)ucLCD0Msg, "Esq(mm/s):");
-  lcdPrintStr((uint8_t*)ucLCD0Msg, strlen((char *)ucLCD0Msg));
-  lcdSetCursorPosition(0, 1);
-  sprintf((char *)ucLCD0Msg, "Dir(mm/s):");
-  lcdPrintStr((uint8_t*)ucLCD0Msg, strlen((char *)ucLCD0Msg));
+  fSetPoint_right=0;
+  fSetPoint_left=0;
 
-  while (1)
+  //testes odometria
+  //vMotorsSetPWM(right, 0.4, 1);
+  //vMotorsSetPWM(left, 0.4, 1);
+
+
+
+  	  while (1)
   {
     /* USER CODE END WHILE */
-    /* USER CODE BEGIN 3 */
-  }
 
+    /* USER CODE BEGIN 3 */
+  		if(5==iCount500ms)
+  		{
+  	   	  // PRINT ODOMETRIA
+  			lcdDisplayClear();
+  	   	    vShowOdometry();
+
+  			lcdDisplayClear();
+  			lcdSetCursorPosition(0, 0);
+  			lcdPrintStr("DF:", 3);
+
+  		  	lcdSetCursorPosition(3, 0);
+  		    lcdPrintStr((uint8_t*)pCommunicationFloatToString(fDistanceFrontal, 1), strlen((char *)pCommunicationFloatToString(fDistanceFrontal, 1)));
+
+  		    lcdSetCursorPosition(8, 0);
+  		    lcdPrintStr("VE:", 3);
+  		  lcdSetCursorPosition(11, 0);
+  		  	lcdPrintStr((uint8_t*)pCommunicationFloatToString(fLeftSpeed, 1), strlen((char *)pCommunicationFloatToString(fLeftSpeed, 1)));
+
+  		    lcdSetCursorPosition(8, 1);
+  		    lcdPrintStr("VD:", 3);
+  		 	lcdSetCursorPosition(11, 1);
+  		  	lcdPrintStr((uint8_t*)pCommunicationFloatToString(fRightSpeed, 1), strlen((char *)pCommunicationFloatToString(fRightSpeed, 1)));
+  		  	iCount500ms=0;
+  		}
+  		dif=fDistanceEsquerdo-fDistanceDireito;
+
+  		if(fDistanceFrontal>400){
+  			fOperation=0;
+  			vCommStateMachineSendMessage(pV2V, "#1so0;");
+  		}
+
+
+  	  }
   /* USER CODE END 3 */
 }
 
@@ -258,36 +321,60 @@ void SystemClock_Config(void)
 
 /* USER CODE BEGIN 4 */
 
+void vShowOdometry() {
+	odometry_state actual = xGetCurrentState();
+
+	lcdSetCursorPosition(0, 0);
+	lcdPrintStr("x:", 2);
+	lcdSetCursorPosition(2, 0);
+	lcdPrintStr((uint8_t*)pCommunicationFloatToString(actual.x, 3), strlen((char *)pCommunicationFloatToString(actual.x, 3)));
+
+	lcdSetCursorPosition(8, 0);
+	lcdPrintStr("o:", 2);
+	lcdSetCursorPosition(10, 0);
+	lcdPrintStr((uint8_t*)pCommunicationFloatToString(fRadToDegree(actual.angle_orientation), 1), strlen((char *)pCommunicationFloatToString(fRadToDegree(actual.angle_orientation), 1)));
+
+	lcdSetCursorPosition(0, 1);
+	lcdPrintStr("y:", 2);
+	lcdSetCursorPosition(2, 1);
+	lcdPrintStr((uint8_t*)pCommunicationFloatToString(actual.y, 3), strlen((char *)pCommunicationFloatToString(actual.y, 3)));
+}
+
 
 void vPeriodicControlTask(){
-		//lider
-//	  fActuatorValue_left = fPidUpdateData(xPidMotorLeft,fLeftSpeed, 400);
-//	  fActuatorValue_left = 0.46 + fActuatorValue_left*0.5;
-//	  vMotorsSetPWM(left, fActuatorValue_left, 1);
-//
-//	  fActuatorValue_right = fPidUpdateData(xPidMotorRight, fRightSpeed, 400);
-//	  fActuatorValue_right = 0.46 + fActuatorValue_right*0.5;
-//	  vMotorsSetPWM(right, fActuatorValue_right, 1);
+
 	   //seguidor
-	  fActuatorValue_left = fPidUpdateData(xPidMotorLeft,fLeftSpeed , abs(fSetPoint_left));
-	  fActuatorValue_left = 0.3 + fActuatorValue_left;
-	  if (fSetPoint_left == 0)
-		  fActuatorValue_left = 0;
-	  else if (fSetPoint_left < 0)
-		  vMotorsSetPWM(left, fActuatorValue_left, 0);
-	  else if (fSetPoint_left>0)
-		  vMotorsSetPWM(left, fActuatorValue_left, 1);
+
+	fActuatorValue_SetSpeed=fPidUpdateData(xPidSetSpeed,-fDistanceFrontal, 6);
+	  fSetPoint_right=fActuatorValue_SetSpeed*fVMax;
+	  fSetPoint_left=fActuatorValue_SetSpeed*fVMax;
+
+	if(dif<0&&fDistanceFrontal<200){
+		//Curva para a direita
+		fActuatorValue_Distance=fPidUpdateData(xPidDistance,dif, 0);
+	}else if (dif>0&&fDistanceFrontal<200){
+		fActuatorValue_Distance=-1*fPidUpdateData(xPidDistance,dif*-1, 0);
+	}
+	else
+		fActuatorValue_Distance=0;
 
 
-	  fActuatorValue_right = fPidUpdateData(xPidMotorRight,fRightSpeed , abs(fSetPoint_right));
-	  fActuatorValue_right = 0.3 + fActuatorValue_right;
-	  if (fSetPoint_right == 0)
-		  fActuatorValue_right = 0;
-	  else if (fSetPoint_right < 0)
-		  vMotorsSetPWM(right, fActuatorValue_right, 0);
-	  else if (fSetPoint_right > 0)
-		  vMotorsSetPWM(right, fActuatorValue_right, 1);
+
+	  fActuatorValue_left = fPidUpdateData(xPidMotorLeft,fLeftSpeed, fSetPoint_left - (120*fActuatorValue_Distance));
+	  fActuatorValue_left = fOffset + fActuatorValue_left ;
+
+	  fActuatorValue_right = fPidUpdateData(xPidMotorRight, fRightSpeed , fSetPoint_right +(120*fActuatorValue_Distance));
+	  fActuatorValue_right = fOffset  + fActuatorValue_right;
+
+
+	  if(16.0>fDistanceFrontal || fDistanceEsquerdo<15  || fDistanceDireito<15|| fOperation==0){
+		  fActuatorValue_left=0;
+	  	  fActuatorValue_right=0;
+	  }
+	  vMotorsSetPWM(left, fActuatorValue_left, 1);
+	  vMotorsSetPWM(right, fActuatorValue_right, 1);
 }
+
 
 void HAL_TIM_PeriodElapsedCallback (TIM_HandleTypeDef * htim){
 	if (htim == pTimDurationMotor)
@@ -301,20 +388,31 @@ void HAL_TIM_PeriodElapsedCallback (TIM_HandleTypeDef * htim){
 		if (fRightSpeed > 700) {
 			iContaOutlier_right++;
 		}
+		fAvgLeftSpeed += fLeftSpeed;
 
 		if (fLeftSpeed > 700) {
 			iContaOutlier_left++;
 		}
+		fAvgRightSpeed += fRightSpeed;
 
 		//conta 100 ms
 		if (cCountTime(10, 0)) {
+			fAvgRightSpeed /= 10;
+			fAvgLeftSpeed /= 10;
 			vPeriodicControlTask();
+
+			// d = v*t (x10^-3) [m]
+			vCountOdometria(fAvgLeftSpeed*0.0001, fAvgRightSpeed*0.0001);
+
+			fAvgRightSpeed = 0;
+			fAvgLeftSpeed = 0;
+			iCount500ms++;
 		}
 
 	}
 
 	if (htim == pTimFreqFixa_esq){
-		if(uiLeftTimeBurst > 30){
+		if(uiLeftTimeBurst > 200){
 			uiLeftTimeBurst = 1;
 			fLeftSpeed = 0;
 		}else{
@@ -323,7 +421,7 @@ void HAL_TIM_PeriodElapsedCallback (TIM_HandleTypeDef * htim){
 	}
 
 	if (htim == pTimFreqFixa_dir){
-		if(uiRightTimeBurst > 30){
+		if(uiRightTimeBurst > 200){
 			uiRightTimeBurst = 1;
 			fRightSpeed = 0;
 		}else{
@@ -337,6 +435,57 @@ void HAL_TIM_PeriodElapsedCallback (TIM_HandleTypeDef * htim){
 }
 
 void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef * htim){
+//Ultrassonicos
+	 if(htim == pTimerEcoUltrassonicoFrontal){
+
+	  if (htim->Channel == HAL_TIM_ACTIVE_CHANNEL_1)
+	      {
+		  if(0==CountModeF){
+			  uiAuxDistanceUltrassonicoFrontal1= HAL_TIM_ReadCapturedValue(pTimerEcoUltrassonicoFrontal,TIM_CHANNEL_1);
+			  CountModeF=1;
+		  }else{
+			  uiAuxDistanceUltrassonicoFrontal2 = HAL_TIM_ReadCapturedValue(pTimerEcoUltrassonicoFrontal,TIM_CHANNEL_1);
+    		  //if(!(fUltrassonicoGetDistance( uiAuxDistanceUltrassonicoFrontal1 , uiAuxDistanceUltrassonicoFrontal2)-fDistanceFrontal>50 ||fUltrassonicoGetDistance( uiAuxDistanceUltrassonicoFrontal1 , uiAuxDistanceUltrassonicoFrontal2)-fDistanceFrontal<-50) )
+			   fDistanceFrontal=fUltrassonicoGetDistance( uiAuxDistanceUltrassonicoFrontal1 , uiAuxDistanceUltrassonicoFrontal2);
+			  CountModeF=0;
+		  }
+	      }
+
+	      else if (htim->Channel == HAL_TIM_ACTIVE_CHANNEL_2)
+	      {
+	    	  if(0==CountModeE){
+	    		  uiAuxDistanceUltrassonicoEsquerdo1=HAL_TIM_ReadCapturedValue(pTimerEcoUltrassonicoFrontal,TIM_CHANNEL_2);
+	    		  CountModeE=1;
+	    	  }else{
+	    		  uiAuxDistanceUltrassonicoEsquerdo2=HAL_TIM_ReadCapturedValue(pTimerEcoUltrassonicoFrontal,TIM_CHANNEL_2);
+	    		  //if(!(fUltrassonicoGetDistance( uiAuxDistanceUltrassonicoEsquerdo1 , uiAuxDistanceUltrassonicoEsquerdo2)-fDistanceEsquerdo>50 ||fUltrassonicoGetDistance( uiAuxDistanceUltrassonicoEsquerdo1 , uiAuxDistanceUltrassonicoEsquerdo2)-fDistanceEsquerdo<-50) )
+				   fDistanceEsquerdo=fUltrassonicoGetDistance( uiAuxDistanceUltrassonicoEsquerdo1 , uiAuxDistanceUltrassonicoEsquerdo2);
+	    		  CountModeE=0;
+	    	  }
+
+	      }
+	      else if (htim->Channel == HAL_TIM_ACTIVE_CHANNEL_3)
+	      {
+	    	  if(0==CountModeD){
+	    		  uiAuxDistanceUltrassonicoDireito1=HAL_TIM_ReadCapturedValue(pTimerEcoUltrassonicoFrontal,TIM_CHANNEL_3);
+	    		  CountModeD=1;
+	    	  }else{
+	    		  uiAuxDistanceUltrassonicoDireito2=HAL_TIM_ReadCapturedValue(pTimerEcoUltrassonicoFrontal,TIM_CHANNEL_3);
+
+	    		  //if(!(fUltrassonicoGetDistance( uiAuxDistanceUltrassonicoDireito1 , uiAuxDistanceUltrassonicoDireito2)-fDistanceDireito>50 ||fUltrassonicoGetDistance( uiAuxDistanceUltrassonicoDireito1 , uiAuxDistanceUltrassonicoDireito2)-fDistanceDireito<-50) )
+				   fDistanceDireito=fUltrassonicoGetDistance( uiAuxDistanceUltrassonicoDireito1 , uiAuxDistanceUltrassonicoDireito2);
+	    		  CountModeD=0;
+	    	  }
+	      }
+
+
+	  if(fDistanceFrontal<0){
+		  fDistanceFrontal=fDistanceFrontal*(-1);
+	  }
+	  if(fDistanceEsquerdo<0)
+		  fDistanceEsquerdo=fDistanceEsquerdo*(-1);
+
+	  }
 //ENCODERS
   if (htim == pTimFreqFixa_esq)
   	{
@@ -365,24 +514,7 @@ void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef * htim){
   		uiRightTimeBurst = 0;
   		fRightSpeed = 10.0f/(ullRightTimeRan/1000000.0f); //velocidade em mm/s
   	}
-  if(htim == pTimerEcoUltrassonicoFrontal){
-
-	  if (htim->Channel == HAL_TIM_ACTIVE_CHANNEL_1)
-  	      {
-  		  if(0==CountModeF){
-  			  uiAuxDistanceUltrassonicoFrontal1= HAL_TIM_ReadCapturedValue(pTimerEcoUltrassonicoFrontal,TIM_CHANNEL_1);
-  			  CountModeF=1;
-  		  }else{
-  			  uiAuxDistanceUltrassonicoFrontal2 = HAL_TIM_ReadCapturedValue(pTimerEcoUltrassonicoFrontal,TIM_CHANNEL_1);
-      		  //if(!(fUltrassonicoGetDistance( uiAuxDistanceUltrassonicoFrontal1 , uiAuxDistanceUltrassonicoFrontal2)-fDistanceFrontal>50 ||fUltrassonicoGetDistance( uiAuxDistanceUltrassonicoFrontal1 , uiAuxDistanceUltrassonicoFrontal2)-fDistanceFrontal<-50) )
-  			   fDistance=fUltrassonicoGetDistance( uiAuxDistanceUltrassonicoFrontal1 , uiAuxDistanceUltrassonicoFrontal2);
-  			  CountModeF=0;
-  		  }
-  	 }
-  }
 }
-
-
 
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin){
 

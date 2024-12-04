@@ -1,0 +1,5 @@
+../Core/Src/odometria.c:16:6:vOdometriaInit	4	static
+../Core/Src/odometria.c:23:6:vCountOdometria	40	static
+../Core/Src/odometria.c:40:7:fDegreeToRad	16	static
+../Core/Src/odometria.c:44:7:fRadToDegree	16	static
+../Core/Src/odometria.c:48:16:xGetCurrentState	40	static

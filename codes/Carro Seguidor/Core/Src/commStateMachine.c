@@ -15,7 +15,6 @@
 //
 //-----------------------------------------------Author------------------------------------------------//
 //	João Vitor Mendes
-//	Vitor Akio Isawa
 //-----------------------------------------------Version-----------------------------------------------//
 //	Created on :									29/04/24
 //	Revised on :									03/05/24
@@ -30,15 +29,12 @@
 #define _SET     '4'
 #define _PARAM   '5'
 #define _VALUE   '6'
-#define _WAIT_VALUE '7'
 
 #define MAX_VALUE_LENGTH 7
 
 //-----------------------------------------------Includes----------------------------------------------//
 #include "commStateMachine.h"
-#include "bleCmd.h"
 #include "communication.h"
-#include "stm32g4xx_hal.h"
 
 //----------------------------------------Variable and definitions-------------------------------------//
 extern float fLeftSpeed; // l
@@ -49,28 +45,21 @@ extern float fRightMotorKp; // c
 extern float fRightMotorKi; // d
 extern float fSetPoint_left; //e
 extern float fSetPoint_right; //f
-float fOperation = 0 ;
-
+extern float fVMax; //v
 static unsigned char ucValue[MAX_VALUE_LENGTH+1];
+extern float fOperation;
 
-char cCar; // 0 = Carro Lider 1 = Carro Seguidor
-char cWaitAnwser;
 unsigned char ucState = _IDDLE;
 unsigned char ucValueCount;
-unsigned char ucValueCountv2v;
 unsigned char ucDigit;
-unsigned char ucDigitv2v;
 unsigned char ucTransmitVector[_MAX_NUMBER_OF_CHARS];
-UART_HandleTypeDef *pBluetoothControllerUART;
 UART_HandleTypeDef *pV2VUART;
 
 //-----------------------------------------------Functions---------------------------------------------//
 
 
-void vCommStateMachineInit(UART_HandleTypeDef *huartcontrol, UART_HandleTypeDef *huartV2V){
-	pBluetoothControllerUART = huartcontrol;
+void vCommStateMachineInit(UART_HandleTypeDef *huartV2V){
 	pV2VUART =huartV2V;
-	HAL_UART_Receive_IT(pBluetoothControllerUART, &ucDigit, 1);
 	HAL_UART_Receive_IT(pV2VUART, &ucDigit, 1);
 }
 
@@ -85,30 +74,15 @@ void vCommStateMachineInit(UART_HandleTypeDef *huartcontrol, UART_HandleTypeDef 
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart){
     static unsigned char ucParam;
 
-    if (huart == pBluetoothControllerUART || huart == pV2VUART){
+    if (huart == pV2VUART){
         HAL_UART_Receive_IT(huart, &ucDigit, 1);
 
         if('#' == ucDigit){
-            ucState = _CAR;
+                   ucState = _READY;
         }
         else{
 			if (ucState != _IDDLE){
 				switch (ucState){
-				case _CAR:
-					switch (ucDigit){
-					case '1':
-						cCar = 0; //lider
-						ucState = _READY;
-						break;
-
-					case '2':
-						cCar = 1; //seguidor
-						ucState = _READY;
-						break;
-					default:
-						ucState = _IDDLE;
-					}
-					break;
 				case _READY:
 					switch (ucDigit){
 					case 'g':
@@ -125,7 +99,7 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart){
 				case _GET:
 //					if ('t' == ucDigit || 'r' == ucDigit || 'h' == ucDigit || 'c' == ucDigit || 'p' == ucDigit || 'i' == ucDigit
 //							|| 'd' == ucDigit || 's' == ucDigit || 'l' == ucDigit || 'o' == ucDigit){
-					if ('v' == ucDigit || 'a' == ucDigit || 'b' == ucDigit || 'c' == ucDigit || 'd' == ucDigit || 'e' == ucDigit || 'f' == ucDigit|| 'l' == ucDigit || 'r' == ucDigit || 'o' == ucDigit){
+					if ('v' == ucDigit || 'a' == ucDigit || 'b' == ucDigit || 'c' == ucDigit || 'd' == ucDigit || 'e' == ucDigit || 'f' == ucDigit|| 'l' == ucDigit || 'r' == ucDigit|| 'o' == ucDigit){
 					ucParam = ucDigit;
 					ucState = _PARAM;
 					}
@@ -136,7 +110,7 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart){
 				case _SET:
 //					if ('r' == ucDigit || 'h' == ucDigit || 'c' == ucDigit || 'p' == ucDigit || 'i' == ucDigit || 'd' == ucDigit
 //							|| 'l' == ucDigit || 'o' == ucDigit){
-					if ('v' == ucDigit || 'a' == ucDigit || 'b' == ucDigit || 'c' == ucDigit || 'd' == ucDigit || 'e' == ucDigit || 'f' == ucDigit || 'l' == ucDigit || 'r' == ucDigit|| 'o' == ucDigit){
+					if ('a' == ucDigit ||'v' == ucDigit || 'b' == ucDigit || 'c' == ucDigit || 'd' == ucDigit || 'e' == ucDigit || 'f' == ucDigit || 'l' == ucDigit || 'r' == ucDigit|| 'o' == ucDigit){
 					ucParam = ucDigit;
 					ucValueCount = 0;
 					ucState = _VALUE;
@@ -149,12 +123,7 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart){
 					if (';' == ucDigit){
 						vCommStateMachineReturnParam(ucParam);
 					}
-					if(cWaitAnwser){
-						ucState = _WAIT_VALUE;
-						ucValueCount = 0;
-					}
-					else
-						ucState = _IDDLE;
+					ucState = _IDDLE;
 					break;
 
 				case _VALUE:
@@ -171,31 +140,7 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart){
 						ucState = _IDDLE;
 					}
 					break;
-				case _WAIT_VALUE:
-					if ((ucDigit >= '0' && ucDigit <= '9') || ',' == ucDigit){
-						if (ucValueCount < MAX_VALUE_LENGTH){
-							ucValue[ucValueCount++] = ucDigit;
-						}
-					}
-					else{
-						if (';' == ucDigit){
-							ucValue[ucValueCount] = '\0';
-							vCommStateMachineSendMessage(pBluetoothControllerUART, &ucValue);
-						}
-						ucState = _IDDLE;
-					}
-					break;
 				}
-			}
-			else{
-		        if(ucDigit == '1')
-				    vBleCmdMotorForward();
-				else if (ucDigit == '4')
-					vBleCmdMotorLeftward();
-				else if (ucDigit == '3')
-					vBleCmdMotorRightward();
-				else if (ucDigit == '2')
-					vBleCmdMotorBackward();
 			}
 		}
     }
@@ -211,83 +156,62 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart){
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
 void vCommStateMachineReturnParam(unsigned char ucParam){
 	unsigned char ucValue[MAX_VALUE_LENGTH];
-	unsigned char ucValuev2v[MAX_VALUE_LENGTH];
 	char * pMessage;
 	//caso seja carro lider
-	if(!cCar){
-		switch (ucParam){
-			case 'l': //left speed
-				pMessage = pCommunicationFloatToString(fLeftSpeed, 2);
-				vCommStateMachineSendMessage(pBluetoothControllerUART, pMessage);
-				break;
-			case 'r': //right speed
-				pMessage = pCommunicationFloatToString(fRightSpeed, 2);
-				vCommStateMachineSendMessage(pBluetoothControllerUART, pMessage);
-				break;
-			case 'a': //kp left
-				pMessage = pCommunicationFloatToString(fLeftMotorKp, 4);
-				vCommStateMachineSendMessage(pBluetoothControllerUART, pMessage);
-				break;
-			case 'b': //ki left
-				pMessage = pCommunicationFloatToString(fLeftMotorKi, 4);
-				vCommStateMachineSendMessage(pBluetoothControllerUART, pMessage);
-				break;
-			case 'c': //kp right
-				pMessage = pCommunicationFloatToString(fRightMotorKp, 4);
-				vCommStateMachineSendMessage(pBluetoothControllerUART, pMessage);
-				break;
-			case 'd': //ki left
-				pMessage = pCommunicationFloatToString(fRightMotorKi, 4);
-				vCommStateMachineSendMessage(pBluetoothControllerUART, pMessage);
-				break;
-			case 'e': //setpoint left
-				pMessage = pCommunicationFloatToString(fSetPoint_left, 2);
-				vCommStateMachineSendMessage(pBluetoothControllerUART, pMessage);
-				break;
-			case 'f': //setpoint right
-				pMessage = pCommunicationFloatToString(fSetPoint_right, 2);
-				vCommStateMachineSendMessage(pBluetoothControllerUART, pMessage);
-				break;
-			case 'o': //operation
-				pMessage = pCommunicationFloatToString(fOperation, 0);
-				vCommStateMachineSendMessage(pBluetoothControllerUART, pMessage);
-				break;
-    	}
-	}
-	else{
-		switch (ucParam){
-			case 'l': //left speed
-				vCommStateMachineSendMessage(pV2VUART, "#gl;");
-				break;
-			case 'r': //right speed
-				vCommStateMachineSendMessage(pV2VUART, "#gr;");
-				break;
-			case 'a': //kp left
-				vCommStateMachineSendMessage(pV2VUART, "#ga;");
-				break;
-			case 'b': //ki left
-				vCommStateMachineSendMessage(pV2VUART, "#gb;");
-				break;
-			case 'c': //kp right
-				vCommStateMachineSendMessage(pV2VUART, "#gc;");
-				break;
-			case 'd': //ki left
-				vCommStateMachineSendMessage(pV2VUART, "#gd;");
-				break;
-			case 'e': //setpoint left
-				vCommStateMachineSendMessage(pV2VUART, "#ge;");
-				break;
-			case 'f': //setpoint right
-				vCommStateMachineSendMessage(pV2VUART, "#gf;");
-				break;
-			case 'v': //vMax
-				vCommStateMachineSendMessage(pV2VUART, "#gv;");
-				break;
-			case 'o':
-				vCommStateMachineSendMessage(pV2VUART, "#go;");
-				break;
-		}
-		cWaitAnwser = 1;
+	switch (ucParam){
+		case 'l': //left speed
+			pMessage = pCommunicationFloatToString(fLeftSpeed, 2);
+			vCommStateMachineSendMessage(pV2VUART, pMessage);
+			vCommStateMachineSendMessage(pV2VUART, ";");
+			break;
+		case 'r': //right speed
+			pMessage = pCommunicationFloatToString(fRightSpeed, 2);
+			vCommStateMachineSendMessage(pV2VUART, pMessage);
+			vCommStateMachineSendMessage(pV2VUART, ";");
+			break;
+		case 'a': //kp left
+			pMessage = pCommunicationFloatToString(fLeftMotorKp, 4);
+			vCommStateMachineSendMessage(pV2VUART, pMessage);
+			vCommStateMachineSendMessage(pV2VUART, ";");
+
+
+			break;
+		case 'b': //ki left
+			pMessage = pCommunicationFloatToString(fLeftMotorKi, 4);
+			vCommStateMachineSendMessage(pV2VUART, pMessage);
+			vCommStateMachineSendMessage(pV2VUART, ";");
+
+			break;
+		case 'c': //kp right
+			pMessage = pCommunicationFloatToString(fRightMotorKp, 4);
+			vCommStateMachineSendMessage(pV2VUART, pMessage);
+			vCommStateMachineSendMessage(pV2VUART, ";");
+			break;
+		case 'd': //ki left
+			pMessage = pCommunicationFloatToString(fRightMotorKi, 4);
+			vCommStateMachineSendMessage(pV2VUART, pMessage);
+			vCommStateMachineSendMessage(pV2VUART, ";");
+			break;
+		case 'e': //setpoint left
+			pMessage = pCommunicationFloatToString(fSetPoint_left, 2);
+			vCommStateMachineSendMessage(pV2VUART, pMessage);
+			vCommStateMachineSendMessage(pV2VUART, ";");
+			break;
+		case 'f': //setpoint right
+			pMessage = pCommunicationFloatToString(fSetPoint_right, 2);
+			vCommStateMachineSendMessage(pV2VUART, pMessage);
+			vCommStateMachineSendMessage(pV2VUART, ";");
+			break;
+		case 'v': //fVMax
+			pMessage = pCommunicationFloatToString(fVMax, 2);
+			vCommStateMachineSendMessage(pV2VUART, pMessage);
+			vCommStateMachineSendMessage(pV2VUART, ";");
+			break;
+        case 'o': //operation
+        	pMessage=pCommunicationFloatToString(fOperation,0);
+			vCommStateMachineSendMessage(pV2VUART, pMessage);
+			vCommStateMachineSendMessage(pV2VUART, ";");
+			break;
 	}
 }
 //	Function name	: 	vCommunicationStateMachineSetParam
@@ -300,83 +224,42 @@ void vCommStateMachineReturnParam(unsigned char ucParam){
 void vCommStateMachineSetParam(unsigned char ucParam, unsigned char * pValue){
 	float fValue;
 	char cAux;
-	if(cCar == 0){ // carro lider
-		switch (ucParam){
-			case 'a': //left kp
-				fLeftMotorKp = fCommStateMachineStringToFloat(pValue);
-				break;
-			case 'b': //left ki
-				fLeftMotorKi = fCommStateMachineStringToFloat(pValue);
-				break;
-			case 'c': //right kp
-				fRightMotorKp = fCommStateMachineStringToFloat(pValue);
-				break;
-			case 'd': //left ki
-				fRightMotorKi=fCommStateMachineStringToFloat(pValue);
-				break;
-			case 'e': //set left
-				fValue = fCommStateMachineStringToFloat(pValue);
-				if (fValue >= 0 && fValue<= 700){
-					fSetPoint_left=fValue;
-				}
-				break;
-			case 'f': //set right
-				fValue = fCommStateMachineStringToFloat(pValue);
-				if (fValue >= 0 && fValue<= 700){
-					fSetPoint_right=fValue;
-				}
-				break;
-			case 'o': //op
-				fOperation=fCommStateMachineStringToFloat(pValue);
-				break;
-		}
-	}
-	else{
-		switch (ucParam){
-
-			case 'a': //left kp
-				vCommStateMachineSendMessage(pV2VUART, "#sa");
-				vCommStateMachineSendMessage(pV2VUART, pValue);
-				vCommStateMachineSendMessage(pV2VUART, ";");
-				break;
-			case 'b': //left ki
-				vCommStateMachineSendMessage(pV2VUART, "#sb");
-				vCommStateMachineSendMessage(pV2VUART, pValue);
-				vCommStateMachineSendMessage(pV2VUART, ";");
-				break;
-			case 'c': //right kp
-				vCommStateMachineSendMessage(pV2VUART, "#sc");
-				vCommStateMachineSendMessage(pV2VUART, pValue);
-				vCommStateMachineSendMessage(pV2VUART, ";");
-				break;
-			case 'd': //left ki
-				vCommStateMachineSendMessage(pV2VUART, "#sd");
-				vCommStateMachineSendMessage(pV2VUART, pValue);
-				vCommStateMachineSendMessage(pV2VUART, ";");
-				break;
-			case 'e': //set left
-				vCommStateMachineSendMessage(pV2VUART, "#se");
-				vCommStateMachineSendMessage(pV2VUART, pValue);
-				vCommStateMachineSendMessage(pV2VUART, ";");
-				break;
-			case 'f': //set right
-				vCommStateMachineSendMessage(pV2VUART, "#sf");
-				vCommStateMachineSendMessage(pV2VUART, pValue);
-				vCommStateMachineSendMessage(pV2VUART, ";");
-				break;
-			case 'v': //set right
-				vCommStateMachineSendMessage(pV2VUART, "#sv");
-				vCommStateMachineSendMessage(pV2VUART, pValue);
-				vCommStateMachineSendMessage(pV2VUART, ";");
-				break;
-			case 'o': //set right
-				vCommStateMachineSendMessage(pV2VUART, "#so");
-				vCommStateMachineSendMessage(pV2VUART, pValue);
-				vCommStateMachineSendMessage(pV2VUART, ";");
-				fOperation = fCommStateMachineStringToFloat(pValue);
-				break;
-
-		}
+	switch (ucParam){
+		case 'a': //left kp
+			fLeftMotorKp = fCommStateMachineStringToFloat(pValue);
+			break;
+		case 'b': //left ki
+			fLeftMotorKi = fCommStateMachineStringToFloat(pValue);
+			break;
+		case 'c': //right kp
+			fRightMotorKp = fCommStateMachineStringToFloat(pValue);
+			break;
+		case 'd': //left ki
+			fRightMotorKi=fCommStateMachineStringToFloat(pValue);
+			break;
+		case 'e': //set left
+			fValue = fCommStateMachineStringToFloat(pValue);
+			if (fValue >= 0 && fValue<= 700){
+				fSetPoint_left=fValue;
+			}
+			break;
+		case 'f': //set right
+			fValue = fCommStateMachineStringToFloat(pValue);
+			if (fValue >= 0 && fValue<= 700){
+				fSetPoint_right=fValue;
+			}
+			break;
+		case 'v': //set vMax
+			fValue = fCommStateMachineStringToFloat(pValue);
+			if (fValue >= 0 && fValue<= 700){
+				fVMax=fValue;
+			}
+			break;
+        case 'o': //operation
+			fValue = fCommStateMachineStringToFloat(pValue);
+			if (fValue == 1 || fValue ==0)
+				fOperation = fValue;
+			break;
 	}
 }
 

@@ -1,5 +1,14 @@
-ucValue
-ucDigit
+ucInput
+usTimeOn
+ucDurationCounter
+!((ucDurationCounter*10)%usTimeOn))
+ucDurationCounter*10
+fActuatorValue_left
+fActuatorValue_right
 fLeftSpeed
 fRightSpeed
-ullRightTimeRan
+ucDigit
+ucState
+ucParam
+ucValue
+fLeftMotorKp

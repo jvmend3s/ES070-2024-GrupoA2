@@ -31,6 +31,8 @@ void vUltrassonicoInit(TIM_HandleTypeDef* pTimerEcoUltrassonicoFrontal ,TIM_Hand
   xUltrassonicoData.TimerTrigger->Instance->CCR1 = 8;
 
   HAL_TIM_IC_Start_IT(xUltrassonicoData.pTimerEcoUltrassonicoFrontal, TIM_CHANNEL_1);
+  HAL_TIM_IC_Start_IT(xUltrassonicoData.pTimerEcoUltrassonicoFrontal, TIM_CHANNEL_2);
+  HAL_TIM_IC_Start_IT(xUltrassonicoData.pTimerEcoUltrassonicoFrontal, TIM_CHANNEL_3);
 
 }
 

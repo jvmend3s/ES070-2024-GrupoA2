@@ -12,9 +12,6 @@
 // interact with any kinds of inputs that can be used in the heater controller system
 //-----------------------------------------------Author------------------------------------------------//
 //
-//	João Vitor Mendes
-//	Vitor Akio Isawa
-//
 //-----------------------------------------------Version-----------------------------------------------//
 //
 //	Created on :									29/04/24
@@ -30,10 +27,8 @@
 #include "main.h"
 #include <strings.h>
 #include <stdio.h>
-
-
 //----------------------------------------------Functions----------------------------------------------//
-void vCommStateMachineInit(UART_HandleTypeDef *huartcontrol, UART_HandleTypeDef *huartV2V);
+void vCommStateMachineInit(UART_HandleTypeDef *huartV2V);
 void vCommStateMachineSetParam(unsigned char ucParam, unsigned char * pValue);
 void vCommStateMachineReturnParam(unsigned char ucParam);
 

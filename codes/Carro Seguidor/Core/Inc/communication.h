@@ -21,8 +21,7 @@
 
 extern unsigned char ucInputChar;
 
-
-void vCommunicationInit(UART_HandleTypeDef * huartController);
+void vCommunicationInit();
 void vCommunicationClearGlobalVariables();
 float vCommunicationStringToFloat(char*);
 char* pCommunicationFloatToString(float, int);

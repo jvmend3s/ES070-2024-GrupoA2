@@ -1,2 +1,2 @@
 ../Core/Src/ultrassonico.c:23:6:vUltrassonicoInit	16	static
-../Core/Src/ultrassonico.c:49:7:fUltrassonicoGetDistance	16	static
+../Core/Src/ultrassonico.c:51:7:fUltrassonicoGetDistance	16	static

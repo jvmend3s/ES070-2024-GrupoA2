@@ -75,6 +75,8 @@ void Error_Handler(void);
 #define LD2_GPIO_Port GPIOA
 #define Motor_Esq_IN3_Pin GPIO_PIN_12
 #define Motor_Esq_IN3_GPIO_Port GPIOB
+#define BT_Baixo_Pin GPIO_PIN_7
+#define BT_Baixo_GPIO_Port GPIOC
 #define Motor_Dir_IN2_Pin GPIO_PIN_10
 #define Motor_Dir_IN2_GPIO_Port GPIOA
 #define RED_LED_Pin GPIO_PIN_11
